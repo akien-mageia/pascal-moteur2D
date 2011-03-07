@@ -1,8 +1,216 @@
 object Form1: TForm1
-  Left = 472
-  Height = 300
-  Top = 307
-  Width = 400
+  Left = 528
+  Height = 664
+  Top = 166
+  Width = 762
   Caption = 'Form1'
+  ClientHeight = 664
+  ClientWidth = 762
   LCLVersion = '0.9.26.2'
+  object Image1: TImage
+    Left = 16
+    Height = 352
+    Top = 32
+    Width = 496
+  end
+  object Label1: TLabel
+    Left = 8
+    Height = 17
+    Top = 408
+    Width = 105
+    Caption = 'Position X (m)'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 368
+    Height = 17
+    Top = 408
+    Width = 105
+    Caption = 'Position Y (m)'
+    ParentColor = False
+  end
+  object Label3: TLabel
+    Left = 8
+    Height = 17
+    Top = 448
+    Width = 114
+    Caption = 'Vitesse X (m/s)'
+    ParentColor = False
+  end
+  object Label4: TLabel
+    Left = 368
+    Height = 17
+    Top = 448
+    Width = 114
+    Caption = 'Vitesse Y (m/s)'
+    ParentColor = False
+  end
+  object Label5: TLabel
+    Left = 8
+    Height = 17
+    Top = 496
+    Width = 155
+    Caption = 'Accélération X (m/s²)'
+    ParentColor = False
+  end
+  object Label6: TLabel
+    Left = 368
+    Height = 17
+    Top = 496
+    Width = 155
+    Caption = 'Accélération Y (m/s²)'
+    ParentColor = False
+  end
+  object Label7: TLabel
+    Left = 8
+    Height = 17
+    Top = 544
+    Width = 128
+    Caption = 'Angle Alpha (rad)'
+    ParentColor = False
+  end
+  object Label8: TLabel
+    Left = 368
+    Height = 17
+    Top = 544
+    Width = 179
+    Caption = 'Vitesse Angulaire (rad/s)'
+    ParentColor = False
+  end
+  object Label9: TLabel
+    Left = 11
+    Height = 17
+    Top = 594
+    Width = 159
+    Caption = 'Accélération angulaire'
+    ParentColor = False
+  end
+  object Label10: TLabel
+    Left = 368
+    Height = 17
+    Top = 594
+    Width = 53
+    Caption = 'Erreurs'
+    ParentColor = False
+  end
+  object Button1: TButton
+    Left = 552
+    Height = 49
+    Top = 32
+    Width = 174
+    Caption = 'Ajouter un objet'
+    TabOrder = 0
+  end
+  object Button2: TButton
+    Left = 552
+    Height = 49
+    Top = 112
+    Width = 174
+    Caption = 'Dessiner décor'
+    TabOrder = 1
+  end
+  object Button3: TButton
+    Left = 552
+    Height = 49
+    Top = 264
+    Width = 174
+    Caption = 'Lancer Simulation'
+    TabOrder = 2
+  end
+  object Button4: TButton
+    Left = 552
+    Height = 49
+    Top = 335
+    Width = 174
+    Caption = 'Quitter'
+    TabOrder = 3
+  end
+  object Edit1: TEdit
+    Left = 176
+    Height = 23
+    Top = 408
+    Width = 144
+    TabOrder = 4
+    Text = 'Edit1'
+  end
+  object Edit2: TEdit
+    Left = 568
+    Height = 23
+    Top = 408
+    Width = 158
+    TabOrder = 5
+    Text = 'Edit2'
+  end
+  object Edit3: TEdit
+    Left = 176
+    Height = 23
+    Top = 448
+    Width = 144
+    TabOrder = 6
+    Text = 'Edit3'
+  end
+  object Edit4: TEdit
+    Left = 568
+    Height = 23
+    Top = 448
+    Width = 158
+    TabOrder = 7
+    Text = 'Edit4'
+  end
+  object Edit5: TEdit
+    Left = 176
+    Height = 23
+    Top = 496
+    Width = 144
+    TabOrder = 8
+    Text = 'Edit5'
+  end
+  object Edit6: TEdit
+    Left = 568
+    Height = 23
+    Top = 496
+    Width = 158
+    TabOrder = 9
+    Text = 'Edit6'
+  end
+  object Edit7: TEdit
+    Left = 176
+    Height = 23
+    Top = 544
+    Width = 144
+    TabOrder = 10
+    Text = 'Edit7'
+  end
+  object Edit8: TEdit
+    Left = 568
+    Height = 23
+    Top = 544
+    Width = 158
+    TabOrder = 11
+    Text = 'Edit8'
+  end
+  object Button5: TButton
+    Left = 552
+    Height = 49
+    Top = 192
+    Width = 174
+    Caption = 'Paramètres Physiques'
+    TabOrder = 12
+  end
+  object Edit9: TEdit
+    Left = 176
+    Height = 23
+    Top = 594
+    Width = 144
+    TabOrder = 13
+    Text = 'Edit9'
+  end
+  object Edit10: TEdit
+    Left = 568
+    Height = 23
+    Top = 594
+    Width = 158
+    TabOrder = 14
+    Text = 'Edit10'
+  end
 end
