@@ -1,9 +1,9 @@
 object Form1: TForm1
-  Left = 528
+  Left = 445
   Height = 664
-  Top = 166
+  Top = 180
   Width = 762
-  Caption = 'Form1'
+  Caption = 'Simulation de chute'
   ClientHeight = 664
   ClientWidth = 762
   LCLVersion = '0.9.26.2'
@@ -22,7 +22,7 @@ object Form1: TForm1
     ParentColor = False
   end
   object Label2: TLabel
-    Left = 368
+    Left = 376
     Height = 17
     Top = 408
     Width = 105
@@ -38,7 +38,7 @@ object Form1: TForm1
     ParentColor = False
   end
   object Label4: TLabel
-    Left = 368
+    Left = 376
     Height = 17
     Top = 448
     Width = 114
@@ -54,7 +54,7 @@ object Form1: TForm1
     ParentColor = False
   end
   object Label6: TLabel
-    Left = 368
+    Left = 376
     Height = 17
     Top = 496
     Width = 155
@@ -70,7 +70,7 @@ object Form1: TForm1
     ParentColor = False
   end
   object Label8: TLabel
-    Left = 368
+    Left = 376
     Height = 17
     Top = 544
     Width = 179
@@ -81,16 +81,16 @@ object Form1: TForm1
     Left = 11
     Height = 17
     Top = 594
-    Width = 159
-    Caption = 'Accélération angulaire'
+    Width = 218
+    Caption = 'Accélération angulaire (rad/s²)'
     ParentColor = False
   end
   object Label10: TLabel
-    Left = 368
+    Left = 376
     Height = 17
     Top = 594
-    Width = 53
-    Caption = 'Erreurs'
+    Width = 74
+    Caption = 'Messages'
     ParentColor = False
   end
   object Button1: TButton
@@ -126,10 +126,10 @@ object Form1: TForm1
     TabOrder = 3
   end
   object Edit1: TEdit
-    Left = 176
+    Left = 232
     Height = 23
     Top = 408
-    Width = 144
+    Width = 136
     TabOrder = 4
     Text = 'Edit1'
   end
@@ -142,10 +142,10 @@ object Form1: TForm1
     Text = 'Edit2'
   end
   object Edit3: TEdit
-    Left = 176
+    Left = 232
     Height = 23
     Top = 448
-    Width = 144
+    Width = 136
     TabOrder = 6
     Text = 'Edit3'
   end
@@ -158,10 +158,10 @@ object Form1: TForm1
     Text = 'Edit4'
   end
   object Edit5: TEdit
-    Left = 176
+    Left = 232
     Height = 23
     Top = 496
-    Width = 144
+    Width = 136
     TabOrder = 8
     Text = 'Edit5'
   end
@@ -174,10 +174,10 @@ object Form1: TForm1
     Text = 'Edit6'
   end
   object Edit7: TEdit
-    Left = 176
+    Left = 232
     Height = 23
     Top = 544
-    Width = 144
+    Width = 136
     TabOrder = 10
     Text = 'Edit7'
   end
@@ -198,10 +198,10 @@ object Form1: TForm1
     TabOrder = 12
   end
   object Edit9: TEdit
-    Left = 176
+    Left = 232
     Height = 23
     Top = 594
-    Width = 144
+    Width = 136
     TabOrder = 13
     Text = 'Edit9'
   end
