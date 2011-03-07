@@ -1,0 +1,21 @@
+program moteur2D;
+
+{$mode objfpc}{$H+}
+
+uses
+  {$IFDEF UNIX}{$IFDEF UseCThreads}
+  cthreads,
+  {$ENDIF}{$ENDIF}
+  Interfaces, // this includes the LCL widgetset
+  Forms
+  { you can add units after this }, UFaceAvant, LResources;
+
+{$IFDEF WINDOWS}{$R moteur2d.rc}{$ENDIF}
+
+begin
+  {$I moteur2d.lrs}
+  Application.Initialize;
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;
+end.
+
