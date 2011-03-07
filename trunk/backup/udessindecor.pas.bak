@@ -1,4 +1,4 @@
-unit UDessinDecor; 
+unit UDessinDecor;
 
 {$mode objfpc}{$H+}
 

@@ -9,7 +9,7 @@ uses
   Interfaces, // this includes the LCL widgetset
   Forms
   { you can add units after this }, UFaceAvant, LResources, UDessinDecor, 
-UDessinObjet;
+UDessinObjet, UParamPhys;
 
 {$IFDEF WINDOWS}{$R moteur2d.rc}{$ENDIF}
 
@@ -19,6 +19,7 @@ begin
   Application.CreateForm(TForm1, Form1);
   Application.CreateForm(TForm2, Form2);
   Application.CreateForm(TForm3, Form3);
+  Application.CreateForm(TForm4, Form4);
   Application.Run;
 end.
 

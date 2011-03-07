@@ -1,4 +1,4 @@
-unit UParamPhys; 
+unit UParamPhys;
 
 {$mode objfpc}{$H+}
 
