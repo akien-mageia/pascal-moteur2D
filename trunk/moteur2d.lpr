@@ -9,7 +9,7 @@ uses
   Interfaces, // this includes the LCL widgetset
   Forms
   { you can add units after this }, UFaceAvant, LResources, UDessinDecor, 
-UDessinObjet, UParamPhys;
+UDessinObjet, UParamPhys, Unit1;
 
 {$IFDEF WINDOWS}{$R moteur2d.rc}{$ENDIF}
 

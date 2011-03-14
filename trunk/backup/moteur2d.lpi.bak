@@ -8,7 +8,7 @@
       <TargetFileExt Value=""/>
       <Icon Value="0"/>
       <UseXPManifest Value="True"/>
-      <ActiveEditorIndexAtStart Value="4"/>
+      <ActiveEditorIndexAtStart Value="3"/>
     </General>
     <VersionInfo>
       <ProjectVersion Value=""/>
@@ -32,12 +32,12 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="8">
+    <Units Count="5">
       <Unit0>
         <Filename Value="moteur2d.lpr"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="moteur2D"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="21"/>
         <SyntaxHighlighter Value="Delphi"/>
       </Unit0>
       <Unit1>
@@ -49,7 +49,7 @@
         <CursorPos X="19" Y="22"/>
         <TopLine Value="1"/>
         <EditorIndex Value="0"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="21"/>
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
@@ -58,10 +58,10 @@
         <IsPartOfProject Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UDessinDecor"/>
-        <CursorPos X="53" Y="10"/>
+        <CursorPos X="23" Y="24"/>
         <TopLine Value="1"/>
         <EditorIndex Value="3"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -73,7 +73,7 @@
         <CursorPos X="72" Y="16"/>
         <TopLine Value="1"/>
         <EditorIndex Value="1"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
@@ -85,33 +85,9 @@
         <CursorPos X="21" Y="24"/>
         <TopLine Value="1"/>
         <EditorIndex Value="2"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit4>
-      <Unit5>
-        <Filename Value="uobjetmouvement.pas"/>
-        <UnitName Value="uobjetmouvement"/>
-        <CursorPos X="19" Y="1"/>
-        <TopLine Value="1"/>
-        <UsageCount Value="20"/>
-      </Unit5>
-      <Unit6>
-        <Filename Value="uobjetmouvement.pas"/>
-        <UnitName Value="uobjetmouvement"/>
-        <CursorPos X="1" Y="7"/>
-        <TopLine Value="1"/>
-        <UsageCount Value="20"/>
-      </Unit6>
-      <Unit7>
-        <Filename Value="usolidemouvement.pas"/>
-        <IsPartOfProject Value="True"/>
-        <UnitName Value="USolideMouvement"/>
-        <CursorPos X="24" Y="11"/>
-        <TopLine Value="1"/>
-        <EditorIndex Value="4"/>
-        <UsageCount Value="22"/>
-        <Loaded Value="True"/>
-      </Unit7>
     </Units>
     <JumpHistory Count="26" HistoryIndex="25">
       <Position1>
