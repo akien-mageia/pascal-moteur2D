@@ -5,10 +5,13 @@ unit USolideMouvement;
 interface
 
 Type CSolideMouvement = Class
-      fResultante : CResultante ;
-      fPositionSolide : CPositionSolide ;
-      fVitesse : CVitesse ;
-      fForme : CForme ;
+
+     Protected
+              fResultante : CResultante ;
+              fPositionSolide : CPositionSolide ;
+              fVitesse : CVitesse ;
+              fForme : CForme ;
+     end;
 
 uses
   Classes, SysUtils; 
