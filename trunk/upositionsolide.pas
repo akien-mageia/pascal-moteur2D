@@ -1,12 +1,16 @@
-unit uPositionSolide;
+unit UPositionSolide;
 
 {$mode objfpc}{$H+}
 
 interface
-    type:Class(CPosition)
-    fangle:real;
+
 uses
-  Classes, SysUtils,uPosition;
+  Classes, SysUtils, UPosition;
+
+type CPositionSolide = Class(CPosition)
+    protected
+        fAngle:real;
+    end;
 
 implementation
 

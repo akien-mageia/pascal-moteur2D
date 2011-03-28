@@ -12,15 +12,15 @@ type CFrottement = Class(CTorseur)
 		fCoef: real;	// coefficient de frottement
 	
 	public
-		Procedure calculForce(aForme: CForme, aVitesse: CVitesse);
+		Procedure calculForce(aForme: CForme; aVitesse: CVitesse); override;
 		Procedure calculCoef(aForme: CForme);
 		Procedure setCoef(aCoef: real);
-		Function getCoef();
+		Function getCoef(): real;
 	end;
 
 implementation
 
-Procedure CFrottement.calculForce(aForme: CForme, aVitesse: CVitesse);
+Procedure CFrottement.calculForce(aForme: CForme; aVitesse: CVitesse);
 Begin
 
 End;
@@ -32,12 +32,12 @@ End;
 
 Procedure CFrottement.setCoef(aCoef: real);
 Begin
-    fCoef = aCoef;
+    fCoef := aCoef;
 End;
 
-Function CFrottement.getCoef();
+Function CFrottement.getCoef(): real;
 Begin
-    getCoef = fCoef;
+    getCoef := fCoef;
 End;
 
 end.

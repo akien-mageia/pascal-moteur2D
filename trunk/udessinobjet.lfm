@@ -1,8 +1,17 @@
 object Form3: TForm3
-  Left = 508
+  Left = 372
   Height = 300
-  Top = 210
+  Top = 284
   Width = 400
   Caption = 'Dessin de l''objet'
+  ClientHeight = 300
+  ClientWidth = 400
+  OnCreate = FormCreate
   LCLVersion = '0.9.26.2'
+  object PaintBox1: TPaintBox
+    Left = 56
+    Height = 143
+    Top = 64
+    Width = 161
+  end
 end

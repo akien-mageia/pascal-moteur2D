@@ -5,9 +5,13 @@ unit UDessinDecor;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, LResources, Forms, Controls, Graphics, Dialogs; 
+  Classes, SysUtils, FileUtil, LResources, Forms, Controls, Graphics, Dialogs,
+  StdCtrls;
 
 type
+
+  { TForm2 }
+
   TForm2 = class(TForm)
   private
     { private declarations }

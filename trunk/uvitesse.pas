@@ -14,42 +14,42 @@ type CVitesse = Class
 		fOmega: real;
 	
 	public
-		Function getX();
-		Function getY();
-		Function getOmega();
-		Procedure setX(aX);
-		Procedure setY(aY);
-		Procedure setOmega(aOmega);		
+		Function getX(): real;
+		Function getY(): real;
+		Function getOmega(): real;
+		Procedure setX(aX: real);
+		Procedure setY(aY: real);
+		Procedure setOmega(aOmega: real);
 	end;
 
 implementation
 
-Function CVitesse.getX();
+Function CVitesse.getX(): real;
 Begin
-	getX = fX;
+	getX := fX;
 End;
 
-Function CVitesse.getY();
+Function CVitesse.getY(): real;
 Begin
-	getY = fY;
+	getY := fY;
 End;
 
-Function CVitesse.getOmega();
+Function CVitesse.getOmega(): real;
 Begin
-	getOmega = fOmega;
+	getOmega := fOmega;
 End;
 
-Procedure CVitesse.setX(aX);
+Procedure CVitesse.setX(aX: real);
 Begin
 	fX := aX;
 End;
 
-Procedure CVitesse.setY(aY);
+Procedure CVitesse.setY(aY: real);
 Begin
 	fY := aY;
 End;
 
-Procedure CVitesse.setOmega(aOmega);
+Procedure CVitesse.setOmega(aOmega: real);
 Begin
 	fOmega := aOmega;
 End;

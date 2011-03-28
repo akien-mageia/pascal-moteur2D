@@ -9,31 +9,31 @@ uses
 
 type CPoids = Class(CTorseur)
 	protected
-		fG: real;		// constante gravitationnelle, valeur par défaut fg = 9.81
+		fG: real;		// constante gravitationnelle, valeur par defaut fG = 9.81
 	
 	public
-		Procedure calculForce(aForme: CForme, aMasse: real);
+		Procedure calculForce(aForme: CForme; aMasse: real); override;
 		Procedure setG(aG: real);
-		Function getG();
+		Function getG(): real;
 	end;
 
 implementation
 
-Procedure CPoids.calculForce(aForme: CForme, aMasse: real);
+Procedure CPoids.calculForce(aForme: CForme; aMasse: real);
 Begin
-    fX = 0;     		// résultante verticale
-    fY = -aMasse*fG;	// signe négatif (l'origine du repère est en bas à gauche)
-    fMz = 0;   			// au centre de gravité
+    fX := 0;     		// resultante verticale
+    fY := -aMasse*fG;	// signe negatif (l'origine du repere est en bas a gauche)
+    fMz := 0;   			// au centre de gravite
 End;
 
 Procedure CPoids.setG(aG: real);
 Begin
-    fG = aG;
+    fG := aG;
 End;
 
-Function CPoids.getG();
+Function CPoids.getG(): real;
 Begin
-    getG = fG;
+    getG := fG;
 End;
 
 end.

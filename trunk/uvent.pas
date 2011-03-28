@@ -9,7 +9,7 @@ uses
 
 type CVent = Class(CTorseur)
 	public
-		Procedure calculForce(aForme: CForme);
+		Procedure calculForce(aForme: CForme); override;
 	end;
 
 implementation

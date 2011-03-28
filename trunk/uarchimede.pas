@@ -12,9 +12,9 @@ type CArchimede = Class(CTorseur)
 		fRho: real;		// masse volumique du fluide
 	
 	public
-		Procedure calculForce(aForme: CForme);
+		Procedure calculForce(aForme: CForme); override;
 		Procedure setRho(aRho: real);
-		Function getRho();
+		Function getRho(): real;
 	end;
 
 implementation
@@ -26,12 +26,12 @@ End;
 
 Procedure CArchimede.setRho(aRho: real);
 Begin
-    fRho = aRho;
+    fRho := aRho;
 End;
 
-Function CArchimede.getRho();
+Function CArchimede.getRho(): real;
 Begin
-    getRho = fRho;
+    getRho := fRho;
 End;
 
 end.

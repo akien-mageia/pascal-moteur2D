@@ -4,16 +4,20 @@ unit UTorseur;
 
 interface
 
+uses
+  Classes, SysUtils, UForme;
+
 Type CTorseur = Class
 
-     Protected
-              fX : real;
-              fY : real;
-              fMz : real;
-     end;
+    protected
+        fX : real;
+        fY : real;
+        fMz : real;
 
-uses
-  Classes, SysUtils; 
+    public
+        Procedure calculForce(aForme: CForme); virtual; abstract;
+
+    end;
 
 implementation
 
