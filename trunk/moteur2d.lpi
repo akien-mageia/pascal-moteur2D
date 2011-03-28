@@ -8,7 +8,7 @@
       <TargetFileExt Value=""/>
       <Icon Value="0"/>
       <UseXPManifest Value="True"/>
-      <ActiveEditorIndexAtStart Value="6"/>
+      <ActiveEditorIndexAtStart Value="8"/>
     </General>
     <VersionInfo>
       <ProjectVersion Value=""/>
@@ -32,7 +32,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="9">
+    <Units Count="15">
       <Unit0>
         <Filename Value="moteur2d.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -119,12 +119,72 @@
         <Filename Value="uresultante.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UResultante"/>
-        <CursorPos X="15" Y="11"/>
+        <CursorPos X="7" Y="5"/>
         <TopLine Value="1"/>
         <EditorIndex Value="6"/>
         <UsageCount Value="21"/>
         <Loaded Value="True"/>
       </Unit8>
+      <Unit9>
+        <Filename Value="ufrottement.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UFrottement"/>
+        <CursorPos X="1" Y="1"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="11"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="upoids.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UPoids"/>
+        <CursorPos X="1" Y="1"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="12"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="uvent.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UVent"/>
+        <CursorPos X="1" Y="1"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="7"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="uvitesse.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UVitesse"/>
+        <CursorPos X="1" Y="1"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="9"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="umateriau.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UMateriau"/>
+        <CursorPos X="1" Y="1"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="10"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="uarchimede.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UArchimede"/>
+        <CursorPos X="1" Y="1"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="8"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit14>
     </Units>
     <JumpHistory Count="26" HistoryIndex="25">
       <Position1>
