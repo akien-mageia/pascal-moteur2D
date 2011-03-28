@@ -8,7 +8,7 @@
       <TargetFileExt Value=""/>
       <Icon Value="0"/>
       <UseXPManifest Value="True"/>
-      <ActiveEditorIndexAtStart Value="8"/>
+      <ActiveEditorIndexAtStart Value="9"/>
     </General>
     <VersionInfo>
       <ProjectVersion Value=""/>
@@ -32,7 +32,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="15">
+    <Units Count="16">
       <Unit0>
         <Filename Value="moteur2d.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -131,7 +131,7 @@
         <UnitName Value="UFrottement"/>
         <CursorPos X="1" Y="1"/>
         <TopLine Value="1"/>
-        <EditorIndex Value="11"/>
+        <EditorIndex Value="12"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit9>
@@ -141,7 +141,7 @@
         <UnitName Value="UPoids"/>
         <CursorPos X="1" Y="1"/>
         <TopLine Value="1"/>
-        <EditorIndex Value="12"/>
+        <EditorIndex Value="13"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit10>
@@ -161,7 +161,7 @@
         <UnitName Value="UVitesse"/>
         <CursorPos X="1" Y="1"/>
         <TopLine Value="1"/>
-        <EditorIndex Value="9"/>
+        <EditorIndex Value="10"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit12>
@@ -171,7 +171,7 @@
         <UnitName Value="UMateriau"/>
         <CursorPos X="1" Y="1"/>
         <TopLine Value="1"/>
-        <EditorIndex Value="10"/>
+        <EditorIndex Value="11"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit13>
@@ -185,6 +185,16 @@
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit14>
+      <Unit15>
+        <Filename Value="uforme.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UForme"/>
+        <CursorPos X="1" Y="1"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="9"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit15>
     </Units>
     <JumpHistory Count="26" HistoryIndex="25">
       <Position1>

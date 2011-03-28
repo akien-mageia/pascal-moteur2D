@@ -10,7 +10,7 @@ uses
   Forms
   { you can add units after this }, UFaceAvant, LResources, UDessinDecor, 
 UDessinObjet, UParamPhys, UTorseur, Unit1, UFrottement, UMateriau, UVitesse,
-UVent, UPoids, UArchimede;
+UVent, UPoids, UArchimede, UForme;
 
 {$IFDEF WINDOWS}{$R moteur2d.rc}{$ENDIF}
 
