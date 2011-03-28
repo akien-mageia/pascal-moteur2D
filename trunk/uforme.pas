@@ -6,7 +6,7 @@ interface
 
 Type CForme = Class
      Protected
-              fMat : array of boolean;
+              fMat : array of array of boolean;
               fCentreInertie : Cposition;
 
      Public
@@ -15,14 +15,13 @@ Type CForme = Class
      end;
 
 uses
-  Classes, SysUtils;
+  Classes, SysUtils, UPosition;
 
 
 
 implementation
 
 Procedure CForme.CalculCentreInertie();
-  
 Begin
 
 End;

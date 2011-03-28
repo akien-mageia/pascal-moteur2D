@@ -8,7 +8,7 @@
       <TargetFileExt Value=""/>
       <Icon Value="0"/>
       <UseXPManifest Value="True"/>
-      <ActiveEditorIndexAtStart Value="9"/>
+      <ActiveEditorIndexAtStart Value="10"/>
     </General>
     <VersionInfo>
       <ProjectVersion Value=""/>
@@ -99,7 +99,7 @@
         <Filename Value="usolidemouvement.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="USolideMouvement"/>
-        <CursorPos X="15" Y="13"/>
+        <CursorPos X="68" Y="17"/>
         <TopLine Value="1"/>
         <EditorIndex Value="4"/>
         <UsageCount Value="23"/>
@@ -189,8 +189,8 @@
         <Filename Value="uforme.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UForme"/>
-        <CursorPos X="1" Y="1"/>
-        <TopLine Value="1"/>
+        <CursorPos X="31" Y="18"/>
+        <TopLine Value="6"/>
         <EditorIndex Value="9"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>

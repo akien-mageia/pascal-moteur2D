@@ -14,7 +14,7 @@ Type CSolideMouvement = Class
      end;
 
 uses
-  Classes, SysUtils; 
+  Classes, SysUtils, UResultante, UPositionSolide, UVitesse, UForme;
 
 implementation
 
