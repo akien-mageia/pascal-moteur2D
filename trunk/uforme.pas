@@ -30,9 +30,9 @@ Constructor CForme.Create(aWidth, aHeight : integer);
 Var i:integer;
 Begin
      fCentreInertie := CPosition.Create;
-     SetLength (CForme.fMat, aWidth);
-     For i:= 1 to aWidth do
-     SetLength(CForme.fMat[i], aHeight);
+     SetLength (fMat, aWidth);
+     For i:= 0 to aWidth-1 do
+     SetLength(fMat[i], aHeight);
 End;
 
 end.
