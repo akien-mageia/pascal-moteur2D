@@ -1,5 +1,11 @@
 unit UVitesse;
 
+//***********************************************//
+//      Unite gerant les différentes vitesses    //
+//                                               //
+//    	TODO : Normally, nothing^^               //
+//      By Black0ut 2011/04/04                   //
+//***********************************************//
 {$mode objfpc}{$H+}
 
 interface
@@ -14,6 +20,10 @@ type CVitesse = Class
 		fOmega: real;
 	
 	public
+	
+		Constructor Create(aX,aY,aOmega:Real);
+		Destructor Destroy; Override;
+		
 		Function getX(): real;
 		Function getY(): real;
 		Function getOmega(): real;
@@ -24,34 +34,51 @@ type CVitesse = Class
 
 implementation
 
-Function CVitesse.getX(): real;
+Constructor CVitesse.Create(aX,aY,aOmega : Real);
+//Create the Cvitesse Object using provided arguments
 Begin
-	getX := fX;
+	setX(aX);
+	setY(aY);
+	setOmega(aOmega);
 End;
+
+Destructor CVitesse.Destroy; Override;
+//No dynamic objects, no need to specific destructor
+Begin
+	Inherited;
+End;
+
+
+//All the accessors
+Function CVitesse.getX(): real;
+	Begin
+		getX := fX;
+	End;
 
 Function CVitesse.getY(): real;
-Begin
-	getY := fY;
-End;
+	Begin
+		getY := fY;
+	End;
 
 Function CVitesse.getOmega(): real;
-Begin
-	getOmega := fOmega;
-End;
+	Begin
+		getOmega := fOmega;
+	End;
 
+//All the Sets procedures 
 Procedure CVitesse.setX(aX: real);
-Begin
-	fX := aX;
-End;
+	Begin
+		fX := aX;
+	End;
 
 Procedure CVitesse.setY(aY: real);
-Begin
-	fY := aY;
-End;
-
+	Begin
+		fY := aY;
+	End;
+	
 Procedure CVitesse.setOmega(aOmega: real);
-Begin
-	fOmega := aOmega;
-End;
+	Begin
+		fOmega := aOmega;
+	End;
 
 end.
