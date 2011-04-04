@@ -9,7 +9,7 @@ uses
 
 type CArchimede = Class(CTorseur)
 	protected
-		fRho: real;		// masse volumique du fluide
+		fRho: real;		// volumic weight of fluid
 	
 	public
 		Procedure calculForce(aForme: CForme); override;

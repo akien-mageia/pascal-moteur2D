@@ -8,7 +8,7 @@
       <TargetFileExt Value=""/>
       <Icon Value="0"/>
       <UseXPManifest Value="True"/>
-      <ActiveEditorIndexAtStart Value="15"/>
+      <ActiveEditorIndexAtStart Value="6"/>
     </General>
     <VersionInfo>
       <ProjectVersion Value=""/>
@@ -112,7 +112,7 @@
         <Filename Value="utorseur.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UTorseur"/>
-        <CursorPos X="58" Y="25"/>
+        <CursorPos X="54" Y="7"/>
         <TopLine Value="1"/>
         <EditorIndex Value="6"/>
         <UsageCount Value="23"/>
@@ -132,8 +132,8 @@
         <Filename Value="ufrottement.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UFrottement"/>
-        <CursorPos X="1" Y="30"/>
-        <TopLine Value="2"/>
+        <CursorPos X="23" Y="22"/>
+        <TopLine Value="1"/>
         <EditorIndex Value="15"/>
         <UsageCount Value="22"/>
         <Loaded Value="True"/>
@@ -163,7 +163,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="UVitesse"/>
         <CursorPos X="15" Y="47"/>
-        <TopLine Value="2"/>
+        <TopLine Value="1"/>
         <EditorIndex Value="11"/>
         <UsageCount Value="22"/>
         <Loaded Value="True"/>
@@ -182,7 +182,7 @@
         <Filename Value="uarchimede.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UArchimede"/>
-        <CursorPos X="19" Y="15"/>
+        <CursorPos X="67" Y="12"/>
         <TopLine Value="1"/>
         <EditorIndex Value="9"/>
         <UsageCount Value="22"/>

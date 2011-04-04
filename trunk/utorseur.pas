@@ -1,4 +1,10 @@
 unit UTorseur;
+//***********************************************//
+//       Unite gerant les torseurs de bases      //
+//                                               //
+//    TODO : implementation                      //
+//***********************************************//
+
 
 {$mode objfpc}{$H+}
 
@@ -15,7 +21,10 @@ Type CTorseur = Class
         fMz : real;
 
     public
-        Procedure calculForce(aForme: CForme); virtual; abstract;
+          Constructor Create(aX,aY,aMz);
+          Destructor  Destroy; override;
+
+          Procedure   calculForce(aForme: CForme); virtual; abstract;
 
     end;
 
