@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, LResources, Forms, Controls, Graphics, Dialogs,
-  StdCtrls, ExtCtrls;
+  StdCtrls, ExtCtrls, UForme;
 
 type
 
@@ -27,7 +27,8 @@ type
 
 var
   Form3: TForm3;
-  MouseDown : boolean;
+  DessinEnCours : boolean;
+  Forme : CForme;
 
 implementation
 
@@ -35,30 +36,31 @@ implementation
 
 procedure TForm3.FormCreate(Sender: TObject);
 begin
-
+     Forme := CForme.create(Form3.width, Form3.height);
 end;
 
 procedure TForm3.FormMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
-     MouseDown := true;
-     self.canvas.MoveTo(x,y);
+     DessinEnCours := true;
+     self.canvas.MoveTo(X,Y);
+     Forme.fMat[X][Y] := true;
 end;
 
 procedure TForm3.FormMouseMove(Sender: TObject; Shift: TShiftState; X,
   Y: Integer);
 begin
-     if (MouseDown= true) then
+     if (DessinEnCours= true) then
      begin
           self.canvas.LineTo(x,y);
-
-
+          Forme.fMat[X][Y]:=true;
+     end;
 end;
 
 procedure TForm3.FormMouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
-     MouseDown := false;
+     DessinEnCours := false;
 end;
 
 initialization
