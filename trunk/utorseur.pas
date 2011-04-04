@@ -2,7 +2,7 @@ unit UTorseur;
 //***********************************************//
 //       Unite gerant les torseurs de bases      //
 //                                               //
-//    TODO : implementation                      //
+//    			TODO : Nothing	                 //
 //***********************************************//
 
 
