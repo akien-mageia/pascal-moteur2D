@@ -13,7 +13,6 @@ type
   { TForm3 }
 
   TForm3 = class(TForm)
-   PaintBox1: TPaintBox;
    procedure FormCreate(Sender: TObject);
    procedure FormMouseDown(Sender: TObject; Button: TMouseButton;
      Shift: TShiftState; X, Y: Integer);
