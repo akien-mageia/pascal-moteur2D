@@ -36,17 +36,17 @@ implementation
 
 Constructor CVitesse.Create(aX,aY,aOmega : Real);
 //Create the Cvitesse Object using provided arguments
-Begin
-	setX(aX);
-	setY(aY);
-	setOmega(aOmega);
-End;
+	Begin
+		setX(aX);
+		setY(aY);
+		setOmega(aOmega);
+	End;
 
-Destructor CVitesse.Destroy; Override;
+Destructor CVitesse.Destroy; 
 //No dynamic objects, no need to specific destructor
-Begin
-	Inherited;
-End;
+	Begin
+		Inherited;
+	End;
 
 
 //All the accessors
