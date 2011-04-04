@@ -8,7 +8,7 @@
       <TargetFileExt Value=""/>
       <Icon Value="0"/>
       <UseXPManifest Value="True"/>
-      <ActiveEditorIndexAtStart Value="6"/>
+      <ActiveEditorIndexAtStart Value="3"/>
     </General>
     <VersionInfo>
       <ProjectVersion Value=""/>
@@ -40,7 +40,7 @@
         <CursorPos X="80" Y="13"/>
         <TopLine Value="1"/>
         <EditorIndex Value="5"/>
-        <UsageCount Value="26"/>
+        <UsageCount Value="27"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -52,7 +52,7 @@
         <CursorPos X="19" Y="22"/>
         <TopLine Value="1"/>
         <EditorIndex Value="0"/>
-        <UsageCount Value="26"/>
+        <UsageCount Value="27"/>
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
@@ -64,7 +64,7 @@
         <CursorPos X="24" Y="15"/>
         <TopLine Value="1"/>
         <EditorIndex Value="3"/>
-        <UsageCount Value="25"/>
+        <UsageCount Value="26"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -73,10 +73,10 @@
         <IsPartOfProject Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UDessinObjet"/>
-        <CursorPos X="15" Y="2"/>
-        <TopLine Value="1"/>
+        <CursorPos X="7" Y="39"/>
+        <TopLine Value="34"/>
         <EditorIndex Value="1"/>
-        <UsageCount Value="25"/>
+        <UsageCount Value="26"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
@@ -88,7 +88,7 @@
         <CursorPos X="21" Y="24"/>
         <TopLine Value="1"/>
         <EditorIndex Value="2"/>
-        <UsageCount Value="25"/>
+        <UsageCount Value="26"/>
         <Loaded Value="True"/>
       </Unit4>
       <Unit5>
@@ -105,7 +105,7 @@
         <CursorPos X="1" Y="10"/>
         <TopLine Value="1"/>
         <EditorIndex Value="4"/>
-        <UsageCount Value="25"/>
+        <UsageCount Value="26"/>
         <Loaded Value="True"/>
       </Unit6>
       <Unit7>
@@ -115,7 +115,7 @@
         <CursorPos X="54" Y="7"/>
         <TopLine Value="1"/>
         <EditorIndex Value="6"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="24"/>
         <Loaded Value="True"/>
       </Unit7>
       <Unit8>
@@ -125,7 +125,7 @@
         <CursorPos X="33" Y="8"/>
         <TopLine Value="1"/>
         <EditorIndex Value="7"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="24"/>
         <Loaded Value="True"/>
       </Unit8>
       <Unit9>
@@ -135,7 +135,7 @@
         <CursorPos X="23" Y="22"/>
         <TopLine Value="1"/>
         <EditorIndex Value="15"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="23"/>
         <Loaded Value="True"/>
       </Unit9>
       <Unit10>
@@ -145,7 +145,7 @@
         <CursorPos X="19" Y="16"/>
         <TopLine Value="1"/>
         <EditorIndex Value="16"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="23"/>
         <Loaded Value="True"/>
       </Unit10>
       <Unit11>
@@ -155,7 +155,7 @@
         <CursorPos X="57" Y="12"/>
         <TopLine Value="1"/>
         <EditorIndex Value="8"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="23"/>
         <Loaded Value="True"/>
       </Unit11>
       <Unit12>
@@ -165,7 +165,7 @@
         <CursorPos X="15" Y="47"/>
         <TopLine Value="1"/>
         <EditorIndex Value="11"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="23"/>
         <Loaded Value="True"/>
       </Unit12>
       <Unit13>
@@ -175,7 +175,7 @@
         <CursorPos X="1" Y="1"/>
         <TopLine Value="1"/>
         <EditorIndex Value="14"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="23"/>
         <Loaded Value="True"/>
       </Unit13>
       <Unit14>
@@ -185,17 +185,17 @@
         <CursorPos X="67" Y="12"/>
         <TopLine Value="1"/>
         <EditorIndex Value="9"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="23"/>
         <Loaded Value="True"/>
       </Unit14>
       <Unit15>
         <Filename Value="uforme.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UForme"/>
-        <CursorPos X="43" Y="16"/>
-        <TopLine Value="1"/>
+        <CursorPos X="41" Y="32"/>
+        <TopLine Value="12"/>
         <EditorIndex Value="10"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="23"/>
         <Loaded Value="True"/>
       </Unit15>
       <Unit16>
@@ -205,7 +205,7 @@
         <CursorPos X="5" Y="32"/>
         <TopLine Value="1"/>
         <EditorIndex Value="12"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="23"/>
         <Loaded Value="True"/>
       </Unit16>
       <Unit17>
@@ -215,7 +215,7 @@
         <CursorPos X="1" Y="9"/>
         <TopLine Value="1"/>
         <EditorIndex Value="13"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="23"/>
         <Loaded Value="True"/>
       </Unit17>
     </Units>
