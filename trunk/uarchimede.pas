@@ -5,21 +5,21 @@ unit UArchimede;
 interface
 
 uses
-  Classes, SysUtils, UTorseur, UForme;
+  Classes, SysUtils, UTorseur, UForme, UVitesse;
 
 type CArchimede = Class(CTorseur)
 	protected
 		fRho: real;		// volumic weight of fluid
 	
 	public
-		Procedure calculForce(aForme: CForme); override;
+		Procedure calculForce(aForme: CForme ; aVitesse: CVitesse); override;
 		Procedure setRho(aRho: real);
 		Function getRho(): real;
 	end;
 
 implementation
 
-Procedure CArchimede.calculForce(aForme: CForme);
+Procedure CArchimede.calculForce(aForme: CForme ; aVitesse: CVitesse);
 Begin
 
 End;

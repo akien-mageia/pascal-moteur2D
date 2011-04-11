@@ -12,7 +12,7 @@ type CFrottement = Class(CTorseur)
 		fCoef: real;	// coefficient de frottement
 	
 	public
-                Constructor Create(aCoef : Real); override;
+                Constructor Create(aX,aY,aMz,aCoef : Real);
                 Destructor Destroy ; override;
 		Procedure calculForce(aForme: CForme; aVitesse: CVitesse); override;
 		Procedure calculCoef(aForme: CForme);
@@ -22,12 +22,13 @@ type CFrottement = Class(CTorseur)
 
 implementation
 
-Constructor Cfrottement.Create(aCoef:Real);
+Constructor Cfrottement.Create(aX,aY,aMz,aCoef:Real);
 Begin
+     inherited create (aX,aY,aMz);
      SetCoef(aCoef);
 End;
- 
-Destructor Destroy; Override;
+
+Destructor CFrottement.Destroy;
 
 Begin
      inherited;
