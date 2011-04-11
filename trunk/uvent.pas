@@ -10,24 +10,19 @@ unit UVent;
 interface
 
 uses
-  Classes, SysUtils, UTorseur, UForme;
+  Classes, SysUtils, UTorseur, UForme, UVitesse;
 
 type CVent = Class(CTorseur)
 	public
+		Procedure calculForce(aForme: CForme ; aVitesse: CVitesse); override;
 
-		Procedure calculForce(aForme: CForme); override;
 	end;
 
 implementation
 
+Procedure CVent.calculForce(aForme: CForme ; aVitesse: CVitesse);
+Begin
 
-	
-Procedure CVent.calculForce(aForme: CForme); 
-
-
-	Begin
-		
-	
 		
 	End;
 
