@@ -23,7 +23,7 @@ Type CSolideMouvement = Class
      		Constructor Create(aResultante : CResultante;
      						   aPosition   : CPositionSolide;
      						   aVitesse    : Cvitesse;
-     						   aForme  	   : CForme; );
+     						   aForme  	   : CForme);
      		Destructor Destroy;override;
      		
      		//Accessors
@@ -46,7 +46,7 @@ implementation
 Constructor CSolideMouvement.Create(aResultante : CResultante;
 									aPosition	: CpositionSolide;
 									aVitesse	: CVitesse;
-									aForme		: CForme; );
+									aForme		: CForme );
 	Begin
 		SetResultante(aResultante);
 		SetPosition(aPosition);
@@ -57,7 +57,7 @@ Constructor CSolideMouvement.Create(aResultante : CResultante;
 Destructor CSolideMouvement.Destroy;
 	Begin
 		fResultante.Destroy;
-		fPosition.Destroy;
+		fPositionSolide.Destroy;
 		fVitesse.Destroy;
 		fForme.Destroy;
 	End;
@@ -89,7 +89,7 @@ Procedure CSolideMouvement.SetResultante(aResultante : CResultante);
 
 Procedure CSolideMouvement.SetPosition(aPosition : CPositionSolide);
 	Begin
-		fPosition := aPosition;
+		fPositionSolide := aPosition;
 	End;
 
 Procedure CSolideMouvement.SetVitesse(aVitesse : CVitesse);
@@ -106,6 +106,7 @@ Procedure CSolideMouvement.SetForme(aForme : CForme);
 
 Function CSolideMouvement.CalculPosition() : CPositionSolide;
 //All the hard stuff is in there
+	var resultat : CPositionSolide;
 	
 	Begin
 	
