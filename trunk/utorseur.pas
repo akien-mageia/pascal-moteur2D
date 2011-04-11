@@ -42,9 +42,9 @@ Constructor CTorseur.Create(aX, aY, aMz : real);
 //Set up the three mains arguments
 //For specific uses, we can override this
 	Begin
-	SetFx(aX);
-	SetFy(aY);
-	SetMz(aMz);
+		SetFx(aX);
+		SetFy(aY);
+		SetMz(aMz);
 	End;
 
 
