@@ -12,7 +12,6 @@ type CPositionSolide = Class(CPosition)
         fAngle:real;
         
     public
-    	Constructor Create(
     end;
 
 implementation
