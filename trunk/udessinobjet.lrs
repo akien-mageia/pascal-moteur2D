@@ -1,8 +1,16 @@
 { Ceci est un fichier ressource généré automatiquement par Lazarus }
 
 LazarusResources.Add('TForm3','FORMDATA',[
-  'TPF0'#6'TForm3'#5'Form3'#4'Left'#3':'#2#6'Height'#3','#1#3'Top'#3#226#0#5'Wi'
-  +'dth'#3#144#1#7'Caption'#6#17'Dessin de l''objet'#8'OnCreate'#7#10'FormCreat'
-  +'e'#11'OnMouseDown'#7#13'FormMouseDown'#11'OnMouseMove'#7#13'FormMouseMove'#9
-  +'OnMouseUp'#7#11'FormMouseUp'#10'LCLVersion'#6#8'0.9.26.2'#0#0
+  'TPF0'#6'TForm3'#5'Form3'#4'Left'#3#24#2#6'Height'#3#200#0#3'Top'#3#5#1#5'Wid'
+  +'th'#3','#1#7'Caption'#6#17'Dessin de l''objet'#12'ClientHeight'#3#200#0#11
+  +'ClientWidth'#3','#1#8'OnCreate'#7#10'FormCreate'#11'OnMouseDown'#7#13'FormM'
+  +'ouseDown'#11'OnMouseMove'#7#13'FormMouseMove'#9'OnMouseUp'#7#11'FormMouseUp'
+  +#10'LCLVersion'#6#8'0.9.26.2'#0#7'TButton'#14'butRecommencer'#4'Left'#3#176#0
+  +#6'Height'#2#25#3'Top'#2'('#5'Width'#2's'#7'Caption'#6#11'Recommencer'#8'Tab'
+  +'Order'#2#0#0#0#7'TButton'#12'butVoirObjet'#4'Left'#3#200#0#6'Height'#2#25#3
+  +'Top'#2'P'#5'Width'#2'K'#7'Caption'#6#10'Voir objet'#7'OnClick'#7#17'butVoir'
+  +'ObjetClick'#8'TabOrder'#2#1#0#0#7'TButton'#10'butValider'#4'Left'#3#200#0#6
+  +'Height'#2#25#3'Top'#2'x'#5'Width'#2'K'#7'Caption'#6#7'Valider'#8'TabOrder'#2
+  +#2#0#0#7'TButton'#10'butQuitter'#4'Left'#3#200#0#6'Height'#2#25#3'Top'#3#160
+  +#0#5'Width'#2'K'#7'Caption'#6#7'Quitter'#8'TabOrder'#2#3#0#0#0
 ]);

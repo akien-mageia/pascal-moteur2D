@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
 <CONFIG>
   <Compiler Value="/usr/bin/fpc" Date="1217365445"/>
-  <Params Value=" -MObjFPC -Scgi -O1 -gl -WG -vewnhi -l -Fi/cipc/rverscheld/Informatique/2A/Projet/trunk/ -Fu/usr/lib/lazarus/lcl/units/i386-linux/ -Fu/usr/lib/lazarus/lcl/units/i386-linux/gtk/ -Fu/usr/lib/lazarus/packager/units/i386-linux/ -Fu/cipc/rverscheld/Informatique/2A/Projet/trunk/ -Fu. -o/cipc/rverscheld/Informatique/2A/Projet/trunk/moteur2d -dLCL -dLCLgtk moteur2d.lpr"/>
+  <Params Value=" -MObjFPC -Sgi -O1 -gl -WG -va -l -Fi/cipc/vcleren/Projet_info/trunk/ -Fu/usr/lib/lazarus/lcl/units/i386-linux/ -Fu/usr/lib/lazarus/lcl/units/i386-linux/gtk/ -Fu/usr/lib/lazarus/packager/units/i386-linux/ -Fu/cipc/vcleren/Projet_info/trunk/ -Fu. -o/cipc/vcleren/Projet_info/trunk/moteur2d -dLCL -dLCLgtk moteur2d.lpr"/>
 </CONFIG>

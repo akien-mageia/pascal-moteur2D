@@ -32,7 +32,7 @@ Constructor CForme.Create(aWidth, aHeight : integer);
 // Cree la classe et entre la largeur et la hauteur du tableau
 Var i:integer;
 Begin
-     fCentreInertie := CPosition.Create;
+     fCentreInertie := CPosition.Create(0, 0);
      SetLength (fMat, aWidth);
      For i:= 0 to aWidth-1 do
      SetLength(fMat[i], aHeight);

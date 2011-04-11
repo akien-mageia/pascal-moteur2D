@@ -13,6 +13,11 @@ type
   { TForm3 }
 
   TForm3 = class(TForm)
+    butRecommencer: TButton;
+    butQuitter: TButton;
+    butValider: TButton;
+    butVoirObjet: TButton;
+   procedure butVoirObjetClick(Sender: TObject);
    procedure FormCreate(Sender: TObject);
    procedure FormMouseDown(Sender: TObject; Button: TMouseButton;
      Shift: TShiftState; X, Y: Integer);
@@ -39,20 +44,29 @@ begin
      Forme := CForme.create(Form3.width, Form3.height);
 end;
 
+procedure TForm3.butVoirObjetClick(Sender: TObject);
+begin
+
+
+end;
+
 procedure TForm3.FormMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
      DessinEnCours := true;
      Canvas.Pen.Color:=clBlack;
      Canvas.Pen.Width:=1;
-     self.canvas.MoveTo(X,Y);
-     Forme.SetBoolean(X,Y,true);
+     if ((X<Form3.Width-130) and (Y<Form3.Height-10) and (X>10) and (Y>10))
+        then begin
+             self.canvas.MoveTo(X,Y);
+             Forme.SetBoolean(X,Y,true);
+        end;
 end;
 
 procedure TForm3.FormMouseMove(Sender: TObject; Shift: TShiftState; X,
   Y: Integer);
 begin
-     if (DessinEnCours= true) then
+     if ((DessinEnCours= true) and (X<Form3.Width-130) and (Y<Form3.Height-10) and (X>10) and (Y>10)) then
      begin
           Canvas.Pen.Color:=clBlack;
           Canvas.Pen.Width:=1;
