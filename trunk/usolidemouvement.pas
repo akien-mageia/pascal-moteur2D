@@ -21,9 +21,10 @@ Type CSolideMouvement = Class
             fForme : CForme ;
      Public   
      		Constructor Create(aResultante : CResultante;
-     						   aPosition   : CPositionSolide;
+     		                                   aPosition   : CPositionSolide;
      						   aVitesse    : Cvitesse;
-     						   aForme  	   : CForme);
+     						   aForme      : CForme);
+
      		Destructor Destroy;override;
      		
      		//Accessors
