@@ -10,6 +10,9 @@ uses
 type CPositionSolide = Class(CPosition)
     protected
         fAngle:real;
+        
+    public
+    	Constructor Create(
     end;
 
 implementation

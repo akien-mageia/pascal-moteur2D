@@ -15,21 +15,35 @@ Type CPosition = Class
         fYmetre:real;
 
     public
+    	Constructor Create(aXPix,aYPix,aXmtr,aYmtr);virtual;
+    	Destructor  Destroy;override;
+    	//Accessors
+    	Function GetXPixel():Real;
+    	Function GetYPixel():Real;
+    	Function GetXMetre():Real;
+    	Function GetYMetre():Real;
+    	
+    	
+    	//Others Functions
         Procedure pixelToMetre();
         Procedure metreToPixel();
     end;
 
 implementation
 
-Procedure CPosition.pixelToMetre();
-Begin
+Constructor CPosition.Create(aXPix,aYPix:Real);
+	Begin;
+	End;
 
-End;
+Procedure CPosition.pixelToMetre();
+	Begin
+
+	End;
 
 Procedure CPosition.metreToPixel();
-Begin
+	Begin
 
-End;
+	End;
 
 end.
 

@@ -1,4 +1,9 @@
 unit UVent;
+//***********************************************//
+//       Unit that deal with the wind		     //
+//                                               //
+//    TODO : implementation of CalculForce       //
+//***********************************************//
 
 {$mode objfpc}{$H+}
 
@@ -9,14 +14,21 @@ uses
 
 type CVent = Class(CTorseur)
 	public
+
 		Procedure calculForce(aForme: CForme); override;
 	end;
 
 implementation
 
-Procedure CVent.calculForce(aForme: CForme);
-Begin
+
 	
-End;
+Procedure CVent.calculForce(aForme: CForme); 
+
+
+	Begin
+		
+	
+		
+	End;
 
 end.

@@ -2,7 +2,7 @@ unit USolideMouvement;
 //***********************************************//
 //       Unite gerant le mouvement du solide     //
 //                                               //
-//    TODO : implementation                      //
+//    TODO : implementation CalculPosition       //
 //***********************************************//
 
 {$mode objfpc}{$H+}
