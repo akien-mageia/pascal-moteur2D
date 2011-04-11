@@ -11,10 +11,13 @@ Type CForme = Class
      Protected
               fMat : array of array of boolean;
               fCentreInertie : CPosition;
+              fMasse : real;
 
      Public
            Constructor Create(aWidth, aHeight : integer);
            Procedure CalculCentreInertie();
+           Procedure SetBoolean(ax, ay : integer; aVal : boolean);
+           Function GetMasse() : real;
 
      end;
 
@@ -34,6 +37,16 @@ Begin
      For i:= 0 to aWidth-1 do
      SetLength(fMat[i], aHeight);
 End;
+
+Procedure CForme.SetBoolean(ax, ay : integer; aVal : boolean);
+Begin
+     fMat[ax][ay] := aVal;
+end;
+
+Function CForme.GetMasse() : real;
+Begin
+     result := fMasse;
+end;
 
 end.
 
