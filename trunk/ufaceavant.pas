@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, LResources, Forms, Controls, Graphics, Dialogs,
-  ExtCtrls, StdCtrls;
+  ExtCtrls, StdCtrls, UDessinObjet;
 
 type
 
@@ -39,6 +39,8 @@ type
     Label7: TLabel;
     Label8: TLabel;
     Label9: TLabel;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
   private
     { private declarations }
   public
@@ -49,6 +51,18 @@ var
   Form1: TForm1; 
 
 implementation
+
+{ TForm1 }
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  Form3.Show;
+end;
 
 initialization
   {$I ufaceavant.lrs}

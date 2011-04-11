@@ -99,6 +99,7 @@ object Form1: TForm1
     Top = 32
     Width = 174
     Caption = 'Ajouter un objet'
+    OnClick = Button1Click
     TabOrder = 0
   end
   object Button2: TButton
@@ -107,6 +108,7 @@ object Form1: TForm1
     Top = 112
     Width = 174
     Caption = 'Dessiner décor'
+    OnClick = Button2Click
     TabOrder = 1
   end
   object Button3: TButton
