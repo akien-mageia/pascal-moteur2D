@@ -11,7 +11,7 @@ unit UTorseur;
 interface
 
 uses
-  Classes, SysUtils, UForme;
+  Classes, SysUtils, UForme, UVitesse;
 
 Type CTorseur = Class
 
@@ -21,9 +21,9 @@ Type CTorseur = Class
         fMz : real;
 
     public
-		Constructor Create(aX,aY,aMz:Real); virtual;
-        Destructor  Destroy; override;
-		//Common Accessors for all childs
+		Constructor Create(aX,aY,aMz:Real);
+                Destructor  Destroy; override;
+		//Common Accessors for all children
 		Function 	GetFx() : Real;
 		Function 	GetFy() : Real;
 		Function 	GetMz() : Real;
@@ -32,7 +32,7 @@ Type CTorseur = Class
 		Procedure	SetFy(aY  : Real);
 		Procedure	SetMz(aMz : Real);
 		//Other Functions
-		Procedure   calculForce(aForme : CForme); virtual; abstract;
+		Procedure   calculForce(aForme : CForme ; aVitesse: CVitesse); virtual; abstract;
 
     end;
 
