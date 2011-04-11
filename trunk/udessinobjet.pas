@@ -43,8 +43,10 @@ procedure TForm3.FormMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
      DessinEnCours := true;
+     Canvas.Pen.Color:=clBlack;
+     Canvas.Pen.Width:=1;
      self.canvas.MoveTo(X,Y);
-     Forme.fMat[X][Y] := true;
+     Forme.SetBoolean(X,Y,true);
 end;
 
 procedure TForm3.FormMouseMove(Sender: TObject; Shift: TShiftState; X,
@@ -52,8 +54,10 @@ procedure TForm3.FormMouseMove(Sender: TObject; Shift: TShiftState; X,
 begin
      if (DessinEnCours= true) then
      begin
+          Canvas.Pen.Color:=clBlack;
+          Canvas.Pen.Width:=1;
           self.canvas.LineTo(x,y);
-          Forme.fMat[X][Y]:=true;
+          Forme.SetBoolean(X,Y,true);
      end;
 end;
 
