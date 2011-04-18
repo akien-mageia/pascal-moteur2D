@@ -53,13 +53,11 @@ var i,j : integer;
 begin
     TentativeSolide.RemplirForme();
     Canvas.Clear();
-    Canvas.Pen.Color:=clBlack;
-    Canvas.Pen.Width:=1;
     for i:=0 to TentativeSolide.getWidth()-1 do
         begin
             for j:=0 to TentativeSolide.getHeight()-1 do
                 if TentativeSolide.getBoolean(i, j) = true
-                then self.Canvas.MoveTo(i, j);
+                then Canvas.Pixels[i,j] := clBlack;
             j := 0;
         end;
 
@@ -95,11 +93,15 @@ procedure TForm3.FormMouseDown(Sender: TObject; Button: TMouseButton;
 begin
      DessinEnCours := true;
      Canvas.Pen.Color:=clBlack;
-     Canvas.Pen.Width:=1; 
+     Canvas.Pen.Width:=2;
      if ((X<Form3.Width-130) and (Y<Form3.Height-10) and (X>10) and (Y>10))
         then begin
-             self.canvas.MoveTo(X,Y);
+             Canvas.MoveTo(X,Y);
+             Canvas.Pixels[X,Y] := clBlack;
              TentativeSolide.SetBoolean(X,Y,true);
+             TentativeSolide.SetBoolean(X,Y-1,true);
+             TentativeSolide.SetBoolean(X-1,Y,true);
+             TentativeSolide.SetBoolean(X-1,Y-1,true);
         end;
 end;
 
@@ -109,9 +111,12 @@ begin
      if ((DessinEnCours= true) and (X<Form3.Width-130) and (Y<Form3.Height-10) and (X>10) and (Y>10)) then
      begin
           Canvas.Pen.Color:=clBlack;
-          Canvas.Pen.Width:=1;
-          self.canvas.LineTo(x,y);
+          Canvas.Pen.Width:=2;
+          Canvas.LineTo(x,y);
           TentativeSolide.SetBoolean(X,Y,true);
+          TentativeSolide.SetBoolean(X,Y-1,true);
+          TentativeSolide.SetBoolean(X-1,Y,true);
+          TentativeSolide.SetBoolean(X-1,Y-1,true);
      end;
 end;
 
