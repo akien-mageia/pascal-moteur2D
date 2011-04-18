@@ -49,10 +49,20 @@ begin
 end;
 
 procedure TForm3.butVoirObjetClick(Sender: TObject);
+var i,j : integer;
 begin
-//    TentativeSolide.RemplirForme();
-//    Canvas.Clear();
-//    TentativeSolide.Afficher();
+    TentativeSolide.RemplirForme();
+    Canvas.Clear();
+    Canvas.Pen.Color:=clBlack;
+    Canvas.Pen.Width:=1;
+    for i:=0 to TentativeSolide.getWidth()-1 do
+        begin
+            for j:=0 to TentativeSolide.getHeight()-1 do
+                if TentativeSolide.getBoolean(i, j) = true
+                then self.Canvas.MoveTo(i, j);
+            j := 0;
+        end;
+
 end;
 
 procedure TForm3.butRecommencerClick(Sender: TObject);
@@ -69,6 +79,7 @@ end;
 
 procedure TForm3.butValiderClick(Sender: TObject);
 begin
+    TentativeSolide.RemplirForme();
     Solide := TentativeSolide;
     TentativeSolide.Free();
     Form3.Close();
@@ -84,7 +95,7 @@ procedure TForm3.FormMouseDown(Sender: TObject; Button: TMouseButton;
 begin
      DessinEnCours := true;
      Canvas.Pen.Color:=clBlack;
-     Canvas.Pen.Width:=1;
+     Canvas.Pen.Width:=1; 
      if ((X<Form3.Width-130) and (Y<Form3.Height-10) and (X>10) and (Y>10))
         then begin
              self.canvas.MoveTo(X,Y);
