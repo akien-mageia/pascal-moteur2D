@@ -18,7 +18,7 @@ type CPoids = Class(CTorseur)
 		fG: real;		// constante gravitationnelle, valeur par defaut fG = 9.81
 	
 	public
-		Constructor Create(aX,aY,aMz:Real); override;
+		Constructor Create(aX,aY,aMz:Real);
 		Destructor Destroy;
 		Procedure calculForce(aForme: CForme; aVitesse: CVitesse); override;
 		Procedure setG(aG: real);

@@ -1,9 +1,16 @@
 !!!!!!!!!!!!!!!!!TODO!!!!!!!!!!!!!!!!!!
 
-Implémentation  UsolideMouvement  => BlackOut Reste la partie physique...
-				Uvitesse 		  => BlackOut CHECK
+Implémentation  Uvitesse 		  => BlackOut CHECK
 				UTorseur		  => BlackOut CHECK
- 				Uvent
- 				Uposition 
+				Upoids			  => CHECK
+				Uvent			CalculForce
+ 				UFrottement		CalculForce
+ 				UArchimede		CalculForce
+ 				Uposition 		Conversions
+ 				UPositionSolide Tout
+ 				USolideMouvement CalculPosition
+ 				UResultante		Tout
+ 				
+ 				
  				Commenter les différents fichiers!!!!
  

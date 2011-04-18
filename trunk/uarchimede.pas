@@ -1,4 +1,9 @@
 unit UArchimede;
+//***********************************************//
+//       Unite gerant la poussée d'Archimede     //
+//                                               //
+//    			TODO : CalculForce               //
+//***********************************************//
 
 {$mode objfpc}{$H+}
 

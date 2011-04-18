@@ -1,5 +1,11 @@
 unit UPosition;
 
+//*******************************************************//
+//       Unite gerant la position des points du decor    //
+//                                               		 //
+//    			TODO : Conversions               		 //
+//*******************************************************//
+
 {$mode objfpc}{$H+}
 
 interface

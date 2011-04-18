@@ -21,7 +21,7 @@ type CVent = Class(CTorseur)
 implementation
 
 Procedure CVent.calculForce(aForme: CForme ; aVitesse: CVitesse);
-Begin
+	Begin
 
 		
 	End;
