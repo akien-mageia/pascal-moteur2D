@@ -22,8 +22,8 @@ Type CTorseur = Class
 
     public
 		Constructor Create(aX,aY,aMz:Real);
-                Destructor  Destroy; override;
-		//Common Accessors for all children
+        Destructor  Destroy; override;
+		//Common Accessors for all childs
 		Function 	GetFx() : Real;
 		Function 	GetFy() : Real;
 		Function 	GetMz() : Real;

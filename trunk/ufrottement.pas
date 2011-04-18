@@ -1,5 +1,11 @@
 unit UFrottement;
 
+//***********************************************//
+//       Unite gerant les frottements	         //
+//                                               //
+//    			TODO : CalculForce               //
+//***********************************************//
+
 {$mode objfpc}{$H+}
 
 interface
