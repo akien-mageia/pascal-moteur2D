@@ -41,6 +41,7 @@ type
     Label9: TLabel;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
   private
     { private declarations }
   public
@@ -57,6 +58,11 @@ implementation
 procedure TForm1.Button2Click(Sender: TObject);
 begin
 
+end;
+
+procedure TForm1.Button4Click(Sender: TObject);
+begin
+  Close();
 end;
 
 procedure TForm1.Button1Click(Sender: TObject);

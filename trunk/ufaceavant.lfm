@@ -125,6 +125,7 @@ object Form1: TForm1
     Top = 335
     Width = 174
     Caption = 'Quitter'
+    OnClick = Button4Click
     TabOrder = 3
   end
   object Edit1: TEdit
