@@ -2,6 +2,7 @@
 
 Implémentation  Uvitesse 		  => BlackOut CHECK
 				UTorseur		  => BlackOut CHECK
+				UResultante		  => BlackOut CHECK
 				Upoids			  => CHECK
 				Uvent			CalculForce
  				UFrottement		CalculForce
@@ -9,7 +10,7 @@ Implémentation  Uvitesse 		  => BlackOut CHECK
  				Uposition 		Conversions
  				UPositionSolide Tout
  				USolideMouvement CalculPosition
- 				UResultante		Tout
+ 				
  				
  				
  				Commenter les différents fichiers!!!!

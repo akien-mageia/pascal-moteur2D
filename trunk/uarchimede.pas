@@ -24,7 +24,7 @@ type CArchimede = Class(CTorseur)
 
 implementation
 
-Procedure CArchimede.calculForce(aForme: CForme ; aVitesse: CVitesse);
+Procedure CArchimede.CalculForce(aForme: CForme ; aVitesse: CVitesse);
 Begin
 
 End;

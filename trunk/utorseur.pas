@@ -32,7 +32,7 @@ Type CTorseur = Class
 		Procedure	SetFy(aY  : Real);
 		Procedure	SetMz(aMz : Real);
 		//Other Functions
-		Procedure   calculForce(aForme : CForme ; aVitesse: CVitesse); virtual; abstract;
+		Procedure   CalculForce(aForme : CForme ; aVitesse: CVitesse); virtual; abstract;
 
     end;
 
