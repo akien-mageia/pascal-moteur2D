@@ -49,7 +49,7 @@ type
   end; 
 
 var
-  Form1: TForm1; 
+  Form1: TForm1;
 
 implementation
 
@@ -67,7 +67,7 @@ end;
 
 procedure TForm1.Button1Click(Sender: TObject);
 begin
-  Form3.Show;
+    Form3.Show;
 end;
 
 initialization

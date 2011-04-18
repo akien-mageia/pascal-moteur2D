@@ -14,10 +14,12 @@ type
 
   TForm3 = class(TForm)
     butRecommencer: TButton;
-    butQuitter: TButton;
+    butAnnuler: TButton;
     butValider: TButton;
     butVoirObjet: TButton;
+   procedure butAnnulerClick(Sender: TObject);
    procedure butRecommencerClick(Sender: TObject);
+   procedure butValiderClick(Sender: TObject);
    procedure butVoirObjetClick(Sender: TObject);
    procedure FormCreate(Sender: TObject);
    procedure FormMouseDown(Sender: TObject; Button: TMouseButton;
@@ -34,7 +36,8 @@ type
 var
   Form3: TForm3;
   DessinEnCours : boolean;
-  Forme : CForme;
+  TentativeSolide : CForme;
+  Solide: CForme;
 
 implementation
 
@@ -42,25 +45,38 @@ implementation
 
 procedure TForm3.FormCreate(Sender: TObject);
 begin
-     Forme := CForme.create(Form3.width, Form3.height);
+    TentativeSolide := CForme.create(Form3.width, Form3.height);
 end;
 
 procedure TForm3.butVoirObjetClick(Sender: TObject);
 begin
-
-
+//    TentativeSolide.RemplirForme();
+//    Canvas.Clear();
+//    TentativeSolide.Afficher();
 end;
 
 procedure TForm3.butRecommencerClick(Sender: TObject);
 var i,j: integer;
 begin
     Canvas.Clear();
-    for i:=0 to Forme.getWidth()-1 do
+    for i:=0 to TentativeSolide.getWidth()-1 do
         begin
-            for j:=0 to Forme.getHeight()-1 do
-                Forme.SetBoolean(i, j, false);
+            for j:=0 to TentativeSolide.getHeight()-1 do
+                TentativeSolide.SetBoolean(i, j, false);
             j := 0;
         end;
+end;
+
+procedure TForm3.butValiderClick(Sender: TObject);
+begin
+    Solide := TentativeSolide;
+    TentativeSolide.Free();
+    Form3.Close();
+end;
+
+procedure TForm3.butAnnulerClick(Sender: TObject);
+begin
+    Form3.Close();
 end;
 
 procedure TForm3.FormMouseDown(Sender: TObject; Button: TMouseButton;
@@ -72,7 +88,7 @@ begin
      if ((X<Form3.Width-130) and (Y<Form3.Height-10) and (X>10) and (Y>10))
         then begin
              self.canvas.MoveTo(X,Y);
-             Forme.SetBoolean(X,Y,true);
+             TentativeSolide.SetBoolean(X,Y,true);
         end;
 end;
 
@@ -84,7 +100,7 @@ begin
           Canvas.Pen.Color:=clBlack;
           Canvas.Pen.Width:=1;
           self.canvas.LineTo(x,y);
-          Forme.SetBoolean(X,Y,true);
+          TentativeSolide.SetBoolean(X,Y,true);
      end;
 end;
 

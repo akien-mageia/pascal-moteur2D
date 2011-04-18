@@ -35,14 +35,16 @@ object Form3: TForm3
     Top = 120
     Width = 75
     Caption = 'Valider'
+    OnClick = butValiderClick
     TabOrder = 2
   end
-  object butQuitter: TButton
+  object butAnnuler: TButton
     Left = 200
     Height = 25
     Top = 160
     Width = 75
-    Caption = 'Quitter'
+    Caption = 'Annuler'
+    OnClick = butAnnulerClick
     TabOrder = 3
   end
 end
