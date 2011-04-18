@@ -17,6 +17,7 @@ object Form3: TForm3
     Top = 40
     Width = 115
     Caption = 'Recommencer'
+    OnClick = butRecommencerClick
     TabOrder = 0
   end
   object butVoirObjet: TButton

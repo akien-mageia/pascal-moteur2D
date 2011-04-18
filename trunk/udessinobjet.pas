@@ -17,6 +17,7 @@ type
     butQuitter: TButton;
     butValider: TButton;
     butVoirObjet: TButton;
+   procedure butRecommencerClick(Sender: TObject);
    procedure butVoirObjetClick(Sender: TObject);
    procedure FormCreate(Sender: TObject);
    procedure FormMouseDown(Sender: TObject; Button: TMouseButton;
@@ -48,6 +49,18 @@ procedure TForm3.butVoirObjetClick(Sender: TObject);
 begin
 
 
+end;
+
+procedure TForm3.butRecommencerClick(Sender: TObject);
+var i,j: integer;
+begin
+    Canvas.Clear();
+    for i:=0 to Forme.getWidth()-1 do
+        begin
+            for j:=0 to Forme.getHeight()-1 do
+                Forme.SetBoolean(i, j, false);
+            j := 0;
+        end;
 end;
 
 procedure TForm3.FormMouseDown(Sender: TObject; Button: TMouseButton;

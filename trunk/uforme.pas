@@ -20,6 +20,8 @@ Type CForme = Class
            Procedure CalculCentreInertie();
            Procedure SetBoolean(ax, ay : integer; aVal : boolean);
            Function GetMasse() : real;
+           Function getHeight() : integer;
+           Function getWidth() : integer;
 
      end;
 
@@ -50,6 +52,16 @@ end;
 Function CForme.GetMasse() : real;
 Begin
      result := fMasse;
+end;
+
+Function CForme.getHeight() : integer;
+Begin
+     result := fHeight;
+end;
+
+Function CForme.getWidth() : integer;
+Begin
+     result := fWidth;
 end;
 
 end.

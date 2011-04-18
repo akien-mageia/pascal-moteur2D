@@ -49,8 +49,8 @@
         <IsPartOfProject Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UFaceAvant"/>
-        <CursorPos X="11" Y="65"/>
-        <TopLine Value="53"/>
+        <CursorPos X="6" Y="45"/>
+        <TopLine Value="43"/>
         <EditorIndex Value="0"/>
         <UsageCount Value="30"/>
         <Loaded Value="True"/>
