@@ -12,6 +12,8 @@ Type CForme = Class
               fMat : array of array of boolean;
               fCentreInertie : CPosition;
               fMasse : real;
+              fHeight : integer;
+              fWidth : integer;
 
      Public
            Constructor Create(aWidth, aHeight : integer);
@@ -32,6 +34,8 @@ Constructor CForme.Create(aWidth, aHeight : integer);
 // Cree la classe et entre la largeur et la hauteur du tableau
 Var i:integer;
 Begin
+     fWidth := aWidth;
+     fHeight := aHeight;
      fCentreInertie := CPosition.Create(0, 0);
      SetLength (fMat, aWidth);
      For i:= 0 to aWidth-1 do
