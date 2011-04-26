@@ -1,11 +1,10 @@
-unit UTorseur;
 //***********************************************//
 //       Unite gerant les torseurs de bases      //
 //                                               //
 //    			TODO : Nothing	                 //
 //***********************************************//
 
-
+unit UTorseur;
 {$mode objfpc}{$H+}
 
 interface

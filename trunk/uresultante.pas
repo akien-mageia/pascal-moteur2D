@@ -2,7 +2,7 @@ unit UResultante;
 //***********************************************//
 //       Unite gerant les résultantes		     //
 //                                               //
-//    			TODO : All			             //
+//    			TODO : 	Nothing		             //
 //***********************************************//
 
 {$mode objfpc}{$H+}

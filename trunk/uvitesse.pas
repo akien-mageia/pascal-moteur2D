@@ -1,11 +1,10 @@
-unit UVitesse;
-
 //***********************************************//
 //      Unite gerant les différentes vitesses    //
 //                                               //
-//    	TODO : Normally, nothing^^               //
+//    	TODO : Normally, nothing		         //
 //      By Black0ut 2011/04/04                   //
 //***********************************************//
+unit UVitesse;
 {$mode objfpc}{$H+}
 
 interface

@@ -16,6 +16,7 @@ UVent, UPoids, UArchimede, UForme, UPosition, UPositionSolide, USolideMouvement;
 
 begin
   {$I moteur2d.lrs}
+  randomize;
   Application.Initialize;
   Application.CreateForm(TForm1, Form1);
   Application.CreateForm(TForm2, Form2);

@@ -1,5 +1,11 @@
 unit UMateriau;
 
+//***********************************************//
+//       Unite gerant les caractéristiques       //
+//			d'un matériau                        //
+//    			TODO : Nothing	                 //
+//***********************************************//
+
 {$mode objfpc}{$H+}
 
 interface
@@ -11,12 +17,10 @@ type CMateriau = Class
 	protected
 		fIndex: integer;
 		fCoefChoc: real;
-	end;
-	
+			
 	public
 		Constructor Create(aIndex : Integer,
 							aCoef : Real);
-		
 		Destructor	Destroy; override;
 		
 		//Accessors
@@ -47,12 +51,12 @@ Function CMateriau.GetIndex() : Integer;
 
 Function CMateriau.GetCoef()  : Real;
 	Begin
-		GetCoef := fCoef;
+		GetCoef := fCoefChoc;
 	End;
 	
 Procedure CMateriau.SetCoef( aCoef : Real);
 	Begin
-		fCoef := aCoef;
+		fCoefChoc := aCoef;
 	End;
 
 Procedure CMateriau.SetIndex( aIndex : Integer);
