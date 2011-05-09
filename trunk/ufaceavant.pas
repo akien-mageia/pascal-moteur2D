@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, LResources, Forms, Controls, Graphics, Dialogs,
-  ExtCtrls, StdCtrls, UDessinObjet;
+  ExtCtrls, StdCtrls, UDessinObjet, UDessinDecor, UParamPhys;
 
 type
 
@@ -39,9 +39,10 @@ type
     Label7: TLabel;
     Label8: TLabel;
     Label9: TLabel;
-    procedure Button1Click(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
-    procedure Button4Click(Sender: TObject);
+    procedure ButDessinObjetClick(Sender: TObject);
+    procedure ButDessinDecorClick(Sender: TObject);
+    procedure ButParamClick(Sender: TObject);
+    procedure ButQuitterClick(Sender: TObject);
   private
     { private declarations }
   public
@@ -55,23 +56,30 @@ implementation
 
 { TForm1 }
 
-procedure TForm1.Button2Click(Sender: TObject);
+procedure TForm1.ButDessinDecorClick(Sender: TObject);
 begin
-
+     Form2.Show;
 end;
 
-procedure TForm1.Button4Click(Sender: TObject);
+procedure TForm1.ButParamClick(Sender: TObject);
+begin
+     Form4.Show;
+end;
+
+procedure TForm1.ButQuitterClick(Sender: TObject);
 begin
   Close();
 end;
 
-procedure TForm1.Button1Click(Sender: TObject);
+procedure TForm1.ButDessinObjetClick(Sender: TObject);
 begin
     Form3.Show;
 end;
 
 initialization
   {$I ufaceavant.lrs}
+
+  //We load some decorative image and a predefinite object
 
 end.
 

@@ -1,7 +1,7 @@
 object Form4: TForm4
-  Left = 627
+  Left = 358
   Height = 300
-  Top = 289
+  Top = 200
   Width = 400
   Caption = 'Modification des paramètres physiques'
   LCLVersion = '0.9.26.2'

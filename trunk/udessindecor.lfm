@@ -1,8 +1,54 @@
 object Form2: TForm2
-  Left = 1024
-  Height = 300
-  Top = 217
-  Width = 400
+  Left = 478
+  Height = 326
+  Top = 102
+  Width = 619
   Caption = 'Dessin du décor'
+  ClientHeight = 326
+  ClientWidth = 619
   LCLVersion = '0.9.26.2'
+  object Button1: TButton
+    Left = 432
+    Height = 25
+    Top = 32
+    Width = 131
+    Caption = 'Recommencer'
+    OnClick = butRecommencerClick
+    TabOrder = 0
+  end
+  object Button2: TButton
+    Left = 432
+    Height = 25
+    Top = 88
+    Width = 131
+    Caption = 'Voir décor'
+    OnClick = butVoirDecorClick
+    TabOrder = 1
+  end
+  object Button3: TButton
+    Left = 432
+    Height = 25
+    Top = 144
+    Width = 131
+    Caption = 'Valider'
+    OnClick = butValiderClick
+    TabOrder = 2
+  end
+  object Button4: TButton
+    Left = 432
+    Height = 25
+    Top = 200
+    Width = 131
+    Caption = 'Annuler'
+    OnClick = butAnnulerClick
+    TabOrder = 3
+  end
+  object Button5: TButton
+    Left = 432
+    Height = 25
+    Top = 256
+    Width = 131
+    Caption = 'Changer Couleur'
+    TabOrder = 4
+  end
 end

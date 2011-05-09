@@ -2,8 +2,8 @@ unit UMateriau;
 
 //***********************************************//
 //       Unite gerant les caracteristiques       //
-//			d'un materiau                        //
-//    			TODO : Nothing	                 //
+//			d'un materiau            //
+//    			TODO : Nothing	         //
 //***********************************************//
 
 {$mode objfpc}{$H+}
@@ -22,7 +22,7 @@ type CMateriau = Class
 		Constructor Create(aIndex : Integer;
 							aCoef : Real);
 		Destructor	Destroy; override;
-		
+		                        n
 		//Accessors
 		function GetIndex : Integer;
 		function GetCoef  : Real;
@@ -32,8 +32,7 @@ type CMateriau = Class
 	end;
 implementation
 
-Constructor CMateriau.Create(aIndex : Integer;
-							 aCoef	: Real);
+Constructor CMateriau.Create(aIndex : Integer; 	 aCoef	: Real);
 	Begin
 		SetIndex( aIndex );
 		SetCoef	(  aCoef );
