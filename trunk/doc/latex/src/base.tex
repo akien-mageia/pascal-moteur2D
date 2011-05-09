@@ -1,0 +1,85 @@
+\documentclass[12pt,twoside,a4paper,leqno,titlepage]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english,francais]{babel}
+\usepackage{listings}
+\usepackage{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref} %URLs,index etc etc
+\usepackage{amsmath} %Formules mathématiques
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{fullpage}
+\author{Tristan \bsc{Pourcelot}}
+\title{\begin{center} \textbf{\Huge{Projet d'Informatique \newline 2\up{\`eme} ann\'ee PCC}} \end{center}}
+\date{\textbf{ Groupe 52 \hspace{\stretch{1}} Ann\'ee scolaire 2010-2011  }}
+
+
+\begin{document}
+
+\begin{minipage}[c]{0.5\linewidth}
+\includegraphics[bb=0 75 200 100, scale=0.3]{../images/insa-couleur.jpg}
+\end{minipage}
+\begin{minipage}[r]{0.5\linewidth}
+\vspace*{25pt}
+\begin{flushright}
+\LARGE D\'epartement \\ du Premier \\ Cycle \\ \rule{\linewidth}{2pt}
+\end{flushright}
+\end{minipage}
+
+\vspace*{1cm}
+
+\begin{center}
+\LARGE Projet d'informatique 2 \up{\`eme} Ann\'ee\\
+\end{center}
+\vspace*{1.3cm}
+	
+\setlength\fboxrule{2pt}
+\fbox{
+\begin{minipage}{0.95\textwidth}
+     \begin{center}
+     \vspace*{0.21cm}\LARGE \color{blue} \textbf{\uppercase{Mod\'elisation m\'ecanique \\ d'un solide \\ et moteur graphique 2D\\ en \bsc{Pascal} }}
+     \end{center}
+\end{minipage}
+}
+
+
+\begin{center}
+\vspace*{1cm}
+\LARGE \color{black} Tristan \bsc{Pourcelot} \\ R\'emi \bsc{Verschelde} \\ Victor \bsc{Cleren} \\ Th\'eo \bsc{Garcia-Guitton} \\
+\vspace*{2.5cm}
+\Large Responsable : C. \bsc{Wolf}\\
+\end{center}
+\vspace*{1.5cm}
+\begin{flushleft}
+\Large \, Ann\'ee scolaire 2010-2011\\
+\vspace*{0.2cm}
+\textbf{\Large Institut National des Sciences Appliqu\'{e}es de Lyon} \pagebreak
+\end{flushleft}
+
+
+
+%\maketitle
+
+\begin{abstract}
+R\'esum\'e de notre projet \newline
+\begin{center}
+J'$\heartsuit$ \LaTeX{}
+\end{center}
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{introduction}
+\input{chapitre1} %inclusion d'un chapitre/section
+\input{chapitre2}
+\input{chapitre3}
+\input{conclusion}
+
+%%%%%%%% Bibliographie/TdM %%%%%%%%%%%
+%\tableoffigures
+\tableofcontents
+\end{document}
+
