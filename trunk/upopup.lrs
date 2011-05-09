@@ -1,0 +1,10 @@
+{ Ceci est un fichier ressource généré automatiquement par Lazarus }
+
+LazarusResources.Add('TForm5','FORMDATA',[
+  'TPF0'#6'TForm5'#5'Form5'#4'Left'#3#159#1#6'Height'#2'X'#3'Top'#3'I'#1#5'Widt'
+  +'h'#3'8'#1#7'Caption'#6#5'Form5'#12'ClientHeight'#2'X'#11'ClientWidth'#3'8'#1
+  +#10'LCLVersion'#6#8'0.9.26.2'#0#6'TLabel'#6'Label1'#4'Left'#2#16#6'Height'#2
+  +#17#3'Top'#2' '#5'Width'#3#7#1#7'Caption'#6',Veuillez cliquer '#195#160' l'''
+  +'int'#195#169'rieur de l''objet.'#11'ParentColor'#8#7'OnClick'#7#11'Label1Cl'
+  +'ick'#0#0#0
+]);

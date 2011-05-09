@@ -1,0 +1,19 @@
+object Form5: TForm5
+  Left = 415
+  Height = 88
+  Top = 329
+  Width = 312
+  Caption = 'Form5'
+  ClientHeight = 88
+  ClientWidth = 312
+  LCLVersion = '0.9.26.2'
+  object Label1: TLabel
+    Left = 16
+    Height = 17
+    Top = 32
+    Width = 263
+    Caption = 'Veuillez cliquer à l''intérieur de l''objet.'
+    ParentColor = False
+    OnClick = Label1Click
+  end
+end
