@@ -55,8 +55,8 @@ Function CFrottement.getCoef(): real;
 Procedure CFrottement.calculForce(aForme: CForme; aVitesse: CVitesse);
 	//Modifie le torseur du frottement en fonction de la vitesse
 	Begin
-		SetFx( aVitesse.GetFx() * fCoef );
-		SetFy( aVitesse.GetFy() * fCoef );
+		SetFx( aVitesse.GetX() * fCoef );
+		SetFy( aVitesse.GetY() * fCoef );
 		
 	End;
 

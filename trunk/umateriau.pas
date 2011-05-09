@@ -1,8 +1,8 @@
 unit UMateriau;
 
 //***********************************************//
-//       Unite gerant les caractéristiques       //
-//			d'un matériau                        //
+//       Unite gerant les caracteristiques       //
+//			d'un materiau                        //
 //    			TODO : Nothing	                 //
 //***********************************************//
 
@@ -19,7 +19,7 @@ type CMateriau = Class
 		fCoefChoc: real;
 			
 	public
-		Constructor Create(aIndex : Integer,
+		Constructor Create(aIndex : Integer;
 							aCoef : Real);
 		Destructor	Destroy; override;
 		
@@ -32,7 +32,7 @@ type CMateriau = Class
 	end;
 implementation
 
-Constructor CMateriau.Create(aIndex : Integer,
+Constructor CMateriau.Create(aIndex : Integer;
 							 aCoef	: Real);
 	Begin
 		SetIndex( aIndex );
