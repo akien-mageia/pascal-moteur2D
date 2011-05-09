@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 593
+  Left = 598
   Height = 664
-  Top = 180
+  Top = 203
   Width = 762
   Caption = 'Simulation de chute'
   ClientHeight = 664
@@ -134,7 +134,7 @@ object Form1: TForm1
     Top = 408
     Width = 136
     TabOrder = 4
-    Text = 'Edit1'
+    Text = '0'
   end
   object Edit2: TEdit
     Left = 568
@@ -142,7 +142,7 @@ object Form1: TForm1
     Top = 408
     Width = 158
     TabOrder = 5
-    Text = 'Edit2'
+    Text = '0'
   end
   object Edit3: TEdit
     Left = 232
@@ -150,7 +150,7 @@ object Form1: TForm1
     Top = 448
     Width = 136
     TabOrder = 6
-    Text = 'Edit3'
+    Text = '0'
   end
   object Edit4: TEdit
     Left = 568
@@ -158,7 +158,7 @@ object Form1: TForm1
     Top = 448
     Width = 158
     TabOrder = 7
-    Text = 'Edit4'
+    Text = '0'
   end
   object Edit5: TEdit
     Left = 232
@@ -166,7 +166,7 @@ object Form1: TForm1
     Top = 496
     Width = 136
     TabOrder = 8
-    Text = 'Edit5'
+    Text = '0'
   end
   object Edit6: TEdit
     Left = 568
@@ -174,7 +174,7 @@ object Form1: TForm1
     Top = 496
     Width = 158
     TabOrder = 9
-    Text = 'Edit6'
+    Text = '0'
   end
   object Edit7: TEdit
     Left = 232
@@ -182,7 +182,7 @@ object Form1: TForm1
     Top = 544
     Width = 136
     TabOrder = 10
-    Text = 'Edit7'
+    Text = '0'
   end
   object Edit8: TEdit
     Left = 568
@@ -190,7 +190,7 @@ object Form1: TForm1
     Top = 544
     Width = 158
     TabOrder = 11
-    Text = 'Edit8'
+    Text = '0'
   end
   object Button5: TButton
     Left = 552
@@ -207,7 +207,7 @@ object Form1: TForm1
     Top = 594
     Width = 136
     TabOrder = 13
-    Text = 'Edit9'
+    Text = '0'
   end
   object Edit10: TEdit
     Left = 568
@@ -215,6 +215,6 @@ object Form1: TForm1
     Top = 594
     Width = 158
     TabOrder = 14
-    Text = 'Edit10'
+    Text = '0'
   end
 end

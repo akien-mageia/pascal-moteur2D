@@ -37,9 +37,11 @@
         <Filename Value="moteur2d.lpr"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="moteur2D"/>
-        <CursorPos X="80" Y="13"/>
+        <CursorPos X="1" Y="17"/>
         <TopLine Value="1"/>
+        <EditorIndex Value="2"/>
         <UsageCount Value="33"/>
+        <Loaded Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="ufaceavant.pas"/>
@@ -47,8 +49,8 @@
         <IsPartOfProject Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UFaceAvant"/>
-        <CursorPos X="61" Y="9"/>
-        <TopLine Value="1"/>
+        <CursorPos X="14" Y="51"/>
+        <TopLine Value="4"/>
         <EditorIndex Value="0"/>
         <UsageCount Value="33"/>
         <Loaded Value="True"/>
@@ -61,7 +63,7 @@
         <UnitName Value="UDessinDecor"/>
         <CursorPos X="29" Y="8"/>
         <TopLine Value="1"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="3"/>
         <UsageCount Value="32"/>
         <Loaded Value="True"/>
       </Unit2>
@@ -71,9 +73,9 @@
         <IsPartOfProject Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UDessinObjet"/>
-        <CursorPos X="69" Y="112"/>
-        <TopLine Value="92"/>
-        <EditorIndex Value="2"/>
+        <CursorPos X="1" Y="1"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="4"/>
         <UsageCount Value="32"/>
         <Loaded Value="True"/>
       </Unit3>
@@ -85,7 +87,7 @@
         <UnitName Value="UParamPhys"/>
         <CursorPos X="67" Y="5"/>
         <TopLine Value="1"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="5"/>
         <UsageCount Value="32"/>
         <Loaded Value="True"/>
       </Unit4>
@@ -156,9 +158,11 @@
         <Filename Value="umateriau.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UMateriau"/>
-        <CursorPos X="58" Y="20"/>
-        <TopLine Value="1"/>
+        <CursorPos X="35" Y="23"/>
+        <TopLine Value="8"/>
+        <EditorIndex Value="1"/>
         <UsageCount Value="29"/>
+        <Loaded Value="True"/>
       </Unit13>
       <Unit14>
         <Filename Value="uarchimede.pas"/>
@@ -201,7 +205,7 @@
         <SyntaxHighlighter Value="Delphi"/>
       </Unit18>
     </Units>
-    <JumpHistory Count="5" HistoryIndex="4">
+    <JumpHistory Count="6" HistoryIndex="5">
       <Position1>
         <Filename Value="ufaceavant.pas"/>
         <Caret Line="44" Column="46" TopLine="43"/>
@@ -222,6 +226,10 @@
         <Filename Value="ufaceavant.pas"/>
         <Caret Line="44" Column="46" TopLine="37"/>
       </Position5>
+      <Position6>
+        <Filename Value="umateriau.pas"/>
+        <Caret Line="23" Column="5" TopLine="8"/>
+      </Position6>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>

@@ -1,7 +1,7 @@
 { Ceci est un fichier ressource généré automatiquement par Lazarus }
 
 LazarusResources.Add('TForm3','FORMDATA',[
-  'TPF0'#6'TForm3'#5'Form3'#4'Left'#2'K'#6'Height'#3#200#0#3'Top'#3#219#0#5'Wid'
+  'TPF0'#6'TForm3'#5'Form3'#4'Left'#2'P'#6'Height'#3#200#0#3'Top'#3#242#0#5'Wid'
   +'th'#3','#1#7'Caption'#6#17'Dessin de l''objet'#12'ClientHeight'#3#200#0#11
   +'ClientWidth'#3','#1#8'OnCreate'#7#10'FormCreate'#11'OnMouseDown'#7#13'FormM'
   +'ouseDown'#11'OnMouseMove'#7#13'FormMouseMove'#9'OnMouseUp'#7#11'FormMouseUp'

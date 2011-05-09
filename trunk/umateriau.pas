@@ -22,7 +22,7 @@ type CMateriau = Class
 		Constructor Create(aIndex : Integer;
 							aCoef : Real);
 		Destructor	Destroy; override;
-		                        n
+
 		//Accessors
 		function GetIndex : Integer;
 		function GetCoef  : Real;

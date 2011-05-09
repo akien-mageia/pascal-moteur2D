@@ -43,7 +43,7 @@ implementation
 
 procedure TForm2.butAnnulerClick(Sender: TObject);
 begin
-
+    Form2.Close();
 end;
 
 procedure TForm2.butRecommencerClick(Sender: TObject);
