@@ -1,0 +1,18 @@
+{ This is an automatically generated lazarus resource file }
+
+LazarusResources.Add('TForm3','FORMDATA',[
+  'TPF0'#6'TForm3'#5'Form3'#4'Left'#2'P'#6'Height'#3#200#0#3'Top'#3#242#0#5'Wid'
+  +'th'#3','#1#13'ActiveControl'#7#14'butRecommencer'#7'Caption'#6#17'Dessin de'
+  +' l''objet'#12'ClientHeight'#3#200#0#11'ClientWidth'#3','#1#8'OnCreate'#7#10
+  +'FormCreate'#11'OnMouseDown'#7#13'FormMouseDown'#11'OnMouseMove'#7#13'FormMo'
+  +'useMove'#9'OnMouseUp'#7#11'FormMouseUp'#6'OnShow'#7#8'FormShow'#10'LCLVersi'
+  +'on'#6#8'0.9.28.2'#0#7'TButton'#14'butRecommencer'#4'Left'#3#176#0#6'Height'
+  +#2#25#3'Top'#2'('#5'Width'#2's'#7'Caption'#6#11'Recommencer'#7'OnClick'#7#19
+  +'butRecommencerClick'#8'TabOrder'#2#0#0#0#7'TButton'#12'butVoirObjet'#4'Left'
+  +#3#200#0#6'Height'#2#25#3'Top'#2'P'#5'Width'#2'K'#7'Caption'#6#10'Voir objet'
+  +#7'OnClick'#7#17'butVoirObjetClick'#8'TabOrder'#2#1#0#0#7'TButton'#10'butVal'
+  +'ider'#4'Left'#3#200#0#6'Height'#2#25#3'Top'#2'x'#5'Width'#2'K'#7'Caption'#6
+  +#7'Valider'#7'OnClick'#7#15'butValiderClick'#8'TabOrder'#2#2#0#0#7'TButton'
+  +#10'butAnnuler'#4'Left'#3#200#0#6'Height'#2#25#3'Top'#3#160#0#5'Width'#2'K'#7
+  +'Caption'#6#7'Annuler'#7'OnClick'#7#15'butAnnulerClick'#8'TabOrder'#2#3#0#0#0
+]);

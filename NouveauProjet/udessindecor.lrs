@@ -1,0 +1,18 @@
+{ Ceci est un fichier ressource généré automatiquement par Lazarus }
+
+LazarusResources.Add('TForm2','FORMDATA',[
+  'TPF0'#6'TForm2'#5'Form2'#4'Left'#3#232#1#6'Height'#3'F'#1#3'Top'#3#148#0#5'W'
+  +'idth'#3'k'#2#7'Caption'#6#16'Dessin du d'#195#169'cor'#12'ClientHeight'#3'F'
+  +#1#11'ClientWidth'#3'k'#2#10'LCLVersion'#6#8'0.9.26.2'#0#7'TButton'#7'Button'
+  +'1'#4'Left'#3#176#1#6'Height'#2#25#3'Top'#2' '#5'Width'#3#131#0#7'Caption'#6
+  +#11'Recommencer'#7'OnClick'#7#19'butRecommencerClick'#8'TabOrder'#2#0#0#0#7
+  +'TButton'#7'Button2'#4'Left'#3#176#1#6'Height'#2#25#3'Top'#2'X'#5'Width'#3
+  +#131#0#7'Caption'#6#11'Voir d'#195#169'cor'#7'OnClick'#7#17'butVoirDecorClic'
+  +'k'#8'TabOrder'#2#1#0#0#7'TButton'#7'Button3'#4'Left'#3#176#1#6'Height'#2#25
+  +#3'Top'#3#144#0#5'Width'#3#131#0#7'Caption'#6#7'Valider'#7'OnClick'#7#15'but'
+  +'ValiderClick'#8'TabOrder'#2#2#0#0#7'TButton'#7'Button4'#4'Left'#3#176#1#6'H'
+  +'eight'#2#25#3'Top'#3#200#0#5'Width'#3#131#0#7'Caption'#6#7'Annuler'#7'OnCli'
+  +'ck'#7#15'butAnnulerClick'#8'TabOrder'#2#3#0#0#7'TButton'#7'Button5'#4'Left'
+  +#3#176#1#6'Height'#2#25#3'Top'#3#0#1#5'Width'#3#131#0#7'Caption'#6#15'Change'
+  +'r Couleur'#8'TabOrder'#2#4#0#0#0
+]);
