@@ -51,39 +51,39 @@ implementation
 procedure TForm3.butVoirObjetClick(Sender: TObject);
 var i,j : integer;
 begin
-    TentativeSolide.RemplirForme();
-    Canvas.Clear();
-    for i:=0 to TentativeSolide.getWidth()-1 do
-        begin
-            for j:=0 to TentativeSolide.getHeight()-1 do
-                if TentativeSolide.getBoolean(i, j) = true
-                then Canvas.Pixels[i,j] := clBlack;
-            j := 0;
-        end;
+//    TentativeSolide.RemplirForme();
+//    Canvas.Clear();
+//    for i:=0 to TentativeSolide.getWidth()-1 do
+ //       begin
+//            for j:=0 to TentativeSolide.getHeight()-1 do
+//                if TentativeSolide.getBoolean(i, j) = true
+//                then Canvas.Pixels[i,j] := clBlack;
+//            j := 0;
+//        end;
 
 end;
 
 procedure TForm3.FormCreate(Sender: TObject);
 begin
-    TentativeSolide := CForme.create(Form3.width-140, Form3.height-20);  // Les differences servent a avoir la meme taille que le cadre de dessin
+//    TentativeSolide := CForme.create(Form3.width-140, Form3.height-20);  // Les differences servent a avoir la meme taille que le cadre de dessin
 end;
 
 procedure TForm3.butRecommencerClick(Sender: TObject);
 var i,j: integer;
 begin
     Canvas.Clear();
-    for i:=0 to TentativeSolide.getWidth()-1 do
-        begin
-            for j:=0 to TentativeSolide.getHeight()-1 do
-                TentativeSolide.SetBoolean(i, j, false);
-            j := 0;
-        end;
+//    for i:=0 to TentativeSolide.getWidth()-1 do
+//        begin
+//            for j:=0 to TentativeSolide.getHeight()-1 do
+//                TentativeSolide.SetBoolean(i, j, false);
+//            j := 0;
+//        end;
 end;
 
 procedure TForm3.butValiderClick(Sender: TObject);
 begin
-    TentativeSolide.RemplirForme();
-    Solide := TentativeSolide;
+//    TentativeSolide.RemplirForme();
+//    Solide := TentativeSolide;
     Form3.Close();
 end;
 
@@ -117,6 +117,7 @@ begin
         then begin
  //           Form5.Close;
             RemplirAdjacent(X,Y,Form3.Canvas.Pixels[X,Y] );
+            RemplissageEnCours := false;
         end;
      end;
 
@@ -163,7 +164,7 @@ end;
 
 procedure TForm3.FormShow(Sender: TObject);
 begin
-    TentativeSolide := CForme.create(Form3.width, Form3.height);
+//    TentativeSolide := CForme.create(Form3.width, Form3.height);
     RemplissageEnCours := false;
     DessinEnCours := false;
 end;
