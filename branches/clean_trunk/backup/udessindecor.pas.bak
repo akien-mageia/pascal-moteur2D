@@ -1,0 +1,34 @@
+unit UDessinDecor;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, FileUtil, LResources, Forms, Controls, Graphics, Dialogs,
+  StdCtrls;
+
+type
+
+  { TForm3 }
+
+  TForm3 = class(TForm)
+    ButRecommencer: TButton;
+    ButValider: TButton;
+    ButAnnuler: TButton;
+  private
+    { private declarations }
+  public
+    { public declarations }
+  end; 
+
+var
+  Form3: TForm3; 
+
+implementation
+
+initialization
+  {$I udessindecor.lrs}
+
+end.
+
