@@ -1,0 +1,37 @@
+object Form3: TForm3
+  Left = 290
+  Height = 300
+  Top = 175
+  Width = 599
+  Caption = 'Dessin du décor'
+  ClientHeight = 300
+  ClientWidth = 599
+  LCLVersion = '0.9.28.2'
+  object ButRecommencer: TButton
+    Left = 456
+    Height = 25
+    Top = 16
+    Width = 123
+    Caption = 'Recommencer'
+    OnClick = ButRecommencerClick
+    TabOrder = 0
+  end
+  object ButValider: TButton
+    Left = 456
+    Height = 25
+    Top = 56
+    Width = 123
+    Caption = 'Valider'
+    OnClick = ButValiderClick
+    TabOrder = 1
+  end
+  object ButAnnuler: TButton
+    Left = 456
+    Height = 25
+    Top = 96
+    Width = 123
+    Caption = 'Annuler'
+    OnClick = ButAnnulerClick
+    TabOrder = 2
+  end
+end

@@ -1,0 +1,16 @@
+LazarusResources.Add('TForm2','FORMDATA',[
+  'TPF0'#6'TForm2'#5'Form2'#4'Left'#3#244#1#6'Height'#3#240#0#3'Top'#3#7#1#5'Wi'
+  +'dth'#3#139#1#7'Caption'#6#17'Dessin de l''objet'#12'ClientHeight'#3#240#0#11
+  +'ClientWidth'#3#139#1#8'OnCreate'#7#10'FormCreate'#11'OnMouseDown'#7#13'Form'
+  +'MouseDown'#11'OnMouseMove'#7#13'FormMouseMove'#9'OnMouseUp'#7#11'FormMouseU'
+  +'p'#6'OnShow'#7#8'FormShow'#10'LCLVersion'#6#8'0.9.28.2'#0#7'TButton'#14'But'
+  +'Recommencer'#4'Left'#3#0#1#6'Height'#2#25#3'Top'#2#16#5'Width'#2'{'#7'Capti'
+  +'on'#6#11'Recommencer'#7'OnClick'#7#19'ButRecommencerClick'#8'TabOrder'#2#0#0
+  +#0#7'TButton'#12'ButVoirObjet'#4'Left'#3#0#1#6'Height'#2#25#3'Top'#2'8'#5'Wi'
+  +'dth'#2'{'#7'Caption'#6#12'Voir l''objet'#7'OnClick'#7#17'ButVoirObjetClick'
+  +#8'TabOrder'#2#1#0#0#7'TButton'#10'ButValider'#4'Left'#3#0#1#6'Height'#2#25#3
+  +'Top'#2'`'#5'Width'#2'{'#7'Caption'#6#7'Valider'#7'OnClick'#7#15'ButValiderC'
+  +'lick'#8'TabOrder'#2#2#0#0#7'TButton'#10'ButAnnuler'#4'Left'#3#0#1#6'Height'
+  +#2#25#3'Top'#3#136#0#5'Width'#2'{'#7'Caption'#6#7'Annuler'#7'OnClick'#7#15'B'
+  +'utAnnulerClick'#8'TabOrder'#2#3#0#0#0
+]);
