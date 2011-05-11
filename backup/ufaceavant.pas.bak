@@ -54,6 +54,9 @@ end;
 procedure TForm1.ButDessinDecorClick(Sender: TObject);
 begin
     Form3.Show;
+    Form3.Canvas.Pen.Color := clBlack;
+    Form3.Canvas.Pen.Width := 1;
+    Form3.Canvas.Line(100, 100, 200, 300);
 end;
 
 initialization
