@@ -3,6 +3,7 @@ object Form2: TForm2
   Height = 240
   Top = 263
   Width = 395
+  ActiveControl = ButRecommencer
   Caption = 'Dessin de l''objet'
   ClientHeight = 240
   ClientWidth = 395

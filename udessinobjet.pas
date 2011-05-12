@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, LResources, Forms, Controls, Graphics, Dialogs,
-  StdCtrls, ExtCtrls, UForme;
+  StdCtrls, ExtCtrls, UForme, FPImage, intfGraphics, LCLType;
 
 type
 
@@ -42,6 +42,8 @@ var
   TentativeSolide : CForme;
   Solide: CForme;
   X0, Y0: integer;
+  FormeBMP: TBitmap;
+  FormeLII: TLazIntfImage;
 
 implementation
 
@@ -65,10 +67,22 @@ begin
 end;
 
 procedure TForm2.ButValiderClick(Sender: TObject);
+var i,j : integer;
 begin
 //    TentativeSolide.RemplirForme();
 //    Solide := TentativeSolide;
-    Form2.Close();
+      FormeBMP := TBitmap.Create;
+      FormeBMP.LoadFromFile('forme.bmp');
+      FormeLII := FormeBMP.CreateIntfImage;
+      for i:=0 to FormeLII.Width-1 do
+        begin
+            for j:=0 to FormeLII.Height-1 do
+                if Canvas.Pixels[i+10,j+10] = clBlack
+                then FormeLII.Colors[i,j] := colBlack;
+                j:=0;
+        end;
+      FormeBMP.LoadFromIntfImage(FormeLII);
+      Form2.Close();
 end;
 
 procedure TForm2.ButVoirObjetClick(Sender: TObject);
