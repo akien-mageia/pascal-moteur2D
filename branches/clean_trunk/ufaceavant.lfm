@@ -47,6 +47,7 @@ object Form1: TForm1
     Top = 232
     Width = 160
     Caption = 'Lancer la simulation'
+    OnClick = ButLancerSimClick
     TabOrder = 3
   end
   object ButQuitter: TButton
