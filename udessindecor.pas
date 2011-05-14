@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, LResources, Forms, Controls, Graphics, Dialogs,
-  StdCtrls, ExtCtrls, ColorBox;
+  StdCtrls, ExtCtrls, ColorBox, FPImage, intfGraphics, LCLType;
 
 type
 
@@ -63,6 +63,8 @@ type
 var
   Form3: TForm3;
   DessinEnCours, DejaActive: boolean;
+  DecorBMP: TBitmap;
+  DecorLII: TLazIntfImage;
 
 const
   XPADDING = 25;         // marge autour du cadre de dessin suivant X
@@ -90,8 +92,26 @@ begin
 end;
 
 procedure TForm3.ButValiderClick(Sender: TObject);
+var i,j : integer;
 begin
-
+   DecorBMP := TBitmap.Create;
+   DecorBMP.LoadFromFile('decor.bmp');
+   DecorLII := DecorBMP.CreateIntfImage;
+      for i:=0 to DecorLII.Width-1 do
+        begin
+            for j:=0 to DecorLII.Height-1 do
+                Case Canvas.Pixels[i+XPADDING,j+XPADDING] of
+                clGreen: DecorLII.Colors[i,j] := colGreen;
+                clFuchsia: DecorLII.Colors[i,j] := colFuchsia;
+                clYellow: DecorLII.Colors[i,j] := colYellow;
+                clTeal: DecorLII.Colors[i,j] := colTeal;
+                clGray: DecorLII.Colors[i,j] := colGray;
+                clMaroon: DecorLII.Colors[i,j] := colMaroon;
+                end;
+                j:=0;
+        end;
+      DecorBMP.LoadFromIntfImage(DecorLII);
+      Form3.Close();
 end;
 
 procedure TForm3.FormActivate(Sender: TObject);

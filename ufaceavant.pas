@@ -24,6 +24,7 @@ type
     procedure ButLancerSimClick(Sender: TObject);
     procedure ButParamPhysClick(Sender: TObject);
     procedure ButQuitterClick(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
   private
     { private declarations }
   public
@@ -51,6 +52,7 @@ begin
  r.right:=Image1.width;
  Image1.canvas.Pen.color := clWhite;
  Image1.canvas.FillRect(r);
+ Image1.canvas.Draw(0,0,DecorBMP);
  Image1.canvas.Draw(100,100,FormeBMP);
 end;
 
@@ -64,6 +66,11 @@ begin
      FormeLII.Free;
      FormeBMP.Free;
      Close();
+end;
+
+procedure TForm1.Image1Click(Sender: TObject);
+begin
+
 end;
 
 procedure TForm1.ButDessinDecorClick(Sender: TObject);

@@ -1,18 +1,19 @@
 object Form1: TForm1
   Left = 307
-  Height = 396
+  Height = 492
   Top = 194
   Width = 836
   ActiveControl = ButDessinObjet
   Caption = 'Simulateur de mouvement'
-  ClientHeight = 396
+  ClientHeight = 492
   ClientWidth = 836
   LCLVersion = '0.9.28.2'
   object Image1: TImage
-    Left = 25
-    Height = 328
-    Top = 27
-    Width = 588
+    Left = 80
+    Height = 450
+    Top = 16
+    Width = 485
+    OnClick = Image1Click
   end
   object ButDessinObjet: TButton
     Left = 648
