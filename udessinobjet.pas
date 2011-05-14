@@ -34,7 +34,9 @@ type
     { public declarations }
   end; 
 
-procedure RemplirAdjacent(aX,aY: integer);
+//procedure RemplirAdjacent(aX,aY: integer);
+procedure RemplissageParLigne(aXSeed,aYSeed,aOldColor,aNewColor: integer);
+//procedure CalculDimDessin();
 
 var
   Form2: TForm2;
@@ -42,6 +44,7 @@ var
   TentativeSolide : CForme;
   Solide: CForme;
   X0, Y0: integer;
+//  DessinHauteur,DessinLargeur: integer;
   FormeBMP: TBitmap;
   FormeLII: TLazIntfImage;
 
@@ -123,6 +126,7 @@ end;
 
 procedure TForm2.FormMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
+var oldColor: integer;
 begin
     if RemplissageEnCours = false
     then begin
@@ -144,26 +148,146 @@ begin
     else begin
         if ((X<Form2.Width-130) and (Y<Form2.Height-10) and (X>10) and (Y>10))// and (Canvas.Pixels[X,Y] = clBtnFace))
         then begin
-            RemplirAdjacent(X,Y);
+            oldColor := Form2.Canvas.Pixels[X,Y];
+            RemplissageParLigne(X,Y,oldColor,clBlack);
             RemplissageEnCours := false;
         end;
     end;
 end;
 
-procedure RemplirAdjacent(aX,aY: integer);
+//procedure CalculDimDessin();
+//var i,j,X1,X2,Y1,Y2: integer;
+//    trouve: boolean;
+//begin
+//    i:=0;
+//    trouve:=false;
+//    // Parcours en lignes verticales a partir de la gauche pour trouver le premier point du dessin
+//    while ((i<Form2.Width-131) and (trouve = false)) do begin
+//        for j:=0 to Form2.Height-11 do
+//            if Form2.Canvas.Pixels[i,j] = clBlack
+//            then begin
+//                trouve := true;
+//                X1:=i;
+//                end;
+//        i := i+1;
+//        end;
+//
+//    i:=Form2.Width-130;
+//    trouve:=false;
+//    // Parcours en lignes verticales a partir de la droite pour trouver le dernier point du dessin
+//    while ((i>0) and (trouve = false)) do begin
+//        for j:=0 to Form2.Height-11 do
+//            if Form2.Canvas.Pixels[i,j] = clBlack
+//            then begin
+//                trouve := true;
+//                X2:=i;
+//                end;
+//        i := i-1;
+//        end;
+//
+//    j:=0;
+//    trouve:=false;
+//    // Parcours en lignes horizontales partir du haut pour trouver le premier point du dessin
+//    while ((j<Form2.Height-11) and (trouve = false)) do begin
+//        for i:=0 to Form2.Width-131 do
+//            if Form2.Canvas.Pixels[i,j] = clBlack
+//            then begin
+//                trouve := true;
+//                Y1:=j;
+//                end;
+//        j := i+1;
+//        end;
+//
+//    j:=Form2.Height-10;
+//    trouve:=false;
+//    // Parcours en lignes horizontales partir du bas pour trouver le dernier point du dessin
+//    while ((j>0) and (trouve = false)) do begin
+//        for i:=0 to Form2.Width-131 do
+//            if Form2.Canvas.Pixels[i,j] = clBlack
+//            then begin
+//                trouve := true;
+//                Y2:=j;
+//                end;
+//        j := i-1;
+//        end;
+//
+//    DessinHauteur := Y2-Y1+1;
+//    DessinLargeur := X2-X1+1;
+//end;
+//
+//procedure RemplirAdjacent(aX,aY: integer);
+//begin
+//    if Form2.Canvas.Pixels[aX,aY] <> clBlack
+//    then begin
+//        Form2.Canvas.Pixels[aX,aY] := clBlack;
+//        if (Form2.Canvas.Pixels[aX-1,aY] <> clBlack) and (aX>11)
+//        then RemplirAdjacent(aX-1,aY);
+//        if (Form2.Canvas.Pixels[aX,aY-1] <> clBlack) and (aY>11)
+//        then RemplirAdjacent(aX,aY-1);
+//        if (Form2.Canvas.Pixels[aX+1,aY] <> clBlack) and (aX<Form2.Width-131)
+//        then RemplirAdjacent(aX+1,aY);
+//        if (Form2.Canvas.Pixels[aX,aY+1] <> clBlack) and (aY<Form2.Height-11)
+//        then RemplirAdjacent(aX,aY+1);
+//    end;
+//end;
+
+procedure RemplissageParLigne(aXSeed,aYSeed,aOldColor,aNewColor: integer);
+// Cette procedure permet de transformer un ensemble connexe de couleur aOldColor
+// en un nouvel ensemble connexe de couleur aNewColor
+var Y: integer;
 begin
-    if Form2.Canvas.Pixels[aX,aY] <> clBlack
-    then begin
-        Form2.Canvas.Pixels[aX,aY] := clBlack;
-        if (Form2.Canvas.Pixels[aX-1,aY] <> clBlack) and (aX>11)
-        then RemplirAdjacent(aX-1,aY);
-        if (Form2.Canvas.Pixels[aX,aY-1] <> clBlack) and (aY>11)
-        then RemplirAdjacent(aX,aY-1);
-        if (Form2.Canvas.Pixels[aX+1,aY] <> clBlack) and (aX<Form2.Width-131)
-        then RemplirAdjacent(aX+1,aY);
-        if (Form2.Canvas.Pixels[aX,aY+1] <> clBlack) and (aY<Form2.Height-11)
-        then RemplirAdjacent(aX,aY+1);
-    end;
+    // On verifie que l'on appelle pas la procedure pour rien
+    if (aOldColor = aNewColor) then Exit;
+    // On verifie que le pixel graine est de la couleur qui doit changer
+    if (Form2.Canvas.Pixels[aXSeed,aYSeed] <> aOldColor) then Exit;
+
+    // Dessin du segment vertical au dessus du pixel graine (inclus)
+    Y := aYSeed;
+    while ((Y<Form2.Height) and (Form2.Canvas.Pixels[aXSeed,Y] = aOldColor)) do
+        begin
+        Form2.Canvas.Pixels[aXSeed,Y] := aNewColor;
+        Y := Y+1;
+        end;
+
+    // Dessin du segment vertical en dessous du pixel graine (non inclus)
+    Y := aYSeed-1;
+    while ((Y>=0) and (Form2.Canvas.Pixels[aXSeed,Y] = aOldColor)) do
+        begin
+        Form2.Canvas.Pixels[aXSeed,Y] := aNewColor;
+        Y := Y-1;
+        end;
+
+    // Recherche de potentiels segments a gauche et recursivite
+    Y := aYSeed;
+    while ((Y<Form2.Height) and (Form2.Canvas.Pixels[aXSeed,Y] = aNewColor)) do
+        begin
+        if ((aXSeed>0) and (Form2.Canvas.Pixels[aXSeed-1,Y] = aOldColor))
+            then RemplissageParLigne(aXSeed-1, Y, aOldColor, aNewColor);
+        Y := Y+1;
+        end;
+    Y := aYSeed-1;
+    while ((Y>=0) and (Form2.Canvas.Pixels[aXSeed,Y] = aNewColor)) do
+        begin
+        if ((aXSeed>0) and (Form2.Canvas.Pixels[aXSeed-1,Y] = aOldColor))
+            then RemplissageParLigne(aXSeed-1, Y, aOldColor, aNewColor);
+        Y := Y-1;
+        end;
+
+    // Recherche de potentiels segments a droite et recursivite
+    Y := aYSeed;
+    while ((Y<Form2.Height) and (Form2.Canvas.Pixels[aXSeed,Y] = aNewColor)) do
+        begin
+        if ((aXSeed<Form2.Width-1) and (Form2.Canvas.Pixels[aXSeed+1,Y] = aOldColor))
+            then RemplissageParLigne(aXSeed+1, Y, aOldColor, aNewColor);
+        Y := Y+1;
+        end;
+    Y := aYSeed-1;
+    while ((Y>=0) and (Form2.Canvas.Pixels[aXSeed,Y] = aNewColor)) do
+        begin
+        if ((aXSeed<Form2.Width-1) and (Form2.Canvas.Pixels[aXSeed+1,Y] = aOldColor))
+            then RemplissageParLigne(aXSeed+1, Y, aOldColor, aNewColor);
+        Y := Y-1;
+        end;
 end;
 
 procedure TForm2.FormMouseMove(Sender: TObject; Shift: TShiftState; X,
