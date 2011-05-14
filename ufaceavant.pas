@@ -19,12 +19,15 @@ type
     ButLancerSim: TButton;
     ButQuitter: TButton;
     Image1: TImage;
+    Timer1: TTimer;
     procedure ButDessinDecorClick(Sender: TObject);
     procedure ButDessinObjetClick(Sender: TObject);
     procedure ButLancerSimClick(Sender: TObject);
     procedure ButParamPhysClick(Sender: TObject);
     procedure ButQuitterClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
     procedure Image1Click(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
   private
     { private declarations }
   public
@@ -32,7 +35,8 @@ type
   end; 
 
 var
-  Form1: TForm1; 
+  Form1: TForm1;
+  SimulationEnCours : boolean;
 
 implementation
 
@@ -44,16 +48,8 @@ begin
 end;
 
 procedure TForm1.ButLancerSimClick(Sender: TObject);
-var r : TRect;
 begin
- r.top:=0;
- r.bottom:=Image1.height;
- r.left:=0;
- r.right:=Image1.width;
- Image1.canvas.Pen.color := clWhite;
- Image1.canvas.FillRect(r);
- Image1.canvas.Draw(0,0,DecorBMP);
- Image1.canvas.Draw(100,100,FormeBMP);
+     SimulationEnCours := true;
 end;
 
 procedure TForm1.ButParamPhysClick(Sender: TObject);
@@ -68,9 +64,25 @@ begin
      Close();
 end;
 
+procedure TForm1.FormShow(Sender: TObject);
+begin
+  SimulationEnCours := false;
+end;
+
 procedure TForm1.Image1Click(Sender: TObject);
 begin
 
+end;
+
+procedure TForm1.Timer1Timer(Sender: TObject);
+begin
+  if (SimulationEnCours) then
+  begin
+    FormeBMP.Transparent := True;
+    FormeBMP.TransparentColor := clWhite;
+    Image1.canvas.Draw(0,0,DecorBMP);
+    Image1.canvas.Draw(100,100,FormeBMP);
+  end;
 end;
 
 procedure TForm1.ButDessinDecorClick(Sender: TObject);

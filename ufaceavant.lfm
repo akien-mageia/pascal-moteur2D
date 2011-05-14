@@ -7,6 +7,7 @@ object Form1: TForm1
   Caption = 'Simulateur de mouvement'
   ClientHeight = 492
   ClientWidth = 836
+  OnShow = FormShow
   LCLVersion = '0.9.28.2'
   object Image1: TImage
     Left = 80
@@ -59,5 +60,10 @@ object Form1: TForm1
     Caption = 'Quitter'
     OnClick = ButQuitterClick
     TabOrder = 4
+  end
+  object Timer1: TTimer
+    OnTimer = Timer1Timer
+    left = 40
+    top = 32
   end
 end
