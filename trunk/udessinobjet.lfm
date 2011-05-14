@@ -6,7 +6,6 @@ object Form2: TForm2
   Caption = 'Dessin de l''objet'
   ClientHeight = 250
   ClientWidth = 400
-  OnCreate = FormCreate
   OnMouseUp = FormMouseUp
   OnShow = FormShow
   LCLVersion = '0.9.28.2'

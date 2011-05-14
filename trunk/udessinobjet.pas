@@ -21,7 +21,6 @@ type
     procedure ButAnnulerClick(Sender: TObject);
     procedure ButRecommencerClick(Sender: TObject);
     procedure ButValiderClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
     procedure FormMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure FormShow(Sender: TObject);
@@ -37,8 +36,7 @@ type
 var
   Form2: TForm2;
   DessinEnCours, RemplissageEnCours : boolean;
-//  TentativeSolide : CForme;
-//  Solide: CForme;
+  Solide: CForme;
   X0, Y0: integer;
   FormeBMP: TBitmap;
 
@@ -58,21 +56,28 @@ begin
 end;
 
 procedure TForm2.ButValiderClick(Sender: TObject);
+var i,j: integer;
 begin
+    //// Creation de la forme
+    //Solide := CForme.Create(Img.Width, Img.Height);
+    //// Remplissage de la forme
+    //for i:=0 to Solide.getWidth()-1 do
+    //    for j:=0 to Solide.getHeight()-1 do
+    //        if ((Img.Canvas.Pixels[i,j] = clBlack) or (Img.Canvas.Pixels[i,j] = clGray))
+    //        then Solide.setBoolean(i,j,true)
+    //        else Solide.setBoolean(i,j,false);
+
+    // Copie du Bitmap
     FormeBMP := Img.Picture.Bitmap;
     Form2.Close();
 end;
 
-procedure TForm2.FormCreate(Sender: TObject);
-begin
-//    TentativeSolide := CForme.create(Form2.width-140, Form2.height-20);  // Les differences servent a avoir la meme taille que le cadre de dessin
-end;
-
 procedure TForm2.FormShow(Sender: TObject);
 begin
-//    TentativeSolide := CForme.create(Form2.width, Form2.height);
+    // Initialisation des variables booleenes
     RemplissageEnCours := false;
     DessinEnCours := false;
+    // Initialisation du canevas
     Img.Canvas.Clear();
     Img.Canvas.Clear();   // Ce n'est pas une erreur, une seule instruction n'est pas suffisante
 end;
@@ -92,10 +97,6 @@ begin
                 Y0 := Y;
                 Img.Canvas.MoveTo(X,Y);
                 Img.Canvas.Pixels[X,Y] := clBlack;
-//                TentativeSolide.SetBoolean(X,Y,true);
-//                TentativeSolide.SetBoolean(X,Y-1,true);
-//                TentativeSolide.SetBoolean(X-1,Y,true);
-//                TentativeSolide.SetBoolean(X-1,Y-1,true);
             end;
         end
     else begin
@@ -112,6 +113,8 @@ end;
 procedure TForm2.RemplissageParLigne(aXSeed,aYSeed,aOldColor,aNewColor: integer);
 // Cette procedure permet de transformer un ensemble connexe de couleur aOldColor
 // en un nouvel ensemble connexe de couleur aNewColor
+// Adaptee d'une procedure en C sur le Scanline Flood Fill:
+// http://www.academictutorials.com/graphics/graphics-flood-fill.asp
 var Y: integer;
 begin
     // On verifie que l'on appelle pas la procedure pour rien
@@ -175,10 +178,6 @@ begin
         Img.Canvas.Pen.Color:=clBlack;
         Img.Canvas.Pen.Width:=2;
         Img.Canvas.LineTo(x,y);
-//          TentativeSolide.SetBoolean(X,Y,true);
-//          TentativeSolide.SetBoolean(X,Y-1,true);
-//          TentativeSolide.SetBoolean(X-1,Y,true);
-//          TentativeSolide.SetBoolean(X-1,Y-1,true);
     end;
 
 end;
