@@ -97,7 +97,7 @@ begin
       for i:=0 to FormeLII.Width-1 do
         begin
             for j:=0 to FormeLII.Height-1 do
-                if Canvas.Pixels[i+10,j+10] = clBlack
+                if (Canvas.Pixels[i+10,j+10] = clBlack) or (Canvas.Pixels[i+10,j+10] = clGray)
                 then FormeLII.Colors[i,j] := colBlack;
                 j:=0;
         end;
@@ -149,7 +149,7 @@ begin
         if ((X<Form2.Width-130) and (Y<Form2.Height-10) and (X>10) and (Y>10))// and (Canvas.Pixels[X,Y] = clBtnFace))
         then begin
             oldColor := Form2.Canvas.Pixels[X,Y];
-            RemplissageParLigne(X,Y,oldColor,clBlack);
+            RemplissageParLigne(X,Y,oldColor,clGray);
             RemplissageEnCours := false;
         end;
     end;
