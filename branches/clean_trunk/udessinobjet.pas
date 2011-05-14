@@ -68,11 +68,28 @@ end;
 
 procedure TForm2.ButValiderClick(Sender: TObject);
 var i,j : integer;
+
+// BlancDroite, BlancGauche, BlancHaut, BlancBas, BlancDroiteProvisoire,
+//BlancGaucheProvisoire, BlancHautProvisoire, BlancBasProvisoire  : integer;
 begin
-//    TentativeSolide.RemplirForme();
-//    Solide := TentativeSolide;
       FormeBMP := TBitmap.Create;
       FormeBMP.LoadFromFile('forme.bmp');
+
+  {    for i:= 0 to 225-1 do
+      begin
+           BlancHaut:=220;
+           BlancBas:=220;
+           j:=0;
+           While (Canvas.Pixels[i+10,j+10] <> clBlack) and (j<220) do
+           j:=j+1;
+           if j<BlancHaut then BlancHaut:=j;
+           j:=0;
+           While (Canvas.Pixels[i+10,220-j] <> clBlack) and (j<220) do
+           j:=j+1;
+           if j<BlancBas then BlancBas:=j;
+      end;
+      FormeBMP.Height := 220; }
+
       FormeLII := FormeBMP.CreateIntfImage;
       for i:=0 to FormeLII.Width-1 do
         begin

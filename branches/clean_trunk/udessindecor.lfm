@@ -3,7 +3,7 @@ object Form3: TForm3
   Height = 500
   Top = 200
   Width = 700
-  ActiveControl = PanelButtons
+  ActiveControl = PanelColors
   Caption = 'Dessin du décor'
   ClientHeight = 500
   ClientWidth = 700
