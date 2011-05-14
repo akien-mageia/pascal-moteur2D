@@ -1,0 +1,69 @@
+object Form1: TForm1
+  Left = 307
+  Height = 492
+  Top = 194
+  Width = 836
+  ActiveControl = ButDessinObjet
+  Caption = 'Simulateur de mouvement'
+  ClientHeight = 492
+  ClientWidth = 836
+  OnShow = FormShow
+  LCLVersion = '0.9.28.2'
+  object Image1: TImage
+    Left = 80
+    Height = 450
+    Top = 16
+    Width = 485
+    OnClick = Image1Click
+  end
+  object ButDessinObjet: TButton
+    Left = 648
+    Height = 25
+    Top = 40
+    Width = 160
+    Caption = 'Dessin de l''objet'
+    OnClick = ButDessinObjetClick
+    TabOrder = 0
+  end
+  object ButDessinDecor: TButton
+    Left = 648
+    Height = 25
+    Top = 104
+    Width = 160
+    Caption = 'Dessin du decor'
+    OnClick = ButDessinDecorClick
+    TabOrder = 1
+  end
+  object ButParamPhys: TButton
+    Left = 648
+    Height = 25
+    Top = 168
+    Width = 160
+    Caption = 'Paramètres physiques'
+    OnClick = ButParamPhysClick
+    TabOrder = 2
+  end
+  object ButLancerSim: TButton
+    Left = 648
+    Height = 40
+    Top = 232
+    Width = 160
+    Caption = 'Lancer la simulation'
+    OnClick = ButLancerSimClick
+    TabOrder = 3
+  end
+  object ButQuitter: TButton
+    Left = 648
+    Height = 41
+    Top = 312
+    Width = 160
+    Caption = 'Quitter'
+    OnClick = ButQuitterClick
+    TabOrder = 4
+  end
+  object Timer1: TTimer
+    OnTimer = Timer1Timer
+    left = 40
+    top = 32
+  end
+end

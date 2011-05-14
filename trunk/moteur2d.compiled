@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <Compiler Value="/usr/bin/fpc" Date="1262976170"/>
+  <Params Value=" -MObjFPC -Scgi -O1 -gl -WG -vewnhi -l -Fi/home/remi/Documents/Programmation/Projet/2010_pascal_moteur_2D/trunk/ -Fu/usr/lib/lazarus/lcl/units/i386-linux/ -Fu/usr/lib/lazarus/lcl/units/i386-linux/gtk2/ -Fu/usr/lib/lazarus/packager/units/i386-linux/ -Fu/home/remi/Documents/Programmation/Projet/2010_pascal_moteur_2D/trunk/ -Fu. -FE/home/remi/Documents/Programmation/Projet/2010_pascal_moteur_2D/trunk/ -omoteur2d -dLCL -dLCLgtk2 moteur2d.lpr"/>
+</CONFIG>

@@ -1,0 +1,52 @@
+object Form2: TForm2
+  Left = 500
+  Height = 240
+  Top = 263
+  Width = 395
+  ActiveControl = ButRecommencer
+  Caption = 'Dessin de l''objet'
+  ClientHeight = 240
+  ClientWidth = 395
+  OnCreate = FormCreate
+  OnMouseDown = FormMouseDown
+  OnMouseMove = FormMouseMove
+  OnMouseUp = FormMouseUp
+  OnShow = FormShow
+  LCLVersion = '0.9.28.2'
+  object ButRecommencer: TButton
+    Left = 256
+    Height = 25
+    Top = 16
+    Width = 123
+    Caption = 'Recommencer'
+    OnClick = ButRecommencerClick
+    TabOrder = 0
+  end
+  object ButVoirObjet: TButton
+    Left = 256
+    Height = 25
+    Top = 56
+    Width = 123
+    Caption = 'Voir l''objet'
+    OnClick = ButVoirObjetClick
+    TabOrder = 1
+  end
+  object ButValider: TButton
+    Left = 256
+    Height = 25
+    Top = 96
+    Width = 123
+    Caption = 'Valider'
+    OnClick = ButValiderClick
+    TabOrder = 2
+  end
+  object ButAnnuler: TButton
+    Left = 256
+    Height = 25
+    Top = 136
+    Width = 123
+    Caption = 'Annuler'
+    OnClick = ButAnnulerClick
+    TabOrder = 3
+  end
+end

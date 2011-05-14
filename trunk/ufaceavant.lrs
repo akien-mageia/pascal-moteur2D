@@ -1,0 +1,23 @@
+{ This is an automatically generated lazarus resource file }
+
+LazarusResources.Add('TForm1','FORMDATA',[
+  'TPF0'#6'TForm1'#5'Form1'#4'Left'#3'3'#1#6'Height'#3#236#1#3'Top'#3#194#0#5'W'
+  +'idth'#3'D'#3#13'ActiveControl'#7#14'ButDessinObjet'#7'Caption'#6#23'Simulat'
+  +'eur de mouvement'#12'ClientHeight'#3#236#1#11'ClientWidth'#3'D'#3#6'OnShow'
+  +#7#8'FormShow'#10'LCLVersion'#6#8'0.9.28.2'#0#6'TImage'#6'Image1'#4'Left'#2
+  +'P'#6'Height'#3#194#1#3'Top'#2#16#5'Width'#3#229#1#7'OnClick'#7#11'Image1Cli'
+  +'ck'#0#0#7'TButton'#14'ButDessinObjet'#4'Left'#3#136#2#6'Height'#2#25#3'Top'
+  +#2'('#5'Width'#3#160#0#7'Caption'#6#17'Dessin de l''objet'#7'OnClick'#7#19'B'
+  +'utDessinObjetClick'#8'TabOrder'#2#0#0#0#7'TButton'#14'ButDessinDecor'#4'Lef'
+  +'t'#3#136#2#6'Height'#2#25#3'Top'#2'h'#5'Width'#3#160#0#7'Caption'#6#15'Dess'
+  +'in du decor'#7'OnClick'#7#19'ButDessinDecorClick'#8'TabOrder'#2#1#0#0#7'TBu'
+  +'tton'#12'ButParamPhys'#4'Left'#3#136#2#6'Height'#2#25#3'Top'#3#168#0#5'Widt'
+  +'h'#3#160#0#7'Caption'#6#21'Param'#195#168'tres physiques'#7'OnClick'#7#17'B'
+  +'utParamPhysClick'#8'TabOrder'#2#2#0#0#7'TButton'#12'ButLancerSim'#4'Left'#3
+  +#136#2#6'Height'#2'('#3'Top'#3#232#0#5'Width'#3#160#0#7'Caption'#6#20'Lancer'
+  +' la simulation'#7'OnClick'#7#17'ButLancerSimClick'#8'TabOrder'#2#3#0#0#7'TB'
+  +'utton'#10'ButQuitter'#4'Left'#3#136#2#6'Height'#2')'#3'Top'#3'8'#1#5'Width'
+  +#3#160#0#7'Caption'#6#7'Quitter'#7'OnClick'#7#15'ButQuitterClick'#8'TabOrder'
+  +#2#4#0#0#6'TTimer'#6'Timer1'#7'OnTimer'#7#11'Timer1Timer'#4'left'#2'('#3'top'
+  +#2' '#0#0#0
+]);
