@@ -1,19 +1,24 @@
 object Form3: TForm3
-  Left = 200
+  Left = 343
   Height = 500
-  Top = 200
+  Top = 206
   Width = 700
   ActiveControl = PanelColors
   Caption = 'Dessin du décor'
   ClientHeight = 500
   ClientWidth = 700
-  OnActivate = FormActivate
-  OnCreate = FormCreate
-  OnMouseDown = FormMouseDown
-  OnMouseMove = FormMouseMove
   OnMouseUp = FormMouseUp
   OnShow = FormShow
   LCLVersion = '0.9.28.2'
+  object Img: TImage
+    Left = 25
+    Height = 450
+    Top = 25
+    Width = 485
+    OnMouseDown = ImgMouseDown
+    OnMouseMove = ImgMouseMove
+    OnMouseUp = FormMouseUp
+  end
   object PanelButtons: TPanel
     Left = 535
     Height = 140

@@ -59,14 +59,12 @@ end;
 
 procedure TForm1.ButQuitterClick(Sender: TObject);
 begin
-     FormeLII.Free;
-     FormeBMP.Free;
-     Close();
+     Halt;
 end;
 
 procedure TForm1.FormShow(Sender: TObject);
 begin
-  SimulationEnCours := false;
+    SimulationEnCours := false;
 end;
 
 procedure TForm1.Image1Click(Sender: TObject);

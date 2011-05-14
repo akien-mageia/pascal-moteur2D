@@ -17,6 +17,7 @@ type
     ButValider: TButton;
     ButAnnuler: TButton;
     ColorBox1: TColorBox;
+    Img: TImage;
     LabelPlastic: TLabel;
     LabelSand: TLabel;
     LabelGrass: TLabel;
@@ -34,14 +35,12 @@ type
     procedure ButAnnulerClick(Sender: TObject);
     procedure ButRecommencerClick(Sender: TObject);
     procedure ButValiderClick(Sender: TObject);
-    procedure FormActivate(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
-    procedure FormMouseDown(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: Integer);
-    procedure FormMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
     procedure FormMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure FormShow(Sender: TObject);
+    procedure ImgMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure ImgMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
     procedure ShapeGrassMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure ShapePlasticMouseDown(Sender: TObject; Button: TMouseButton;
@@ -62,13 +61,8 @@ type
 
 var
   Form3: TForm3;
-  DessinEnCours, DejaActive: boolean;
+  DessinEnCours: boolean;
   DecorBMP: TBitmap;
-  DecorLII: TLazIntfImage;
-
-const
-  XPADDING = 25;         // marge autour du cadre de dessin suivant X
-  YPADDING = 25;         // marge autour du cadre de dessin suivant Y
 
 implementation
 
@@ -76,14 +70,10 @@ implementation
 
 procedure TForm3.ButRecommencerClick(Sender: TObject);
 begin
-    Canvas.Clear();
-    // Dessin d'un cadre fin autour de la zone de dessin
-    Canvas.Pen.Color := clBlack;
-    Canvas.Pen.Width := 1;
-    Canvas.Rectangle(XPADDING, YPADDING, Form3.Width-PanelButtons.Width-2*XPADDING, Form3.Height-YPADDING);
+    Img.Canvas.Clear();
     // Valeurs par défaut pour le dessin (matériau pierre)
-    Canvas.Pen.Color := clGray;
-    Canvas.Pen.Width := 2;
+    Img.Canvas.Pen.Color := clGray;
+    Img.Canvas.Pen.Width := 2;
 end;
 
 procedure TForm3.ButAnnulerClick(Sender: TObject);
@@ -94,66 +84,8 @@ end;
 procedure TForm3.ButValiderClick(Sender: TObject);
 var i,j : integer;
 begin
-   DecorBMP := TBitmap.Create;
-   DecorBMP.LoadFromFile('decor.bmp');
-   DecorLII := DecorBMP.CreateIntfImage;
-      for i:=0 to DecorLII.Width-1 do
-        begin
-            for j:=0 to DecorLII.Height-1 do
-                Case Canvas.Pixels[i+XPADDING,j+XPADDING] of
-                clGreen: DecorLII.Colors[i,j] := colGreen;
-                clFuchsia: DecorLII.Colors[i,j] := colFuchsia;
-                clYellow: DecorLII.Colors[i,j] := colYellow;
-                clTeal: DecorLII.Colors[i,j] := colTeal;
-                clGray: DecorLII.Colors[i,j] := colGray;
-                clMaroon: DecorLII.Colors[i,j] := colMaroon;
-                end;
-                j:=0;
-        end;
-      DecorBMP.LoadFromIntfImage(DecorLII);
-      Form3.Close();
-end;
-
-procedure TForm3.FormActivate(Sender: TObject);
-begin
-
-end;
-
-procedure TForm3.FormCreate(Sender: TObject);
-begin
-end;
-
-procedure TForm3.FormMouseDown(Sender: TObject; Button: TMouseButton;
-  Shift: TShiftState; X, Y: Integer);
-begin
-    if ((X<Form3.Width-2*XPADDING-PanelButtons.Width) and (Y<Form3.Height) and (X>XPADDING) and (Y>YPADDING))
-    // pour X: marge avant le Panel, taille du Panel, marge après le Panel
-    then begin
-        DessinEnCours := true;
-        Canvas.MoveTo(X,Y);
-        Canvas.Pixels[X,Y] := Canvas.Pen.Color;
-        end;
-end;
-
-procedure TForm3.FormMouseMove(Sender: TObject; Shift: TShiftState; X,
-  Y: Integer);
-begin
-    // A-t-on deja ouvert ce Form? Ruse pour contrer la creation tardive du Canvas
-    if DejaActive = false
-    then begin
-        DejaActive := true;
-        // Dessin d'un cadre fin autour de la zone de dessin
-        Canvas.Pen.Color := clBlack;
-        Canvas.Pen.Width := 1;
-        Canvas.Rectangle(XPADDING, YPADDING, Form3.Width-PanelButtons.Width-2*XPADDING, Form3.Height-YPADDING);
-        // Valeurs par defaut pour le dessin (materiau pierre)
-        Canvas.Pen.Color := clGray;
-        Canvas.Pen.Width := 2;
-        end;
-
-    if ((DessinEnCours = true) and (X<Form3.Width-2*XPADDING-PanelButtons.Width) and (Y<Form3.Height-YPADDING) and (X>XPADDING) and (Y>YPADDING))
-    // pour X: marge avant le Panel, taille du Panel, marge après le Panel
-    then Canvas.LineTo(x,y);
+    DecorBMP := Img.Picture.Bitmap;
+    Form3.Close();
 end;
 
 procedure TForm3.FormMouseUp(Sender: TObject; Button: TMouseButton;
@@ -164,44 +96,68 @@ end;
 
 procedure TForm3.FormShow(Sender: TObject);
 begin
+    // Initialisation
     DessinEnCours := false;
-    DejaActive := false;
+
+    // Valeurs par défaut pour le dessin (matériau pierre)
+    Img.Canvas.Pen.Color := clGray;
+    Img.Canvas.Pen.Width := 2;
+    Img.Canvas.Clear();
+    Img.Canvas.Clear();  // Ce n'est pas une erreur, une seule instruction n'est pas suffisante
+
+end;
+
+procedure TForm3.ImgMouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+    if ((X<Img.Width) and (Y<Img.Height) and (X>0) and (Y>0))
+    then begin
+        DessinEnCours := true;
+        Img.Canvas.MoveTo(X,Y);
+        Img.Canvas.Pixels[X,Y] := Canvas.Pen.Color;
+        end;
+end;
+
+procedure TForm3.ImgMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
+begin
+    if ((DessinEnCours = true) and (X<Img.Width) and (Y<Img.Height) and (X>0) and (Y>0))
+    then Img.Canvas.LineTo(x,y);
 end;
 
 procedure TForm3.ShapeGrassMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
-    Canvas.Pen.Color := clGreen;
+    Img.Canvas.Pen.Color := clGreen;
 end;
 
 procedure TForm3.ShapePlasticMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
-    Canvas.Pen.Color := clFuchsia;
+    Img.Canvas.Pen.Color := clFuchsia;
 end;
 
 procedure TForm3.ShapeSandMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
-    Canvas.Pen.Color := clYellow;
+    Img.Canvas.Pen.Color := clYellow;
 end;
 
 procedure TForm3.ShapeSteelMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
-    Canvas.Pen.Color := clTeal;
+    Img.Canvas.Pen.Color := clTeal;
 end;
 
 procedure TForm3.ShapeStoneMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
-    Canvas.Pen.Color := clGray;
+    Img.Canvas.Pen.Color := clGray;
 end;
 
 procedure TForm3.ShapeWoodMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
-    Canvas.Pen.Color := clMaroon;
+    Img.Canvas.Pen.Color := clMaroon;
 end;
 
 initialization
