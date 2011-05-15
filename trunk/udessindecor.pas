@@ -87,6 +87,7 @@ begin
     // Copie du Bitmap en passant par un fichier BMP.
     Img.Picture.Bitmap.SaveToFile('image/decor.bmp');
     DecorBMP := TBitmap.Create;
+    DecorBMP.PixelFormat := pf24bit;
     DecorBMP.LoadFromFile('image/decor.bmp');
     Form3.Close();
 end;

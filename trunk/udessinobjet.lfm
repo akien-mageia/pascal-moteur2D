@@ -9,6 +9,7 @@ object Form2: TForm2
   OnMouseUp = FormMouseUp
   OnShow = FormShow
   LCLVersion = '0.9.30'
+  Visible = True
   object Img: TImage
     Left = 25
     Height = 200
@@ -41,6 +42,7 @@ object Form2: TForm2
       Top = 55
       Width = 105
       Caption = 'Valider'
+      Color = clActiveBorder
       OnClick = ButValiderClick
       TabOrder = 1
     end

@@ -38,7 +38,6 @@ type
 var
   Form1: TForm1;
   SimulationEnCours: boolean;
-  Forme: CForme;
   Poids: CPoids;
   Vitesse: CVitesse;
   Resultante: CResultante;
@@ -56,23 +55,24 @@ end;
 
 procedure TForm1.ButLancerSimClick(Sender: TObject);
 begin
-     Forme := CForme.Create();
-     Forme.SetMasse(100);
+    if (Solide <> Nil) then begin
+        Solide.SetMasse(100);
 
-     Vitesse := CVitesse.Create(0,0,0);
+        Vitesse := CVitesse.Create(0,0,0);
 
-     Poids := CPoids.Create(0,0,0);
-     Poids.SetG(9.81);
-     Poids.CalculForce(Forme, Vitesse);
+        Poids := CPoids.Create(0,0,0);
+        Poids.SetG(9.81);
+        Poids.CalculForce(Solide, Vitesse);
 
-     Resultante := CResultante.Create();
-     Resultante.SetForce(Poids);
+        Resultante := CResultante.Create();
+        Resultante.SetForce(Poids);
 
-     PositionSolide := CPositionSolide.Create(0,0,0);
+        PositionSolide := CPositionSolide.Create(0,0,0);
 
-     SolideMouvement := CSolideMouvement.Create(Resultante, PositionSolide, Vitesse, Forme);
+        SolideMouvement := CSolideMouvement.Create(Resultante, PositionSolide, Vitesse, Solide);
 
-     SimulationEnCours := true;
+        SimulationEnCours := true;
+    end;
 end;
 
 procedure TForm1.ButParamPhysClick(Sender: TObject);
@@ -82,7 +82,7 @@ end;
 
 procedure TForm1.ButQuitterClick(Sender: TObject);
 begin
-    FormeBMP.Free;
+    Solide.Free;
     DecorBMP.Free;
     Halt;
 end;
@@ -104,10 +104,10 @@ begin
     Resultante.CalculForce;
     SolideMouvement.CalculPosition();
 
-    FormeBMP.Transparent := True;
-    FormeBMP.TransparentColor := FormeBMP.Canvas.Pixels[0,0];
+    Solide.getBMP.Transparent := True;
+    Solide.getBMP.TransparentColor := Solide.getBMP.Canvas.Pixels[0,0];
     Image1.canvas.Draw(0,0,DecorBMP);
-    Image1.canvas.Draw(SolideMouvement.GetPositionSolide().GetXPixel(), SolideMouvement.GetPositionSolide().GetYPixel(),FormeBMP);
+    Image1.canvas.Draw(SolideMouvement.GetPositionSolide().GetXPixel(), SolideMouvement.GetPositionSolide().GetYPixel(),Solide.getBMP);
   end;
 end;
 

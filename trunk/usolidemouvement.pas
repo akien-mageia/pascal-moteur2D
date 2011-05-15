@@ -21,22 +21,22 @@ Type CSolideMouvement = Class
             fForme : CForme ;
      Public
      		Constructor Create(aResultante : CResultante;
-     		                                   aPosition   : CPositionSolide;
-     						   aVitesse    : Cvitesse;
-     						   aForme      : CForme);
+     		                   aPosition   : CPositionSolide;
+     				   aVitesse    : Cvitesse;
+     				   aForme      : CForme);
 
      		Destructor Destroy;override;
 
      		//Accessors
-     		Function GetResultante() 	 : CResultante;
+     		Function GetResultante()     : CResultante;
      		Function GetPositionSolide() : CPositionSolide;
-     		Function GetVitesse()		 : CVitesse;
-     		Function GetForme()			 : CForme;
+     		Function GetVitesse()	     : CVitesse;
+     		Function GetForme()	     : CForme;
 
      		Procedure SetResultante(aResultante : CResultante);
-     		Procedure SetPosition(  aPosition 	: CPositionSolide);
-     		Procedure SetVitesse(	aVitesse	: CVitesse);
-     		Procedure SetForme(		aForme		: CForme);
+     		Procedure SetPosition(  aPosition   : CPositionSolide);
+     		Procedure SetVitesse(	aVitesse    : CVitesse);
+     		Procedure SetForme(	aForme	    : CForme);
 
      		//Others Functions
      		Function CalculPosition() : CPositionSolide;
@@ -45,9 +45,9 @@ Type CSolideMouvement = Class
 implementation
 
 Constructor CSolideMouvement.Create(aResultante : CResultante;
-									aPosition	: CpositionSolide;
-									aVitesse	: CVitesse;
-									aForme		: CForme );
+				    aPosition	: CpositionSolide;
+				    aVitesse	: CVitesse;
+				    aForme	: CForme );
 	Begin
 		SetResultante(aResultante);
 		SetPosition(aPosition);

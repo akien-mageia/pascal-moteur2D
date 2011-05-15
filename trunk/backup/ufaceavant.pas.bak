@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, LResources, Forms, Controls, Graphics, Dialogs,
-  StdCtrls, ExtCtrls, UDessinObjet, UDessinDecor, UParamPhys;
+  StdCtrls, ExtCtrls, UDessinObjet, UDessinDecor, UParamPhys, UForme, UPoids,
+  UPositionSolide, UVitesse, UResultante, USolideMouvement;
 
 type
 
@@ -36,7 +37,12 @@ type
 
 var
   Form1: TForm1;
-  SimulationEnCours : boolean;
+  SimulationEnCours: boolean;
+  Poids: CPoids;
+  Vitesse: CVitesse;
+  Resultante: CResultante;
+  SolideMouvement: CSolideMouvement;
+  PositionSolide: CPositionSolide;
 
 implementation
 
@@ -45,11 +51,30 @@ implementation
 procedure TForm1.ButDessinObjetClick(Sender: TObject);
 begin
     Form2.Show;
+    Form2.ButRecommencerClick(Sender);
+    // Le TForm2.Show fonctionne etrangement, donc je mets l'initialisation du canevas ici.
 end;
 
 procedure TForm1.ButLancerSimClick(Sender: TObject);
 begin
-     SimulationEnCours := true;
+    if (Solide <> Nil) then begin
+        Solide.SetMasse(100);
+
+        Vitesse := CVitesse.Create(0,0,0);
+
+        Poids := CPoids.Create(0,0,0);
+        Poids.SetG(9.81);
+        Poids.CalculForce(Solide, Vitesse);
+
+        Resultante := CResultante.Create();
+        Resultante.SetForce(Poids);
+
+        PositionSolide := CPositionSolide.Create(0,0,0);
+
+        SolideMouvement := CSolideMouvement.Create(Resultante, PositionSolide, Vitesse, Solide);
+
+        SimulationEnCours := true;
+    end;
 end;
 
 procedure TForm1.ButParamPhysClick(Sender: TObject);
@@ -59,7 +84,9 @@ end;
 
 procedure TForm1.ButQuitterClick(Sender: TObject);
 begin
-     Halt;
+    Solide.Free;
+    DecorBMP.Free;
+    Halt;
 end;
 
 procedure TForm1.FormShow(Sender: TObject);
@@ -76,10 +103,13 @@ procedure TForm1.Timer1Timer(Sender: TObject);
 begin
   if (SimulationEnCours) then
   begin
-    FormeBMP.Transparent := True;
-    FormeBMP.TransparentColor := FormeBMP.Canvas.Pixels[0,0];
+    Resultante.CalculForce;
+    SolideMouvement.CalculPosition();
+
+    Solide.getBMP.Transparent := True;
+    Solide.getBMP.TransparentColor := Solide.getBMP.Canvas.Pixels[0,0];
     Image1.canvas.Draw(0,0,DecorBMP);
-    Image1.canvas.Draw(100,100,FormeBMP);
+    Image1.canvas.Draw(SolideMouvement.GetPositionSolide().GetXPixel(), SolideMouvement.GetPositionSolide().GetYPixel(),Solide.getBMP);
   end;
 end;
 

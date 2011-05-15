@@ -10,103 +10,88 @@ uses
 
 Type CForme = Class
      Protected
-         //     fMat : array of array of boolean;
+              fBMP : TBitmap;
               fCentreInertie : CPosition;
               fMasse : real;
-         //     fHeight : integer;
-         //     fWidth : integer;
 
      Public
-           Constructor Create();
-           Procedure CalculCentreInertie(aForme: TBitmap);
-      //     Procedure SetBoolean(ax, ay : integer; aVal : boolean);
-      //     Function getBoolean(ax, ay : integer) : boolean;
-           Function GetMasse() : real;
-           Procedure SetMasse(aMasse: Real);
-      //     Function getHeight() : integer;
-      //     Function getWidth() : integer;
-      //     Procedure RemplirForme();
+           Constructor Create(aWidth, aHeight : integer);
+           Destructor Destroy; override;
+           Procedure calculCentreInertie();
+           Function getCentreInertie() : CPosition;
+           Procedure setBMP(aBMP: TBitmap);
+           Function getBMP() : TBitmap;
+           Procedure setMasse(aMasse: Real);
+           Function getMasse() : real;
+
 
      end;
 
 implementation
 
-Procedure CForme.CalculCentreInertie(aForme: TBitmap);
+Constructor CForme.Create(aWidth, aHeight : integer);
+// Cree la classe et son Bitmap avec hauteur et largeur.
 Begin
-
-End;
-
-Constructor CForme.Create();
-// Cree la classe et entre la largeur et la hauteur du tableau
-Var i:integer;
-Begin
-  {   fWidth := aWidth;
-     fHeight := aHeight;        }
+     fBMP := TBitmap.Create;
+     fBMP.Width := aWidth;
+     fBMP.Height := aHeight;
+     fBMP.Canvas.Clear();
      fCentreInertie := CPosition.Create(0, 0);
-  {   SetLength (fMat, aWidth);
-     For i:= 0 to aWidth-1 do
-     SetLength(fMat[i], aHeight);  }
 End;
 
-{Procedure CForme.SetBoolean(ax, ay : integer; aVal : boolean);
+Destructor CForme.Destroy;
 Begin
-     fMat[ax][ay] := aVal;
+    fBMP.Free;
+    fCentreInertie.Free;
+    Inherited;
 end;
 
-Function CForme.getBoolean(ax, ay : integer) : boolean;
+Procedure CForme.CalculCentreInertie();
+Var i,j,nbPixels,sumX,sumY: integer;
 Begin
-    result := fMat[ax][ay];
-end;                                        }
+    nbPixels := 0;
+    sumX := 0;
+    sumY := 0;
+    // Calcul typique de barycentre, X = somme des Xi / nbPixels
+    for i:=0 to fBMP.Width-1 do
+        for j:=0 to fBMP.Height-1 do
+            if ((fBMP.Canvas.Pixels[i,j] = clBlack) or (fBMP.Canvas.Pixels[i,j] = clGray))
+            then begin
+                sumX := sumX + i;
+                sumY := sumY + j;
+                nbPixels := nbPixels + 1;
+            end;
+    if nbPixels <> 0
+    then begin
+        fCentreInertie.setXPixel(round(sumX/nbPixels));
+        fCentreInertie.setYPixel(round(sumY/nbPixels));
+    end;
+End;
 
-Function CForme.GetMasse() : real;
+Function CForme.getCentreInertie() : CPosition;
+Begin
+    result := fCentreInertie;
+end;
+
+Function CForme.getMasse() : real;
 Begin
      result := fMasse;
 end;
 
-Procedure CForme.SetMasse(aMasse: Real);
+Procedure CForme.setMasse(aMasse: real);
 Begin
      fMasse := aMasse;
 end;
 
-{Function CForme.getHeight() : integer;
-Begin
-     result := fHeight;
+Function CForme.getBMP() : TBitmap;
+begin
+    result := fBMP;
 end;
 
-Function CForme.getWidth() : integer;
-Begin
-     result := fWidth;
+Procedure CForme.setBMP(aBMP: TBitmap);
+begin
+    fBMP := aBMP;
 end;
-
-Procedure CForme.RemplirForme();
-Var i, j, k, l : integer;
-Begin
-     for i:= 0 to fWidth-1 do
-        begin
-            k:=0;
-            while (fMat[i][k]=false) and (k<fHeight-1)
-                do k:=k+1;
-            l:=fHeight-1;
-            while (fMat[i][l]=false) and (l>0)
-                do l:=l-1;
-            if (k<=l)
-            then for j:=k to l
-                do fMat[i][j]:=true;
-        end;
-
-     for i:= 0 to fHeight-1 do
-        begin
-            k:=0;
-            while (fMat[k][i]=false) and (k<fWidth-1)
-                do k:=k+1;
-            l:=fWidth-1;
-            while (fMat[l][i]=false) and (l>0)
-                do l:=l-1;
-            if (k<=l)
-            then for j:=k to l
-                do fMat[j][i]:=true;
-        end;
-end;         }
 
 end.
 
