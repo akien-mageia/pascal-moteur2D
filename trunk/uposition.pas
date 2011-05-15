@@ -102,12 +102,12 @@ Function Cposition.GetYMetre() : Real;
 //Conversion Functions
 Function Cposition.pixelToMetre(aPos : Integer) : Real;
 	Begin
-		pixelToMetre := 42;
+		pixelToMetre := aPos;
 	End;
 
 Function Cposition.metreToPixel(aPos : Real) : Integer;
 	Begin
-		metreToPixel := 42;
+		metreToPixel := round(aPos);
 	End;
 
 end.

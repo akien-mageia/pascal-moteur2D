@@ -19,6 +19,7 @@ Type CResultante = Class (CTorseur)
      		Destructor	Destroy; override;
 
      		//Accessors
+
      		Function	GetResultante()  : CTorseur;
      		Function	GetNbForces()	 : Integer;
 

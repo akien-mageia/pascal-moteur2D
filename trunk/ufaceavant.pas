@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, LResources, Forms, Controls, Graphics, Dialogs,
-  StdCtrls, ExtCtrls, UDessinObjet, UDessinDecor, UParamPhys;
+  StdCtrls, ExtCtrls, UDessinObjet, UDessinDecor, UParamPhys, UForme, UPoids,
+  UPositionSolide, UVitesse, UResultante, USolideMouvement;
 
 type
 
@@ -36,7 +37,13 @@ type
 
 var
   Form1: TForm1;
-  SimulationEnCours : boolean;
+  SimulationEnCours: boolean;
+  Forme: CForme;
+  Poids: CPoids;
+  Vitesse: CVitesse;
+  Resultante: CResultante;
+  SolideMouvement: CSolideMouvement;
+  PositionSolide: CPositionSolide;
 
 implementation
 
@@ -49,6 +56,22 @@ end;
 
 procedure TForm1.ButLancerSimClick(Sender: TObject);
 begin
+     Forme := CForme.Create();
+     Forme.SetMasse(100);
+
+     Vitesse := CVitesse.Create(0,0,0);
+
+     Poids := CPoids.Create(0,0,0);
+     Poids.SetG(9.81);
+     Poids.CalculForce(Forme, Vitesse);
+
+     Resultante := CResultante.Create();
+     Resultante.SetForce(Poids);
+
+     PositionSolide := CPositionSolide.Create(0,0,0);
+
+     SolideMouvement := CSolideMouvement.Create(Resultante, PositionSolide, Vitesse, Forme);
+
      SimulationEnCours := true;
 end;
 
@@ -78,10 +101,13 @@ procedure TForm1.Timer1Timer(Sender: TObject);
 begin
   if (SimulationEnCours) then
   begin
+    Resultante.CalculForce;
+    SolideMouvement.CalculPosition();
+
     FormeBMP.Transparent := True;
     FormeBMP.TransparentColor := FormeBMP.Canvas.Pixels[0,0];
     Image1.canvas.Draw(0,0,DecorBMP);
-    Image1.canvas.Draw(100,100,FormeBMP);
+    Image1.canvas.Draw(SolideMouvement.GetPositionSolide().GetXPixel(), SolideMouvement.GetPositionSolide().GetYPixel(),FormeBMP);
   end;
 end;
 

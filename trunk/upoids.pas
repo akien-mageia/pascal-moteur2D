@@ -44,7 +44,7 @@ Destructor CPoids.Destroy;
 Procedure CPoids.calculForce(aForme: CForme; aVitesse: CVitesse);
 Begin
     fX := 0;     		// resultante verticale
-    fY := -aForme.GetMasse()*fG;	// signe negatif (l'origine du repere est en bas a gauche)
+    fY := aForme.GetMasse()*fG;	// signe positif (l'origine du repere est en haut a gauche)
     fMz := 0;   			// au centre de gravite
 End;
 

@@ -15,7 +15,7 @@ uses
 Type CSolideMouvement = Class
 
      Protected
-     		fResultante : CResultante;
+            fResultante : CResultante;
             fPositionSolide : CPositionSolide ;
             fVitesse : CVitesse ;
             fForme : CForme ;
@@ -106,15 +106,13 @@ Procedure CSolideMouvement.SetForme(aForme : CForme);
 
 
 Function CSolideMouvement.CalculPosition() : CPositionSolide;
-//All the hard stuff is in there
 	var resultat : CPositionSolide;
 
 	Begin
-
-
-
-
-
+            fVitesse.SetX(fVitesse.GetX() + fResultante.GetFx()*0.04/fForme.GetMasse());  // 1 est l'intervalle de temps, ici 40ms
+            fVitesse.SetY(fVitesse.GetY() + fResultante.GetFy()*0.04/fForme.GetMasse());
+            fPositionSolide.SetXMetre(fPositionSolide.GetXMetre() + fVitesse.GetX()*1);
+            fPositionSolide.SetYMetre(fPositionSolide.GetYMetre() + fVitesse.GetY()*1);
 	End;
 
 

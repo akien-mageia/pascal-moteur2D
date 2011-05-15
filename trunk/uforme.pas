@@ -5,48 +5,50 @@ unit UForme;
 interface
 
 uses
-  Classes, SysUtils, UPosition;
+  Classes, SysUtils, FileUtil, LResources, Forms, Controls, Graphics, Dialogs,
+  StdCtrls, ExtCtrls, UPosition;
 
 Type CForme = Class
      Protected
-              fMat : array of array of boolean;
+         //     fMat : array of array of boolean;
               fCentreInertie : CPosition;
               fMasse : real;
-              fHeight : integer;
-              fWidth : integer;
+         //     fHeight : integer;
+         //     fWidth : integer;
 
      Public
-           Constructor Create(aWidth, aHeight : integer);
-           Procedure CalculCentreInertie();
-           Procedure SetBoolean(ax, ay : integer; aVal : boolean);
-           Function getBoolean(ax, ay : integer) : boolean;
+           Constructor Create();
+           Procedure CalculCentreInertie(aForme: TBitmap);
+      //     Procedure SetBoolean(ax, ay : integer; aVal : boolean);
+      //     Function getBoolean(ax, ay : integer) : boolean;
            Function GetMasse() : real;
-           Function getHeight() : integer;
-           Function getWidth() : integer;
-           Procedure RemplirForme();
+           Procedure SetMasse(aMasse: Real);
+      //     Function getHeight() : integer;
+      //     Function getWidth() : integer;
+      //     Procedure RemplirForme();
 
      end;
 
 implementation
 
-Procedure CForme.CalculCentreInertie();
+Procedure CForme.CalculCentreInertie(aForme: TBitmap);
 Begin
 
 End;
 
-Constructor CForme.Create(aWidth, aHeight : integer);
+Constructor CForme.Create();
 // Cree la classe et entre la largeur et la hauteur du tableau
 Var i:integer;
 Begin
-     fWidth := aWidth;
-     fHeight := aHeight;
+  {   fWidth := aWidth;
+     fHeight := aHeight;        }
      fCentreInertie := CPosition.Create(0, 0);
-     SetLength (fMat, aWidth);
+  {   SetLength (fMat, aWidth);
      For i:= 0 to aWidth-1 do
-     SetLength(fMat[i], aHeight);
+     SetLength(fMat[i], aHeight);  }
 End;
 
-Procedure CForme.SetBoolean(ax, ay : integer; aVal : boolean);
+{Procedure CForme.SetBoolean(ax, ay : integer; aVal : boolean);
 Begin
      fMat[ax][ay] := aVal;
 end;
@@ -54,14 +56,19 @@ end;
 Function CForme.getBoolean(ax, ay : integer) : boolean;
 Begin
     result := fMat[ax][ay];
-end;
+end;                                        }
 
 Function CForme.GetMasse() : real;
 Begin
      result := fMasse;
 end;
 
-Function CForme.getHeight() : integer;
+Procedure CForme.SetMasse(aMasse: Real);
+Begin
+     fMasse := aMasse;
+end;
+
+{Function CForme.getHeight() : integer;
 Begin
      result := fHeight;
 end;
@@ -99,7 +106,7 @@ Begin
             then for j:=k to l
                 do fMat[j][i]:=true;
         end;
-end;
+end;         }
 
 end.
 
