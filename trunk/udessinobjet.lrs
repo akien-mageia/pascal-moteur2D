@@ -1,14 +1,16 @@
+{ This is an automatically generated lazarus resource file }
+
 LazarusResources.Add('TForm2','FORMDATA',[
   'TPF0'#6'TForm2'#5'Form2'#4'Left'#3#244#1#6'Height'#3#250#0#3'Top'#3#7#1#5'Wi'
   +'dth'#3#144#1#7'Caption'#6#17'Dessin de l''objet'#12'ClientHeight'#3#250#0#11
   +'ClientWidth'#3#144#1#9'OnMouseUp'#7#11'FormMouseUp'#6'OnShow'#7#8'FormShow'
-  +#10'LCLVersion'#6#8'0.9.28.2'#0#6'TImage'#3'Img'#4'Left'#2#25#6'Height'#3#200
-  +#0#3'Top'#2#25#5'Width'#3#200#0#11'OnMouseDown'#7#12'ImgMouseDown'#11'OnMous'
-  +'eMove'#7#12'ImgMouseMove'#9'OnMouseUp'#7#11'FormMouseUp'#0#0#6'TPanel'#12'P'
-  +'anelButtons'#4'Left'#3#250#0#6'Height'#3#140#0#3'Top'#2'U'#5'Width'#2'}'#12
-  +'ClientHeight'#3#140#0#11'ClientWidth'#2'}'#8'TabOrder'#2#0#0#7'TButton'#14
-  +'ButRecommencer'#4'Left'#2#10#6'Height'#2#30#3'Top'#2#10#5'Width'#2'i'#7'Cap'
-  +'tion'#6#11'Recommencer'#7'OnClick'#7#19'ButRecommencerClick'#8'TabOrder'#2#0
+  +#10'LCLVersion'#6#6'0.9.30'#0#6'TImage'#3'Img'#4'Left'#2#25#6'Height'#3#200#0
+  +#3'Top'#2#25#5'Width'#3#200#0#11'OnMouseDown'#7#12'ImgMouseDown'#11'OnMouseM'
+  +'ove'#7#12'ImgMouseMove'#9'OnMouseUp'#7#11'FormMouseUp'#0#0#6'TPanel'#12'Pan'
+  +'elButtons'#4'Left'#3#250#0#6'Height'#3#140#0#3'Top'#2'U'#5'Width'#2'}'#12'C'
+  +'lientHeight'#3#140#0#11'ClientWidth'#2'}'#8'TabOrder'#2#0#0#7'TButton'#14'B'
+  +'utRecommencer'#4'Left'#2#10#6'Height'#2#30#3'Top'#2#10#5'Width'#2'i'#7'Capt'
+  +'ion'#6#11'Recommencer'#7'OnClick'#7#19'ButRecommencerClick'#8'TabOrder'#2#0
   +#0#0#7'TButton'#10'ButValider'#4'Left'#2#10#6'Height'#2#30#3'Top'#2'7'#5'Wid'
   +'th'#2'i'#7'Caption'#6#7'Valider'#7'OnClick'#7#15'ButValiderClick'#8'TabOrde'
   +'r'#2#1#0#0#7'TButton'#10'ButAnnuler'#4'Left'#2#10#6'Height'#2#30#3'Top'#2'd'

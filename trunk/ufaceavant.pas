@@ -59,7 +59,9 @@ end;
 
 procedure TForm1.ButQuitterClick(Sender: TObject);
 begin
-     Halt;
+    FormeBMP.Free;
+    DecorBMP.Free;
+    Halt;
 end;
 
 procedure TForm1.FormShow(Sender: TObject);
@@ -77,7 +79,7 @@ begin
   if (SimulationEnCours) then
   begin
     FormeBMP.Transparent := True;
-    FormeBMP.TransparentColor := clWhite;
+    FormeBMP.TransparentColor := FormeBMP.Canvas.Pixels[0,0];
     Image1.canvas.Draw(0,0,DecorBMP);
     Image1.canvas.Draw(100,100,FormeBMP);
   end;

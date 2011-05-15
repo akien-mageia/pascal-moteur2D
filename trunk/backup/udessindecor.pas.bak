@@ -84,7 +84,10 @@ end;
 procedure TForm3.ButValiderClick(Sender: TObject);
 var i,j : integer;
 begin
-    DecorBMP := Img.Picture.Bitmap;
+    // Copie du Bitmap en passant par un fichier BMP
+    Img.Picture.Bitmap.SaveToFile('image/decor.bmp');
+    DecorBMP := TBitmap.Create;
+    DecorBMP.LoadFromFile('image/decor.bmp');
     Form3.Close();
 end;
 

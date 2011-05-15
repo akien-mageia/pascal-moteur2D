@@ -9,7 +9,7 @@ object Form3: TForm3
   ClientWidth = 700
   OnMouseUp = FormMouseUp
   OnShow = FormShow
-  LCLVersion = '0.9.28.2'
+  LCLVersion = '0.9.30'
   object Img: TImage
     Left = 25
     Height = 450
@@ -113,49 +113,49 @@ object Form3: TForm3
     end
     object LabelWood: TLabel
       Left = 40
-      Height = 18
+      Height = 16
       Top = 12
-      Width = 29
+      Width = 23
       Caption = 'Bois'
       ParentColor = False
     end
     object LabelPlastic: TLabel
       Left = 40
-      Height = 18
+      Height = 16
       Top = 42
-      Width = 62
+      Width = 49
       Caption = 'Plastique'
       ParentColor = False
     end
     object LabelSand: TLabel
       Left = 40
-      Height = 18
+      Height = 16
       Top = 72
-      Width = 37
+      Width = 29
       Caption = 'Sable'
       ParentColor = False
     end
     object LabelGrass: TLabel
       Left = 40
-      Height = 18
+      Height = 16
       Top = 102
-      Width = 41
+      Width = 33
       Caption = 'Herbe'
       ParentColor = False
     end
     object LabelStone: TLabel
       Left = 40
-      Height = 18
+      Height = 16
       Top = 162
-      Width = 42
+      Width = 34
       Caption = 'Roche'
       ParentColor = False
     end
     object LabelSteel: TLabel
       Left = 40
-      Height = 18
+      Height = 16
       Top = 132
-      Width = 39
+      Width = 31
       Caption = 'Metal'
       ParentColor = False
     end

@@ -56,19 +56,11 @@ begin
 end;
 
 procedure TForm2.ButValiderClick(Sender: TObject);
-var i,j: integer;
 begin
-    //// Creation de la forme
-    //Solide := CForme.Create(Img.Width, Img.Height);
-    //// Remplissage de la forme
-    //for i:=0 to Solide.getWidth()-1 do
-    //    for j:=0 to Solide.getHeight()-1 do
-    //        if ((Img.Canvas.Pixels[i,j] = clBlack) or (Img.Canvas.Pixels[i,j] = clGray))
-    //        then Solide.setBoolean(i,j,true)
-    //        else Solide.setBoolean(i,j,false);
-
-    // Copie du Bitmap
-    FormeBMP := Img.Picture.Bitmap;
+    // Copie du Bitmap en passant par un fichier BMP.
+    Img.Picture.Bitmap.SaveToFile('image/forme-0deg.bmp');
+    FormeBMP := TBitmap.Create;
+    FormeBMP.LoadFromFile('image/forme-0deg.bmp');
     Form2.Close();
 end;
 
