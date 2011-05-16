@@ -26,6 +26,7 @@ type
     LabelWood: TLabel;
     PanelColors: TPanel;
     PanelButtons: TPanel;
+    RadioGroup1: TRadioGroup;
     ShapeSteel: TShape;
     ShapeSand: TShape;
     ShapeGrass: TShape;
@@ -71,7 +72,7 @@ implementation
 procedure TForm3.ButRecommencerClick(Sender: TObject);
 begin
     Img.Canvas.Clear();
-    // Valeurs par défaut pour le dessin (matériau pierre)
+    // Valeurs par defaut pour le dessin (materiau pierre)
     Img.Canvas.Pen.Color := clGray;
     Img.Canvas.Pen.Width := 2;
 end;
@@ -103,7 +104,7 @@ begin
     // Initialisation
     DessinEnCours := false;
 
-    // Valeurs par défaut pour le dessin (matériau pierre)
+    // Valeurs par défaut pour le dessin (materiau pierre) )
     Img.Canvas.Pen.Color := clGray;
     Img.Canvas.Pen.Width := 2;
     Img.Canvas.Clear();

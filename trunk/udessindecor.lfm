@@ -1,7 +1,7 @@
 object Form3: TForm3
-  Left = 205
+  Left = 423
   Height = 490
-  Top = 219
+  Top = 239
   Width = 725
   ActiveControl = PanelColors
   Caption = 'Dessin du décor'
@@ -22,7 +22,7 @@ object Form3: TForm3
   object PanelButtons: TPanel
     Left = 535
     Height = 140
-    Top = 335
+    Top = 344
     Width = 140
     ClientHeight = 140
     ClientWidth = 140
@@ -58,7 +58,7 @@ object Form3: TForm3
   object PanelColors: TPanel
     Left = 535
     Height = 200
-    Top = 110
+    Top = 25
     Width = 140
     ClientHeight = 200
     ClientWidth = 140
@@ -165,5 +165,31 @@ object Form3: TForm3
       Caption = 'Metal'
       ParentColor = False
     end
+  end
+  object RadioGroup1: TRadioGroup
+    Left = 535
+    Height = 104
+    Top = 232
+    Width = 140
+    AutoFill = True
+    Caption = 'RadioGroup1'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.TopBottomSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 83
+    ClientWidth = 136
+    Items.Strings = (
+      '1px'
+      '2px'
+      '4px'
+      '8px'
+      '16px'
+    )
+    TabOrder = 2
   end
 end
