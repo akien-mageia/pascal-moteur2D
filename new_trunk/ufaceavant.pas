@@ -28,6 +28,12 @@ type
     procedure ButQuitterClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Image1Click(Sender: TObject);
+    procedure Image1MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Image1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer
+      );
+    procedure Image1MouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
     procedure Timer1Timer(Sender: TObject);
   private
     { private declarations }
@@ -37,7 +43,7 @@ type
 
 var
   Form1: TForm1;
-  SimulationEnCours: boolean;
+  SimulationEnCours, FormePlacee, InitialisationVitesseEnCours: boolean;
   Poids: CPoids;
   Vitesse: CVitesse;
   Resultante: CResultante;
@@ -55,6 +61,8 @@ end;
 
 procedure TForm1.ButLancerSimClick(Sender: TObject);
 begin
+  if (SimulationEnCours = false) then
+  begin
     if (Solide <> Nil) then begin
         Solide.SetMasse(100);
 
@@ -73,6 +81,7 @@ begin
 
         SimulationEnCours := true;
     end;
+  end;
 end;
 
 procedure TForm1.ButParamPhysClick(Sender: TObject);
@@ -89,7 +98,8 @@ end;
 
 procedure TForm1.FormShow(Sender: TObject);
 begin
-    SimulationEnCours := false;
+    SimulationEnCours := False;
+    InitialisationVitesseEnCours := False
 end;
 
 procedure TForm1.Image1Click(Sender: TObject);
@@ -97,9 +107,40 @@ begin
 
 end;
 
-procedure TForm1.Timer1Timer(Sender: TObject);
+procedure TForm1.Image1MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
 begin
   if (SimulationEnCours) then
+     begin
+        SolideMouvement.GetPositionSolide().SetXPixel(X);
+        SolideMouvement.GetPositionSolide().SetYPixel(Y);
+        FormePlacee := True;
+        InitialisationVitesseEnCours := True
+     end;
+end;
+
+procedure TForm1.Image1MouseMove(Sender: TObject; Shift: TShiftState; X,
+  Y: Integer);
+begin
+  if (InitialisationVitesseEnCours) then
+    begin
+      Image1.canvas.Draw(0,0,DecorBMP);
+      Image1.Canvas.Pen.Color := clBlack;
+      Image1.Canvas.Pen.Width := 2;
+      Image1.Canvas.LineTo(SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel(),
+                       SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel());
+    end;
+end;
+
+procedure TForm1.Image1MouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  InitialisationVitesseEnCours := False;
+end;
+
+procedure TForm1.Timer1Timer(Sender: TObject);
+begin
+  if (SimulationEnCours) and (FormePlacee) and (InitialisationVitesseEnCours = False) then
   begin
     Resultante.CalculForce;
     SolideMouvement.CalculPosition();
@@ -107,7 +148,8 @@ begin
     Solide.getBMP.Transparent := True;
     Solide.getBMP.TransparentColor := Solide.getBMP.Canvas.Pixels[0,0];
     Image1.canvas.Draw(0,0,DecorBMP);
-    Image1.canvas.Draw(SolideMouvement.GetPositionSolide().GetXPixel(), SolideMouvement.GetPositionSolide().GetYPixel(),Solide.getBMP);
+    Image1.canvas.Draw(SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel(),
+                       SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel(),Solide.getBMP);
   end;
 end;
 
