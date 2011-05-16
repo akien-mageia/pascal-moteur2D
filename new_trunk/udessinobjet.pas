@@ -81,6 +81,16 @@ begin
     Solide.setBMP(SolideBMP);
     Solide.calculCentreInertie();
 
+    // Translation du centre d'inertie
+    Img.Picture.Bitmap.Canvas.Draw(round(Solide.getBMP.Width/2)-Solide.getCentreInertie.getXPixel,
+                                   round(Solide.getBMP.Height/2)-Solide.getCentreInertie.getYPixel,
+                                   Solide.getBMP);
+    Img.Picture.Bitmap.SaveToFile('image/solide-0deg.bmp');
+    SolideBMP.LoadFromFile('image/solide-0deg.bmp');
+    Solide.setBMP(SolideBMP);
+    Solide.getCentreInertie.setXPixel(round(Solide.getBMP.Width/2));
+    Solide.getCentreInertie.setYPixel(round(Solide.getBMP.Height/2));
+
     // Creation des BMP pour differents angles de rotation
     GenererRotationsBMP(Solide, 18);  // Generer 17 images tournees a partir du BMP
     // 18 est le pas, et l'angle de rotation sera a chaque fois un multiple de 360/pas.

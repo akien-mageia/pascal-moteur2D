@@ -31,8 +31,7 @@ type
     { private declarations }
   public
     procedure RemplissageParLigne(aXSeed,aYSeed,aOldColor,aNewColor: integer);
-    procedure GenererRotations(aSolide: CForme; aPas: integer);
-    function RotationBMP(aSolide: CForme; aAngle: real) : TBitmap;
+    procedure GenererRotationsBMP(aSolide: CForme; aPas: integer);
   end;
 
 var
@@ -43,7 +42,7 @@ var
 
 const PADDING = 30;
 // Sert a definir la zone de dessin pour que l'objet tienne dans le BMP de 200x200.
-// En effet, pour une rotation du carre 200x200 de 45°, la nouvelle hauteur est 200*sqrt(2).
+// En effet, pour une rotation du carre 200x200 de 45 deg, la nouvelle hauteur est 200*sqrt(2).
 // Il faut donc une zone de dessin de 200/sqrt(2), c'est a dire 140x140.
 
 implementation
@@ -83,52 +82,54 @@ begin
     Solide.calculCentreInertie();
 
     // Creation des BMP pour differents angles de rotation
-    GenererRotations(Solide, 18);  // Generer 17 images tournees a partir du BMP
+    GenererRotationsBMP(Solide, 18);  // Generer 17 images tournees a partir du BMP
     // 18 est le pas, et l'angle de rotation sera a chaque fois un multiple de 360/pas.
 
     Form2.Close();
 end;
 
-procedure TForm2.GenererRotations(aSolide: CForme; aPas: integer);
-var i, angle: integer;
-    newBMP : TBitmap;
-begin
-    for i:=1 to aPas-1 do begin
-        angle := round(i*(360/aPas));
-        newBMP := RotationBMP(aSolide, angle*Pi/180);    // angle en radian
-        newBMP.saveToFile('image/solide-'+intToStr(angle)+'deg.bmp');
-    end;
-end;
-
-function TForm2.RotationBMP(aSolide: CForme; aAngle: real) : TBitmap;
+procedure TForm2.GenererRotationsBMP(aSolide: CForme; aPas: integer);
 var X0,Y0,X1,Y1,X2,Y2: integer;
-    newBMP : TBitmap;
+    tableauBMP: array of TBitmap;
+    angle: real;
+    i: integer;
 begin
     X0 := aSolide.getCentreInertie.getXPixel();   // decalage d'origine
     Y0 := aSolide.getCentreInertie.getYPixel();
-    newBMP := TBitmap.Create();
-    newBMP.Height := aSolide.getBMP.Height;
-    newBMP.Width := aSolide.getBMP.Width;
-    newBMP.Canvas.Clear();
-    newBMP.Canvas.Clear();  // Pourquoi deux fois, je ne sais pas, mais sinon ca ne marche pas
+
+    setLength(tableauBMP, aPas);
+    for i:=0 to aPas-1 do begin
+        tableauBMP[i] := TBitmap.Create();
+        tableauBMP[i].Height := aSolide.getBMP.Height;
+        tableauBMP[i].Width := aSolide.getBMP.Width;
+        tableauBMP[i].Canvas.Clear();
+        tableauBMP[i].Canvas.Clear();   // Pourquoi deux fois, je ne sais pas, mais sinon ca ne marche pas
+        end;
 
     for X1:=0 to aSolide.getBMP.Width-1 do
         for Y1:=0 to aSolide.getBMP.Height-1 do begin
             if aSolide.getBMP.Canvas.Pixels[X1,Y1] = clBlack
-            then begin
-                X2 := round(X0 + cos(aAngle)*(X1-X0) + sin(aAngle)*(Y1-Y0));
-                Y2 := round(Y0 - sin(aAngle)*(X1-X0) + cos(aAngle)*(Y1-Y0));
-                newBMP.Canvas.Pixels[X2,Y2] := clBlack;
-                end;
+            then
+                for i:=1 to aPas-1 do begin
+                    angle := i*(2*Pi/aPas);  // en radian
+                    X2 := round(X0 + cos(angle)*(X1-X0) + sin(angle)*(Y1-Y0));
+                    Y2 := round(Y0 - sin(angle)*(X1-X0) + cos(angle)*(Y1-Y0));
+                    tableauBMP[i].Canvas.Pixels[X2,Y2] := clBlack;
+                    end;
             if aSolide.getBMP.Canvas.Pixels[X1,Y1] = clGray
-            then begin
-                X2 := round(X0 + cos(aAngle)*(X1-X0) + sin(aAngle)*(Y1-Y0));
-                Y2 := round(Y0 - sin(aAngle)*(X1-X0) + cos(aAngle)*(Y1-Y0));
-                newBMP.Canvas.Pixels[X2,Y2] := clGray;
-                end;
+            then
+                for i:=1 to aPas-1 do begin
+                    angle := i*(2*Pi/aPas);
+                    X2 := round(X0 + cos(angle)*(X1-X0) + sin(angle)*(Y1-Y0));
+                    Y2 := round(Y0 - sin(angle)*(X1-X0) + cos(angle)*(Y1-Y0));
+                    tableauBMP[i].Canvas.Pixels[X2,Y2] := clGray;
+                    end;
             end;
 
-    result := newBMP;
+    for i:=1 to aPas-1 do begin
+        angle := i*(360/aPas);
+        tableauBMP[i].saveToFile('image/solide-'+intToStr(round(angle))+'deg.bmp');
+    end;
 end;
 
 procedure TForm2.FormShow(Sender: TObject);
