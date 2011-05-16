@@ -1,0 +1,163 @@
+object Form3: TForm3
+  Left = 343
+  Height = 500
+  Top = 206
+  Width = 700
+  ActiveControl = PanelColors
+  Caption = 'Dessin du décor'
+  ClientHeight = 500
+  ClientWidth = 700
+  OnMouseUp = FormMouseUp
+  OnShow = FormShow
+  LCLVersion = '0.9.30'
+  object Img: TImage
+    Left = 25
+    Height = 450
+    Top = 25
+    Width = 485
+    OnMouseDown = ImgMouseDown
+    OnMouseMove = ImgMouseMove
+    OnMouseUp = FormMouseUp
+  end
+  object PanelButtons: TPanel
+    Left = 535
+    Height = 140
+    Top = 335
+    Width = 140
+    ClientHeight = 140
+    ClientWidth = 140
+    TabOrder = 0
+    object ButRecommencer: TButton
+      Left = 8
+      Height = 25
+      Top = 8
+      Width = 122
+      Caption = 'Recommencer'
+      OnClick = ButRecommencerClick
+      TabOrder = 0
+    end
+    object ButValider: TButton
+      Left = 8
+      Height = 25
+      Top = 56
+      Width = 122
+      Caption = 'Valider'
+      OnClick = ButValiderClick
+      TabOrder = 1
+    end
+    object ButAnnuler: TButton
+      Left = 8
+      Height = 25
+      Top = 104
+      Width = 122
+      Caption = 'Annuler'
+      OnClick = ButAnnulerClick
+      TabOrder = 2
+    end
+  end
+  object PanelColors: TPanel
+    Left = 535
+    Height = 200
+    Top = 110
+    Width = 140
+    ClientHeight = 200
+    ClientWidth = 140
+    TabOrder = 1
+    object ShapeWood: TShape
+      Left = 10
+      Height = 20
+      Top = 10
+      Width = 20
+      Brush.Color = clMaroon
+      OnMouseDown = ShapeWoodMouseDown
+    end
+    object ShapeStone: TShape
+      Left = 10
+      Height = 20
+      Top = 160
+      Width = 20
+      Brush.Color = clGray
+      OnMouseDown = ShapeStoneMouseDown
+    end
+    object ShapePlastic: TShape
+      Left = 10
+      Height = 20
+      Top = 40
+      Width = 20
+      Brush.Color = clFuchsia
+      OnMouseDown = ShapePlasticMouseDown
+    end
+    object ShapeGrass: TShape
+      Left = 10
+      Height = 20
+      Top = 100
+      Width = 20
+      Brush.Color = clGreen
+      OnMouseDown = ShapeGrassMouseDown
+    end
+    object ShapeSand: TShape
+      Left = 10
+      Height = 20
+      Top = 70
+      Width = 20
+      Brush.Color = clYellow
+      OnMouseDown = ShapeSandMouseDown
+    end
+    object ShapeSteel: TShape
+      Left = 10
+      Height = 20
+      Top = 130
+      Width = 20
+      Brush.Color = clTeal
+      OnMouseDown = ShapeSteelMouseDown
+    end
+    object LabelWood: TLabel
+      Left = 40
+      Height = 16
+      Top = 12
+      Width = 23
+      Caption = 'Bois'
+      ParentColor = False
+    end
+    object LabelPlastic: TLabel
+      Left = 40
+      Height = 16
+      Top = 42
+      Width = 49
+      Caption = 'Plastique'
+      ParentColor = False
+    end
+    object LabelSand: TLabel
+      Left = 40
+      Height = 16
+      Top = 72
+      Width = 29
+      Caption = 'Sable'
+      ParentColor = False
+    end
+    object LabelGrass: TLabel
+      Left = 40
+      Height = 16
+      Top = 102
+      Width = 33
+      Caption = 'Herbe'
+      ParentColor = False
+    end
+    object LabelStone: TLabel
+      Left = 40
+      Height = 16
+      Top = 162
+      Width = 34
+      Caption = 'Roche'
+      ParentColor = False
+    end
+    object LabelSteel: TLabel
+      Left = 40
+      Height = 16
+      Top = 132
+      Width = 31
+      Caption = 'Metal'
+      ParentColor = False
+    end
+  end
+end
