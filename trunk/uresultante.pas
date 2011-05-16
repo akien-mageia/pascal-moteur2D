@@ -1,5 +1,9 @@
 unit UResultante;
-
+//*******************************************************//
+//       Unite gerant la resultante                      //
+//                                                       //
+//           	TODO : Nothing                           //
+//*******************************************************//
 {$mode objfpc}{$H+}
 
 interface
@@ -40,7 +44,7 @@ Constructor CResultante.Create();
 	var i : Integer;
 	Begin
 		fNbForces := 0;
-		for i := 1 to 4 do //Initialisation du tableau Ã  NIL;
+		for i := 1 to 4 do //Initialisation du tableau a  NIL;
 			fTableau[i] := NIL;
 	End;
 

@@ -1,15 +1,15 @@
 object Form3: TForm3
-  Left = 343
-  Height = 500
-  Top = 206
-  Width = 700
+  Left = 205
+  Height = 490
+  Top = 219
+  Width = 725
   ActiveControl = PanelColors
   Caption = 'Dessin du décor'
-  ClientHeight = 500
-  ClientWidth = 700
+  ClientHeight = 490
+  ClientWidth = 725
   OnMouseUp = FormMouseUp
   OnShow = FormShow
-  LCLVersion = '0.9.30'
+  LCLVersion = '0.9.26.2'
   object Img: TImage
     Left = 25
     Height = 450
@@ -69,6 +69,7 @@ object Form3: TForm3
       Top = 10
       Width = 20
       Brush.Color = clMaroon
+      Pen.Cosmetic = True
       OnMouseDown = ShapeWoodMouseDown
     end
     object ShapeStone: TShape
@@ -77,6 +78,7 @@ object Form3: TForm3
       Top = 160
       Width = 20
       Brush.Color = clGray
+      Pen.Cosmetic = True
       OnMouseDown = ShapeStoneMouseDown
     end
     object ShapePlastic: TShape
@@ -85,6 +87,7 @@ object Form3: TForm3
       Top = 40
       Width = 20
       Brush.Color = clFuchsia
+      Pen.Cosmetic = True
       OnMouseDown = ShapePlasticMouseDown
     end
     object ShapeGrass: TShape
@@ -93,6 +96,7 @@ object Form3: TForm3
       Top = 100
       Width = 20
       Brush.Color = clGreen
+      Pen.Cosmetic = True
       OnMouseDown = ShapeGrassMouseDown
     end
     object ShapeSand: TShape
@@ -101,6 +105,7 @@ object Form3: TForm3
       Top = 70
       Width = 20
       Brush.Color = clYellow
+      Pen.Cosmetic = True
       OnMouseDown = ShapeSandMouseDown
     end
     object ShapeSteel: TShape
@@ -109,53 +114,54 @@ object Form3: TForm3
       Top = 130
       Width = 20
       Brush.Color = clTeal
+      Pen.Cosmetic = True
       OnMouseDown = ShapeSteelMouseDown
     end
     object LabelWood: TLabel
       Left = 40
-      Height = 16
+      Height = 17
       Top = 12
-      Width = 23
+      Width = 32
       Caption = 'Bois'
       ParentColor = False
     end
     object LabelPlastic: TLabel
       Left = 40
-      Height = 16
+      Height = 17
       Top = 42
-      Width = 49
+      Width = 67
       Caption = 'Plastique'
       ParentColor = False
     end
     object LabelSand: TLabel
       Left = 40
-      Height = 16
+      Height = 17
       Top = 72
-      Width = 29
+      Width = 42
       Caption = 'Sable'
       ParentColor = False
     end
     object LabelGrass: TLabel
       Left = 40
-      Height = 16
+      Height = 17
       Top = 102
-      Width = 33
+      Width = 45
       Caption = 'Herbe'
       ParentColor = False
     end
     object LabelStone: TLabel
       Left = 40
-      Height = 16
+      Height = 17
       Top = 162
-      Width = 34
+      Width = 48
       Caption = 'Roche'
       ParentColor = False
     end
     object LabelSteel: TLabel
       Left = 40
-      Height = 16
+      Height = 17
       Top = 132
-      Width = 31
+      Width = 40
       Caption = 'Metal'
       ParentColor = False
     end

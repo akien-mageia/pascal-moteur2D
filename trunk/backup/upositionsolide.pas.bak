@@ -5,9 +5,34 @@ unit UPositionSolide;
 interface
 
 uses
-  Classes, SysUtils; 
+  Classes, SysUtils, UPosition;
+
+type CPositionSolide = Class(CPosition)
+		protected
+			fAngle:real;
+		public
+                        Constructor Create(aXPix, aYPix: Integer; aAngle: Real);
+			procedure SetAngle( aAngle : Real);
+			function  GetAngle	: real;
+	end;
 
 implementation
 
-end.
+Constructor CPositionSolide.Create(aXPix, aYPix: Integer; aAngle: Real);
+   begin
+        SetXPixel(aXPix);
+	SetYPixel(aYPix);
+        fAngle := aAngle;
+   end;
 
+procedure CPositionSolide.SetAngle( aAngle : real);
+	Begin
+		fAngle := aAngle;
+	end;
+
+Function CPositionSolide.GetAngle : Real;
+	Begin
+		GetAngle := fAngle;
+	end;
+
+end.

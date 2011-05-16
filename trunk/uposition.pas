@@ -3,7 +3,7 @@ unit UPosition;
 //*******************************************************//
 //       Unite gerant la position des points du decor    //
 //                                                       //
-//    			TODO : Conversions               //
+//           	TODO : Nothing                           //
 //*******************************************************//
 
 {$mode objfpc}{$H+}
@@ -102,7 +102,7 @@ Function Cposition.GetYMetre() : Real;
 //Conversion Functions
 Function Cposition.pixelToMetre(aPos : Integer) : Real;
 	Begin
-		pixelToMetre := aPos;
+		pixelToMetre := aPos;       //1 pixel = 1meter
 	End;
 
 Function Cposition.metreToPixel(aPos : Real) : Integer;

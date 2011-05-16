@@ -51,8 +51,6 @@ implementation
 procedure TForm1.ButDessinObjetClick(Sender: TObject);
 begin
     Form2.Show;
-    Form2.ButRecommencerClick(Sender);
-    // Le TForm2.Show fonctionne etrangement, donc je mets l'initialisation du canevas ici.
 end;
 
 procedure TForm1.ButLancerSimClick(Sender: TObject);

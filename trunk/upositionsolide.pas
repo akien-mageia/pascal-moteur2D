@@ -1,5 +1,11 @@
 unit UPositionSolide;
 
+//*******************************************************//
+//       Unite gerant la position des points du solide   //
+//                                                       //
+//           	TODO : Nothing                           //
+//*******************************************************//
+
 {$mode objfpc}{$H+}
 
 interface
