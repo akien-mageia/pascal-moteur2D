@@ -26,6 +26,7 @@ type
     LabelWood: TLabel;
     PanelColors: TPanel;
     PanelButtons: TPanel;
+    RGChoixTaille: TRadioGroup;
     ShapeSteel: TShape;
     ShapeSand: TShape;
     ShapeGrass: TShape;
@@ -41,6 +42,7 @@ type
     procedure ImgMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure ImgMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
+    procedure RGChoixTailleClick(Sender: TObject);
     procedure ShapeGrassMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure ShapePlasticMouseDown(Sender: TObject; Button: TMouseButton;
@@ -73,7 +75,6 @@ begin
     Img.Canvas.Clear();
     // Valeurs par défaut pour le dessin (matériau pierre)
     Img.Canvas.Pen.Color := clGray;
-    Img.Canvas.Pen.Width := 2;
 end;
 
 procedure TForm3.ButAnnulerClick(Sender: TObject);
@@ -126,6 +127,17 @@ procedure TForm3.ImgMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer
 begin
     if ((DessinEnCours = true) and (X<Img.Width) and (Y<Img.Height) and (X>0) and (Y>0))
     then Img.Canvas.LineTo(x,y);
+end;
+
+procedure TForm3.RGChoixTailleClick(Sender: TObject);
+begin
+     case RGChoixTaille.ItemIndex of
+     0 : Img.Canvas.Pen.Width := 2;
+     1 : Img.Canvas.Pen.Width := 4;
+     2 : Img.Canvas.Pen.Width := 8;
+     3 : Img.Canvas.Pen.Width := 16;
+     4 : Img.Canvas.Pen.Width := 32;
+     end;
 end;
 
 procedure TForm3.ShapeGrassMouseDown(Sender: TObject; Button: TMouseButton;

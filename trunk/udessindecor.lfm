@@ -1,7 +1,7 @@
 object Form3: TForm3
-  Left = 423
+  Left = 374
   Height = 490
-  Top = 239
+  Top = 237
   Width = 725
   ActiveControl = PanelColors
   Caption = 'Dessin du décor'
@@ -183,13 +183,15 @@ object Form3: TForm3
     ChildSizing.ControlsPerLine = 1
     ClientHeight = 83
     ClientWidth = 136
+    ItemIndex = 0
     Items.Strings = (
-      '1px'
       '2px'
       '4px'
       '8px'
       '16px'
+      '32px'
     )
+    OnClick = RadioGroup1Click
     TabOrder = 2
   end
 end
