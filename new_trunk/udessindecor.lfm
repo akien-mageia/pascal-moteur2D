@@ -7,9 +7,11 @@ object Form3: TForm3
   Caption = 'Dessin du décor'
   ClientHeight = 508
   ClientWidth = 705
+  OnCreate = FormCreate
   OnMouseUp = FormMouseUp
   OnShow = FormShow
-  LCLVersion = '0.9.26.2'
+  LCLVersion = '0.9.30'
+  Visible = True
   object Img: TImage
     Left = 25
     Height = 450
@@ -69,7 +71,6 @@ object Form3: TForm3
       Top = 10
       Width = 20
       Brush.Color = clMaroon
-      Pen.Cosmetic = True
       OnMouseDown = ShapeWoodMouseDown
     end
     object ShapeStone: TShape
@@ -78,7 +79,6 @@ object Form3: TForm3
       Top = 160
       Width = 20
       Brush.Color = clGray
-      Pen.Cosmetic = True
       OnMouseDown = ShapeStoneMouseDown
     end
     object ShapePlastic: TShape
@@ -87,7 +87,6 @@ object Form3: TForm3
       Top = 40
       Width = 20
       Brush.Color = clFuchsia
-      Pen.Cosmetic = True
       OnMouseDown = ShapePlasticMouseDown
     end
     object ShapeGrass: TShape
@@ -96,7 +95,6 @@ object Form3: TForm3
       Top = 100
       Width = 20
       Brush.Color = clGreen
-      Pen.Cosmetic = True
       OnMouseDown = ShapeGrassMouseDown
     end
     object ShapeSand: TShape
@@ -105,7 +103,6 @@ object Form3: TForm3
       Top = 70
       Width = 20
       Brush.Color = clYellow
-      Pen.Cosmetic = True
       OnMouseDown = ShapeSandMouseDown
     end
     object ShapeSteel: TShape
@@ -114,54 +111,53 @@ object Form3: TForm3
       Top = 130
       Width = 20
       Brush.Color = clTeal
-      Pen.Cosmetic = True
       OnMouseDown = ShapeSteelMouseDown
     end
     object LabelWood: TLabel
       Left = 40
-      Height = 17
+      Height = 16
       Top = 12
-      Width = 32
+      Width = 23
       Caption = 'Bois'
       ParentColor = False
     end
     object LabelPlastic: TLabel
       Left = 40
-      Height = 17
+      Height = 16
       Top = 42
-      Width = 67
+      Width = 49
       Caption = 'Plastique'
       ParentColor = False
     end
     object LabelSand: TLabel
       Left = 40
-      Height = 17
+      Height = 16
       Top = 72
-      Width = 42
+      Width = 29
       Caption = 'Sable'
       ParentColor = False
     end
     object LabelGrass: TLabel
       Left = 40
-      Height = 17
+      Height = 16
       Top = 102
-      Width = 45
+      Width = 33
       Caption = 'Herbe'
       ParentColor = False
     end
     object LabelStone: TLabel
       Left = 40
-      Height = 17
+      Height = 16
       Top = 162
-      Width = 48
+      Width = 34
       Caption = 'Roche'
       ParentColor = False
     end
     object LabelSteel: TLabel
       Left = 40
-      Height = 17
+      Height = 16
       Top = 132
-      Width = 40
+      Width = 31
       Caption = 'Metal'
       ParentColor = False
     end
@@ -181,14 +177,14 @@ object Form3: TForm3
     ChildSizing.ShrinkVertical = crsScaleChilds
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 1
-    ClientHeight = 92
+    ClientHeight = 95
     ClientWidth = 137
     Items.Strings = (
-      '2px'
-      '4px'
-      '8px'
-      '16px'
-      '32px'
+      '2 px'
+      '4 px'
+      '8 px'
+      '16 px'
+      '32 px'
     )
     OnClick = RGChoixTailleClick
     TabOrder = 2
