@@ -117,6 +117,12 @@ begin
      begin
         SolideMouvement.GetPositionSolide().SetXPixel(X);
         SolideMouvement.GetPositionSolide().SetYPixel(Y);
+        Image1.Canvas.Pen.Color := clBlack;
+        Image1.Canvas.Pen.Width := 2;
+        Image1.Canvas.Draw(0,0,DecorBMP);
+        Image1.Canvas.Draw(SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel(),
+                           SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel(),
+                           Solide.getBMP[0]);
         FormePlacee := True;
         InitialisationVitesseEnCours := True
      end;
@@ -127,11 +133,13 @@ procedure TForm1.Image1MouseMove(Sender: TObject; Shift: TShiftState; X,
 begin
   if (InitialisationVitesseEnCours) then
     begin
-      Image1.canvas.Draw(0,0,DecorBMP);
-      Image1.Canvas.Pen.Color := clBlack;
-      Image1.Canvas.Pen.Width := 2;
-      Image1.Canvas.LineTo(SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel(),
-                       SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel());
+        Image1.canvas.Draw(0,0,DecorBMP);
+        Image1.Canvas.Draw(SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel(),
+                           SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel(),
+                           Solide.getBMP[0]);
+        Image1.Canvas.Line(X, Y,
+                           SolideMouvement.GetPositionSolide().GetXPixel(),
+                           SolideMouvement.GetPositionSolide().GetYPixel());
     end;
 end;
 
