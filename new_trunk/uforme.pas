@@ -8,19 +8,23 @@ uses
   Classes, SysUtils, FileUtil, LResources, Forms, Controls, Graphics, Dialogs,
   StdCtrls, ExtCtrls, UPosition;
 
+Type TBitmapArray = array of TBitmap;
+
 Type CForme = Class
      Protected
-              fBMP : TBitmap;
+              fNbBMP : integer;
+              fTableBMP : TBitmapArray;  // cf ci-dessus
               fCentreInertie : CPosition;
               fMasse : real;
 
      Public
-           Constructor Create(aWidth, aHeight : integer);
+           Constructor Create(aNbBMP, aWidth, aHeight : integer);
            Destructor Destroy; override;
            Procedure calculCentreInertie();
            Function getCentreInertie() : CPosition;
-           Procedure setBMP(aBMP: TBitmap);
-           Function getBMP() : TBitmap;
+           Function getNbBMP() : integer;
+           Procedure setBMP(aIndex: integer; aBMP: TBitmap);
+           Function getBMP : TBitmapArray;
            Procedure setMasse(aMasse: Real);
            Function getMasse() : real;
 
@@ -29,19 +33,26 @@ Type CForme = Class
 
 implementation
 
-Constructor CForme.Create(aWidth, aHeight : integer);
+Constructor CForme.Create(aNbBMP, aWidth, aHeight : integer);
 // Cree la classe et son Bitmap avec hauteur et largeur.
+Var i: integer;
 Begin
-     fBMP := TBitmap.Create;
-     fBMP.Width := aWidth;
-     fBMP.Height := aHeight;
-     fBMP.Canvas.Clear();
-     fCentreInertie := CPosition.Create(0, 0);
+    fNbBMP := aNbBMP;
+    setLength(fTableBMP, fNbBMP);
+    for i:=0 to fNbBMP-1 do begin
+        fTableBMP[i] := TBitmap.Create;
+        fTableBMP[i].Width := aWidth;
+        fTableBMP[i].Height := aHeight;
+        fTableBMP[i].Canvas.Clear();
+    end;
+    fCentreInertie := CPosition.Create(0, 0);
 End;
 
 Destructor CForme.Destroy;
+var i: integer;
 Begin
-    fBMP.Free;
+    for i:=0 to fNbBMP-1 do
+        fTableBMP[i].Free;
     fCentreInertie.Free;
     Inherited;
 end;
@@ -53,9 +64,9 @@ Begin
     sumX := 0;
     sumY := 0;
     // Calcul typique de barycentre, X = somme des Xi / nbPixels
-    for i:=0 to fBMP.Width-1 do
-        for j:=0 to fBMP.Height-1 do
-            if ((fBMP.Canvas.Pixels[i,j] = clBlack) or (fBMP.Canvas.Pixels[i,j] = clGray))
+    for i:=0 to fTableBMP[0].Width-1 do
+        for j:=0 to fTableBMP[0].Height-1 do
+            if ((fTableBMP[0].Canvas.Pixels[i,j] = clBlack) or (fTableBMP[0].Canvas.Pixels[i,j] = clGray))
             then begin
                 sumX := sumX + i;
                 sumY := sumY + j;
@@ -83,14 +94,19 @@ Begin
      fMasse := aMasse;
 end;
 
-Function CForme.getBMP() : TBitmap;
-begin
-    result := fBMP;
+Function CForme.getNbBMP() : integer;
+Begin
+    result := fNbBMP;
 end;
 
-Procedure CForme.setBMP(aBMP: TBitmap);
+Function CForme.getBMP : TBitmapArray;
 begin
-    fBMP := aBMP;
+    result := fTableBMP;
+end;
+
+Procedure CForme.setBMP(aIndex: integer; aBMP: TBitmap);
+begin
+    fTableBMP[aIndex] := aBMP;
 end;
 
 end.

@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, LResources, Forms, Controls, Graphics, Dialogs,
-  StdCtrls, ExtCtrls, UDessinObjet, UDessinDecor, UParamPhys, UForme, UPoids,
+  StdCtrls, ExtCtrls, UDessinObjet, UDessinDecor, UParamPhys, UPoids,
   UPositionSolide, UVitesse, UResultante, USolideMouvement;
 
 type
@@ -49,6 +49,7 @@ var
   Resultante: CResultante;
   SolideMouvement: CSolideMouvement;
   PositionSolide: CPositionSolide;
+  Angle: integer;   // Temporaire, pour tester la rotation tant qu'on ne peut pas l'extraire des calculs
 
 implementation
 
@@ -78,6 +79,8 @@ begin
         PositionSolide := CPositionSolide.Create(0,0,0);
 
         SolideMouvement := CSolideMouvement.Create(Resultante, PositionSolide, Vitesse, Solide);
+
+        Angle := 0;
 
         SimulationEnCours := true;
     end;
@@ -144,12 +147,14 @@ begin
   begin
     Resultante.CalculForce;
     SolideMouvement.CalculPosition();
+    if Angle < 340                        // Temporaire, a supprimer quand la rotation sera gérée par CalculPosition
+    then Angle := Angle+20
+    else Angle := 0;
 
-    Solide.getBMP.Transparent := True;
-    Solide.getBMP.TransparentColor := Solide.getBMP.Canvas.Pixels[0,0];
     Image1.canvas.Draw(0,0,DecorBMP);
     Image1.canvas.Draw(SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel(),
-                       SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel(),Solide.getBMP);
+                       SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel(),
+                       Solide.getBMP[round(Angle*Solide.getNbBMP/360)]);
   end;
 end;
 

@@ -8,7 +8,7 @@ object Form2: TForm2
   ClientWidth = 400
   OnMouseUp = FormMouseUp
   OnShow = FormShow
-  LCLVersion = '0.9.26.2'
+  LCLVersion = '0.9.30'
   Visible = True
   object Img: TImage
     Left = 25

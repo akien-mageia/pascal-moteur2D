@@ -66,12 +66,12 @@ var
   Form3: TForm3;
   DessinEnCours: boolean;
   DecorBMP: TBitmap;
-  matGrass, matPlastic, matSand, matSteel, matStone, matWood: CMateriau;
+{  matGrass, matPlastic, matSand, matSteel, matStone, matWood: CMateriau;
   DecorPositions: array of record
                             fX: integer;
                             fY: integer;
                             fMateriau: CMateriau;
-                          end;
+                          end;   }
 
 implementation
 
@@ -98,7 +98,7 @@ begin
     DecorBMP.PixelFormat := pf24bit;
     DecorBMP.LoadFromFile('image/decor.bmp');
 
-    // Recherche des tuples (X,Y,Materiau) de pixels non blancs
+ {   // Recherche des tuples (X,Y,Materiau) de pixels non blancs
     setLength(DecorPositions, 485*450);     // Surface maximale dessinable
     k := 0;
     for i:=0 to DecorBMP.Canvas.Width-1 do
@@ -117,20 +117,20 @@ begin
                 end;
                 k := k+1;
             end;
-        end;
+        end;       }
 
     Form3.Close();
 end;
 
 procedure TForm3.FormCreate(Sender: TObject);
 begin
-    // Création des différents CMateriau avec des coefficients de restitution arbitraire
+{    // Création des différents CMateriau avec des coefficients de restitution arbitraire
     matGrass := CMateriau.Create(clGreen, 0.25);
     matPlastic := CMateriau.Create(clFuchsia, 0.60);
     matSand := CMateriau.Create(clYellow, 0.10);
     matSteel := CMateriau.Create(clTeal, 0.90);
     matStone := CMateriau.Create(clGray, 1.00);
-    matWood := CMateriau.Create(clMaroon, 0.70);
+    matWood := CMateriau.Create(clMaroon, 0.70);  }
 end;
 
 procedure TForm3.FormMouseUp(Sender: TObject; Button: TMouseButton;

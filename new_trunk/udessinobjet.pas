@@ -31,7 +31,7 @@ type
     { private declarations }
   public
     procedure RemplissageParLigne(aXSeed,aYSeed,aOldColor,aNewColor: integer);
-    procedure GenererRotationsBMP(aSolide: CForme; aPas: integer);
+    procedure GenererRotationsBMP(aSolide: CForme);
   end;
 
 var
@@ -69,6 +69,7 @@ end;
 
 procedure TForm2.ButValiderClick(Sender: TObject);
 var SolideBMP : TBitmap;
+    i: integer;
 begin
     // Copie du Bitmap en passant par un fichier BMP.
     Img.Picture.Bitmap.SaveToFile('image/solide-0deg.bmp');
@@ -77,28 +78,36 @@ begin
     SolideBMP.LoadFromFile('image/solide-0deg.bmp');
 
     // Creation du Solide (CForme) et attribution du BMP
-    Solide := CForme.Create(SolideBMP.Width, SolideBMP.Height);
-    Solide.setBMP(SolideBMP);
+    Solide := CForme.Create(18, SolideBMP.Width, SolideBMP.Height);
+    // 18 est le pas, et l'angle de rotation sera a chaque fois un multiple de 360/pas.
+    Solide.setBMP(0, SolideBMP);
     Solide.calculCentreInertie();
 
     // Translation du centre d'inertie
-    Img.Picture.Bitmap.Canvas.Draw(round(Solide.getBMP.Width/2)-Solide.getCentreInertie.getXPixel,
-                                   round(Solide.getBMP.Height/2)-Solide.getCentreInertie.getYPixel,
-                                   Solide.getBMP);
+    Img.Picture.Bitmap.Canvas.Draw(round(Solide.getBMP[0].Width/2)-Solide.getCentreInertie.getXPixel,
+                                   round(Solide.getBMP[0].Height/2)-Solide.getCentreInertie.getYPixel,
+                                   Solide.getBMP[0]);
     Img.Picture.Bitmap.SaveToFile('image/solide-0deg.bmp');
-    SolideBMP.LoadFromFile('image/solide-0deg.bmp');
-    Solide.setBMP(SolideBMP);
-    Solide.getCentreInertie.setXPixel(round(Solide.getBMP.Width/2));
-    Solide.getCentreInertie.setYPixel(round(Solide.getBMP.Height/2));
+    Solide.getBMP[0].LoadFromFile('image/solide-0deg.bmp');
+    Solide.getCentreInertie.setXPixel(round(Solide.getBMP[0].Width/2));
+    Solide.getCentreInertie.setYPixel(round(Solide.getBMP[0].Height/2));
 
     // Creation des BMP pour differents angles de rotation
-    GenererRotationsBMP(Solide, 18);  // Generer 17 images tournees a partir du BMP
-    // 18 est le pas, et l'angle de rotation sera a chaque fois un multiple de 360/pas.
+    GenererRotationsBMP(Solide);  // Generer les images tournees a partir du BMP
+
+    Solide.getBMP[0].Transparent := True;
+    Solide.getBMP[0].TransparentColor := Solide.getBMP[0].Canvas.Pixels[0,0];
+    for i:=1 to Solide.getNbBMP-1 do begin
+        Solide.getBMP[i].LoadFromFile('image/solide-'+intToStr(i*round(360/Solide.getNbBMP))+'deg.bmp');
+        Solide.getBMP[i].Transparent := True;
+        Solide.getBMP[i].TransparentColor := Solide.getBMP[0].Canvas.Pixels[0,0];
+
+    end;
 
     Form2.Close();
 end;
 
-procedure TForm2.GenererRotationsBMP(aSolide: CForme; aPas: integer);
+procedure TForm2.GenererRotationsBMP(aSolide: CForme);
 var X0,Y0,X1,Y1,X2,Y2: integer;
     tableauBMP: array of TBitmap;
     angle: real;
@@ -107,37 +116,37 @@ begin
     X0 := aSolide.getCentreInertie.getXPixel();   // decalage d'origine
     Y0 := aSolide.getCentreInertie.getYPixel();
 
-    setLength(tableauBMP, aPas);
-    for i:=0 to aPas-1 do begin
+    setLength(tableauBMP, aSolide.getNbBMP);
+    for i:=0 to aSolide.getNbBMP-1 do begin
         tableauBMP[i] := TBitmap.Create();
-        tableauBMP[i].Height := aSolide.getBMP.Height;
-        tableauBMP[i].Width := aSolide.getBMP.Width;
+        tableauBMP[i].Height := aSolide.getBMP[0].Height;
+        tableauBMP[i].Width := aSolide.getBMP[0].Width;
         tableauBMP[i].Canvas.Clear();
         tableauBMP[i].Canvas.Clear();   // Pourquoi deux fois, je ne sais pas, mais sinon ca ne marche pas
         end;
 
-    for X1:=0 to aSolide.getBMP.Width-1 do
-        for Y1:=0 to aSolide.getBMP.Height-1 do begin
-            if aSolide.getBMP.Canvas.Pixels[X1,Y1] = clBlack
+    for X1:=0 to aSolide.getBMP[0].Width-1 do
+        for Y1:=0 to aSolide.getBMP[0].Height-1 do begin
+            if aSolide.getBMP[0].Canvas.Pixels[X1,Y1] = clBlack
             then
-                for i:=1 to aPas-1 do begin
-                    angle := i*(2*Pi/aPas);  // en radian
+                for i:=1 to aSolide.getNbBMP-1 do begin
+                    angle := i*(2*Pi/aSolide.getNbBMP);  // en radian
                     X2 := round(X0 + cos(angle)*(X1-X0) + sin(angle)*(Y1-Y0));
                     Y2 := round(Y0 - sin(angle)*(X1-X0) + cos(angle)*(Y1-Y0));
                     tableauBMP[i].Canvas.Pixels[X2,Y2] := clBlack;
                     end;
-            if aSolide.getBMP.Canvas.Pixels[X1,Y1] = clGray
+            if aSolide.getBMP[0].Canvas.Pixels[X1,Y1] = clGray
             then
-                for i:=1 to aPas-1 do begin
-                    angle := i*(2*Pi/aPas);
+                for i:=1 to aSolide.getNbBMP-1 do begin
+                    angle := i*(2*Pi/aSolide.getNbBMP);
                     X2 := round(X0 + cos(angle)*(X1-X0) + sin(angle)*(Y1-Y0));
                     Y2 := round(Y0 - sin(angle)*(X1-X0) + cos(angle)*(Y1-Y0));
                     tableauBMP[i].Canvas.Pixels[X2,Y2] := clGray;
                     end;
             end;
 
-    for i:=1 to aPas-1 do begin
-        angle := i*(360/aPas);
+    for i:=1 to aSolide.getNbBMP-1 do begin
+        angle := i*(360/aSolide.getNbBMP);
         tableauBMP[i].saveToFile('image/solide-'+intToStr(round(angle))+'deg.bmp');
     end;
 end;
