@@ -1,14 +1,14 @@
 object Form1: TForm1
-  Left = 307
+  Left = 673
   Height = 492
-  Top = 194
+  Top = 164
   Width = 836
   ActiveControl = ButDessinObjet
   Caption = 'Simulateur de mouvement'
   ClientHeight = 492
   ClientWidth = 836
   OnShow = FormShow
-  LCLVersion = '0.9.30'
+  LCLVersion = '0.9.28.2'
   object Image1: TImage
     Left = 80
     Height = 450
@@ -18,6 +18,14 @@ object Form1: TForm1
     OnMouseDown = Image1MouseDown
     OnMouseMove = Image1MouseMove
     OnMouseUp = Image1MouseUp
+  end
+  object Label1: TLabel
+    Left = 584
+    Height = 21
+    Top = 392
+    Width = 249
+    Caption = 'Vitesse angulaire initiale (en deg/sec)'
+    ParentColor = False
   end
   object ButDessinObjet: TButton
     Left = 648
@@ -63,6 +71,15 @@ object Form1: TForm1
     Caption = 'Quitter'
     OnClick = ButQuitterClick
     TabOrder = 4
+  end
+  object Edit1: TEdit
+    Left = 632
+    Height = 28
+    Top = 424
+    Width = 160
+    OnChange = Edit1Change
+    TabOrder = 5
+    Text = 'Vitesse angulaire'
   end
   object Timer1: TTimer
     Interval = 10

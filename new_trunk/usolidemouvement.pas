@@ -109,10 +109,14 @@ Procedure CSolideMouvement.CalculPosition();
         Var dt: real;
 	Begin
             dt := 0.01;  // dt est l'intervalle de temps du timer, ici 10ms
-            fVitesse.SetX(fVitesse.GetX() + fPositionSolide.metreToPixel(fResultante.GetFx()*dt/fForme.GetMasse()));  // 0.02 est l'intervalle de temps du timer, ici 20ms
+            fVitesse.SetX(fVitesse.GetX() + fPositionSolide.metreToPixel(fResultante.GetFx()*dt/fForme.GetMasse()));
             fVitesse.SetY(fVitesse.GetY() + fPositionSolide.metreToPixel(fResultante.GetFy()*dt/fForme.GetMasse()));
+            fVitesse.SetOmega(fVitesse.GetOmega() + fResultante.GetMz()*dt/fForme.GetMasse());
             fPositionSolide.SetXMetre(fPositionSolide.GetXMetre() + fPositionSolide.pixelToMetre(round(fVitesse.GetX()*dt)));
             fPositionSolide.SetYMetre(fPositionSolide.GetYMetre() + fPositionSolide.pixelToMetre(round(fVitesse.GetY()*dt)));
+            fPositionSolide.SetAngle(fPositionSolide.GetAngle() + fVitesse.GetOmega()*dt);
+            if (fPositionSolide.GetAngle()>360) then fPositionSolide.SetAngle(fPositionSolide.GetAngle()-360);
+
 	End;
 
 

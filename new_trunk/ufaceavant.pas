@@ -19,13 +19,16 @@ type
     ButParamPhys: TButton;
     ButLancerSim: TButton;
     ButQuitter: TButton;
+    Edit1: TEdit;
     Image1: TImage;
+    Label1: TLabel;
     Timer1: TTimer;
     procedure ButDessinDecorClick(Sender: TObject);
     procedure ButDessinObjetClick(Sender: TObject);
     procedure ButLancerSimClick(Sender: TObject);
     procedure ButParamPhysClick(Sender: TObject);
     procedure ButQuitterClick(Sender: TObject);
+    procedure Edit1Change(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Image1Click(Sender: TObject);
     procedure Image1MouseDown(Sender: TObject; Button: TMouseButton;
@@ -98,6 +101,12 @@ begin
     Halt;
 end;
 
+procedure TForm1.Edit1Change(Sender: TObject);
+begin
+  if (SimulationEnCours) then
+  SolideMouvement.GetVitesse().setOmega(StrToFloat(Edit1.Text));
+end;
+
 procedure TForm1.FormShow(Sender: TObject);
 begin
     SimulationEnCours := False;
@@ -145,7 +154,12 @@ end;
 procedure TForm1.Image1MouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
-  InitialisationVitesseEnCours := False;
+  if (InitialisationVitesseEnCours) then
+     begin
+       InitialisationVitesseEnCours := False;
+       SolideMouvement.GetVitesse().setX((X-SolideMouvement.GetPositionSolide().GetXPixel())*20);
+       SolideMouvement.GetVitesse().setY((Y-SolideMouvement.GetPositionSolide().GetYPixel())*20);
+     end;
 end;
 
 procedure TForm1.Timer1Timer(Sender: TObject);
@@ -159,11 +173,6 @@ begin
     then begin
         SolideMouvement.getPositionSolide().setXPixel(300);     // Traitement arbitraire tant que la physique des collisions n'est pas gérée
         SolideMouvement.getPositionSolide().setYPixel(100);     // Sert juste à vérifier l'efficacité de la détection de collision
-        end
-    else begin
-        if SolideMouvement.getPositionSolide().getAngle() < 340     // Temporaire, a supprimer quand la rotation sera gérée par CalculPosition
-        then SolideMouvement.getPositionSolide().setAngle(SolideMouvement.getPositionSolide().getAngle() + 20)
-        else SolideMouvement.getPositionSolide().setAngle(0);
         end;
 
     Image1.canvas.Draw(0,0,DecorBMP);
