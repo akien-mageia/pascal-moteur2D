@@ -39,6 +39,7 @@ type
     { private declarations }
   public
     { public declarations }
+    function collisionDetectee() : boolean;
   end; 
 
 var
@@ -49,7 +50,6 @@ var
   Resultante: CResultante;
   SolideMouvement: CSolideMouvement;
   PositionSolide: CPositionSolide;
-  Angle: integer;   // Temporaire, pour tester la rotation tant qu'on ne peut pas l'extraire des calculs
 
 implementation
 
@@ -80,7 +80,7 @@ begin
 
         SolideMouvement := CSolideMouvement.Create(Resultante, PositionSolide, Vitesse, Solide);
 
-        Angle := 0;
+        SolideMouvement.getPositionSolide().setAngle(0);
 
         SimulationEnCours := true;
     end;
@@ -155,15 +155,46 @@ begin
   begin
     Resultante.CalculForce;
     SolideMouvement.CalculPosition();
-    if Angle < 340                        // Temporaire, a supprimer quand la rotation sera gérée par CalculPosition
-    then Angle := Angle+20
-    else Angle := 0;
+
+    if (collisionDetectee())
+    then begin
+        SolideMouvement.getPositionSolide().setXPixel(300);     // Traitement arbitraire tant que la physique des collisions n'est pas gérée
+        SolideMouvement.getPositionSolide().setYPixel(100);     // Sert juste à vérifier l'efficacité de la détection de collision
+        end
+    else begin
+        if SolideMouvement.getPositionSolide().getAngle() < 340     // Temporaire, a supprimer quand la rotation sera gérée par CalculPosition
+        then SolideMouvement.getPositionSolide().setAngle(SolideMouvement.getPositionSolide().getAngle() + 20)
+        else SolideMouvement.getPositionSolide().setAngle(0);
+        end;
 
     Image1.canvas.Draw(0,0,DecorBMP);
     Image1.canvas.Draw(SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel(),
                        SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel(),
-                       Solide.getBMP[round(Angle*Solide.getNbBMP/360)]);
+                       Solide.getBMP[round(SolideMouvement.getPositionSolide().getAngle()*Solide.getNbBMP/360)]);
   end;
+end;
+
+function TForm1.collisionDetectee() : boolean;
+var
+    i, j, ecartX, ecartY, index, couleurNeutre: integer;
+    test: boolean;
+begin
+    couleurNeutre := Solide.getBMP[0].Canvas.Pixels[0,0];
+    index := round(SolideMouvement.getPositionSolide().getAngle()*Solide.getNbBMP/360);
+    ecartX := SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel();
+    ecartY := SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel();
+    i := 0;
+    j := 0;
+    test := false;
+    while (i<Solide.getBMP[index].Width) and (test = false) do begin
+        while (j<Solide.getBMP[index].Height) and (test = false) do
+            if ((Solide.getBMP[index].Canvas.Pixels[i,j] <> couleurNeutre) and (DecorBMP.Canvas.Pixels[i+ecartX,j+ecartY] <> couleurNeutre))
+            then test := true
+            else j := j+1;
+        j := 0;
+        i := i+1;
+        end;
+    result := test;
 end;
 
 procedure TForm1.ButDessinDecorClick(Sender: TObject);
