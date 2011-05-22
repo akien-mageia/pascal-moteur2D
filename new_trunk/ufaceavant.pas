@@ -79,7 +79,6 @@ begin
         PositionSolide := CPositionSolide.Create(0,0,0);
 
         SolideMouvement := CSolideMouvement.Create(Resultante, PositionSolide, Vitesse, Solide);
-
         SolideMouvement.getPositionSolide().setAngle(0);
 
         SimulationEnCours := true;
@@ -94,7 +93,7 @@ end;
 
 procedure TForm1.ButQuitterClick(Sender: TObject);
 begin
-    Solide.Free;
+    SolideMouvement.Free;
     DecorBMP.Free;
     Halt;
 end;
@@ -122,7 +121,7 @@ begin
         Image1.Canvas.Draw(0,0,DecorBMP);
         Image1.Canvas.Draw(SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel(),
                            SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel(),
-                           Solide.getBMP[0]);
+                           SolideMouvement.getForme().getBMP[0]);
         FormePlacee := True;
         InitialisationVitesseEnCours := True
      end;
@@ -136,7 +135,7 @@ begin
         Image1.canvas.Draw(0,0,DecorBMP);
         Image1.Canvas.Draw(SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel(),
                            SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel(),
-                           Solide.getBMP[0]);
+                           SolideMouvement.getForme().getBMP[0]);
         Image1.Canvas.Line(X, Y,
                            SolideMouvement.GetPositionSolide().GetXPixel(),
                            SolideMouvement.GetPositionSolide().GetYPixel());
@@ -170,7 +169,7 @@ begin
     Image1.canvas.Draw(0,0,DecorBMP);
     Image1.canvas.Draw(SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel(),
                        SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel(),
-                       Solide.getBMP[round(SolideMouvement.getPositionSolide().getAngle()*Solide.getNbBMP/360)]);
+                       SolideMouvement.getForme().getBMP[round(SolideMouvement.getPositionSolide().getAngle()*SolideMouvement.getForme().getNbBMP/360)]);
   end;
 end;
 
@@ -179,16 +178,16 @@ var
     i, j, ecartX, ecartY, index, couleurNeutre: integer;
     test: boolean;
 begin
-    couleurNeutre := Solide.getBMP[0].Canvas.Pixels[0,0];
-    index := round(SolideMouvement.getPositionSolide().getAngle()*Solide.getNbBMP/360);
+    couleurNeutre := SolideMouvement.getForme().getBMP[0].Canvas.Pixels[0,0];
+    index := round(SolideMouvement.getPositionSolide().getAngle()*SolideMouvement.getForme().getNbBMP/360);
     ecartX := SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel();
     ecartY := SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel();
     i := 0;
     j := 0;
     test := false;
-    while (i<Solide.getBMP[index].Width) and (test = false) do begin
-        while (j<Solide.getBMP[index].Height) and (test = false) do
-            if ((Solide.getBMP[index].Canvas.Pixels[i,j] <> couleurNeutre) and (DecorBMP.Canvas.Pixels[i+ecartX,j+ecartY] <> couleurNeutre))
+    while (i<SolideMouvement.getForme().getBMP[index].Width) and (test = false) do begin
+        while (j<SolideMouvement.getForme().getBMP[index].Height) and (test = false) do
+            if ((SolideMouvement.getForme().getBMP[index].Canvas.Pixels[i,j] <> couleurNeutre) and (DecorBMP.Canvas.Pixels[i+ecartX,j+ecartY] <> couleurNeutre))
             then test := true
             else j := j+1;
         j := 0;
