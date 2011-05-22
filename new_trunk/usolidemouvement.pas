@@ -10,7 +10,7 @@ unit USolideMouvement;
 interface
 
 uses
-  Classes, SysUtils, UResultante, UPositionSolide, UVitesse, UForme;
+  Classes, SysUtils, UResultante, UPositionSolide, UPosition, UVitesse, UForme;
 
 Type CSolideMouvement = Class
 
@@ -39,7 +39,7 @@ Type CSolideMouvement = Class
      		Procedure SetForme(	aForme	    : CForme);
 
      		//Others Functions
-     		Function CalculPosition() : CPositionSolide;
+     		Procedure CalculPosition();
      end;
 
 implementation
@@ -105,14 +105,14 @@ Procedure CSolideMouvement.SetForme(aForme : CForme);
 
 
 
-Function CSolideMouvement.CalculPosition() : CPositionSolide;
-	var resultat : CPositionSolide;
-
+Procedure CSolideMouvement.CalculPosition();
+        Var dt: real;
 	Begin
-            fVitesse.SetX(fVitesse.GetX() + fResultante.GetFx()*0.04/fForme.GetMasse());  // 1 est l'intervalle de temps, ici 40ms
-            fVitesse.SetY(fVitesse.GetY() + fResultante.GetFy()*0.04/fForme.GetMasse());
-            fPositionSolide.SetXMetre(fPositionSolide.GetXMetre() + fVitesse.GetX()*1);
-            fPositionSolide.SetYMetre(fPositionSolide.GetYMetre() + fVitesse.GetY()*1);
+            dt := 0.01;  // dt est l'intervalle de temps du timer, ici 10ms
+            fVitesse.SetX(fVitesse.GetX() + fPositionSolide.metreToPixel(fResultante.GetFx()*dt/fForme.GetMasse()));  // 0.02 est l'intervalle de temps du timer, ici 20ms
+            fVitesse.SetY(fVitesse.GetY() + fPositionSolide.metreToPixel(fResultante.GetFy()*dt/fForme.GetMasse()));
+            fPositionSolide.SetXMetre(fPositionSolide.GetXMetre() + fPositionSolide.pixelToMetre(round(fVitesse.GetX()*dt)));
+            fPositionSolide.SetYMetre(fPositionSolide.GetYMetre() + fPositionSolide.pixelToMetre(round(fVitesse.GetY()*dt)));
 	End;
 
 

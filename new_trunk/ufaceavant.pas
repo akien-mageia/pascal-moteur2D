@@ -65,7 +65,7 @@ begin
   if (SimulationEnCours = false) then
   begin
     if (Solide <> Nil) then begin
-        Solide.SetMasse(100);
+        Solide.SetMasse(1);      // 1 kg
 
         Vitesse := CVitesse.Create(0,0,0);
 
@@ -132,7 +132,7 @@ procedure TForm1.Image1MouseMove(Sender: TObject; Shift: TShiftState; X,
 begin
   if (InitialisationVitesseEnCours) then
     begin
-        Image1.canvas.Draw(0,0,DecorBMP);
+        Image1.Canvas.Draw(0,0,DecorBMP);
         Image1.Canvas.Draw(SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel(),
                            SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel(),
                            SolideMouvement.getForme().getBMP[0]);

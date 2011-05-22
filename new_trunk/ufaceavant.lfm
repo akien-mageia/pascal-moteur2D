@@ -65,7 +65,7 @@ object Form1: TForm1
     TabOrder = 4
   end
   object Timer1: TTimer
-    Interval = 100
+    Interval = 10
     OnTimer = Timer1Timer
     left = 40
     top = 32
