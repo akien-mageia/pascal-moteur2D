@@ -23,6 +23,6 @@ LazarusResources.Add('TForm1','FORMDATA',[
   +'Height'#2')'#3'Top'#3'8'#1#5'Width'#3#160#0#7'Caption'#6#7'Quitter'#7'OnCli'
   +'ck'#7#15'ButQuitterClick'#8'TabOrder'#2#4#0#0#5'TEdit'#5'Edit1'#4'Left'#3'x'
   +#2#6'Height'#2#28#3'Top'#3#168#1#5'Width'#3#160#0#8'OnChange'#7#11'Edit1Chan'
-  +'ge'#8'TabOrder'#2#5#4'Text'#6#17'Vitesse angulaire'#0#0#6'TTimer'#6'Timer1'
-  +#8'Interval'#2#10#7'OnTimer'#7#11'Timer1Timer'#4'left'#2'('#3'top'#2' '#0#0#0
+  +'ge'#8'TabOrder'#2#5#4'Text'#6#1'0'#0#0#6'TTimer'#6'Timer1'#8'Interval'#2#10
+  +#7'OnTimer'#7#11'Timer1Timer'#4'left'#2'('#3'top'#2' '#0#0#0
 ]);

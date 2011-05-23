@@ -115,7 +115,7 @@ Procedure CSolideMouvement.CalculPosition();
             fPositionSolide.SetXMetre(fPositionSolide.GetXMetre() + fPositionSolide.pixelToMetre(round(fVitesse.GetX()*dt)));
             fPositionSolide.SetYMetre(fPositionSolide.GetYMetre() + fPositionSolide.pixelToMetre(round(fVitesse.GetY()*dt)));
             fPositionSolide.SetAngle(fPositionSolide.GetAngle() + fVitesse.GetOmega()*dt);
-            if (fPositionSolide.GetAngle()>360) then fPositionSolide.SetAngle(fPositionSolide.GetAngle()-360);
+            if (fPositionSolide.GetAngle()>340) then fPositionSolide.SetAngle(fPositionSolide.GetAngle()-340);
 
 	End;
 

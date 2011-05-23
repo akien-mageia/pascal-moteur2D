@@ -79,7 +79,7 @@ object Form1: TForm1
     Width = 160
     OnChange = Edit1Change
     TabOrder = 5
-    Text = 'Vitesse angulaire'
+    Text = '0'
   end
   object Timer1: TTimer
     Interval = 10
