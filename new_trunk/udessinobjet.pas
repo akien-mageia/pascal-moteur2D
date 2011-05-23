@@ -32,6 +32,7 @@ type
   public
     procedure RemplissageParLigne(aXSeed,aYSeed,aOldColor,aNewColor: integer);
     procedure GenererRotationsBMP(aSolide: CForme);
+    procedure GenererTableauSommets(aIndex: integer; aSolide: CForme);
   end;
 
 var
@@ -91,6 +92,7 @@ begin
     Solide.getBMP[0].LoadFromFile('image/solide-0deg.bmp');
     Solide.getCentreInertie.setXPixel(round(Solide.getBMP[0].Width/2));
     Solide.getCentreInertie.setYPixel(round(Solide.getBMP[0].Height/2));
+    GenererTableauSommets(0, Solide);    // Generer la premiere entree du fTableSommets (image non tournee)
 
     // Creation des BMP pour differents angles de rotation
     GenererRotationsBMP(Solide);  // Generer les images tournees a partir du BMP
@@ -101,7 +103,7 @@ begin
         Solide.getBMP[i].LoadFromFile('image/solide-'+intToStr(i*round(360/Solide.getNbBMP))+'deg.bmp');
         Solide.getBMP[i].Transparent := True;
         Solide.getBMP[i].TransparentColor := Solide.getBMP[0].Canvas.Pixels[0,0];
-
+        GenererTableauSommets(i, Solide);   // Generer le fTableSommets a partir des images tournees
     end;
 
     Form2.Close();
@@ -149,6 +151,72 @@ begin
         angle := i*(360/aSolide.getNbBMP);
         tableauBMP[i].saveToFile('image/solide-'+intToStr(round(angle))+'deg.bmp');
     end;
+end;
+
+procedure TForm2.GenererTableauSommets(aIndex: integer; aSolide: CForme);
+var i, j, X0, Y0, X1, Y1: integer;
+    X0trouve, Y0trouve, X1trouve, Y1trouve: boolean;
+begin
+    X0trouve := false;
+    Y0trouve := false;
+    X1trouve := false;
+    Y1trouve := false;
+
+    i := 0;
+    j := 0;
+
+    while (i<aSolide.getBMP[aIndex].Width-1) and (X0trouve = false) do begin
+        while (j<aSolide.getBMP[aIndex].Height-1) and (X0trouve = false) do
+            if aSolide.getBMP[aIndex].Canvas.Pixels[i,j] <> clWhite
+            then begin
+                X0trouve := true;
+                X0 := i;
+                end
+            else j := j+1;
+        j := 0;
+        i := i+1;
+        end;
+
+    i := aSolide.getBMP[aIndex].Width-1;
+    while (i>0) and (X1trouve = false) do begin
+        while (j<aSolide.getBMP[aIndex].Height-1) and (X1trouve = false) do
+            if aSolide.getBMP[aIndex].Canvas.Pixels[i,j] <> clWhite
+            then begin
+                X1trouve := true;
+                X1 := i;
+                end
+            else j := j+1;
+        j := 0;
+        i := i-1;
+        end;
+
+    i := 0;
+    while (j<aSolide.getBMP[aIndex].Height-1) and (Y0trouve = false) do begin
+        while (i<aSolide.getBMP[aIndex].Width-1) and (Y0trouve = false) do
+            if aSolide.getBMP[aIndex].Canvas.Pixels[i,j] <> clWhite
+            then begin
+                Y0trouve := true;
+                Y0 := j;
+                end
+            else i := i+1;
+        i := 0;
+        j := j+1;
+        end;
+
+    j := aSolide.getBMP[aIndex].Height-1;
+    while (j>0) and (Y1trouve = false) do begin
+        while (i<aSolide.getBMP[aIndex].Width-1) and (Y1trouve = false) do
+            if aSolide.getBMP[aIndex].Canvas.Pixels[i,j] <> clWhite
+            then begin
+                Y1trouve := true;
+                Y1 := j;
+                end
+            else i := i+1;
+        i := 0;
+        j := j-1;
+        end;
+
+    aSolide.setSommets(aIndex, X0, Y0, X1, Y1);
 end;
 
 procedure TForm2.FormShow(Sender: TObject);

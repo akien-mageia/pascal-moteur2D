@@ -22,6 +22,7 @@ type
     Edit1: TEdit;
     Image1: TImage;
     Label1: TLabel;
+    Label2: TLabel;
     Timer1: TTimer;
     procedure ButDessinDecorClick(Sender: TObject);
     procedure ButDessinObjetClick(Sender: TObject);
@@ -53,6 +54,8 @@ var
   Resultante: CResultante;
   SolideMouvement: CSolideMouvement;
   PositionSolide: CPositionSolide;
+  compteur:integer;  // provisoire pour des tests sur la rapidité du timer
+
 
 implementation
 
@@ -84,6 +87,7 @@ begin
         SolideMouvement := CSolideMouvement.Create(Resultante, PositionSolide, Vitesse, Solide);
         SolideMouvement.getPositionSolide().setAngle(0);
 
+        compteur := 0;
         SimulationEnCours := true;
     end;
   end;
@@ -168,6 +172,8 @@ procedure TForm1.Timer1Timer(Sender: TObject);
 begin
   if (SimulationEnCours) and (FormePlacee) and (InitialisationVitesseEnCours = False) then
   begin
+    compteur := compteur +1;
+    Label2.Caption := 'Nombre d''itérations du timer : '+intToStr(compteur)+'. Angle : '+floatToStr(SolideMouvement.getPositionSolide.getAngle());
     Resultante.CalculForce;
     SolideMouvement.CalculPosition();
 
@@ -186,22 +192,21 @@ end;
 
 function TForm1.collisionDetectee() : boolean;
 var
-    i, j, ecartX, ecartY, index, couleurNeutre: integer;
+    i, j, ecartX, ecartY, index: integer;
     test: boolean;
 begin
-    couleurNeutre := SolideMouvement.getForme().getBMP[0].Canvas.Pixels[0,0];
     index := round(SolideMouvement.getPositionSolide().getAngle()*SolideMouvement.getForme().getNbBMP/360);
     ecartX := SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel();
     ecartY := SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel();
-    i := 0;
-    j := 0;
+    i := SolideMouvement.getForme().getSommets[index][0];
+    j := SolideMouvement.getForme().getSommets[index][1];
     test := false;
-    while (i<SolideMouvement.getForme().getBMP[index].Width) and (test = false) do begin
-        while (j<SolideMouvement.getForme().getBMP[index].Height) and (test = false) do
-            if ((SolideMouvement.getForme().getBMP[index].Canvas.Pixels[i,j] <> couleurNeutre) and (DecorBMP.Canvas.Pixels[i+ecartX,j+ecartY] <> couleurNeutre))
+    while (i>=SolideMouvement.getForme().getSommets[index][0]) and (i<=SolideMouvement.getForme().getSommets[index][2]) and (test = false) do begin
+        while (j>=SolideMouvement.getForme().getSommets[index][1]) and (j<=SolideMouvement.getForme().getSommets[index][3]) and (test = false) do
+            if (DecorBMP.Canvas.Pixels[i+ecartX,j+ecartY] <> clWhite) and (SolideMouvement.getForme().getBMP[index].Canvas.Pixels[i,j] <> clWhite)
             then test := true
             else j := j+1;
-        j := 0;
+        j := SolideMouvement.getForme().getSommets[index][1];
         i := i+1;
         end;
     result := test;

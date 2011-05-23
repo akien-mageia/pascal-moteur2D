@@ -9,11 +9,21 @@ uses
   StdCtrls, ExtCtrls, UPosition;
 
 Type TBitmapArray = array of TBitmap;
+     TCoordsArray = array of array [0..3] of integer;
 
 Type CForme = Class
      Protected
               fNbBMP : integer;
               fTableBMP : TBitmapArray;  // cf ci-dessus
+              fTableSommets : TCoordsArray;
+                // tableau parallele à fTableBMP pour stocker les coordonnées des points extremes de chaque BMP
+                // ex : fTableSommets[5][3] sera la coordonnee en X du sommet en bas à droite du carre delimitant la surface dessinee du BMP 5 (tourne de 5*angle deg)
+                // Les index finaux 0 à 3 designent :
+                //    0: X du point en haut à gauche
+                //    1: Y du point en haut à gauche
+                //    2: X du point en bas à droite
+                //    3: Y du point en bas à droite
+                // Interet : la surface a tester est ainsi reduite, optimisation de la detection des collisions
               fCentreInertie : CPosition;
               fMasse : real;
               fJ : real; // moment d'inertie par rapport au centre d'inertie et à l'axe Oz
@@ -27,6 +37,8 @@ Type CForme = Class
            Function getNbBMP() : integer;
            Procedure setBMP(aIndex: integer; aBMP: TBitmap);
            Function getBMP : TBitmapArray;
+           Procedure setSommets(index, aX0, aY0, aX1, aY1: integer);
+           Function getSommets() : TCoordsArray;
            Procedure setMasse(aMasse: Real);
            Function getMasse() : real;
            Function getJ() : real;
@@ -46,6 +58,7 @@ Var i: integer;
 Begin
     fNbBMP := aNbBMP;
     setLength(fTableBMP, fNbBMP);
+    setLength(fTableSommets, fNbBMP);
     for i:=0 to fNbBMP-1 do begin
         fTableBMP[i] := TBitmap.Create;
         fTableBMP[i].Width := aWidth;
@@ -114,6 +127,19 @@ end;
 Procedure CForme.setBMP(aIndex: integer; aBMP: TBitmap);
 begin
     fTableBMP[aIndex] := aBMP;
+end;
+
+Procedure CForme.setSommets(index, aX0, aY0, aX1, aY1: integer);
+begin
+    fTableSommets[index][0] := aX0;
+    fTableSommets[index][1] := aY0;
+    fTableSommets[index][2] := aX1;
+    fTableSommets[index][3] := aY1;
+end;
+
+Function CForme.getSommets() : TCoordsArray;
+begin
+    result := fTableSommets;
 end;
 
 Function CForme.getJ() : real;
