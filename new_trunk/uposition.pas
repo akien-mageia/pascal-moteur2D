@@ -102,13 +102,13 @@ Function Cposition.GetYMetre() : Real;
 //Conversion Functions
 Function Cposition.pixelToMetre(aPos : Integer) : Real;
 	Begin
-		pixelToMetre := aPos*0.250;   // On prend 1 px = 250 mm x 250 mm (echelle 1:500)
+		pixelToMetre := aPos*0.020;   // On prend 1 px = 20 mm x 20 mm (echelle 1:40)
                 // Rq: vraie valeur pour un 17": 1 px = 0.54 mm x 0.54 mm
 	End;
 
 Function Cposition.metreToPixel(aPos : Real) : Integer;
 	Begin
-		metreToPixel := round(aPos*4);   // 1 m = 4 px (echelle 1:500)
+		metreToPixel := round(aPos*50);   // 1 m = 50 px (echelle 1:40)
 	End;
 
 end.

@@ -10,7 +10,7 @@ unit USolideMouvement;
 interface
 
 uses
-  Classes, SysUtils, UResultante, UPositionSolide, UPosition, UVitesse, UForme;
+  Classes, SysUtils, UResultante, UPositionSolide, UVitesse, UForme;
 
 Type CSolideMouvement = Class
 
@@ -109,11 +109,11 @@ Procedure CSolideMouvement.CalculPosition();
         Var dt: real;
 	Begin
             dt := 0.03;  // dt est l'intervalle de temps du timer, ici 30ms
-            fVitesse.SetX(fVitesse.GetX() + fPositionSolide.metreToPixel(fResultante.GetFx()*dt/fForme.GetMasse()));
-            fVitesse.SetY(fVitesse.GetY() + fPositionSolide.metreToPixel(fResultante.GetFy()*dt/fForme.GetMasse()));
+            fVitesse.SetX(fVitesse.GetX() + fResultante.GetFx()*dt/fForme.GetMasse());
+            fVitesse.SetY(fVitesse.GetY() + fResultante.GetFy()*dt/fForme.GetMasse());
             fVitesse.SetOmega(fVitesse.GetOmega() + fResultante.GetMz()*dt/fForme.GetMasse());
-            fPositionSolide.SetXMetre(fPositionSolide.GetXMetre() + fPositionSolide.pixelToMetre(round(fVitesse.GetX()*dt)));
-            fPositionSolide.SetYMetre(fPositionSolide.GetYMetre() + fPositionSolide.pixelToMetre(round(fVitesse.GetY()*dt)));
+            fPositionSolide.SetXMetre(fPositionSolide.GetXMetre() + fVitesse.GetX()*dt);
+            fPositionSolide.SetYMetre(fPositionSolide.GetYMetre() + fVitesse.GetY()*dt);
             fPositionSolide.SetAngle(fPositionSolide.GetAngle() + fVitesse.GetOmega()*dt);
             if (fPositionSolide.GetAngle()>=350) then fPositionSolide.SetAngle(fPositionSolide.GetAngle()-360);
 

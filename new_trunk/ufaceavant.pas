@@ -161,7 +161,7 @@ var CoefLancement: Real;
 begin
   if (InitialisationVitesseEnCours) then
      begin
-       CoefLancement := 20;
+       CoefLancement := 0.07;
        InitialisationVitesseEnCours := False;
        SolideMouvement.GetVitesse().setX((X-SolideMouvement.GetPositionSolide().GetXPixel())*CoefLancement);
        SolideMouvement.GetVitesse().setY((Y-SolideMouvement.GetPositionSolide().GetYPixel())*CoefLancement);
