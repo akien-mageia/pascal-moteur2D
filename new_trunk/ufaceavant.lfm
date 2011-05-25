@@ -8,7 +8,7 @@ object Form1: TForm1
   ClientHeight = 530
   ClientWidth = 852
   OnShow = FormShow
-  LCLVersion = '0.9.30'
+  LCLVersion = '0.9.28.2'
   Visible = True
   object Image1: TImage
     Left = 80
@@ -22,10 +22,18 @@ object Form1: TForm1
   end
   object Label1: TLabel
     Left = 584
-    Height = 16
-    Top = 392
-    Width = 196
+    Height = 21
+    Top = 376
+    Width = 249
     Caption = 'Vitesse angulaire initiale (en deg/sec)'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 114
+    Height = 21
+    Top = 486
+    Width = 66
+    Caption = 'Provisoire'
     ParentColor = False
   end
   object ButDessinObjet: TButton
@@ -74,21 +82,21 @@ object Form1: TForm1
     TabOrder = 4
   end
   object Edit1: TEdit
-    Left = 632
-    Height = 23
-    Top = 424
+    Left = 584
+    Height = 28
+    Top = 416
     Width = 160
     OnChange = Edit1Change
     TabOrder = 5
-    Text = '0'
   end
-  object Label2: TLabel
-    Left = 114
-    Height = 16
-    Top = 486
-    Width = 53
-    Caption = 'Provisoire'
-    ParentColor = False
+  object Button1: TButton
+    Left = 760
+    Height = 28
+    Top = 416
+    Width = 75
+    Caption = 'Valider'
+    OnClick = Button1Click
+    TabOrder = 6
   end
   object Timer1: TTimer
     Interval = 30

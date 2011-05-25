@@ -19,6 +19,7 @@ type
     ButParamPhys: TButton;
     ButLancerSim: TButton;
     ButQuitter: TButton;
+    Button1: TButton;
     Edit1: TEdit;
     Image1: TImage;
     Label1: TLabel;
@@ -29,6 +30,7 @@ type
     procedure ButLancerSimClick(Sender: TObject);
     procedure ButParamPhysClick(Sender: TObject);
     procedure ButQuitterClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
     procedure Edit1Change(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Image1Click(Sender: TObject);
@@ -105,10 +107,15 @@ begin
     Halt;
 end;
 
-procedure TForm1.Edit1Change(Sender: TObject);
+procedure TForm1.Button1Click(Sender: TObject);
 begin
   if (SimulationEnCours) then
-  SolideMouvement.GetVitesse().setOmega(StrToFloat(Edit1.Text));
+  SolideMouvement.GetVitesse().setOmega(StrToFloat(Form1.Edit1.Text));
+end;
+
+procedure TForm1.Edit1Change(Sender: TObject);
+begin
+
 end;
 
 procedure TForm1.FormShow(Sender: TObject);
