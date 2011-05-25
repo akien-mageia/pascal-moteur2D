@@ -193,7 +193,7 @@ begin
     Image1.canvas.Draw(0,0,DecorBMP);
     Image1.canvas.Draw(SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel(),
                        SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel(),
-                       SolideMouvement.getForme().getBMP[round(SolideMouvement.getPositionSolide().getAngle()/360)]);
+                       SolideMouvement.getForme().getBMP[round(SolideMouvement.getPositionSolide().getAngle()/20)]);
   end;
 end;
 
@@ -202,7 +202,7 @@ var
     i, j, ecartX, ecartY, index: integer;
     test: boolean;
 begin
-    index := round(SolideMouvement.getPositionSolide().getAngle()*SolideMouvement.getForme().getNbBMP/360);
+    index := round(SolideMouvement.getPositionSolide().getAngle()*SolideMouvement.getForme().getNbBMP/360);          // Je ne sais pas ce que c'est mais je pense qu'il faut le modifier (cf affichage de l'angle)
     ecartX := SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel();
     ecartY := SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel();
     i := SolideMouvement.getForme().getSommets[index][0];

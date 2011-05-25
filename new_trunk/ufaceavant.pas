@@ -73,7 +73,10 @@ begin
   if (SimulationEnCours = false) then
   begin
     if (Solide <> Nil) then begin
-        Solide.SetMasse(1);      // 1 kg
+
+        Solide.SetMassePixel(0.1);  // en kg donc 100g par pixel soit un objet de quelques dizaines de kg
+        Solide.CalculMasse();
+        Solide.CalculJ();
 
         Vitesse := CVitesse.Create(0,0,0);
 
@@ -202,7 +205,7 @@ var
     i, j, ecartX, ecartY, index: integer;
     test: boolean;
 begin
-    index := round(SolideMouvement.getPositionSolide().getAngle()*SolideMouvement.getForme().getNbBMP/360);
+    index := round(SolideMouvement.getPositionSolide().getAngle()*SolideMouvement.getForme().getNbBMP/360);          // Je ne sais pas ce que c'est mais je pense qu'il faut le modifier (cf affichage de l'angle)
     ecartX := SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel();
     ecartY := SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel();
     i := SolideMouvement.getForme().getSommets[index][0];

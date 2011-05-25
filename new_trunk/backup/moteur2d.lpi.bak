@@ -47,8 +47,8 @@
         <ComponentName Value="Form1"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UFaceAvant"/>
-        <CursorPos X="110" Y="196"/>
-        <TopLine Value="176"/>
+        <CursorPos X="211" Y="205"/>
+        <TopLine Value="171"/>
         <EditorIndex Value="0"/>
         <UsageCount Value="48"/>
         <Loaded Value="True"/>
@@ -70,7 +70,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="UForme"/>
         <CursorPos X="30" Y="75"/>
-        <TopLine Value="1"/>
+        <TopLine Value="39"/>
         <EditorIndex Value="10"/>
         <UsageCount Value="48"/>
         <Loaded Value="True"/>

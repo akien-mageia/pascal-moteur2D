@@ -47,8 +47,8 @@
         <ComponentName Value="Form1"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UFaceAvant"/>
-        <CursorPos X="113" Y="196"/>
-        <TopLine Value="176"/>
+        <CursorPos X="26" Y="79"/>
+        <TopLine Value="69"/>
         <EditorIndex Value="0"/>
         <UsageCount Value="48"/>
         <Loaded Value="True"/>
@@ -60,7 +60,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UDessinObjet"/>
         <CursorPos X="1" Y="221"/>
-        <TopLine Value="185"/>
+        <TopLine Value="68"/>
         <EditorIndex Value="8"/>
         <UsageCount Value="48"/>
         <Loaded Value="True"/>
@@ -70,7 +70,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="UForme"/>
         <CursorPos X="30" Y="75"/>
-        <TopLine Value="1"/>
+        <TopLine Value="15"/>
         <EditorIndex Value="10"/>
         <UsageCount Value="48"/>
         <Loaded Value="True"/>
@@ -133,8 +133,8 @@
         <Filename Value="usolidemouvement.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="USolideMouvement"/>
-        <CursorPos X="51" Y="13"/>
-        <TopLine Value="1"/>
+        <CursorPos X="87" Y="114"/>
+        <TopLine Value="87"/>
         <EditorIndex Value="1"/>
         <UsageCount Value="47"/>
         <Loaded Value="True"/>

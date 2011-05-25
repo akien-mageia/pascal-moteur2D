@@ -111,7 +111,7 @@ Procedure CSolideMouvement.CalculPosition();
             dt := 0.03;  // dt est l'intervalle de temps du timer, ici 30ms
             fVitesse.SetX(fVitesse.GetX() + fResultante.GetFx()*dt/fForme.GetMasse());
             fVitesse.SetY(fVitesse.GetY() + fResultante.GetFy()*dt/fForme.GetMasse());
-            fVitesse.SetOmega(fVitesse.GetOmega() + fResultante.GetMz()*dt/fForme.GetMasse());
+            fVitesse.SetOmega(fVitesse.GetOmega() + fResultante.GetMz()*dt/fForme.GetJ());
             fPositionSolide.SetXMetre(fPositionSolide.GetXMetre() + fVitesse.GetX()*dt);
             fPositionSolide.SetYMetre(fPositionSolide.GetYMetre() + fVitesse.GetY()*dt);
             fPositionSolide.SetAngle(fPositionSolide.GetAngle() + fVitesse.GetOmega()*dt);
