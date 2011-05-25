@@ -193,7 +193,7 @@ begin
     Image1.canvas.Draw(0,0,DecorBMP);
     Image1.canvas.Draw(SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel(),
                        SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel(),
-                       SolideMouvement.getForme().getBMP[round(SolideMouvement.getPositionSolide().getAngle()*SolideMouvement.getForme().getNbBMP/360)]);
+                       SolideMouvement.getForme().getBMP[round(SolideMouvement.getPositionSolide().getAngle()/20)]);
   end;
 end;
 

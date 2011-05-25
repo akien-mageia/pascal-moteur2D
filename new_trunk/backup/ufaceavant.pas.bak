@@ -110,7 +110,7 @@ end;
 procedure TForm1.Button1Click(Sender: TObject);
 begin
   if (SimulationEnCours) then
-  SolideMouvement.GetVitesse().setOmega(StrToFloat(TForm1.TEdit1.Text));
+  SolideMouvement.GetVitesse().setOmega(StrToFloat(Form1.Edit1.Text));
 end;
 
 procedure TForm1.Edit1Change(Sender: TObject);
@@ -193,7 +193,7 @@ begin
     Image1.canvas.Draw(0,0,DecorBMP);
     Image1.canvas.Draw(SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel(),
                        SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel(),
-                       SolideMouvement.getForme().getBMP[round(SolideMouvement.getPositionSolide().getAngle()*SolideMouvement.getForme().getNbBMP/360)]);
+                       SolideMouvement.getForme().getBMP[round(SolideMouvement.getPositionSolide().getAngle()/360)]);
   end;
 end;
 
