@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, LResources, Forms, Controls, Graphics, Dialogs,
   StdCtrls, ExtCtrls, UDessinObjet, UDessinDecor, UParamPhys, UPoids, UPosition,
-  UPositionSolide, UVitesse, UResultante, USolideMouvement;
+  UPositionSolide, UVitesse, UResultante, USolideMouvement, Math;
 
 type
 
@@ -52,6 +52,10 @@ type
     function intersectionSolideDecor() : boolean;
     function rechercherPointContact() : CPosition;
     procedure remplissageTableauIntersection(aIndex, aEcartX, aEcartY: integer);
+    function detectionZoneDuDecor() : integer;
+    function calculTangente(aZoneDuDecor : integer) : CPosition;
+    function chercherPixelAutourDuPointDeContactHoraire(x,y : integer) : CPosition;
+    function chercherPixelAutourDuPointDeContactTrigo(x,y : integer) : CPosition;
   end; 
 
 var
@@ -65,6 +69,7 @@ var
   PointsIntersection: TRecordIntersection;
   compteur:integer;  // provisoire pour des tests sur la rapidité du timer
 //  Xrouge,Yrouge: integer;
+  pointContact: CPosition;
 
 
 implementation
@@ -199,7 +204,6 @@ begin
 end;
 
 procedure TForm1.Timer1Timer(Sender: TObject);
-var pointContact: CPosition;
 begin
   if (SimulationEnCours) and (FormePlacee) and (InitialisationVitesseEnCours = False) then
   begin
@@ -215,6 +219,7 @@ begin
         Image1.canvas.Draw(SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel(),
                        SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel(),
                        SolideMouvement.getForme().getBMP[round(SolideMouvement.getPositionSolide().getAngle()/20)]);
+
 
 //        Xrouge := pointContact.getXPixel + SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel();
 //        Yrouge := 1+pointContact.getYPixel + SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel();
@@ -297,6 +302,79 @@ procedure TForm1.ButDessinDecorClick(Sender: TObject);
 begin
     Form3.Show;
 end;
+
+function TForm1.detectionZoneDuDecor() : integer;
+begin
+    result := round ((Pi + arctan2(SolideMouvement.getVitesse.GetX(), SolideMouvement.getVitesse.GetY()))/(2*Pi)*8);
+end;
+
+
+
+function TForm1.calculTangente(aZoneDuDecor : integer) : CPosition;
+begin
+
+end;
+
+function TForm1.chercherPixelAutourDuPointDeContactHoraire(x,y : integer) : CPosition;
+var PositionPixelPlein : CPosition;
+    i,j : integer;
+begin
+   i := x;
+   j := y;
+   PositionPixelPlein := CPosition.Create(0,0);
+   if (DecorBMP.Canvas.Pixels[PointContact.GetXPixel()+x,PointContact.GetYPixel()+y] <> clWhite)
+   then begin
+        PositionPixelPlein.SetXPixel(PointContact.GetXPixel()+x);
+        PositionPixelPlein.SetYPixel(PointContact.GetYPixel()+y);
+        end
+   else Case i of
+        -1 : Case j of
+               -1 : chercherPixelAutourDuPointDeContactHoraire(0,-1);
+               0 : chercherPixelAutourDuPointDeContactHoraire(-1,-1);
+               1 : chercherPixelAutourDuPointDeContactHoraire(-1,0);
+               end;
+        0 : Case j of
+               -1 : chercherPixelAutourDuPointDeContactHoraire(1,-1);
+               1 : chercherPixelAutourDuPointDeContactHoraire(-1,1);
+               end;
+        1 : Case j of
+               -1 : chercherPixelAutourDuPointDeContactHoraire(1,0);
+               0 : chercherPixelAutourDuPointDeContactHoraire(1,1);
+               1 : chercherPixelAutourDuPointDeContactHoraire(0,1);
+               end;
+        end;
+   end;
+
+function TForm1.chercherPixelAutourDuPointDeContactTrigo(x,y : integer) : CPosition;
+var PositionPixelPlein : CPosition;
+    i,j : integer;
+begin
+   i := x;
+   j := y;
+   PositionPixelPlein := CPosition.Create(0,0);
+   if (DecorBMP.Canvas.Pixels[PointContact.GetXPixel()+x,PointContact.GetYPixel()+y] <> clWhite)
+   then begin
+        PositionPixelPlein.SetXPixel(PointContact.GetXPixel()+x);
+        PositionPixelPlein.SetYPixel(PointContact.GetYPixel()+y);
+        end
+   else Case i of
+        -1 : Case j of
+               -1 : chercherPixelAutourDuPointDeContactTrigo(-1,0);
+               0 : chercherPixelAutourDuPointDeContactTrigo(-1,1);
+               1 : chercherPixelAutourDuPointDeContactTrigo(0,1);
+               end;
+        0 : Case j of
+               -1 : chercherPixelAutourDuPointDeContactTrigo(-1,-1);
+               1 : chercherPixelAutourDuPointDeContactTrigo(1,1);
+               end;
+        1 : Case j of
+               -1 : chercherPixelAutourDuPointDeContactTrigo(0,-1);
+               0 : chercherPixelAutourDuPointDeContactTrigo(1,-1);
+               1 : chercherPixelAutourDuPointDeContactTrigo(1,0);
+               end;
+        end;
+   end;
+
 
 initialization
   {$I ufaceavant.lrs}
