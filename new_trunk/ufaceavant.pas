@@ -6,12 +6,16 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, LResources, Forms, Controls, Graphics, Dialogs,
-  StdCtrls, ExtCtrls, UDessinObjet, UDessinDecor, UParamPhys, UPoids,
+  StdCtrls, ExtCtrls, UDessinObjet, UDessinDecor, UParamPhys, UPoids, UPosition,
   UPositionSolide, UVitesse, UResultante, USolideMouvement;
 
 type
 
   { TForm1 }
+  TRecordIntersection = record
+       fTable: array [0..160*160] of CPosition;
+       fNbPoints: integer;
+  end;
 
   TForm1 = class(TForm)
     ButDessinObjet: TButton;
@@ -45,7 +49,9 @@ type
     { private declarations }
   public
     { public declarations }
-    function collisionDetectee() : boolean;
+    function intersectionSolideDecor() : boolean;
+    function rechercherPointContact() : CPosition;
+    procedure remplissageTableauIntersection(aIndex, aEcartX, aEcartY: integer);
   end; 
 
 var
@@ -56,7 +62,9 @@ var
   Resultante: CResultante;
   SolideMouvement: CSolideMouvement;
   PositionSolide: CPositionSolide;
+  PointsIntersection: TRecordIntersection;
   compteur:integer;  // provisoire pour des tests sur la rapidité du timer
+//  Xrouge,Yrouge: integer;
 
 
 implementation
@@ -92,8 +100,14 @@ begin
         SolideMouvement := CSolideMouvement.Create(Resultante, PositionSolide, Vitesse, Solide);
         SolideMouvement.getPositionSolide().setAngle(0);
 
+        PointsIntersection.fNbPoints := 0;
+
         compteur := 0;
+ //       Xrouge:= 0;
+ //       Yrouge := 0;
         SimulationEnCours := true;
+
+        Image1.Canvas.Draw(0,0,DecorBMP);
     end;
   end;
 end;
@@ -139,14 +153,20 @@ begin
      begin
         SolideMouvement.GetPositionSolide().SetXPixel(X);
         SolideMouvement.GetPositionSolide().SetYPixel(Y);
-        Image1.Canvas.Pen.Color := clBlack;
-        Image1.Canvas.Pen.Width := 2;
-        Image1.Canvas.Draw(0,0,DecorBMP);
-        Image1.Canvas.Draw(SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel(),
-                           SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel(),
-                           SolideMouvement.getForme().getBMP[0]);
-        FormePlacee := True;
-        InitialisationVitesseEnCours := True
+        if (intersectionSolideDecor() = false) then begin
+            Image1.Canvas.Pen.Color := clBlack;
+            Image1.Canvas.Pen.Width := 2;
+            Image1.Canvas.Draw(0,0,DecorBMP);
+            Image1.Canvas.Draw(SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel(),
+                               SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel(),
+                               SolideMouvement.getForme().getBMP[0]);
+            FormePlacee := True;
+            InitialisationVitesseEnCours := True;
+        end
+        else begin
+            FormePlacee := False;
+            InitialisationVitesseEnCours := False;
+        end;
      end;
 end;
 
@@ -179,6 +199,7 @@ begin
 end;
 
 procedure TForm1.Timer1Timer(Sender: TObject);
+var pointContact: CPosition;
 begin
   if (SimulationEnCours) and (FormePlacee) and (InitialisationVitesseEnCours = False) then
   begin
@@ -187,20 +208,28 @@ begin
     Resultante.CalculForce;
     SolideMouvement.CalculPosition();
 
-    if (collisionDetectee())
+    if (intersectionSolideDecor())
     then begin
+        pointContact := rechercherPointContact();
+        Image1.canvas.Draw(0,0,DecorBMP);
+        Image1.canvas.Draw(SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel(),
+                       SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel(),
+                       SolideMouvement.getForme().getBMP[round(SolideMouvement.getPositionSolide().getAngle()/20)]);
+
+//        Xrouge := pointContact.getXPixel + SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel();
+//        Yrouge := 1+pointContact.getYPixel + SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel();
         SolideMouvement.getPositionSolide().setXPixel(300);     // Traitement arbitraire tant que la physique des collisions n'est pas gérée
         SolideMouvement.getPositionSolide().setYPixel(100);     // Sert juste à vérifier l'efficacité de la détection de collision
         end;
 
-    Image1.canvas.Draw(0,0,DecorBMP);
-    Image1.canvas.Draw(SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel(),
+      Image1.canvas.Draw(0,0,DecorBMP);
+      Image1.canvas.Draw(SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel(),
                        SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel(),
                        SolideMouvement.getForme().getBMP[round(SolideMouvement.getPositionSolide().getAngle()/20)]);
   end;
 end;
 
-function TForm1.collisionDetectee() : boolean;
+function TForm1.intersectionSolideDecor() : boolean;
 var
     i, j, ecartX, ecartY, index: integer;
     test: boolean;
@@ -211,15 +240,57 @@ begin
     i := SolideMouvement.getForme().getSommets[index][0];
     j := SolideMouvement.getForme().getSommets[index][1];
     test := false;
+
     while (i>=SolideMouvement.getForme().getSommets[index][0]) and (i<=SolideMouvement.getForme().getSommets[index][2]) and (test = false) do begin
         while (j>=SolideMouvement.getForme().getSommets[index][1]) and (j<=SolideMouvement.getForme().getSommets[index][3]) and (test = false) do
             if (DecorBMP.Canvas.Pixels[i+ecartX,j+ecartY] <> clWhite) and (SolideMouvement.getForme().getBMP[index].Canvas.Pixels[i,j] <> clWhite)
-            then test := true
-            else j := j+1;
+            then begin
+                test := true;
+                remplissageTableauIntersection(index, ecartX, ecartY);
+            end
+            else j:=j+1;
         j := SolideMouvement.getForme().getSommets[index][1];
         i := i+1;
         end;
+
     result := test;
+end;
+
+procedure TForm1.remplissageTableauIntersection(aIndex, aEcartX, aEcartY: integer);
+var i, j: integer;
+    pixel: CPosition;
+    newPointsIntersection: TRecordIntersection;
+begin
+    i := SolideMouvement.getForme().getSommets[aIndex][0];
+    j := SolideMouvement.getForme().getSommets[aIndex][1];
+    newPointsIntersection.fNbPoints := 0;
+
+    for i:=SolideMouvement.getForme().getSommets[aIndex][0] to SolideMouvement.getForme().getSommets[aIndex][2] do begin
+        for j:=SolideMouvement.getForme().getSommets[aIndex][1] to SolideMouvement.getForme().getSommets[aIndex][3] do
+            if (DecorBMP.Canvas.Pixels[i+aEcartX,j+aEcartY] <> clWhite) and (SolideMouvement.getForme().getBMP[aIndex].Canvas.Pixels[i,j] <> clWhite)
+            then begin
+                newPointsIntersection.fNbPoints := newPointsIntersection.fNbPoints + 1;
+                pixel := CPosition.Create(i, j);
+                newPointsIntersection.fTable[newPointsIntersection.fNbPoints - 1] := pixel;
+                end;
+        j := SolideMouvement.getForme().getSommets[aIndex][1];
+        end;
+
+    if newPointsIntersection.fNbPoints <> 0
+    then PointsIntersection := newPointsIntersection;
+end;
+
+function TForm1.rechercherPointContact() : CPosition;
+var test: boolean;
+begin
+    test := true;
+    while (test) do begin
+        SolideMouvement.getPositionSolide.SetXMetre(SolideMouvement.getPositionSolide.GetXMetre() - 0.01*SolideMouvement.getVitesse.GetX()/sqrt(SolideMouvement.getVitesse.GetX()*SolideMouvement.getVitesse.GetX()+SolideMouvement.getVitesse.GetY()*SolideMouvement.getVitesse.GetY()));
+        SolideMouvement.getPositionSolide.SetYMetre(SolideMouvement.getPositionSolide.GetYMetre() - 0.01*SolideMouvement.getVitesse.GetY()/sqrt(SolideMouvement.getVitesse.GetX()*SolideMouvement.getVitesse.GetX()+SolideMouvement.getVitesse.GetY()*SolideMouvement.getVitesse.GetY()));
+        test := intersectionSolideDecor();
+    end;
+
+    result := PointsIntersection.fTable[0];
 end;
 
 procedure TForm1.ButDessinDecorClick(Sender: TObject);

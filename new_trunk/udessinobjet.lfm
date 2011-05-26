@@ -1,11 +1,11 @@
 object Form2: TForm2
-  Left = 500
-  Height = 250
-  Top = 263
-  Width = 400
+  Left = 426
+  Height = 288
+  Top = 265
+  Width = 416
   Caption = 'Dessin de l''objet'
-  ClientHeight = 250
-  ClientWidth = 400
+  ClientHeight = 288
+  ClientWidth = 416
   OnMouseUp = FormMouseUp
   OnShow = FormShow
   LCLVersion = '0.9.30'
