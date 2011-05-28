@@ -228,12 +228,10 @@ begin
                        SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel(),
                        SolideMouvement.getForme().getBMP[round(SolideMouvement.getPositionSolide().getAngle()/20)]);
 
-        testContactX := pointContact.getXPixel()+SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel();
-        testContactY := pointContact.getYPixel()+SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel()+1;
-        Image1.canvas.Pixels[testContactX, testContactY] := clRed;
+        Image1.canvas.Pixels[pointContact.GetXPixel(), pointContact.GetYPixel()] := clRed;
         testVecteurTangent := calculTangente(detectionZoneDuDecor());
         Image1.canvas.Pen.Color := clBlue;
-        Image1.canvas.Line(testContactX, testContactY, testContactX + testVecteurTangent.getXPixel, testContactY + testVecteurTangent.getYPixel);
+        Image1.canvas.Line(pointContact.GetXPixel(), pointContact.GetYPixel(), pointContact.GetXPixel() + testVecteurTangent.getXPixel, pointContact.GetYPixel() + testVecteurTangent.getYPixel);
         Image1.canvas.Pen.Color := clBlack;
 
         SolideMouvement.getPositionSolide().setXPixel(300);     // Traitement arbitraire tant que la physique des collisions n'est pas gérée
@@ -252,7 +250,7 @@ var
     i, j, ecartX, ecartY, index: integer;
     test: boolean;
 begin
-    index := round(SolideMouvement.getPositionSolide().getAngle()*SolideMouvement.getForme().getNbBMP/360);          // Je ne sais pas ce que c'est mais je pense qu'il faut le modifier (cf affichage de l'angle)
+    index := round(SolideMouvement.getPositionSolide().getAngle()*SolideMouvement.getForme().getNbBMP/360);
     ecartX := SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel();
     ecartY := SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel();
     i := SolideMouvement.getForme().getSommets[index][0];
@@ -288,7 +286,7 @@ begin
             if (DecorBMP.Canvas.Pixels[i+aEcartX,j+aEcartY] <> clWhite) and (SolideMouvement.getForme().getBMP[aIndex].Canvas.Pixels[i,j] <> clWhite)
             then begin
                 newPointsIntersection.fNbPoints := newPointsIntersection.fNbPoints + 1;
-                pixel := CPosition.Create(i, j);
+                pixel := CPosition.Create(i+SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel(), j+SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel());
                 newPointsIntersection.fTable[newPointsIntersection.fNbPoints - 1] := pixel;
                 end;
         j := SolideMouvement.getForme().getSommets[aIndex][1];
@@ -406,7 +404,6 @@ var i,j : integer;
 begin
    i := x;
    j := y;
-
    if (DecorBMP.Canvas.Pixels[PointContact.GetXPixel()+x,PointContact.GetYPixel()+y] <> clWhite)
    then begin
         aPosition.SetXPixel(PointContact.GetXPixel()+x);
@@ -437,7 +434,6 @@ var i,j : integer;
 begin
    i := x;
    j := y;
-
    if (DecorBMP.Canvas.Pixels[PointContact.GetXPixel()+x,PointContact.GetYPixel()+y] <> clWhite)
    then begin
         aPosition.SetXPixel(PointContact.GetXPixel()+x);
