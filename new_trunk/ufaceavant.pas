@@ -56,7 +56,6 @@ type
     function calculTangente(aZoneDuDecor : integer) : CPosition;
     Procedure chercherPixelAutourDuPointDeContactHoraire(x,y, x0, y0 : integer; var aPosition : CPosition; aPointTrouve : boolean);
     Procedure chercherPixelAutourDuPointDeContactTrigo(x,y, x0, y0 : integer; var aPosition : CPosition; aPointTrouve : boolean);
-    function produitScalairePlan(aVect1, aVect2: CPosition) : real;
     procedure calculCollision();
   end;
 
@@ -235,13 +234,13 @@ begin
         Image1.canvas.Line(pointContact.GetXPixel(), pointContact.GetYPixel(), pointContact.GetXPixel() + VectTangent.getXPixel, pointContact.GetYPixel() + VectTangent.getYPixel);
         Image1.canvas.Pen.Color := clBlack;
 
-        // calculCollision();
+        calculCollision();
+        SolideMouvement.getResultante().CalculForce(SolideMouvement.getForme(), SolideMouvement.getVitesse());
+        SolideMouvement.CalculPosition();
 
-        SolideMouvement.getPositionSolide().setXPixel(300);     // Traitement arbitraire tant que la physique des collisions n'est pas gérée
-        SolideMouvement.getPositionSolide().setYPixel(100);     // Sert juste à vérifier l'efficacité de la détection de collision
-        end;
+      end;
 
-     // Image1.canvas.Draw(0,0,DecorBMP);
+      Image1.canvas.Draw(0,0,DecorBMP);
       Image1.canvas.Draw(SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel(),
                        SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel(),
                        SolideMouvement.getForme().getBMP[round(SolideMouvement.getPositionSolide().getAngle()/20)]);
@@ -304,8 +303,8 @@ var test: boolean;
 begin
     test := true;
     while (test) do begin
-        SolideMouvement.getPositionSolide.SetXMetre(SolideMouvement.getPositionSolide.GetXMetre() - 0.01*SolideMouvement.getVitesse.GetX()/sqrt(SolideMouvement.getVitesse.GetX()*SolideMouvement.getVitesse.GetX()+SolideMouvement.getVitesse.GetY()*SolideMouvement.getVitesse.GetY()));
-        SolideMouvement.getPositionSolide.SetYMetre(SolideMouvement.getPositionSolide.GetYMetre() - 0.01*SolideMouvement.getVitesse.GetY()/sqrt(SolideMouvement.getVitesse.GetX()*SolideMouvement.getVitesse.GetX()+SolideMouvement.getVitesse.GetY()*SolideMouvement.getVitesse.GetY()));
+        SolideMouvement.getPositionSolide.SetXMetre(SolideMouvement.getPositionSolide.GetXMetre() - 0.02*SolideMouvement.getVitesse.GetX()/sqrt(SolideMouvement.getVitesse.GetX()*SolideMouvement.getVitesse.GetX()+SolideMouvement.getVitesse.GetY()*SolideMouvement.getVitesse.GetY()));
+        SolideMouvement.getPositionSolide.SetYMetre(SolideMouvement.getPositionSolide.GetYMetre() - 0.02*SolideMouvement.getVitesse.GetY()/sqrt(SolideMouvement.getVitesse.GetX()*SolideMouvement.getVitesse.GetX()+SolideMouvement.getVitesse.GetY()*SolideMouvement.getVitesse.GetY()));
         test := intersectionSolideDecor();
     end;
 
@@ -462,28 +461,54 @@ begin
         end;
 end;
 
-function TForm1.produitScalairePlan(aVect1, aVect2: CPosition) : real;
-begin
-    result := aVect1.getXMetre()*aVect2.getXMetre() + aVect1.getYMetre()*aVect2.getYMetre();
-end;
-
 procedure TForm1.calculCollision();
-var VectCG: CPosition;                                  // C point de contact, G centre de gravite, base absolue
-    VectNormal: CPosition;                              // Vecteur normal a la surface de maniere a ce que la base "tangente"
-                                                        // (VectTangent, VectNormal) soit dans le meme sens que la base absolue.
-    xG, yG, Vx0, Vy0, Vx1, Vy1, omega0, omega1: real;   // en unites SI dans la base "tangente"
-    newVx, newVy, newOmega: real;                       // en unites SI dans la base absolue (resultats)
-    m, J: real;                                         // masse et moment d'inertie
+var VectCG: CPosition;                                         // C point de contact, G centre de gravite, base absolue
+    xG, yG, Vx0, Vy0, Vx1, Vy1, omega0, omega1, discr: real;   // en unites SI dans la base "tangente"
+    newVx, newVy: real;                                        // en unites SI dans la base absolue (resultats)
+    m, J: real;                                                // masse et moment d'inertie
 begin
+    // Definition des constantes
     m := SolideMouvement.getForme().getMasse();
     J := SolideMouvement.getForme().getJ();
-
     VectCG := CPosition.Create(-PointContact.getXPixel + SolideMouvement.getPositionSolide.getXPixel,
                                -PointContact.getYPixel + SolideMouvement.getPositionSolide.getYPixel);
-//    xG := produitScalairePlan(VectCG, VectTangent);
-//    yG := produitScalairePlan(VectCG, VectNormal);
 
-//    omega1 := (m/(m*yG*yG+m*xG*xG+J))*(-xG*xG*omega0);
+    // Definition de l'etat initial et changement de base
+    xG := VectCG.getXMetre*VectTangent.getXMetre + VectCG.getYMetre*VectTangent.getYMetre;
+          // Produit scalaire pour avoir la projection de CG sur VectTangent
+    yG := -VectCG.getXMetre*VectTangent.getYMetre + VectCG.getYMetre*VectTangent.getXMetre;
+          // Produit scalaire de CG par le vecteur normal (-y, x) defini a partir du vecteur tangent (x, y)
+
+    Vx0 := SolideMouvement.getVitesse.getX*VectTangent.getXMetre + SolideMouvement.getVitesse.getY*VectTangent.getYMetre;
+          // Produit scalaire pour avoir la projection de V sur VectTangent
+    Vy0 := -SolideMouvement.getVitesse.getX*VectTangent.getYMetre + SolideMouvement.getVitesse.getY*VectTangent.getXMetre;
+          // Produit scalaire pour avoir la projection de V sur le vecteur normal
+
+    omega0 := SolideMouvement.getVitesse.getOmega;
+
+    // Calcul de l'etat final
+    discr := omega0*omega0*J*J - 2*J*m*Vx0*yG*omega0 + 2*J*m*Vy0*xG*omega0
+             + 2*m*m*Vx0*Vy0*yG*xG + 4*m*m*yG*yG*omega0*Vy0*xG + m*m*Vx0*Vx0*yG*yG
+             + m*m*Vy0*Vy0*xG*xG - 4*m*m*Vx0*yG*xG*xG*omega0 - 4*m*m*yG*yG*omega0*omega0*xG*xG;
+    if discr<0 then discr := 0;   // pas du tout physique ! :)
+
+    omega1 := (1/(m*yG*yG+m*xG*xG+J))*(-m*xG*xG*omega0 + m*Vx0*yG + m*yG*yG*omega0 + m*Vy0*xG
+              + sqrt(discr));
+    Vx1 := Vx0 + yG*(omega0 - omega1);
+    Vy1 := -Vy0 + xG*(omega0 + omega1);
+
+    // Changement de base
+           // On procede toujours par produit scalaire.
+           // Remarque pour la comprehension des calculs : si le vecteur tangent (X1) a pour coordonnees (x, y) dans la base 0,
+           // les vecteurs du repere absolu dans la base 1 sont X0 = (x, -y) et Y0 = (y, x).
+
+    newVx := Vx1*VectTangent.getXMetre - Vy1*VectTangent.getYMetre;
+    newVy := Vx1*VectTangent.getYMetre + Vy1*VectTangent.getXMetre;
+
+    // Resultats
+    SolideMouvement.getVitesse.setX(newVx);
+    SolideMouvement.getVitesse.setY(newVy);
+    SolideMouvement.getVitesse.setOmega(omega1);
 end;
 
 initialization
