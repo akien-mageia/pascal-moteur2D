@@ -170,6 +170,7 @@ begin
             Image1.Canvas.Pen.Color := clBlack;
             Image1.Canvas.Pen.Width := 2;
             Image1.Canvas.Draw(0,0,DecorBMP);
+            SolideMouvement.getPositionSolide.setAngle(0);
             Image1.Canvas.Draw(SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel(),
                                SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel(),
                                SolideMouvement.getForme().getBMP[0]);
@@ -291,9 +292,9 @@ var test: boolean;
 begin
     test := true;
     while (test) do begin
-        SolideMouvement.getPositionSolide.SetXMetre(SolideMouvement.getPositionSolide.GetXMetre() - 0.1*SolideMouvement.getVitesse.GetX()/sqrt(SolideMouvement.getVitesse.GetX()*SolideMouvement.getVitesse.GetX()+SolideMouvement.getVitesse.GetY()*SolideMouvement.getVitesse.GetY()));
-        SolideMouvement.getPositionSolide.SetYMetre(SolideMouvement.getPositionSolide.GetYMetre() - 0.1*SolideMouvement.getVitesse.GetY()/sqrt(SolideMouvement.getVitesse.GetX()*SolideMouvement.getVitesse.GetX()+SolideMouvement.getVitesse.GetY()*SolideMouvement.getVitesse.GetY()));
-        SolideMouvement.getPositionSolide.SetAngle(SolideMouvement.getPositionSolide.GetAngle() - 0.1*SolideMouvement.getVitesse.GetOmega());
+        SolideMouvement.getPositionSolide.SetXMetre(SolideMouvement.getPositionSolide.GetXMetre() - 0.02*SolideMouvement.getVitesse.GetX()/sqrt(SolideMouvement.getVitesse.GetX()*SolideMouvement.getVitesse.GetX()+SolideMouvement.getVitesse.GetY()*SolideMouvement.getVitesse.GetY()));
+        SolideMouvement.getPositionSolide.SetYMetre(SolideMouvement.getPositionSolide.GetYMetre() - 0.02*SolideMouvement.getVitesse.GetY()/sqrt(SolideMouvement.getVitesse.GetX()*SolideMouvement.getVitesse.GetX()+SolideMouvement.getVitesse.GetY()*SolideMouvement.getVitesse.GetY()));
+        SolideMouvement.getPositionSolide.SetAngle(SolideMouvement.getPositionSolide.GetAngle() - (0.020)*SolideMouvement.getVitesse.GetOmega());
         while (SolideMouvement.getPositionSolide.GetAngle()>=350) do SolideMouvement.getPositionSolide.SetAngle(SolideMouvement.getPositionSolide.GetAngle()-360);
         while (SolideMouvement.getPositionSolide.GetAngle()<-10) do SolideMouvement.getPositionSolide.SetAngle(SolideMouvement.getPositionSolide.GetAngle()+360);
         test := intersectionSolideDecor();
