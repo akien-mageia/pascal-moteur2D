@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
 <CONFIG>
-  <Compiler Value="C:\Windows\Lazarus\fpc\2.4.2\bin\i386-win32\fpc.exe" Date="1047030822"/>
-  <Params Value=" -MObjFPC -Scgi -O1 -gl -WG -vewnhi -l -FuC:\Windows\Lazarus\lcl\units\i386-win32 -FuC:\Windows\Lazarus\lcl\units\i386-win32\win32 -FuC:\Windows\Lazarus\packager\units\i386-win32 -FuC:\Users\Remi\Desktop\projet\new_trunk\ -Fu. -omoteur2d.exe -dLCL -dLCLwin32 moteur2d.lpr"/>
+  <Compiler Value="/usr/bin/fpc" Date="1267861058"/>
+  <Params Value=" -MObjFPC -Scgi -O1 -gl -WG -vewnhi -l -Fi/home/blackout/Documents/Sources/2010_pascal_moteur_2D/new_trunk/ -Fu/usr/lib/lazarus/0.9.28.2/lcl/units/i386-linux/ -Fu/usr/lib/lazarus/0.9.28.2/lcl/units/i386-linux/gtk2/ -Fu/usr/lib/lazarus/0.9.28.2/packager/units/i386-linux/ -Fu/home/blackout/Documents/Sources/2010_pascal_moteur_2D/new_trunk/ -Fu. -FE/home/blackout/Documents/Sources/2010_pascal_moteur_2D/new_trunk/ -omoteur2d -dLCL -dLCLgtk2 moteur2d.lpr"/>
 </CONFIG>

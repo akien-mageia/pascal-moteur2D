@@ -1,0 +1,102 @@
+\documentclass[12pt,twoside,a4paper,titlepage]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english,francais]{babel}
+\usepackage{listings} % introduction de code
+\usepackage{geometry}
+\usepackage[colorlinks=true,linkcolor=black,citecolor=blue,urlcolor=blue]{hyperref} %URLs,index etc etc
+\usepackage{amsmath} %Formules mathématiques
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{fullpage}
+\usepackage{fancyhdr}  %entêtes et pieds de page
+\usepackage{xcolor}
+\usepackage{tikz} %Schémas
+\usetikzlibrary{arrows}
+
+\setcounter{tocdepth}{1} % On veut uniquement les sections et pas les sous sections dans la table des matières
+\setlength{\doublerulesep}{\arrayrulewidth} % Lignes épaisses dans les tableaux
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%   Définitions header&footer   %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{fancy}
+\fancyhf{} % on efface tout et on recommence
+% PIED DE PAGE :
+\fancyfoot[LO,RE]{Groupe 52 \hfill{} \textbf{Projet Informatique
+								2\up{ème} Année \hfill{} \thepage }}
+% épaisseur des traits
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{2pt}
+
+% le cas de la première page d’un chapitre
+\fancypagestyle{plain}{%
+	\fancyhf{}% on efface tout
+	\fancyfoot[LO,RE]{Groupe 52 \hfill{} \textbf{Projet Informatique
+						2\up{ème} Année} \hfill{} \thepage }
+	% on efface tous les traits
+	\renewcommand{\headrulewidth}{0pt}%
+	\renewcommand{\footrulewidth}{2pt}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%          Page de Garde          %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{minipage}[c]{0.5\linewidth}
+\includegraphics[bb=0 50 200 100, scale=0.3]{../images/insa.JPG}
+\end{minipage}
+\begin{minipage}[r]{0.5\linewidth}
+\vspace*{25pt}
+\begin{flushright}
+\LARGE D\'epartement \\ du Premier \\ Cycle \\ \rule{\linewidth}{2pt}
+\end{flushright}
+\end{minipage}
+
+\vspace*{1cm}
+\thispagestyle{empty}
+\begin{center}
+\LARGE Projet Informatique 2\up{\`eme} Ann\'ee\\
+\end{center}
+\vspace*{1.3cm}
+	
+\setlength\fboxrule{2pt}
+\fbox{
+\begin{minipage}{0.95\textwidth}
+     \begin{center}
+     \vspace*{0.21cm}\LARGE \color{blue} \bsc{Simulation mécanique d'un solide\\
+     et\\
+     moteur graphique 2D en Pascal}
+     \end{center}
+\end{minipage}
+}
+
+
+\begin{center}
+\vspace*{1cm}
+%Changer les noms ici
+\LARGE \color{black} Tristan \bsc{Pourcelot} \\
+					 Victor \bsc{Cleren} \\
+					 Rémi \bsc{Verschelde} \\
+					 Th\'eo \bsc{Garcia-Guitton} \\
+\vspace*{1.5cm}
+\Large Responsable : C. \bsc{Wolf}\\
+
+\vspace*{1cm}
+
+\Large Groupe 52 \hfill Ann\'ee scolaire 2010-2011\\
+\vspace*{1cm}
+\textbf{\Large Institut National des Sciences Appliqu\'{e}es de Lyon} \pagebreak
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%	   Corps du doc 		   %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{introduction}
+\input{contenu} 
+\input{conclusion}
+\input{annexes}
+\end{document}
+
