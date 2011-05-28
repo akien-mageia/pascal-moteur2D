@@ -56,7 +56,9 @@ type
     function calculTangente(aZoneDuDecor : integer) : CPosition;
     Procedure chercherPixelAutourDuPointDeContactHoraire(x,y, x0, y0 : integer; var aPosition : CPosition; aPointTrouve : boolean);
     Procedure chercherPixelAutourDuPointDeContactTrigo(x,y, x0, y0 : integer; var aPosition : CPosition; aPointTrouve : boolean);
-  end; 
+    function produitScalairePlan(aVect1, aVect2: CPosition) : real;
+    procedure calculCollision();
+  end;
 
 var
   Form1: TForm1;
@@ -65,7 +67,8 @@ var
   PositionSolide: CPositionSolide;
   PointsIntersection: TRecordIntersection;
   compteur:integer;  // provisoire pour des tests sur la rapidité du timer
-  pointContact: CPosition;
+  PointContact: CPosition;
+  VectTangent: CPosition;
 
 
 implementation
@@ -210,8 +213,6 @@ begin
 end;
 
 procedure TForm1.Timer1Timer(Sender: TObject);
-var testContactX, testContactY: integer;
-    testVecteurTangent: CPosition;
 begin
   if (SimulationEnCours) and (FormePlacee) and (InitialisationVitesseEnCours = False) then
   begin
@@ -229,10 +230,12 @@ begin
                        SolideMouvement.getForme().getBMP[round(SolideMouvement.getPositionSolide().getAngle()/20)]);
 
         Image1.canvas.Pixels[pointContact.GetXPixel(), pointContact.GetYPixel()] := clRed;
-        testVecteurTangent := calculTangente(detectionZoneDuDecor());
+        VectTangent := calculTangente(detectionZoneDuDecor());
         Image1.canvas.Pen.Color := clBlue;
-        Image1.canvas.Line(pointContact.GetXPixel(), pointContact.GetYPixel(), pointContact.GetXPixel() + testVecteurTangent.getXPixel, pointContact.GetYPixel() + testVecteurTangent.getYPixel);
+        Image1.canvas.Line(pointContact.GetXPixel(), pointContact.GetYPixel(), pointContact.GetXPixel() + VectTangent.getXPixel, pointContact.GetYPixel() + VectTangent.getYPixel);
         Image1.canvas.Pen.Color := clBlack;
+
+        // calculCollision();
 
         SolideMouvement.getPositionSolide().setXPixel(300);     // Traitement arbitraire tant que la physique des collisions n'est pas gérée
         SolideMouvement.getPositionSolide().setYPixel(100);     // Sert juste à vérifier l'efficacité de la détection de collision
@@ -459,6 +462,29 @@ begin
         end;
 end;
 
+function TForm1.produitScalairePlan(aVect1, aVect2: CPosition) : real;
+begin
+    result := aVect1.getXMetre()*aVect2.getXMetre() + aVect1.getYMetre()*aVect2.getYMetre();
+end;
+
+procedure TForm1.calculCollision();
+var VectCG: CPosition;                                  // C point de contact, G centre de gravite, base absolue
+    VectNormal: CPosition;                              // Vecteur normal a la surface de maniere a ce que la base "tangente"
+                                                        // (VectTangent, VectNormal) soit dans le meme sens que la base absolue.
+    xG, yG, Vx0, Vy0, Vx1, Vy1, omega0, omega1: real;   // en unites SI dans la base "tangente"
+    newVx, newVy, newOmega: real;                       // en unites SI dans la base absolue (resultats)
+    m, J: real;                                         // masse et moment d'inertie
+begin
+    m := SolideMouvement.getForme().getMasse();
+    J := SolideMouvement.getForme().getJ();
+
+    VectCG := CPosition.Create(-PointContact.getXPixel + SolideMouvement.getPositionSolide.getXPixel,
+                               -PointContact.getYPixel + SolideMouvement.getPositionSolide.getYPixel);
+//    xG := produitScalairePlan(VectCG, VectTangent);
+//    yG := produitScalairePlan(VectCG, VectNormal);
+
+//    omega1 := (m/(m*yG*yG+m*xG*xG+J))*(-xG*xG*omega0);
+end;
 
 initialization
   {$I ufaceavant.lrs}
