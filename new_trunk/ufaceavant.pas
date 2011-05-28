@@ -113,6 +113,7 @@ begin
         SolideMouvement.getPositionSolide().setAngle(0);
 
         PointsIntersection.fNbPoints := 0;
+        pointContact := CPosition.Create(0, 0);
 
         compteur := 0;
         SimulationEnCours := true;
@@ -209,6 +210,8 @@ begin
 end;
 
 procedure TForm1.Timer1Timer(Sender: TObject);
+var testContactX, testContactY: integer;
+    testVecteurTangent: CPosition;
 begin
   if (SimulationEnCours) and (FormePlacee) and (InitialisationVitesseEnCours = False) then
   begin
@@ -225,14 +228,19 @@ begin
                        SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel(),
                        SolideMouvement.getForme().getBMP[round(SolideMouvement.getPositionSolide().getAngle()/20)]);
 
+        testContactX := pointContact.getXPixel()+SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel();
+        testContactY := pointContact.getYPixel()+SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel()+1;
+        Image1.canvas.Pixels[testContactX, testContactY] := clRed;
+        testVecteurTangent := calculTangente(detectionZoneDuDecor());
+        Image1.canvas.Pen.Color := clBlue;
+        Image1.canvas.Line(testContactX, testContactY, testContactX + testVecteurTangent.getXPixel, testContactY + testVecteurTangent.getYPixel);
+        Image1.canvas.Pen.Color := clBlack;
 
-//        Xrouge := pointContact.getXPixel + SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel();
-//        Yrouge := 1+pointContact.getYPixel + SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel();
         SolideMouvement.getPositionSolide().setXPixel(300);     // Traitement arbitraire tant que la physique des collisions n'est pas gérée
         SolideMouvement.getPositionSolide().setYPixel(100);     // Sert juste à vérifier l'efficacité de la détection de collision
         end;
 
-      Image1.canvas.Draw(0,0,DecorBMP);
+     // Image1.canvas.Draw(0,0,DecorBMP);
       Image1.canvas.Draw(SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel(),
                        SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel(),
                        SolideMouvement.getForme().getBMP[round(SolideMouvement.getPositionSolide().getAngle()/20)]);
@@ -300,7 +308,7 @@ begin
         test := intersectionSolideDecor();
     end;
 
-    result := PointsIntersection.fTable[0];
+    result := PointsIntersection.fTable[round(PointsIntersection.fNbPoints/2)];
 end;
 
 procedure TForm1.ButDessinDecorClick(Sender: TObject);
