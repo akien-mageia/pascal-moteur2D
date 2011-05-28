@@ -223,21 +223,9 @@ begin
     if (intersectionSolideDecor())
     then begin
         pointContact := rechercherPointContact();
-        Image1.canvas.Draw(0,0,DecorBMP);
-        Image1.canvas.Draw(SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel(),
-                       SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel(),
-                       SolideMouvement.getForme().getBMP[round(SolideMouvement.getPositionSolide().getAngle()/20)]);
-
-        Image1.canvas.Pixels[pointContact.GetXPixel(), pointContact.GetYPixel()] := clRed;
         VectTangent := calculTangente(detectionZoneDuDecor());
-        Image1.canvas.Pen.Color := clBlue;
-        Image1.canvas.Line(pointContact.GetXPixel(), pointContact.GetYPixel(), pointContact.GetXPixel() + VectTangent.getXPixel, pointContact.GetYPixel() + VectTangent.getYPixel);
-        Image1.canvas.Pen.Color := clBlack;
 
         calculCollision();
-        SolideMouvement.getResultante().CalculForce(SolideMouvement.getForme(), SolideMouvement.getVitesse());
-        SolideMouvement.CalculPosition();
-
       end;
 
       Image1.canvas.Draw(0,0,DecorBMP);
@@ -303,8 +291,11 @@ var test: boolean;
 begin
     test := true;
     while (test) do begin
-        SolideMouvement.getPositionSolide.SetXMetre(SolideMouvement.getPositionSolide.GetXMetre() - 0.02*SolideMouvement.getVitesse.GetX()/sqrt(SolideMouvement.getVitesse.GetX()*SolideMouvement.getVitesse.GetX()+SolideMouvement.getVitesse.GetY()*SolideMouvement.getVitesse.GetY()));
-        SolideMouvement.getPositionSolide.SetYMetre(SolideMouvement.getPositionSolide.GetYMetre() - 0.02*SolideMouvement.getVitesse.GetY()/sqrt(SolideMouvement.getVitesse.GetX()*SolideMouvement.getVitesse.GetX()+SolideMouvement.getVitesse.GetY()*SolideMouvement.getVitesse.GetY()));
+        SolideMouvement.getPositionSolide.SetXMetre(SolideMouvement.getPositionSolide.GetXMetre() - 0.1*SolideMouvement.getVitesse.GetX()/sqrt(SolideMouvement.getVitesse.GetX()*SolideMouvement.getVitesse.GetX()+SolideMouvement.getVitesse.GetY()*SolideMouvement.getVitesse.GetY()));
+        SolideMouvement.getPositionSolide.SetYMetre(SolideMouvement.getPositionSolide.GetYMetre() - 0.1*SolideMouvement.getVitesse.GetY()/sqrt(SolideMouvement.getVitesse.GetX()*SolideMouvement.getVitesse.GetX()+SolideMouvement.getVitesse.GetY()*SolideMouvement.getVitesse.GetY()));
+        SolideMouvement.getPositionSolide.SetAngle(SolideMouvement.getPositionSolide.GetAngle() - 0.1*SolideMouvement.getVitesse.GetOmega());
+        while (SolideMouvement.getPositionSolide.GetAngle()>=350) do SolideMouvement.getPositionSolide.SetAngle(SolideMouvement.getPositionSolide.GetAngle()-360);
+        while (SolideMouvement.getPositionSolide.GetAngle()<-10) do SolideMouvement.getPositionSolide.SetAngle(SolideMouvement.getPositionSolide.GetAngle()+360);
         test := intersectionSolideDecor();
     end;
 
@@ -484,7 +475,7 @@ begin
     Vy0 := -SolideMouvement.getVitesse.getX*VectTangent.getYMetre + SolideMouvement.getVitesse.getY*VectTangent.getXMetre;
           // Produit scalaire pour avoir la projection de V sur le vecteur normal
 
-    omega0 := SolideMouvement.getVitesse.getOmega*2*3.14/360;
+    omega0 := SolideMouvement.getVitesse.getOmega*3.14/180;
 
     // Calcul de l'etat final
     discr := omega0*omega0*J*J - 2*J*m*Vx0*yG*omega0 + 2*J*m*Vy0*xG*omega0
@@ -508,7 +499,7 @@ begin
     // Resultats
     SolideMouvement.getVitesse.setX(newVx);
     SolideMouvement.getVitesse.setY(newVy);
-    SolideMouvement.getVitesse.setOmega(omega1*360/(2*3.14));
+    SolideMouvement.getVitesse.setOmega(omega1*180/3.14);
 end;
 
 initialization
