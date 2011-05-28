@@ -484,7 +484,7 @@ begin
     Vy0 := -SolideMouvement.getVitesse.getX*VectTangent.getYMetre + SolideMouvement.getVitesse.getY*VectTangent.getXMetre;
           // Produit scalaire pour avoir la projection de V sur le vecteur normal
 
-    omega0 := SolideMouvement.getVitesse.getOmega;
+    omega0 := SolideMouvement.getVitesse.getOmega*2*3.14/360;
 
     // Calcul de l'etat final
     discr := omega0*omega0*J*J - 2*J*m*Vx0*yG*omega0 + 2*J*m*Vy0*xG*omega0
@@ -508,7 +508,7 @@ begin
     // Resultats
     SolideMouvement.getVitesse.setX(newVx);
     SolideMouvement.getVitesse.setY(newVy);
-    SolideMouvement.getVitesse.setOmega(omega1);
+    SolideMouvement.getVitesse.setOmega(omega1*360/(2*3.14));
 end;
 
 initialization

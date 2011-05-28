@@ -8,7 +8,7 @@ object Form1: TForm1
   ClientHeight = 530
   ClientWidth = 852
   OnShow = FormShow
-  LCLVersion = '0.9.30'
+  LCLVersion = '0.9.28.2'
   Visible = True
   object Image1: TImage
     Left = 80
@@ -22,17 +22,17 @@ object Form1: TForm1
   end
   object Label1: TLabel
     Left = 584
-    Height = 16
+    Height = 21
     Top = 376
-    Width = 196
+    Width = 249
     Caption = 'Vitesse angulaire initiale (en deg/sec)'
     ParentColor = False
   end
   object Label2: TLabel
     Left = 114
-    Height = 16
+    Height = 21
     Top = 486
-    Width = 53
+    Width = 66
     Caption = 'Provisoire'
     ParentColor = False
   end
@@ -83,7 +83,7 @@ object Form1: TForm1
   end
   object Edit1: TEdit
     Left = 584
-    Height = 23
+    Height = 28
     Top = 416
     Width = 160
     OnChange = Edit1Change
