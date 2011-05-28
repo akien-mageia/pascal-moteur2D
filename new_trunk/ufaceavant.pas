@@ -216,7 +216,7 @@ begin
   if (SimulationEnCours) and (FormePlacee) and (InitialisationVitesseEnCours = False) then
   begin
     compteur := compteur +1;
-    Label2.Caption := 'Nombre d''itérations du timer : '+intToStr(compteur)+'. Angle : '+floatToStr(SolideMouvement.getPositionSolide.getAngle());
+    Label2.Caption := 'Timer : '+intToStr(compteur)+'. Angle : '+floatToStr(SolideMouvement.getPositionSolide.getAngle())+'. Omega : '+floatToStr(SolideMouvement.getVitesse.getOmega())+'. Vx : '+floatToStr(SolideMouvement.getVitesse.getX())+'. Vy : '+floatToStr(SolideMouvement.getVitesse.getY());
     SolideMouvement.getResultante().CalculForce(SolideMouvement.getForme(), SolideMouvement.getVitesse());
     SolideMouvement.CalculPosition();
 
