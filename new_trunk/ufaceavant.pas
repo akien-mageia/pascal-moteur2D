@@ -6,8 +6,8 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, LResources, Forms, Controls, Graphics, Dialogs,
-  StdCtrls, ExtCtrls, UDessinObjet, UDessinDecor, UParamPhys, UPoids, UPosition,
-  UPositionSolide, UVitesse, UResultante, USolideMouvement, Math;
+  StdCtrls, ExtCtrls, UDessinObjet, UDessinDecor, UParamPhys, UPoids, UArchimede, UFrottement,
+  UPosition, UPositionSolide, UVitesse, UResultante, USolideMouvement, Math;
 
 type
 
@@ -61,14 +61,10 @@ type
 var
   Form1: TForm1;
   SimulationEnCours, FormePlacee, InitialisationVitesseEnCours, PointTrouve: boolean;
-  Poids: CPoids;
-  Vitesse: CVitesse;
-  Resultante: CResultante;
   SolideMouvement: CSolideMouvement;
   PositionSolide: CPositionSolide;
   PointsIntersection: TRecordIntersection;
   compteur:integer;  // provisoire pour des tests sur la rapidité du timer
-//  Xrouge,Yrouge: integer;
   pointContact: CPosition;
 
 
@@ -82,14 +78,15 @@ begin
 end;
 
 procedure TForm1.ButLancerSimClick(Sender: TObject);
+var Vitesse: CVitesse;
+    Poids: CPoids;
+    Archimede: CArchimede;
+    Frottement: CFrottement;
+    Resultante: CResultante;
 begin
   if (SimulationEnCours = false) then
   begin
-    if (Solide <> Nil) then begin
-
-        Solide.SetMassePixel(0.1);  // en kg donc 100g par pixel soit un objet de quelques dizaines de kg
-        Solide.CalculMasse();
-        Solide.CalculJ();
+    if (Solide <> Nil) and (DecorBMP <> Nil) then begin
 
         Vitesse := CVitesse.Create(0,0,0);
 
@@ -97,8 +94,18 @@ begin
         Poids.SetG(9.81);
         Poids.CalculForce(Solide, Vitesse);
 
+        Archimede := CArchimede.Create(0,0,0);
+        Archimede.setRho(1.184);  // Masse volumique de l'air sec a 25 deg C en kg/m^3
+        Archimede.calculForce(Solide, Vitesse);
+
+        Frottement := CFrottement.Create(0,0,0);
+        Frottement.setCoef(0.2);  // Coefficient arbitraire (TODO: calculer le vrai coefficient a partir de la viscosite du fluide et de la forme de l'objet)
+        Frottement.calculForce(Solide, Vitesse);
+
         Resultante := CResultante.Create();
         Resultante.SetForce(Poids);
+        Resultante.SetForce(Archimede);
+        Resultante.SetForce(Frottement);
 
         PositionSolide := CPositionSolide.Create(0,0,0);
 
@@ -108,8 +115,6 @@ begin
         PointsIntersection.fNbPoints := 0;
 
         compteur := 0;
- //       Xrouge:= 0;
- //       Yrouge := 0;
         SimulationEnCours := true;
 
         Image1.Canvas.Draw(0,0,DecorBMP);
@@ -209,7 +214,7 @@ begin
   begin
     compteur := compteur +1;
     Label2.Caption := 'Nombre d''itérations du timer : '+intToStr(compteur)+'. Angle : '+floatToStr(SolideMouvement.getPositionSolide.getAngle());
-    Resultante.CalculForce;
+    SolideMouvement.getResultante().CalculForce(SolideMouvement.getForme(), SolideMouvement.getVitesse());
     SolideMouvement.CalculPosition();
 
     if (intersectionSolideDecor())

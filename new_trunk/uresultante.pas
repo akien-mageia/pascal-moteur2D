@@ -5,7 +5,7 @@ unit UResultante;
 interface
 
 uses
-  Classes, SysUtils, UTorseur;
+  Classes, SysUtils, UTorseur, UForme, UVitesse;
 
 Type CResultante = Class (CTorseur)
 
@@ -30,7 +30,7 @@ Type CResultante = Class (CTorseur)
      		Procedure	SetNbForces(aNb : Integer);
 
      		//Others Functions
-     		Procedure CalculForce();
+     		Procedure CalculForce(aForme: CForme; aVitesse: CVitesse); override;
 
      end;
 
@@ -83,7 +83,6 @@ Procedure CResultante.SetForce(aForce : CTorseur);
 	Begin
 		fNbForces := fNbForces + 1;
 		fTableau [fNbForces]  := aForce;
-		CalculForce;
 	End;
 Procedure CResultante.SetTableau(aNb : Integer;
 								 aTableau : Array of CTorseur);
@@ -94,12 +93,13 @@ Procedure CResultante.SetTableau(aNb : Integer;
 			fTableau[i] := aTableau[i];
 	End;
 
-Procedure CResultante.CalculForce();
+Procedure CResultante.CalculForce(aForme: CForme; aVitesse: CVitesse);
 	var i : Integer;
 	Begin
 		fX := 0; fY := 0; fMz := 0; //Init des valeurs
 		for i := 1 to fNbForces do  //Et on ajoute =)
 			begin
+                                if i=3 then fTableau[i].calculForce(aForme, aVitesse); // Recalculer la force de frottement
 				fX  := fX + fTableau[i].GetFx;
 				fY  := Fy + fTableau[i].GetFy;
 				fMz := fMz + fTableau[i].GetMz;
@@ -108,4 +108,3 @@ Procedure CResultante.CalculForce();
 	End;
 
 end.
-

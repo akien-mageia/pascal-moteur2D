@@ -82,7 +82,11 @@ begin
     Solide := CForme.Create(18, SolideBMP.Width, SolideBMP.Height);
     // 18 est le pas, et l'angle de rotation sera a chaque fois un multiple de 360/pas.
     Solide.setBMP(0, SolideBMP);
-    Solide.calculCentreInertie();
+
+    // Calculs inertiels
+    Solide.SetMassePixel(0.1);  // en kg donc 100g par pixel soit un objet de quelques dizaines de kg
+    Solide.calculInertie();
+    Solide.CalculJ();
 
     // Translation du centre d'inertie
     Img.Picture.Bitmap.Canvas.Draw(round(Solide.getBMP[0].Width/2)-Solide.getCentreInertie.getXPixel,
@@ -342,4 +346,3 @@ initialization
   {$I udessinobjet.lrs}
 
 end.
-

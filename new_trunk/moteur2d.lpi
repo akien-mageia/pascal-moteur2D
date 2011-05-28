@@ -1,18 +1,20 @@
 <?xml version="1.0"?>
 <CONFIG>
   <ProjectOptions>
-    <Version Value="7"/>
+    <Version Value="9"/>
     <General>
       <MainUnit Value="0"/>
-      <TargetFileExt Value=".exe"/>
-      <Icon Value="0"/>
       <UseXPManifest Value="True"/>
-      <ActiveEditorIndexAtStart Value="0"/>
+      <Icon Value="0"/>
+      <ActiveWindowIndexAtStart Value="0"/>
     </General>
     <VersionInfo>
       <Language Value=""/>
       <CharSet Value=""/>
     </VersionInfo>
+    <BuildModes Count="1">
+      <Item1 Name="default" Default="True"/>
+    </BuildModes>
     <PublishOptions>
       <Version Value="2"/>
       <IgnoreBinaries Value="False"/>
@@ -35,8 +37,8 @@
         <Filename Value="moteur2d.lpr"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="moteur2d"/>
-        <CursorPos X="1" Y="33"/>
         <TopLine Value="7"/>
+        <CursorPos X="1" Y="33"/>
         <UsageCount Value="61"/>
       </Unit0>
       <Unit1>
@@ -45,11 +47,14 @@
         <ComponentName Value="Form1"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UFaceAvant"/>
-        <CursorPos X="13" Y="324"/>
-        <TopLine Value="303"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="434"/>
+        <CursorPos X="53" Y="213"/>
         <UsageCount Value="61"/>
         <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="udessinobjet.pas"/>
@@ -57,19 +62,22 @@
         <ComponentName Value="Form2"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UDessinObjet"/>
-        <CursorPos X="11" Y="77"/>
-        <TopLine Value="41"/>
         <EditorIndex Value="8"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="319"/>
+        <CursorPos X="5" Y="348"/>
         <UsageCount Value="61"/>
         <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="uforme.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UForme"/>
-        <CursorPos X="30" Y="75"/>
-        <TopLine Value="39"/>
         <EditorIndex Value="10"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="156"/>
+        <CursorPos X="5" Y="185"/>
         <UsageCount Value="61"/>
         <Loaded Value="True"/>
       </Unit3>
@@ -79,11 +87,13 @@
         <ComponentName Value="Form3"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UDessinDecor"/>
-        <CursorPos X="52" Y="133"/>
+        <EditorIndex Value="13"/>
+        <WindowIndex Value="0"/>
         <TopLine Value="97"/>
-        <EditorIndex Value="12"/>
+        <CursorPos X="52" Y="133"/>
         <UsageCount Value="61"/>
         <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="uparamphys.pas"/>
@@ -91,19 +101,22 @@
         <ComponentName Value="Form4"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UParamPhys"/>
-        <CursorPos X="24" Y="4"/>
+        <EditorIndex Value="14"/>
+        <WindowIndex Value="0"/>
         <TopLine Value="1"/>
-        <EditorIndex Value="13"/>
+        <CursorPos X="24" Y="4"/>
         <UsageCount Value="60"/>
         <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="uposition.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UPosition"/>
-        <CursorPos X="44" Y="113"/>
-        <TopLine Value="21"/>
         <EditorIndex Value="4"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="88"/>
+        <CursorPos X="1" Y="117"/>
         <UsageCount Value="60"/>
         <Loaded Value="True"/>
       </Unit6>
@@ -111,9 +124,10 @@
         <Filename Value="upositionsolide.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UPositionSolide"/>
-        <CursorPos X="15" Y="32"/>
-        <TopLine Value="1"/>
         <EditorIndex Value="3"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="15" Y="32"/>
         <UsageCount Value="60"/>
         <Loaded Value="True"/>
       </Unit7>
@@ -121,9 +135,10 @@
         <Filename Value="uresultante.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UResultante"/>
-        <CursorPos X="28" Y="21"/>
-        <TopLine Value="75"/>
         <EditorIndex Value="2"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="81"/>
+        <CursorPos X="83" Y="94"/>
         <UsageCount Value="60"/>
         <Loaded Value="True"/>
       </Unit8>
@@ -131,9 +146,10 @@
         <Filename Value="usolidemouvement.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="USolideMouvement"/>
-        <CursorPos X="91" Y="114"/>
-        <TopLine Value="78"/>
         <EditorIndex Value="1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="78"/>
+        <CursorPos X="91" Y="114"/>
         <UsageCount Value="60"/>
         <Loaded Value="True"/>
       </Unit9>
@@ -141,9 +157,10 @@
         <Filename Value="utorseur.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UTorseur"/>
-        <CursorPos X="38" Y="23"/>
-        <TopLine Value="13"/>
         <EditorIndex Value="7"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="13"/>
+        <CursorPos X="38" Y="23"/>
         <UsageCount Value="60"/>
         <Loaded Value="True"/>
       </Unit10>
@@ -151,9 +168,10 @@
         <Filename Value="uvitesse.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UVitesse"/>
-        <CursorPos X="49" Y="25"/>
-        <TopLine Value="1"/>
         <EditorIndex Value="6"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="49" Y="25"/>
         <UsageCount Value="60"/>
         <Loaded Value="True"/>
       </Unit11>
@@ -161,9 +179,10 @@
         <Filename Value="uarchimede.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UArchimede"/>
-        <CursorPos X="49" Y="14"/>
-        <TopLine Value="6"/>
-        <EditorIndex Value="14"/>
+        <EditorIndex Value="15"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="16"/>
+        <CursorPos X="1" Y="45"/>
         <UsageCount Value="60"/>
         <Loaded Value="True"/>
       </Unit12>
@@ -171,17 +190,21 @@
         <Filename Value="ufrottement.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UFrottement"/>
-        <CursorPos X="17" Y="5"/>
-        <TopLine Value="1"/>
+        <EditorIndex Value="11"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="19"/>
+        <CursorPos X="5" Y="48"/>
         <UsageCount Value="60"/>
+        <Loaded Value="True"/>
       </Unit13>
       <Unit14>
         <Filename Value="umateriau.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UMateriau"/>
-        <CursorPos X="1" Y="67"/>
+        <EditorIndex Value="12"/>
+        <WindowIndex Value="0"/>
         <TopLine Value="31"/>
-        <EditorIndex Value="11"/>
+        <CursorPos X="1" Y="67"/>
         <UsageCount Value="60"/>
         <Loaded Value="True"/>
       </Unit14>
@@ -189,9 +212,10 @@
         <Filename Value="upoids.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UPoids"/>
-        <CursorPos X="49" Y="47"/>
-        <TopLine Value="22"/>
         <EditorIndex Value="5"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="22"/>
+        <CursorPos X="49" Y="47"/>
         <UsageCount Value="60"/>
         <Loaded Value="True"/>
       </Unit15>
@@ -199,34 +223,35 @@
         <Filename Value="uvent.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UVent"/>
-        <CursorPos X="22" Y="24"/>
-        <TopLine Value="1"/>
         <EditorIndex Value="9"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="22" Y="24"/>
         <UsageCount Value="60"/>
         <Loaded Value="True"/>
       </Unit16>
       <Unit17>
         <Filename Value="../../../../Windows/Lazarus/lcl/include/rasterimage.inc"/>
-        <CursorPos X="1" Y="553"/>
         <TopLine Value="542"/>
+        <CursorPos X="1" Y="553"/>
         <UsageCount Value="9"/>
       </Unit17>
       <Unit18>
         <Filename Value="../../../../../Windows/Lazarus/lcl/include/canvas.inc"/>
-        <CursorPos X="1" Y="31"/>
         <TopLine Value="16"/>
+        <CursorPos X="1" Y="31"/>
         <UsageCount Value="9"/>
       </Unit18>
       <Unit19>
         <Filename Value="../../../../../lazarus/lcl/include/rasterimage.inc"/>
-        <CursorPos X="1" Y="296"/>
         <TopLine Value="278"/>
+        <CursorPos X="1" Y="296"/>
         <UsageCount Value="9"/>
       </Unit19>
       <Unit20>
         <Filename Value="../../../../../Windows/Lazarus/lcl/include/rasterimage.inc"/>
-        <CursorPos X="1" Y="305"/>
         <TopLine Value="290"/>
+        <CursorPos X="1" Y="305"/>
         <UsageCount Value="9"/>
       </Unit20>
     </Units>
@@ -237,127 +262,132 @@
       </Position1>
       <Position2>
         <Filename Value="ufaceavant.pas"/>
-        <Caret Line="257" Column="1" TopLine="238"/>
+        <Caret Line="265" Column="282" TopLine="249"/>
       </Position2>
       <Position3>
         <Filename Value="ufaceavant.pas"/>
-        <Caret Line="254" Column="1" TopLine="238"/>
+        <Caret Line="372" Column="64" TopLine="300"/>
       </Position3>
       <Position4>
         <Filename Value="ufaceavant.pas"/>
-        <Caret Line="257" Column="1" TopLine="238"/>
+        <Caret Line="311" Column="68" TopLine="295"/>
       </Position4>
       <Position5>
         <Filename Value="ufaceavant.pas"/>
-        <Caret Line="254" Column="1" TopLine="238"/>
+        <Caret Line="58" Column="54" TopLine="36"/>
       </Position5>
       <Position6>
         <Filename Value="ufaceavant.pas"/>
-        <Caret Line="257" Column="1" TopLine="238"/>
+        <Caret Line="329" Column="12" TopLine="312"/>
       </Position6>
       <Position7>
         <Filename Value="ufaceavant.pas"/>
-        <Caret Line="254" Column="1" TopLine="238"/>
+        <Caret Line="376" Column="39" TopLine="344"/>
       </Position7>
       <Position8>
         <Filename Value="ufaceavant.pas"/>
-        <Caret Line="257" Column="1" TopLine="238"/>
+        <Caret Line="58" Column="78" TopLine="39"/>
       </Position8>
       <Position9>
         <Filename Value="ufaceavant.pas"/>
-        <Caret Line="254" Column="1" TopLine="238"/>
+        <Caret Line="57" Column="107" TopLine="39"/>
       </Position9>
       <Position10>
         <Filename Value="ufaceavant.pas"/>
-        <Caret Line="265" Column="282" TopLine="249"/>
+        <Caret Line="58" Column="105" TopLine="40"/>
       </Position10>
       <Position11>
         <Filename Value="ufaceavant.pas"/>
-        <Caret Line="372" Column="64" TopLine="300"/>
+        <Caret Line="350" Column="108" TopLine="334"/>
       </Position11>
       <Position12>
         <Filename Value="ufaceavant.pas"/>
-        <Caret Line="311" Column="68" TopLine="295"/>
+        <Caret Line="334" Column="155" TopLine="316"/>
       </Position12>
       <Position13>
         <Filename Value="ufaceavant.pas"/>
-        <Caret Line="58" Column="54" TopLine="36"/>
+        <Caret Line="376" Column="152" TopLine="344"/>
       </Position13>
       <Position14>
         <Filename Value="ufaceavant.pas"/>
-        <Caret Line="329" Column="12" TopLine="312"/>
+        <Caret Line="335" Column="244" TopLine="315"/>
       </Position14>
       <Position15>
         <Filename Value="ufaceavant.pas"/>
-        <Caret Line="376" Column="39" TopLine="344"/>
+        <Caret Line="329" Column="19" TopLine="312"/>
       </Position15>
       <Position16>
         <Filename Value="ufaceavant.pas"/>
-        <Caret Line="58" Column="78" TopLine="39"/>
+        <Caret Line="321" Column="24" TopLine="315"/>
       </Position16>
       <Position17>
         <Filename Value="ufaceavant.pas"/>
-        <Caret Line="57" Column="107" TopLine="39"/>
+        <Caret Line="337" Column="106" TopLine="316"/>
       </Position17>
       <Position18>
         <Filename Value="ufaceavant.pas"/>
-        <Caret Line="58" Column="105" TopLine="40"/>
+        <Caret Line="336" Column="287" TopLine="318"/>
       </Position18>
       <Position19>
         <Filename Value="ufaceavant.pas"/>
-        <Caret Line="350" Column="108" TopLine="334"/>
+        <Caret Line="319" Column="26" TopLine="310"/>
       </Position19>
       <Position20>
         <Filename Value="ufaceavant.pas"/>
-        <Caret Line="334" Column="155" TopLine="316"/>
+        <Caret Line="366" Column="23" TopLine="349"/>
       </Position20>
       <Position21>
         <Filename Value="ufaceavant.pas"/>
-        <Caret Line="376" Column="152" TopLine="344"/>
+        <Caret Line="372" Column="23" TopLine="354"/>
       </Position21>
       <Position22>
-        <Filename Value="ufaceavant.pas"/>
-        <Caret Line="335" Column="244" TopLine="315"/>
+        <Filename Value="uarchimede.pas"/>
+        <Caret Line="14" Column="49" TopLine="6"/>
       </Position22>
       <Position23>
-        <Filename Value="ufaceavant.pas"/>
-        <Caret Line="329" Column="19" TopLine="312"/>
+        <Filename Value="udessinobjet.pas"/>
+        <Caret Line="77" Column="11" TopLine="41"/>
       </Position23>
       <Position24>
-        <Filename Value="ufaceavant.pas"/>
-        <Caret Line="321" Column="24" TopLine="315"/>
+        <Filename Value="udessinobjet.pas"/>
+        <Caret Line="345" Column="1" TopLine="316"/>
       </Position24>
       <Position25>
-        <Filename Value="ufaceavant.pas"/>
-        <Caret Line="337" Column="106" TopLine="316"/>
+        <Filename Value="udessinobjet.pas"/>
+        <Caret Line="344" Column="4" TopLine="316"/>
       </Position25>
       <Position26>
-        <Filename Value="ufaceavant.pas"/>
-        <Caret Line="336" Column="287" TopLine="318"/>
+        <Filename Value="uforme.pas"/>
+        <Caret Line="45" Column="60" TopLine="39"/>
       </Position26>
       <Position27>
-        <Filename Value="ufaceavant.pas"/>
-        <Caret Line="352" Column="12" TopLine="354"/>
+        <Filename Value="ufrottement.pas"/>
+        <Caret Line="20" Column="60" TopLine="1"/>
       </Position27>
       <Position28>
-        <Filename Value="ufaceavant.pas"/>
-        <Caret Line="319" Column="26" TopLine="310"/>
+        <Filename Value="uposition.pas"/>
+        <Caret Line="32" Column="26" TopLine="21"/>
       </Position28>
       <Position29>
-        <Filename Value="ufaceavant.pas"/>
-        <Caret Line="366" Column="23" TopLine="349"/>
+        <Filename Value="uposition.pas"/>
+        <Caret Line="117" Column="1" TopLine="88"/>
       </Position29>
       <Position30>
-        <Filename Value="ufaceavant.pas"/>
-        <Caret Line="372" Column="23" TopLine="354"/>
+        <Filename Value="uresultante.pas"/>
+        <Caret Line="83" Column="5" TopLine="75"/>
       </Position30>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>
-    <Version Value="8"/>
+    <Version Value="9"/>
     <SearchPaths>
-      <IncludeFiles Value="$(ProjOutDir)/"/>
+      <IncludeFiles Value="$(ProjOutDir)"/>
     </SearchPaths>
+    <Parsing>
+      <SyntaxOptions>
+        <UseAnsiStrings Value="False"/>
+      </SyntaxOptions>
+    </Parsing>
     <Linking>
       <Options>
         <Win32>

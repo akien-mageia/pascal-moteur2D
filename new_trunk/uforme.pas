@@ -26,13 +26,14 @@ Type CForme = Class
                 // Interet : la surface a tester est ainsi reduite, optimisation de la detection des collisions
               fCentreInertie : CPosition;
               fMasse : real;
+              fVolume : real;
               fJ : real; // moment d'inertie par rapport au centre d'inertie et à l'axe Oz
               fMassePixel : real;
 
      Public
            Constructor Create(aNbBMP, aWidth, aHeight : integer);
            Destructor Destroy; override;
-           Procedure calculCentreInertie();
+           Procedure calculInertie();
            Function getCentreInertie() : CPosition;
            Function getNbBMP() : integer;
            Procedure setBMP(aIndex: integer; aBMP: TBitmap);
@@ -41,10 +42,10 @@ Type CForme = Class
            Function getSommets() : TCoordsArray;
            Procedure setMasse(aMasse: Real);
            Function getMasse() : real;
+           Function getVolume() : real;
            Function getJ() : real;
            Procedure setJ(aJ : real);
            Procedure calculJ();
-           Procedure calculMasse();
            Function getMassePixel() : real;
            Procedure setMassePixel(aMassePixel : real);
 
@@ -77,7 +78,7 @@ Begin
     Inherited;
 end;
 
-Procedure CForme.CalculCentreInertie();
+Procedure CForme.CalculInertie();
 Var i,j,nbPixels,sumX,sumY: integer;
 Begin
     nbPixels := 0;
@@ -96,6 +97,8 @@ Begin
     then begin
         fCentreInertie.setXPixel(round(sumX/nbPixels));
         fCentreInertie.setYPixel(round(sumY/nbPixels));
+        fMasse := nbPixels*fMassePixel;
+        fVolume := nbPixels*TAILLEPIXEL*TAILLEPIXEL*TAILLEPIXEL; // epaisseur TAILLEPIXEL
     end;
 End;
 
@@ -112,6 +115,11 @@ end;
 Procedure CForme.setMasse(aMasse: real);
 Begin
      fMasse := aMasse;
+end;
+
+Function CForme.getVolume() : real;
+Begin
+    result := fVolume;
 end;
 
 Function CForme.getNbBMP() : integer;
@@ -156,26 +164,12 @@ Procedure CForme.calculJ();
 var i,j : integer;
     JProvisoire : real;
 begin
-   J := 0;
-   for i:=0 to fTableBMP[0].Width-1 do
+    JProvisoire := 0;
+    for i:=0 to fTableBMP[0].Width-1 do
         for j:=0 to fTableBMP[0].Height-1 do
             if ((fTableBMP[0].Canvas.Pixels[i,j] = clBlack) or (fTableBMP[0].Canvas.Pixels[i,j] = clGray))
-            then JProvisoire := JProvisoire + fMassePixel*((i-fCentreInertie.GetXPixel)*0.00050*(i-fCentreInertie.GetXPixel)*0.00050+(j-fCentreInertie.GetYPixel)*0.00050*(j-fCentreInertie.GetYPixel)*0.00050);
-   fJ := JProvisoire;
-
-end;
-
-Procedure CForme.calculMasse();
-var i,j : integer;
-    Masse : real;
-begin
-   Masse := 0;
-   for i:=0 to fTableBMP[0].Width-1 do
-        for j:=0 to fTableBMP[0].Height-1 do
-            if ((fTableBMP[0].Canvas.Pixels[i,j] = clBlack) or (fTableBMP[0].Canvas.Pixels[i,j] = clGray))
-            then Masse := Masse + fMassePixel;
-   fMasse := Masse;
-
+            then JProvisoire := JProvisoire + fMassePixel*((i-fCentreInertie.GetXPixel)*TAILLEPIXEL*(i-fCentreInertie.GetXPixel)*TAILLEPIXEL+(j-fCentreInertie.GetYPixel)*TAILLEPIXEL*(j-fCentreInertie.GetYPixel)*TAILLEPIXEL);
+    fJ := JProvisoire;
 end;
 
 Function CForme.getMassePixel() : real;
@@ -189,4 +183,3 @@ begin
 end;
 
 end.
-

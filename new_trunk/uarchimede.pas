@@ -26,7 +26,9 @@ implementation
 
 Procedure CArchimede.CalculForce(aForme: CForme ; aVitesse: CVitesse);
 Begin
-
+    fX := 0;
+    fY := -fRho*aForme.getVolume();
+    fMz := 0;
 End;
 
 Procedure CArchimede.setRho(aRho: real);
@@ -40,3 +42,4 @@ Begin
 End;
 
 end.
+
