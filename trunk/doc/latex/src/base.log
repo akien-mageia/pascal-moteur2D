@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  30 MAY 2011 01:18
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  30 MAY 2011 01:46
 entering extended mode
  %&-line parsing enabled.
 **base.tex
@@ -1074,13 +1074,21 @@ LaTeX Font Warning: Font shape `T1/cmr/bx/n' in size <6.49994> not available
 [2] <../images/collision.png, id=63, 531.9875pt x 527.9725pt>
 File: ../images/collision.png Graphic file (type png)
 
-<use ../images/collision.png> [3 <../images/collision.png (PNG copy)>] [4])
-(./conclusion.tex) (./annexes.tex [5] [6]
-<../images/UML.jpeg, id=102, 842.14626pt x 917.4275pt>
+<use ../images/collision.png> [3 <../images/collision.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 139--145
+
+ []
+
+<../images/tangente.png, id=78, 494.59781pt x 575.14874pt>
+File: ../images/tangente.png Graphic file (type png)
+
+<use ../images/tangente.png> [4 <../images/tangente.png (PNG copy)>] [5])
+(./conclusion.tex) (./annexes.tex [6] [7]
+<../images/UML.jpeg, id=111, 842.14626pt x 917.4275pt>
 File: ../images/UML.jpeg Graphic file (type jpg)
 
-<use ../images/UML.jpeg> [7 <../images/UML.jpeg>]
-<../images/global.jpg, id=112, 953.5625pt x 543.02875pt>
+<use ../images/UML.jpeg> [8 <../images/UML.jpeg>]
+<../images/global.jpg, id=120, 953.5625pt x 543.02875pt>
 File: ../images/global.jpg Graphic file (type jpg)
 
 <use ../images/global.jpg>
@@ -1088,29 +1096,29 @@ Overfull \hbox (23.8122pt too wide) in paragraph at lines 99--100
  [] 
  []
 
-<../images/dessin_objet.jpg, id=114, 417.56pt x 289.08pt>
+<../images/dessin_objet.jpg, id=122, 417.56pt x 289.08pt>
 File: ../images/dessin_objet.jpg Graphic file (type jpg)
 
 <use ../images/dessin_objet.jpg>
-<../images/dessin_decor.jpg, id=116, 707.64375pt x 509.905pt>
+<../images/dessin_decor.jpg, id=124, 707.64375pt x 509.905pt>
 File: ../images/dessin_decor.jpg Graphic file (type jpg)
 
 <use ../images/dessin_decor.jpg>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [8 <../images/global.jpg (PNG copy)> <../images/dessin_objet.jpg (PNG copy)>]
-[9 <../images/dessin_decor.jpg (PNG copy)>] (./base.aux)
+) [9 <../images/global.jpg (PNG copy)> <../images/dessin_objet.jpg (PNG copy)>]
+[10 <../images/dessin_decor.jpg (PNG copy)>] (./base.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.49994pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 15759 strings out of 495028
- 253602 string characters out of 1181230
+ 15766 strings out of 495028
+ 253745 string characters out of 1181230
  344344 words of memory out of 3000000
- 18560 multiletter control sequences out of 15000+50000
+ 18564 multiletter control sequences out of 15000+50000
  16677 words of font info for 33 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  47i,14n,49p,336b,449s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1134,9 +1142,9 @@ nts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi
 share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-
 texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts
 /type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on base.pdf (9 pages, 421208 bytes).
+Output written on base.pdf (10 pages, 459382 bytes).
 PDF statistics:
- 530 PDF objects out of 1000 (max. 8388607)
- 46 named destinations out of 1000 (max. 500000)
- 113 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 540 PDF objects out of 1000 (max. 8388607)
+ 48 named destinations out of 1000 (max. 500000)
+ 124 words of extra memory for PDF output out of 10000 (max. 10000000)
 

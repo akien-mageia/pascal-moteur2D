@@ -121,12 +121,54 @@ le dessin du décor et la gestion des matériaux.
 
 \subsection{Gestion des chocs}
 La partie la plus compliquée dans la gestion des chocs reste la détection des chocs
-et le calcul de la tangente locale au décor. Afin d'obtenir ces informations,
-notre algorithme analyse à chaque itération d'un timer prédéfini
-les pixels autour du solide, et si jamais ceux ci appartiennent à un des
-matériaux (tri par couleur), on calcule la tangente locale à l'aide de
-tous les points de contact. Ceci nous permet de déterminer la direction 
-de rebond du solide, ainsi que d'appliquer les forces de frottement propres au matériau.
+et le calcul de la tangente locale au décor.
+
+A chaque itération du timer, une procédure est lancée après le calcul de 
+la nouvelle position de l'objet pour détecter une collision potentielle.
+On parcourt la matrice du solide et l'extrait correspondant de la matrice
+du décor pour chercher d'éventuelles superpositions de pixels non blancs.
+Les dimensions horizontales et verticales de l'objet ont été au préalable
+calculées pour optimiser ce parcours.
+
+Il s'agit ensuite de déterminer la zone restreinte du contact pour la réduire ensuite
+à un unique pixel qui servira dans les calculs dynamiques.
+Pour ce faire, une boucle fait reculer (sans l'afficher) le solide dans 
+la direction opposée à la vitesse, pixel par pixel,
+jusqu'à ce qu'il n'y ait plus de collision.
+
+La procédure fait aussi tourner l'objet petit à petit pour retrouver
+son angle de rotation avant le choc.
+L'ensemble des pixels colorés du décor superposés aux points du solide
+sont stockés dans un tableau. Lorsque la boucle se termine, ce tableau
+contient les points de la surface du décor qui délimitent la zone de contact.
+On prend ensuite un point au milieu de cette zone que l'on définit comme pixel de collision.\\
+
+\begin{center}
+\begin{figure}[h]
+\begin{center}
+\scalebox{0.3}[0.3]{\includegraphics*{../images/tangente.png}}
+\end{center}
+\caption{Schématisation du calcul de la tangente}
+\end{figure}
+\end{center}
+
+Le calcul des tangentes se fait à partir du pixel de contact et des deux pixels
+constituant la surface les plus proches du pixel de contact.
+
+Pour déterminer ces deux pixels, la procédure teste chaque pixel adjacent
+au pixel de contact et s'arrête sur les premiers pixels pleins trouvés.
+
+Les deux premiers pixels testés sont déterminés par la vitesse à laquelle
+l'objet arrive vers la surface (cf schéma ci-dessus).
+
+Si aucun de ces pixels n'est plein (ce qui en pratique devrait toujours être le cas),
+une procédure teste tour à tour les pixels en tournant autour du point de contact,
+dans le sens horaire pour un point et dans le sens trigonométrique pour l'autre.
+
+Une fois les deux points déterminés, le vecteur tangent est calculé en
+faisant la moyenne du vecteur reliant le point de contact et le premier point
+et du vecteur reliant le point de contact et le deuxième point.
+
 
 
 \subsection{Remplissage de l'objet}
@@ -181,6 +223,8 @@ problèmes ayant été plus chronophages que prévu.
 \item[$\bullet$] Modification du décor et de l'objet en temps réel par l'utilisateur
 \item[$\bullet$] Tracé de la trajectoire de l'objet
 \item[$\bullet$] Force de frottement prenant en compte la forme de l'objet
+\item[$\bullet$] Roulement ou arrêt de l'objet possible
+\item[$\bullet$] Possibilité de modification des paramètres physiques (prévu mais pas implémenté)
 \end{itemize}
 \subsection{Bugs}
 \begin{itemize}
