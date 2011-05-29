@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  29 MAY 2011 12:02
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  29 MAY 2011 12:39
 entering extended mode
  %&-line parsing enabled.
 **base.tex
@@ -1051,21 +1051,42 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--20
 <../images/UML.jpeg, id=77, 968.61874pt x 1132.23pt>
 File: ../images/UML.jpeg Graphic file (type jpg)
  <use ../images/UML.jpeg>
-Overfull \hbox (31.34029pt too wide) in paragraph at lines 25--26
+Overfull \hbox (31.34029pt too wide) in paragraph at lines 30--31
  [] 
  []
 
-) [5 <../images/UML.jpeg>] (./base.aux)
+[5 <../images/UML.jpeg>]
+<../images/global.jpg, id=87, 953.5625pt x 543.02875pt>
+File: ../images/global.jpg Graphic file (type jpg)
+
+<use ../images/global.jpg>
+Overfull \hbox (23.8122pt too wide) in paragraph at lines 42--43
+ [] 
+ []
+
+<../images/dessin_objet.jpg, id=89, 417.56pt x 289.08pt>
+File: ../images/dessin_objet.jpg Graphic file (type jpg)
+
+<use ../images/dessin_objet.jpg>
+<../images/dessin_decor.jpg, id=91, 707.64375pt x 509.905pt>
+File: ../images/dessin_decor.jpg Graphic file (type jpg)
+
+<use ../images/dessin_decor.jpg>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) [6 <../images/global.jpg (PNG copy)> <../images/dessin_objet.jpg (PNG copy)>]
+[7 <../images/dessin_decor.jpg (PNG copy)>] (./base.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.91913pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 15499 strings out of 495028
- 249979 string characters out of 1181230
+ 15518 strings out of 495028
+ 250415 string characters out of 1181230
  333757 words of memory out of 3000000
- 18333 multiletter control sequences out of 15000+50000
+ 18343 multiletter control sequences out of 15000+50000
  17483 words of font info for 40 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  47i,14n,49p,336b,449s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1085,9 +1106,9 @@ ve/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-texlive/fonts/ty
 pe1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/public/a
 msfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/c
 mr8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on base.pdf (5 pages, 310406 bytes).
+Output written on base.pdf (7 pages, 385171 bytes).
 PDF statistics:
- 435 PDF objects out of 1000 (max. 8388607)
- 26 named destinations out of 1000 (max. 500000)
- 77 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 463 PDF objects out of 1000 (max. 8388607)
+ 32 named destinations out of 1000 (max. 500000)
+ 110 words of extra memory for PDF output out of 10000 (max. 10000000)
 
