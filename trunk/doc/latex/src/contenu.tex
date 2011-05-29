@@ -13,10 +13,17 @@ un instant $t$ sur le solide. Le mouvement de ce solide est donc déterminé
 par les équations de la mécanique newtonienne.
 On peut donc définir les différentes forces appliquées sur le solide :
 \begin{itemize}
-\item[$\bullet$] La gravité : \dotfill{} $\overrightarrow{P} = -m*g*\overrightarrow{y_0}$ \hfill{}
-\item[$\bullet$] Les frottements : \dotfill{}$\overrightarrow{F_{fr}} = -f*\overrightarrow{V}_{\text{Objet/Décor}}$\hfill{}
-\item[$\bullet$] La poussée d'Archimède : \dotfill{} $\overrightarrow{F_{Ar}} $
+\item[$\bullet$] La gravité : \dotfill{} $\overrightarrow{P} = -m*g*\overrightarrow{y_0}$ 
+\item[$\bullet$] La poussée d'Archimède : \dotfill{} $\overrightarrow{F_{Ar}} = -\rho_{liquide} * V_{deplace} *\overrightarrow{y_0} $
+\item[$\bullet$] Les frottements lors du contact: \dotfill{}$\overrightarrow{F_{fr}} = -f*\overrightarrow{V}_{\text{Objet/Décor}}$
+\item[$\bullet$] La force lors du choc : \dotfill{} $ \|\overrightarrow{V_r} \|= e * \| \overrightarrow{V_i} \|$ avec $ e \in [ 0 , 1 ] $\\
 \end{itemize}
+
+La majorité des forces sont résolues à l'aide d'algorithmes basiques de
+calcul, prenant en compte des paramètres telles que le volume de l'objet,
+sa vitesse ou son poids. Les deux forces nécessitant de gros algorithmes
+de traitement sont les forces de frottement et le contact entre le solide
+et le décor.
 
 \section{Réalisation}
 \subsection{Interface}
@@ -35,7 +42,9 @@ problèmes ayant été plus chronophages que prévu.
 \begin{itemize}
 \item[$\bullet$] Différents fluides (air, eau, vide \dots)
 \item[$\bullet$] Variation aléatoire et incidence du vent 
-\item[$\bullet$] Amélioration du modèle physique (élasticité \dots)
+\item[$\bullet$] Amélioration du modèle physique (élasticité \dots )
+\item[$\bullet$] Modification du décor et de l'objet en temps réel par l'utilisateur
+\item[$\bullet$] Tracé de la trajectoire de l'objet
 \end{itemize}
 \subsection{Bugs}
 \begin{itemize}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  29 MAY 2011 01:08
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  29 MAY 2011 12:02
 entering extended mode
  %&-line parsing enabled.
 **base.tex
@@ -1042,11 +1042,15 @@ Underfull \vbox (badness 1048) has occurred while \output is active []
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../images/insa.JPG>]
-(./introduction.tex) (./contenu.tex [2]) (./conclusion.tex [3]) (./annexes.tex
-[4] <../images/UML.jpeg, id=77, 968.61874pt x 1132.23pt>
-File: ../images/UML.jpeg Graphic file (type jpg)
+(./introduction.tex) (./contenu.tex
+Underfull \hbox (badness 10000) in paragraph at lines 19--20
 
-<use ../images/UML.jpeg>
+ []
+
+[2]) (./conclusion.tex [3]) (./annexes.tex [4]
+<../images/UML.jpeg, id=77, 968.61874pt x 1132.23pt>
+File: ../images/UML.jpeg Graphic file (type jpg)
+ <use ../images/UML.jpeg>
 Overfull \hbox (31.34029pt too wide) in paragraph at lines 25--26
  [] 
  []
@@ -1060,7 +1064,7 @@ LaTeX Font Warning: Size substitutions with differences
 Here is how much of TeX's memory you used:
  15499 strings out of 495028
  249979 string characters out of 1181230
- 331756 words of memory out of 3000000
+ 333757 words of memory out of 3000000
  18333 multiletter control sequences out of 15000+50000
  17483 words of font info for 40 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
@@ -1081,9 +1085,9 @@ ve/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-texlive/fonts/ty
 pe1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/public/a
 msfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/c
 mr8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on base.pdf (5 pages, 305597 bytes).
+Output written on base.pdf (5 pages, 310406 bytes).
 PDF statistics:
- 434 PDF objects out of 1000 (max. 8388607)
+ 435 PDF objects out of 1000 (max. 8388607)
  26 named destinations out of 1000 (max. 500000)
  77 words of extra memory for PDF output out of 10000 (max. 10000000)
 
