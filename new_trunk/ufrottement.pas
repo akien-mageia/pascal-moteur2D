@@ -2,7 +2,7 @@ unit UFrottement;
 //***********************************************//
 //       Unite gerant les frottements	         //
 //                                               //
-//    		TODO : CalculForce, calcul coef  //
+//    		TODO : adaptation du coeff		 	 //
 //***********************************************//
 
 {$mode objfpc}{$H+}
@@ -17,12 +17,11 @@ type CFrottement = Class(CTorseur)
 		fCoef: real;	// coefficient de frottement
 
 	public
-                Procedure setCoef(aCoef: real);
+        Procedure setCoef(aCoef: real);
 		Function  getCoef(): real;
-
+		
 		Procedure calculForce(aForme: CForme; aVitesse: CVitesse); override;
-
-	end;
+End;
 
 implementation
 
@@ -38,11 +37,11 @@ Function CFrottement.getCoef(): real;
 		getCoef := fCoef;
 	End;
 Procedure CFrottement.calculForce(aForme: CForme; aVitesse: CVitesse);
-	//Modifie le torseur du frottement en fonction de la vitesse
-        Begin
+//Modifie le torseur du frottement en fonction de la vitesse
+	Begin
 		fX := -aVitesse.GetX()*fCoef;
 		fY := -aVitesse.GetY()*fCoef;
-                fMz := 0;
-        End;
+        fMz := 0;
+    End;
 
 end.

@@ -1,5 +1,9 @@
 unit UPositionSolide;
-
+//******************************************************//
+//  Unite permettant d'obtenir la positiondu solide     //
+//        		                                        //
+//    				TODO : Nothing 					    //
+//******************************************************//
 {$mode objfpc}{$H+}
 
 interface
@@ -11,10 +15,10 @@ type CPositionSolide = Class(CPosition)
 		protected
 			fAngle:real;
 		public
-                        Constructor Create(aXPix, aYPix: Integer; aAngle: Real);
+            Constructor Create(aXPix, aYPix: Integer; aAngle: Real);
 			procedure SetAngle( aAngle : Real);
 			function  GetAngle	: real;
-	end;
+end;
 
 implementation
 

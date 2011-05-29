@@ -1,5 +1,10 @@
 unit UResultante;
-
+//***********************************************//
+//    Unite gerant le calcul de la résultante 	 //
+//				d'un torseur					 //
+//                                               //
+//  			  TODO : Nothing   				 //
+//***********************************************//
 {$mode objfpc}{$H+}
 
 interface

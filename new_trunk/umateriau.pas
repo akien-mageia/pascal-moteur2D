@@ -2,8 +2,8 @@ unit UMateriau;
 
 //***********************************************//
 //       Unite gerant les caracteristiques       //
-//			d'un materiau            //
-//    			TODO : Nothing	         //
+//			d'un materiau           			 //
+//    			TODO : Nothing	         		 //
 //***********************************************//
 
 {$mode objfpc}{$H+}

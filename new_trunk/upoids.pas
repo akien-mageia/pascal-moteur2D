@@ -16,7 +16,6 @@ uses
 type CPoids = Class(CTorseur)
 	protected
 		fG: real;		// constante gravitationnelle, valeur par defaut fG = 9.81
-
 	public
 		Constructor Create(aX,aY,aMz:Real);
 		Destructor Destroy;
@@ -32,14 +31,10 @@ Constructor CPoids.Create(aX,aY,aMz:Real);
 		Inherited;
 	End;
 
-
-
-
 Destructor CPoids.Destroy;
 	Begin
 		Inherited;
 	End;
-
 
 Procedure CPoids.calculForce(aForme: CForme; aVitesse: CVitesse);
 Begin

@@ -3,7 +3,7 @@ unit UPosition;
 //*******************************************************//
 //       Unite gerant la position des points du decor    //
 //                                                       //
-//    			TODO : Conversions               //
+//    	TODO : Modification conversions (1px = 1m        //
 //*******************************************************//
 
 {$mode objfpc}{$H+}
@@ -102,7 +102,7 @@ Function Cposition.GetYMetre() : Real;
 		GetYMetre := fYmetre;
 	End;
 
-//Conversion Functions
+//Conversion Functions Actuellement 1px = 1m
 Function Cposition.pixelToMetre(aPos : Integer) : Real;
 	Begin
 		pixelToMetre := aPos*TAILLEPIXEL;

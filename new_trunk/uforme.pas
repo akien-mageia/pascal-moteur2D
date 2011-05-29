@@ -1,4 +1,9 @@
 unit UForme;
+//**********************************************//
+// 	 Unite gerant la forme de l'objet 			//
+//   ainsi que ses caracteristiques principales //
+//    		TODO : Optimisation?     			//
+//**********************************************//
 
 {$mode objfpc}{$H+}
 
