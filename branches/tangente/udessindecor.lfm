@@ -1,0 +1,192 @@
+object Form3: TForm3
+  Left = 309
+  Height = 508
+  Top = 200
+  Width = 705
+  ActiveControl = PanelColors
+  Caption = 'Dessin du décor'
+  ClientHeight = 508
+  ClientWidth = 705
+  OnCreate = FormCreate
+  OnMouseUp = FormMouseUp
+  OnShow = FormShow
+  LCLVersion = '0.9.30'
+  Visible = True
+  object Img: TImage
+    Left = 25
+    Height = 450
+    Top = 25
+    Width = 485
+    OnMouseDown = ImgMouseDown
+    OnMouseMove = ImgMouseMove
+    OnMouseUp = FormMouseUp
+  end
+  object PanelButtons: TPanel
+    Left = 535
+    Height = 140
+    Top = 335
+    Width = 140
+    ClientHeight = 140
+    ClientWidth = 140
+    TabOrder = 0
+    object ButRecommencer: TButton
+      Left = 8
+      Height = 25
+      Top = 8
+      Width = 122
+      Caption = 'Recommencer'
+      OnClick = ButRecommencerClick
+      TabOrder = 0
+    end
+    object ButValider: TButton
+      Left = 8
+      Height = 25
+      Top = 56
+      Width = 122
+      Caption = 'Valider'
+      OnClick = ButValiderClick
+      TabOrder = 1
+    end
+    object ButAnnuler: TButton
+      Left = 8
+      Height = 25
+      Top = 104
+      Width = 122
+      Caption = 'Annuler'
+      OnClick = ButAnnulerClick
+      TabOrder = 2
+    end
+  end
+  object PanelColors: TPanel
+    Left = 535
+    Height = 191
+    Top = 25
+    Width = 140
+    ClientHeight = 191
+    ClientWidth = 140
+    TabOrder = 1
+    object ShapeWood: TShape
+      Left = 10
+      Height = 20
+      Top = 10
+      Width = 20
+      Brush.Color = clMaroon
+      OnMouseDown = ShapeWoodMouseDown
+    end
+    object ShapeStone: TShape
+      Left = 10
+      Height = 20
+      Top = 160
+      Width = 20
+      Brush.Color = clGray
+      OnMouseDown = ShapeStoneMouseDown
+    end
+    object ShapePlastic: TShape
+      Left = 10
+      Height = 20
+      Top = 40
+      Width = 20
+      Brush.Color = clFuchsia
+      OnMouseDown = ShapePlasticMouseDown
+    end
+    object ShapeGrass: TShape
+      Left = 10
+      Height = 20
+      Top = 100
+      Width = 20
+      Brush.Color = clGreen
+      OnMouseDown = ShapeGrassMouseDown
+    end
+    object ShapeSand: TShape
+      Left = 10
+      Height = 20
+      Top = 70
+      Width = 20
+      Brush.Color = clYellow
+      OnMouseDown = ShapeSandMouseDown
+    end
+    object ShapeSteel: TShape
+      Left = 10
+      Height = 20
+      Top = 130
+      Width = 20
+      Brush.Color = clTeal
+      OnMouseDown = ShapeSteelMouseDown
+    end
+    object LabelWood: TLabel
+      Left = 40
+      Height = 16
+      Top = 12
+      Width = 23
+      Caption = 'Bois'
+      ParentColor = False
+    end
+    object LabelPlastic: TLabel
+      Left = 40
+      Height = 16
+      Top = 42
+      Width = 49
+      Caption = 'Plastique'
+      ParentColor = False
+    end
+    object LabelSand: TLabel
+      Left = 40
+      Height = 16
+      Top = 72
+      Width = 29
+      Caption = 'Sable'
+      ParentColor = False
+    end
+    object LabelGrass: TLabel
+      Left = 40
+      Height = 16
+      Top = 102
+      Width = 33
+      Caption = 'Herbe'
+      ParentColor = False
+    end
+    object LabelStone: TLabel
+      Left = 40
+      Height = 16
+      Top = 162
+      Width = 34
+      Caption = 'Roche'
+      ParentColor = False
+    end
+    object LabelSteel: TLabel
+      Left = 40
+      Height = 16
+      Top = 132
+      Width = 31
+      Caption = 'Metal'
+      ParentColor = False
+    end
+  end
+  object RGChoixTaille: TRadioGroup
+    Left = 534
+    Height = 113
+    Top = 224
+    Width = 141
+    AutoFill = True
+    Caption = 'Taille du pinceau'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.TopBottomSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 95
+    ClientWidth = 137
+    Items.Strings = (
+      '2 px'
+      '4 px'
+      '8 px'
+      '16 px'
+      '32 px'
+    )
+    OnClick = RGChoixTailleClick
+    TabOrder = 2
+  end
+end

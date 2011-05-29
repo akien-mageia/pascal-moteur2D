@@ -1,0 +1,59 @@
+object Form2: TForm2
+  Left = 426
+  Height = 288
+  Top = 265
+  Width = 416
+  Caption = 'Dessin de l''objet'
+  ClientHeight = 288
+  ClientWidth = 416
+  OnMouseUp = FormMouseUp
+  OnShow = FormShow
+  LCLVersion = '0.9.30'
+  Visible = True
+  object Img: TImage
+    Left = 25
+    Height = 200
+    Top = 25
+    Width = 200
+    OnMouseDown = ImgMouseDown
+    OnMouseMove = ImgMouseMove
+    OnMouseUp = FormMouseUp
+  end
+  object PanelButtons: TPanel
+    Left = 250
+    Height = 140
+    Top = 85
+    Width = 125
+    ClientHeight = 140
+    ClientWidth = 125
+    TabOrder = 0
+    object ButRecommencer: TButton
+      Left = 10
+      Height = 30
+      Top = 10
+      Width = 105
+      Caption = 'Recommencer'
+      OnClick = ButRecommencerClick
+      TabOrder = 0
+    end
+    object ButValider: TButton
+      Left = 10
+      Height = 30
+      Top = 55
+      Width = 105
+      Caption = 'Valider'
+      Color = clActiveBorder
+      OnClick = ButValiderClick
+      TabOrder = 1
+    end
+    object ButAnnuler: TButton
+      Left = 10
+      Height = 30
+      Top = 100
+      Width = 105
+      Caption = 'Annuler'
+      OnClick = ButAnnulerClick
+      TabOrder = 2
+    end
+  end
+end
