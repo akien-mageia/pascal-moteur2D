@@ -1,15 +1,15 @@
 object Form2: TForm2
-  Left = 1920
-  Height = 199
-  Top = 220
-  Width = 638
+  Left = 423
+  Height = 278
+  Top = 207
+  Width = 416
   ActiveControl = PanelButtons
   Caption = 'Dessin de l''objet'
-  ClientHeight = 199
-  ClientWidth = 638
+  ClientHeight = 278
+  ClientWidth = 416
   OnMouseUp = FormMouseUp
   OnShow = FormShow
-  LCLVersion = '0.9.28.2'
+  LCLVersion = '0.9.30'
   Visible = True
   object Img: TImage
     Left = 25
