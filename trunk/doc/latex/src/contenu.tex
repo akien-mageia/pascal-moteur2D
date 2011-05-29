@@ -10,27 +10,102 @@ L'utilisateur peut également ouvrir une fenêtre dédiée aux paramètres physi
 sur la valeur de la gravité notamment.
 
 \subsection{Problèmes physiques et méthodes de résolution}
+\subsubsection{Forces}
 Le programme doit prendre en compte les différentes forces appliquées à 
 un instant $t$ sur le solide. Le mouvement de ce solide est donc déterminé
 par les équations de la mécanique newtonienne.
 On peut donc définir les différentes forces appliquées sur le solide :
 
 \begin{itemize}
-\item[$\bullet$] La gravité : \dotfill{} $\overrightarrow{P} = -m*g*\overrightarrow{y_0}$ 
-\item[$\bullet$] La poussée d'Archimède : \dotfill{} $\overrightarrow{F_{Ar}} = -\rho_{liquide} * V_{deplace} *\overrightarrow{y_0} $
-\item[$\bullet$] Les frottements lors du contact: \dotfill{}$\overrightarrow{F_{fr}} = -f*\overrightarrow{V}_{\text{Objet/Décor}}$
-\item[$\bullet$] La force lors du choc : \dotfill{} $ \|\overrightarrow{V_r} \|= e * \| \overrightarrow{V_i} \|$ avec $ e \in [ 0 , 1 ] $\\
+\item[$\bullet$] La gravité : \dotfill{} $\overrightarrow{P} = mg\, \overrightarrow{y_0}$ 
+\item[$\bullet$] La poussée d'Archimède : \dotfill{} $\overrightarrow{F_{Ar}} = -\rho_{liquide}\cdot V_{deplace} \, \overrightarrow{y_0} $
+\item[$\bullet$] Les frottements lors du contact: \dotfill{}$\overrightarrow{F_{fr}} = -f \,\overrightarrow{V}_{\text{Objet/Décor}}$
 \end{itemize}
 
 La majorité des forces sont résolues à l'aide d'algorithmes basiques de
 calcul, prenant en compte des paramètres telles que le volume de l'objet,
-sa vitesse ou son poids. Les deux forces nécessitant de gros algorithmes
-de traitement sont les forces de frottement et le contact entre le solide
-et le décor.
-Pour la gestion du contact entre les deux solides, nous avons privilégiés
-une approche simplifiée, en considérant le point d'impact comme une surface
- plane telle que $\theta_r = -\theta_i$. De même, la vitesse du solide est donnée
-par la formule des chocs élastiques avec dissipation.
+sa vitesse ou son poids.
+\subsubsection{\emph{PFD} - Principe Fondamental de la Dynamique }
+Dans le cas d'un problème plan, notre problème s'exprime sous la forme :
+\begin{equation}
+\sum F_x = m \frac {dv_x}{dt} \: \text{et} \: \sum F_y = m\frac{dv_y}{dt} \: \text{et} \: \sum M_z = J \frac {d\omega}{dt}
+\end{equation}
+En supposant le $\Delta t$ du timer suffisament faible, on peut assimiler
+$\frac {dv_x}{dt}$ à $\frac{\Delta v_x}{\Delta t}$,
+$ \frac {dv_y}{dt} \approx \frac{\Delta v_y}{\Delta t}$ et
+$ \frac{d\omega}{dt} \approx \frac{\Delta \omega}{\Delta t}$ .
+\newline
+Avec les mêmes approximations, on obtient :
+$\frac {dx}{dt} = v_x \approx \frac{\Delta x}{\Delta t}$, 
+$ \frac {dy}{dt} \approx \frac{\Delta y}{\Delta t}$ et
+$ \frac{d\theta}{dt} \approx \frac{\Delta \theta}{\Delta t}$. \\
+La vitesse initiale $\overrightarrow{v_0}$ est définie par l'utilisateur.
+Ainsi, connaissant la vitesse $\overrightarrow{v(t)}$ à un instant $t$,
+on peut calculer la vitesse $\overrightarrow{v(t+\Delta t)}$ à l'instant $t + \Delta t$.
+
+\begin{equation}
+v_{x}(t+\Delta t)= v_{x}(t) + m \Delta t \sum F_x \: \text{et}\:
+v_{y}(t+\Delta t)= v_{y}(t) + m\Delta t\sum F_y \: \text{et}\:
+\omega (t + \Delta t)= \omega(t) + J\Delta t \sum m_z 
+\end{equation}
+En prenant en compte les approximations précédentes, on obtient le système suivant :
+\begin{equation}
+x(t+\Delta t) = x(t) +\Delta t \cdot v_{x}(t) \: \text{et} \:
+y(t+\Delta t) = x(t) +\Delta t \cdot v_{x}(t) \: \text{et} \:
+\theta (t+\Delta t) = \theta (t) + \Delta t \cdot \omega (t) \: \text \:
+\end{equation}
+
+\newpage
+\subsubsection{Collisions}
+Notons $\overrightarrow{v_c}$ la vitesse du point de contact et $\overrightarrow{v_g}$
+la vitesse, connue, du centre de gravité du solide.
+Pour le calcul de la nouvelle vitesse du solide, nous supposons que le contact
+entre le solide et le décor lors du choc est ponctuel. 
+On se place dans la base de contact définie par le schéma suivant :
+
+\begin{center}
+\begin{figure}[h]
+\begin{center}
+\scalebox{0.2}[0.2]{\includegraphics*{../images/collision.png}}
+\end{center}
+\caption{Base locale du contact}
+\end{figure}
+\end{center}
+Le contact étant ponctuel, on suppose que les forces appliquées au point
+de contact C sont similaires à celles appliquées dans le modèle de choc d'une particule, on a donc :
+\begin{equation}
+v_{C,x,initial} = v_{C,x,final} \: \text{et} \: v_{C,y,initial} = -v_{C,y,final}
+\end{equation}
+Or, en notant $x_G$ et $y_G$ les coordonnées du centre de gravité dans 
+la base de contact :
+\begin{equation}
+v_{C,x}=v_{G,x}+y_G \cdot \omega \: \text{et} \: v_{C,y} = v_{g,y} -x_G\cdot \omega
+\end{equation}
+On suppose dans un premier temps que l'énergie cinétique est conservée :
+\begin{equation}
+J\omega^2_{initial} + m(v^2_{g,x,initial} + v^2_{g,y,initial} )
+=
+J\omega^2_{final} + m(v^2_{g,x,final} + v^2_{g,y,final} )
+\end{equation}
+On obtient ainsi un système de 3 équations qui nous donne les équations de
+mouvement après collision.
+$(v_{x0} \: , \: v_{x1})$ désigne $(v_{G,x,initial} \: , \: v_{G,y,initial})$,
+de même pour $y$ et $\omega$ .\\
+On obtient ainsi les solutions suivantes :
+\begin{equation}
+\omega_1 = \frac{-m(x^2_G+v_{x0}y_G+y^2_G\omega_0 + v_{y0}) +\sqrt{\Delta}}{my^2_G + mx^2_G +J}
+\end{equation}
+
+\begin{eqnarray*}
+	\Delta & = & \omega^2 J^2 -2Jmv_{x0}y_G\omega_0 + 2Jmv_{y0}x_G \omega_0  + 2m^2v_{x0}y_Gv_{y0}x_G - 4m^2v_{x0}y_Gx^2_G\omega_0 \\
+		& & +\ 4m^2y^2_g\omega_0 v_{y0} x_G- 4m^2y^2_g\omega^2_0x^2_g + m^2v^2_{x0}y^2_G + m^2v^2_{y0}x^2_G
+\end{eqnarray*}
+
+On obtient ainsi :
+\begin{equation}
+v_{x1}=v_{x0} +y_G(\omega_0 - \omega_1) \: \ \text{et} \ \:  v_{y1}=v_{y0} +x_G(\omega_0 - \omega_1)
+\end{equation} 
+
 \newpage
 
 \section{Réalisation}
@@ -107,10 +182,12 @@ problèmes ayant été plus chronophages que prévu.
 \item[$\bullet$] Amélioration du modèle physique (élasticité \dots )
 \item[$\bullet$] Modification du décor et de l'objet en temps réel par l'utilisateur
 \item[$\bullet$] Tracé de la trajectoire de l'objet
+\item[$\bullet$] Force de frottement prenant en compte la forme de l'objet
 \end{itemize}
 \subsection{Bugs}
 \begin{itemize}
 \item[$\bullet$] Lenteur de l'exécution sous Linux (pas de problèmes sous Windows)
 \item[$\bullet$] Le décor ne se remet pas à jour si on le redessine
 \item[$\bullet$] Calcul des tangentes peu précis (sinon il serait beaucoup trop lent)
+\item[$\bullet$] Mauvais fonctionnement en 64 bits (implémentation Lazarus?)
 \end{itemize}
