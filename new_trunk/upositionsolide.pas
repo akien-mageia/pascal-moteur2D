@@ -1,8 +1,8 @@
 unit UPositionSolide;
 //******************************************************//
 //  Unite permettant d'obtenir la positiondu solide     //
-//        		                                        //
-//    				TODO : Nothing 					    //
+//        	     	                                //
+//    		TODO : Nothing                          //
 //******************************************************//
 {$mode objfpc}{$H+}
 

@@ -1,5 +1,5 @@
 //***********************************************//
-//       Unit that deal with the wind		     //
+//       Unit that deal with the wind		 //
 //                                               //
 //    TODO : implementation of CalculForce       //
 //***********************************************//

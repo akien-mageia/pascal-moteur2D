@@ -1,10 +1,9 @@
 unit UResultante;
-//***********************************************//
-//    Unite gerant le calcul de la résultante 	 //
-//				d'un torseur					 //
-//                                               //
-//  			  TODO : Nothing   				 //
-//***********************************************//
+//**************************************************************//
+//    Unite gerant le calcul de la résultante d'un torseur      //
+//                                                              //
+//  			  TODO : Nothing   			//
+//**************************************************************//
 {$mode objfpc}{$H+}
 
 interface
@@ -30,7 +29,7 @@ Type CResultante = Class (CTorseur)
 
      		Procedure	SetForce(aForce : CTorseur);
      		Procedure	SetTableau(aNb : Integer;
-     								aTableau : array of CTorseur);
+                                               aTableau : array of CTorseur);
      		Procedure	SetResultante(aX,aY,aMz : Real);
      		Procedure	SetNbForces(aNb : Integer);
 

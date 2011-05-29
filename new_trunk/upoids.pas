@@ -1,9 +1,9 @@
 unit UPoids;
 
 //***********************************************//
-//       Unite gerant la gravité		         //
+//       Unite gerant la gravité	         //
 //                                               //
-//    			TODO : Nothing	                 //
+//    	        TODO : Nothing	                 //
 //***********************************************//
 
 {$mode objfpc}{$H+}

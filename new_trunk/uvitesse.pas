@@ -1,4 +1,10 @@
 unit UVitesse;
+//***********************************************//
+//   Unite définissant un torseur des vitesses	 //
+//                                               //
+//    	        TODO : Nothing	                 //
+//***********************************************//
+
 {$mode objfpc}{$H+}
 
 interface

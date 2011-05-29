@@ -1,10 +1,9 @@
 unit UMateriau;
 
-//***********************************************//
-//       Unite gerant les caracteristiques       //
-//			d'un materiau           			 //
-//    			TODO : Nothing	         		 //
-//***********************************************//
+//*************************************************//
+// Unite gerant les caracteristiques d'un materiau //
+//       TODO : Comportement bizzare des coeffs?   //
+//*************************************************//
 
 {$mode objfpc}{$H+}
 

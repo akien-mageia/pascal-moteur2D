@@ -1,9 +1,9 @@
 unit UTorseur;
 //***********************************************//
 //       Unite définissant un torseur de base    //
-//            servant de classe mère			 //
-//			pour les torseurs dérivés			 //
-//    			TODO : Nothing		  		     //
+//            servant de classe mère	         //
+//            pour les torseurs dérivés          //
+//            	TODO : Nothing	                 //
 //***********************************************//
 
 {$mode objfpc}{$H+}
