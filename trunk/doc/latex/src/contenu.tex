@@ -117,7 +117,7 @@ de l'image, en calculant régulièrement (présence d'un Timer) la position
 du solide ainsi que sa vitesse et son interaction avec le décor.
 Les autres fenêtres ont pour mission de gérer le dessin de l'objet et son remplissage,
 le dessin du décor et la gestion des matériaux.
-Nous avons également prévu une fenêtre permettant de changer les paramètres physiques.
+
 
 \subsection{Gestion des chocs}
 La partie la plus compliquée dans la gestion des chocs reste la détection des chocs
@@ -125,10 +125,8 @@ et le calcul de la tangente locale au décor. Afin d'obtenir ces informations,
 notre algorithme analyse à chaque itération d'un timer prédéfini
 les pixels autour du solide, et si jamais ceux ci appartiennent à un des
 matériaux (tri par couleur), on calcule la tangente locale à l'aide de
-tout les points de contact. Ceci nous permet de déterminer la direction 
+tous les points de contact. Ceci nous permet de déterminer la direction 
 de rebond du solide, ainsi que d'appliquer les forces de frottement propres au matériau.
-Par ailleurs, nous appliquons la formule des chocs élastiques afin de
-calculer la nouvelle vitesse du solide.
 
 
 \subsection{Remplissage de l'objet}
@@ -189,5 +187,5 @@ problèmes ayant été plus chronophages que prévu.
 \item[$\bullet$] Lenteur de l'exécution sous Linux (pas de problèmes sous Windows)
 \item[$\bullet$] Le décor ne se remet pas à jour si on le redessine
 \item[$\bullet$] Calcul des tangentes peu précis (sinon il serait beaucoup trop lent)
-\item[$\bullet$] Mauvais fonctionnement en 64 bits (implémentation Lazarus?)
+\item[$\bullet$] Mauvais fonctionnement sur certains ordinateurs (64 bits?)
 \end{itemize}
