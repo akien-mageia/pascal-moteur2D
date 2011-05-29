@@ -26,8 +26,7 @@ uses
   Interfaces, // this includes the LCL widgetset
   Forms, UFaceAvant, LResources, UDessinObjet, UForme, UDessinDecor, 
 UPosition, UPositionSolide, UResultante, USolideMouvement, UTorseur, UVitesse, 
-UArchimede, UFrottement, UMateriau, UPoids, UVent
-  { you can add units after this };
+UArchimede, UFrottement, UMateriau, UPoids;
 
 {$IFDEF WINDOWS}{$R moteur2d.rc}{$ENDIF}
 

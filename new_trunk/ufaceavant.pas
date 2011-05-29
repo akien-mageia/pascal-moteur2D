@@ -13,6 +13,7 @@ type
 
   { TForm1 }
   TRecordIntersection = record
+       // Sert a stocker les positions des pixels du decor en contact avec le solide en mouvement
        fTable: array [0..160*160] of CPosition;
        fNbPoints: integer;
   end;
@@ -67,7 +68,6 @@ var
   Form1: TForm1;
   SimulationEnCours, FormePlacee, InitialisationVitesseEnCours, PointTrouve: boolean;
   SolideMouvement: CSolideMouvement;
-  PositionSolide: CPositionSolide;
   PointsIntersection: TRecordIntersection;
   PointContact: CPosition;
   VectTangent: CPosition;
@@ -88,15 +88,16 @@ var Vitesse: CVitesse;
     Archimede: CArchimede;
     Frottement: CFrottement;
     Resultante: CResultante;
+    PositionSolide: CPositionSolide;
 begin
   if (SimulationEnCours = false) then
   begin
     if (Solide <> Nil) and (DecorBMP <> Nil) then begin
-
+        // Initialisation des variables globales et creation des torseurs et de la vitesse
         Vitesse := CVitesse.Create(0,0,0);
 
         Poids := CPoids.Create(0,0,0);
-        Poids.SetG(9.81);
+        Poids.SetG(9.81);         // Constante gravitationnelle en unites SI
         Poids.CalculForce(Solide, Vitesse);
 
         Archimede := CArchimede.Create(0,0,0);
@@ -115,15 +116,16 @@ begin
         PositionSolide := CPositionSolide.Create(0,0,0);
 
         SolideMouvement := CSolideMouvement.Create(Resultante, PositionSolide, Vitesse, Solide);
+        // Solide est une variable globale de USolideMouvement
         SolideMouvement.getPositionSolide().setAngle(0);
 
         PointsIntersection.fNbPoints := 0;
-        pointContact := CPosition.Create(0, 0);
+        PointContact := CPosition.Create(0, 0);
         VectTangent := CPosition.Create(0, 0);
 
         SimulationEnCours := true;
 
-        Image1.Canvas.Draw(0,0,DecorBMP);
+        Image1.Canvas.Draw(0,0,DecorBMP);    // Affichage du decor
     end;
   end;
 end;

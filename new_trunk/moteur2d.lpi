@@ -50,8 +50,8 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="215"/>
-        <CursorPos X="18" Y="231"/>
+        <TopLine Value="125"/>
+        <CursorPos X="67" Y="128"/>
         <UsageCount Value="58"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -74,10 +74,10 @@
         <Filename Value="uforme.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UForme"/>
-        <EditorIndex Value="10"/>
+        <EditorIndex Value="9"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="50" Y="5"/>
+        <TopLine Value="16"/>
+        <CursorPos X="54" Y="8"/>
         <UsageCount Value="58"/>
         <Loaded Value="True"/>
       </Unit3>
@@ -87,7 +87,7 @@
         <ComponentName Value="Form3"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UDessinDecor"/>
-        <EditorIndex Value="12"/>
+        <EditorIndex Value="11"/>
         <WindowIndex Value="0"/>
         <TopLine Value="81"/>
         <CursorPos X="39" Y="95"/>
@@ -100,7 +100,7 @@
         <ComponentName Value="Form4"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UParamPhys"/>
-        <EditorIndex Value="13"/>
+        <EditorIndex Value="12"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="24" Y="4"/>
@@ -177,7 +177,7 @@
         <Filename Value="uarchimede.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UArchimede"/>
-        <EditorIndex Value="14"/>
+        <EditorIndex Value="13"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="50" Y="5"/>
@@ -196,7 +196,7 @@
         <Filename Value="umateriau.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UMateriau"/>
-        <EditorIndex Value="11"/>
+        <EditorIndex Value="10"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="49" Y="5"/>
@@ -216,14 +216,11 @@
       </Unit15>
       <Unit16>
         <Filename Value="uvent.pas"/>
-        <IsPartOfProject Value="True"/>
         <UnitName Value="UVent"/>
-        <EditorIndex Value="9"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="49" Y="2"/>
         <UsageCount Value="57"/>
-        <Loaded Value="True"/>
       </Unit16>
       <Unit17>
         <Filename Value="../../../../Windows/Lazarus/lcl/include/rasterimage.inc"/>
