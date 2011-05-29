@@ -3,7 +3,7 @@ unit USolideMouvement;
 //***********************************************//
 //       Unite gerant le mouvement du solide     //
 //                                               //
-//    TODO : implementation CalculPosition       //
+//    				TODO : RIEN	     		     //
 //***********************************************//
 {$mode objfpc}{$H+}
 
@@ -61,6 +61,7 @@ Destructor CSolideMouvement.Destroy;
 		fPositionSolide.Destroy;
 		fVitesse.Destroy;
 		fForme.Destroy;
+		inherited;
 	End;
 
 Function CSolideMouvement.GetResultante() : CResultante;

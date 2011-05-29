@@ -1,20 +1,18 @@
 <?xml version="1.0"?>
 <CONFIG>
   <ProjectOptions>
-    <Version Value="9"/>
+    <Version Value="7"/>
     <General>
       <MainUnit Value="0"/>
-      <UseXPManifest Value="True"/>
+      <TargetFileExt Value=""/>
       <Icon Value="0"/>
-      <ActiveWindowIndexAtStart Value="0"/>
+      <UseXPManifest Value="True"/>
+      <ActiveEditorIndexAtStart Value="14"/>
     </General>
     <VersionInfo>
       <Language Value=""/>
       <CharSet Value=""/>
     </VersionInfo>
-    <BuildModes Count="1">
-      <Item1 Name="default" Default="True"/>
-    </BuildModes>
     <PublishOptions>
       <Version Value="2"/>
       <IgnoreBinaries Value="False"/>
@@ -37,9 +35,9 @@
         <Filename Value="moteur2d.lpr"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="moteur2d"/>
-        <TopLine Value="7"/>
         <CursorPos X="1" Y="33"/>
-        <UsageCount Value="56"/>
+        <TopLine Value="7"/>
+        <UsageCount Value="57"/>
       </Unit0>
       <Unit1>
         <Filename Value="ufaceavant.pas"/>
@@ -47,14 +45,11 @@
         <ComponentName Value="Form1"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UFaceAvant"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="0"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="358"/>
         <CursorPos X="40" Y="461"/>
-        <UsageCount Value="56"/>
+        <TopLine Value="422"/>
+        <EditorIndex Value="0"/>
+        <UsageCount Value="57"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="udessinobjet.pas"/>
@@ -62,23 +57,20 @@
         <ComponentName Value="Form2"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UDessinObjet"/>
-        <EditorIndex Value="8"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
         <CursorPos X="1" Y="1"/>
-        <UsageCount Value="56"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="8"/>
+        <UsageCount Value="57"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="uforme.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UForme"/>
-        <EditorIndex Value="10"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
         <CursorPos X="1" Y="1"/>
-        <UsageCount Value="56"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="10"/>
+        <UsageCount Value="57"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
@@ -87,13 +79,11 @@
         <ComponentName Value="Form3"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UDessinDecor"/>
-        <EditorIndex Value="12"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="173"/>
         <CursorPos X="39" Y="95"/>
-        <UsageCount Value="56"/>
+        <TopLine Value="95"/>
+        <EditorIndex Value="12"/>
+        <UsageCount Value="57"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="uparamphys.pas"/>
@@ -101,154 +91,142 @@
         <ComponentName Value="Form4"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UParamPhys"/>
-        <EditorIndex Value="13"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
         <CursorPos X="24" Y="4"/>
-        <UsageCount Value="55"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="13"/>
+        <UsageCount Value="56"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="uposition.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UPosition"/>
-        <EditorIndex Value="4"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
         <CursorPos X="1" Y="1"/>
-        <UsageCount Value="55"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="4"/>
+        <UsageCount Value="56"/>
         <Loaded Value="True"/>
       </Unit6>
       <Unit7>
         <Filename Value="upositionsolide.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UPositionSolide"/>
-        <EditorIndex Value="3"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="2"/>
         <CursorPos X="15" Y="32"/>
-        <UsageCount Value="55"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="3"/>
+        <UsageCount Value="56"/>
         <Loaded Value="True"/>
       </Unit7>
       <Unit8>
         <Filename Value="uresultante.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UResultante"/>
-        <EditorIndex Value="2"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="16"/>
         <CursorPos X="1" Y="1"/>
-        <UsageCount Value="55"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="2"/>
+        <UsageCount Value="56"/>
         <Loaded Value="True"/>
       </Unit8>
       <Unit9>
         <Filename Value="usolidemouvement.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="USolideMouvement"/>
-        <EditorIndex Value="1"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="94"/>
         <CursorPos X="23" Y="111"/>
-        <UsageCount Value="55"/>
+        <TopLine Value="84"/>
+        <EditorIndex Value="1"/>
+        <UsageCount Value="56"/>
         <Loaded Value="True"/>
       </Unit9>
       <Unit10>
         <Filename Value="utorseur.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UTorseur"/>
-        <EditorIndex Value="7"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="13"/>
         <CursorPos X="38" Y="23"/>
-        <UsageCount Value="55"/>
+        <TopLine Value="13"/>
+        <EditorIndex Value="7"/>
+        <UsageCount Value="56"/>
         <Loaded Value="True"/>
       </Unit10>
       <Unit11>
         <Filename Value="uvitesse.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UVitesse"/>
-        <EditorIndex Value="6"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="8"/>
         <CursorPos X="49" Y="25"/>
-        <UsageCount Value="55"/>
+        <TopLine Value="8"/>
+        <EditorIndex Value="6"/>
+        <UsageCount Value="56"/>
         <Loaded Value="True"/>
       </Unit11>
       <Unit12>
         <Filename Value="uarchimede.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UArchimede"/>
-        <EditorIndex Value="14"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
         <CursorPos X="35" Y="5"/>
-        <UsageCount Value="55"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="14"/>
+        <UsageCount Value="56"/>
         <Loaded Value="True"/>
       </Unit12>
       <Unit13>
         <Filename Value="ufrottement.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UFrottement"/>
-        <TopLine Value="1"/>
         <CursorPos X="17" Y="5"/>
-        <UsageCount Value="55"/>
+        <TopLine Value="1"/>
+        <UsageCount Value="56"/>
       </Unit13>
       <Unit14>
         <Filename Value="umateriau.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UMateriau"/>
-        <EditorIndex Value="11"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="29"/>
         <CursorPos X="1" Y="67"/>
-        <UsageCount Value="55"/>
+        <TopLine Value="29"/>
+        <EditorIndex Value="11"/>
+        <UsageCount Value="56"/>
         <Loaded Value="True"/>
       </Unit14>
       <Unit15>
         <Filename Value="upoids.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UPoids"/>
-        <EditorIndex Value="5"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="13"/>
         <CursorPos X="28" Y="22"/>
-        <UsageCount Value="55"/>
+        <TopLine Value="13"/>
+        <EditorIndex Value="5"/>
+        <UsageCount Value="56"/>
         <Loaded Value="True"/>
       </Unit15>
       <Unit16>
         <Filename Value="uvent.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UVent"/>
-        <EditorIndex Value="9"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
         <CursorPos X="22" Y="24"/>
-        <UsageCount Value="55"/>
+        <TopLine Value="1"/>
+        <EditorIndex Value="9"/>
+        <UsageCount Value="56"/>
         <Loaded Value="True"/>
       </Unit16>
       <Unit17>
         <Filename Value="../../../../Windows/Lazarus/lcl/include/rasterimage.inc"/>
-        <TopLine Value="542"/>
         <CursorPos X="1" Y="553"/>
+        <TopLine Value="542"/>
         <UsageCount Value="10"/>
       </Unit17>
       <Unit18>
         <Filename Value="../../../../../Windows/Lazarus/lcl/include/canvas.inc"/>
-        <TopLine Value="16"/>
         <CursorPos X="1" Y="31"/>
+        <TopLine Value="16"/>
         <UsageCount Value="10"/>
       </Unit18>
       <Unit19>
         <Filename Value="../../../../../lazarus/lcl/include/rasterimage.inc"/>
-        <TopLine Value="278"/>
         <CursorPos X="1" Y="296"/>
+        <TopLine Value="278"/>
         <UsageCount Value="10"/>
       </Unit19>
       <Unit20>
         <Filename Value="../../../../../Windows/Lazarus/lcl/include/rasterimage.inc"/>
-        <TopLine Value="290"/>
         <CursorPos X="1" Y="305"/>
+        <TopLine Value="290"/>
         <UsageCount Value="10"/>
       </Unit20>
     </Units>
@@ -376,15 +354,10 @@
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>
-    <Version Value="9"/>
+    <Version Value="8"/>
     <SearchPaths>
-      <IncludeFiles Value="$(ProjOutDir)"/>
+      <IncludeFiles Value="$(ProjOutDir)/"/>
     </SearchPaths>
-    <Parsing>
-      <SyntaxOptions>
-        <UseAnsiStrings Value="False"/>
-      </SyntaxOptions>
-    </Parsing>
     <Linking>
       <Options>
         <Win32>

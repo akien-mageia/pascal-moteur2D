@@ -2,7 +2,7 @@ unit UFrottement;
 //***********************************************//
 //       Unite gerant les frottements	         //
 //                                               //
-//    		TODO : CalculForce, calcul coef  //
+//	TODO : Modification du coeff en fctn materiau//
 //***********************************************//
 
 {$mode objfpc}{$H+}
