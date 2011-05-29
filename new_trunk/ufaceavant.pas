@@ -50,7 +50,7 @@ type
   public
     { public declarations }
     function intersectionSolideDecor() : boolean;
-    function rechercherPointContact() : CPosition;
+    function rechercherPointContact(aAnglePrecedent: real) : CPosition;
     procedure remplissageTableauIntersection(aIndex, aEcartX, aEcartY: integer);
     function detectionZoneDuDecor() : integer;
     function calculTangente(aZoneDuDecor : integer) : CPosition;
@@ -213,17 +213,19 @@ begin
 end;
 
 procedure TForm1.Timer1Timer(Sender: TObject);
+var AnglePrecedent: real;
 begin
   if (SimulationEnCours) and (FormePlacee) and (InitialisationVitesseEnCours = False) then
   begin
     compteur := compteur +1;
     Label2.Caption := 'Timer : '+intToStr(compteur)+'. Angle : '+floatToStr(SolideMouvement.getPositionSolide.getAngle())+'. Omega : '+floatToStr(SolideMouvement.getVitesse.getOmega())+'. Vx : '+floatToStr(SolideMouvement.getVitesse.getX())+'. Vy : '+floatToStr(SolideMouvement.getVitesse.getY());
+    AnglePrecedent := SolideMouvement.getPositionSolide().getAngle();
     SolideMouvement.getResultante().CalculForce(SolideMouvement.getForme(), SolideMouvement.getVitesse());
     SolideMouvement.CalculPosition();
 
     if (intersectionSolideDecor())
     then begin
-        pointContact := rechercherPointContact();
+        pointContact := rechercherPointContact(AnglePrecedent);
         VectTangent := calculTangente(detectionZoneDuDecor());
 
         calculCollision();
@@ -287,14 +289,16 @@ begin
     then PointsIntersection := newPointsIntersection;
 end;
 
-function TForm1.rechercherPointContact() : CPosition;
+function TForm1.rechercherPointContact(aAnglePrecedent: real) : CPosition;
 var test: boolean;
+    AngleFinal: real;
 begin
     test := true;
+    AngleFinal := SolideMouvement.getPositionSolide().getAngle();
     while (test) do begin
         SolideMouvement.getPositionSolide.SetXMetre(SolideMouvement.getPositionSolide.GetXMetre() - 0.02*SolideMouvement.getVitesse.GetX()/sqrt(SolideMouvement.getVitesse.GetX()*SolideMouvement.getVitesse.GetX()+SolideMouvement.getVitesse.GetY()*SolideMouvement.getVitesse.GetY()));
         SolideMouvement.getPositionSolide.SetYMetre(SolideMouvement.getPositionSolide.GetYMetre() - 0.02*SolideMouvement.getVitesse.GetY()/sqrt(SolideMouvement.getVitesse.GetX()*SolideMouvement.getVitesse.GetX()+SolideMouvement.getVitesse.GetY()*SolideMouvement.getVitesse.GetY()));
-        SolideMouvement.getPositionSolide.SetAngle(SolideMouvement.getPositionSolide.GetAngle() - (0.020)*SolideMouvement.getVitesse.GetOmega());
+        SolideMouvement.getPositionSolide.SetAngle(SolideMouvement.getPositionSolide.GetAngle() - 0.2*(AngleFinal-aAnglePrecedent));
         while (SolideMouvement.getPositionSolide.GetAngle()>=350) do SolideMouvement.getPositionSolide.SetAngle(SolideMouvement.getPositionSolide.GetAngle()-360);
         while (SolideMouvement.getPositionSolide.GetAngle()<-10) do SolideMouvement.getPositionSolide.SetAngle(SolideMouvement.getPositionSolide.GetAngle()+360);
         test := intersectionSolideDecor();
@@ -457,7 +461,7 @@ procedure TForm1.calculCollision();
 var VectCG: CPosition;                                         // C point de contact, G centre de gravite, base absolue
     xG, yG, Vx0, Vy0, Vx1, Vy1, omega0, omega1, discr: real;   // en unites SI dans la base "tangente"
     newVx, newVy: real;                                        // en unites SI dans la base absolue (resultats)
-    m, J: real;                                                // masse et moment d'inertie
+    m, J, coef: real;                                          // masse et moment d'inertie, coefficient elastique
 begin
     // Definition des constantes
     m := SolideMouvement.getForme().getMasse();
@@ -489,18 +493,30 @@ begin
     Vx1 := Vx0 + yG*(omega0 - omega1);
     Vy1 := -Vy0 + xG*(omega0 + omega1);
 
-    // Changement de base
+    // Calcul du coefficient elastique
+    case Image1.Canvas.Pixels[PointContact.getXPixel, PointContact.getYPixel] of
+        clGreen: coef := 0.85;
+        clFuchsia: coef := 0.90;
+        clYellow: coef := 0.85;
+        clTeal: coef := 0.98;
+        clGray: coef := 1;
+        clMaroon: coef := 0.95;
+    else coef := 1;
+    end;
+
+    // Changement de base et application du coefficient
            // On procede toujours par produit scalaire.
            // Remarque pour la comprehension des calculs : si le vecteur tangent (X1) a pour coordonnees (x, y) dans la base 0,
            // les vecteurs du repere absolu dans la base 1 sont X0 = (x, -y) et Y0 = (y, x).
 
-    newVx := Vx1*VectTangent.getXMetre - Vy1*VectTangent.getYMetre;
-    newVy := Vx1*VectTangent.getYMetre + Vy1*VectTangent.getXMetre;
+    newVx := coef*(Vx1*VectTangent.getXMetre - Vy1*VectTangent.getYMetre);
+    newVy := coef*(Vx1*VectTangent.getYMetre + Vy1*VectTangent.getXMetre);
+    omega1 := coef*(omega1*180/3.14);
 
     // Resultats
     SolideMouvement.getVitesse.setX(newVx);
     SolideMouvement.getVitesse.setY(newVy);
-    SolideMouvement.getVitesse.setOmega(omega1*180/3.14);
+    SolideMouvement.getVitesse.setOmega(omega1);
 end;
 
 initialization
