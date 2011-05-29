@@ -24,7 +24,7 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, UFaceAvant, LResources, UDessinObjet, UForme, UDessinDecor, UParamPhys, 
+  Forms, UFaceAvant, LResources, UDessinObjet, UForme, UDessinDecor, 
 UPosition, UPositionSolide, UResultante, USolideMouvement, UTorseur, UVitesse, 
 UArchimede, UFrottement, UMateriau, UPoids, UVent
   { you can add units after this };
@@ -37,7 +37,6 @@ begin
   Application.CreateForm(TForm1, Form1);
   Application.CreateForm(TForm2, Form2);
   Application.CreateForm(TForm3, Form3);
-  Application.CreateForm(TForm4, Form4);
   Application.Run;
 end.
 

@@ -20,23 +20,26 @@ type
   TForm1 = class(TForm)
     ButDessinObjet: TButton;
     ButDessinDecor: TButton;
-    ButParamPhys: TButton;
     ButLancerSim: TButton;
     ButQuitter: TButton;
-    Button1: TButton;
-    Edit1: TEdit;
+    ButtonSetOmega: TButton;
+    EditSetOmega: TEdit;
     Image1: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
-    Label3: TLabel;
+    LabelVx: TLabel;
+    LabelVy: TLabel;
+    LabelOmega: TLabel;
+    LabelX: TLabel;
+    LabelY: TLabel;
+    LabelAngle: TLabel;
+    LabelSetOmega: TLabel;
     Timer1: TTimer;
     procedure ButDessinDecorClick(Sender: TObject);
     procedure ButDessinObjetClick(Sender: TObject);
     procedure ButLancerSimClick(Sender: TObject);
     procedure ButParamPhysClick(Sender: TObject);
     procedure ButQuitterClick(Sender: TObject);
-    procedure Button1Click(Sender: TObject);
-    procedure Edit1Change(Sender: TObject);
+    procedure ButtonSetOmegaClick(Sender: TObject);
+    procedure EditSetOmegaChange(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Image1Click(Sender: TObject);
     procedure Image1MouseDown(Sender: TObject; Button: TMouseButton;
@@ -66,7 +69,6 @@ var
   SolideMouvement: CSolideMouvement;
   PositionSolide: CPositionSolide;
   PointsIntersection: TRecordIntersection;
-  compteur:integer;  // provisoire pour des tests sur la rapidité du timer
   PointContact: CPosition;
   VectTangent: CPosition;
 
@@ -119,7 +121,6 @@ begin
         pointContact := CPosition.Create(0, 0);
         VectTangent := CPosition.Create(0, 0);
 
-        compteur := 0;
         SimulationEnCours := true;
 
         Image1.Canvas.Draw(0,0,DecorBMP);
@@ -139,13 +140,13 @@ begin
     Halt;
 end;
 
-procedure TForm1.Button1Click(Sender: TObject);
+procedure TForm1.ButtonSetOmegaClick(Sender: TObject);
 begin
   if (SimulationEnCours) then
-  SolideMouvement.GetVitesse().setOmega(StrToFloat(Form1.Edit1.Text));
+  SolideMouvement.GetVitesse().setOmega(StrToFloat(Form1.EditSetOmega.Text));
 end;
 
-procedure TForm1.Edit1Change(Sender: TObject);
+procedure TForm1.EditSetOmegaChange(Sender: TObject);
 begin
 
 end;
@@ -220,17 +221,23 @@ var AnglePrecedent: real;
 begin
   if (SimulationEnCours) and (FormePlacee) and (InitialisationVitesseEnCours = False) then
   begin
-    compteur := compteur +1;
-    AnglePrecedent := SolideMouvement.getPositionSolide().getAngle();
-    SolideMouvement.getResultante().CalculForce(SolideMouvement.getForme(), SolideMouvement.getVitesse());
-    SolideMouvement.CalculPosition();
-    Label2.Caption := 'Timer : '+intToStr(compteur)+'. Angle : '+floatToStr(SolideMouvement.getPositionSolide.getAngle())+'. Omega : '+floatToStr(SolideMouvement.getVitesse.getOmega())+'. Vx : '+floatToStr(SolideMouvement.getVitesse.getX())+'. Vy : '+floatToStr(SolideMouvement.getVitesse.getY())+'. Angle prec : '+floatToStr(anglePrecedent);;
+      AnglePrecedent := SolideMouvement.getPositionSolide().getAngle();
+      SolideMouvement.getResultante().CalculForce(SolideMouvement.getForme(), SolideMouvement.getVitesse());
+      SolideMouvement.CalculPosition();
 
-    if (intersectionSolideDecor())
-    then begin
-        pointContact := rechercherPointContact(AnglePrecedent);
-        VectTangent := calculTangente(detectionZoneDuDecor());
-        calculCollision();
+      LabelVx.Caption := 'Vitesse horizontale : '+floatToStrF(SolideMouvement.getVitesse.getX, ffFixed, 2, 2)+' m/s';
+      LabelVy.Caption := 'Vitesse verticale : '+floatToStrF(SolideMouvement.getVitesse.getY, ffFixed, 2, 2)+' m/s';
+      LabelOmega.Caption := 'Vitesse angulaire : '+floatToStrF(SolideMouvement.getVitesse.getOmega, ffFixed, 2, 2)+' °/s';
+      LabelX.Caption := 'Position horizontale : '+floatToStrF(SolideMouvement.getPositionSolide.getXMetre, ffFixed, 2, 2)+' m';
+      LabelY.Caption := 'Position verticale : '+floatToStrF(SolideMouvement.getPositionSolide.getYMetre, ffFixed, 2, 2)+' m';
+      LabelAngle.Caption := 'Angle : '+floatToStrF(SolideMouvement.getPositionSolide.getAngle, ffFixed, 2, 2)+' °';
+
+      if (intersectionSolideDecor())
+      then begin
+          pointContact := rechercherPointContact(AnglePrecedent);
+          VectTangent := calculTangente(detectionZoneDuDecor());
+
+          calculCollision();
       end;
 
       Image1.canvas.Draw(0,0,DecorBMP);
@@ -241,6 +248,7 @@ begin
       Image1.canvas.Pen.Width := 4;
       Image1.canvas.Line(pointContact.GetXPixel(), pointContact.GetYPixel(), pointContact.GetXPixel() + VectTangent.getXPixel, pointContact.GetYPixel() + VectTangent.getYPixel);
       Image1.canvas.Pen.Color := clBlack;
+
   end;
 end;
 
@@ -303,10 +311,13 @@ begin
     test := true;
     AngleFinal := SolideMouvement.getPositionSolide().getAngle();
     i := 0;
-    while (test) do begin
-        SolideMouvement.getPositionSolide.SetXMetre(SolideMouvement.getPositionSolide.GetXMetre() - 0.03*SolideMouvement.getVitesse.GetX()/sqrt(SolideMouvement.getVitesse.GetX()*SolideMouvement.getVitesse.GetX()+SolideMouvement.getVitesse.GetY()*SolideMouvement.getVitesse.GetY()));
-        SolideMouvement.getPositionSolide.SetYMetre(SolideMouvement.getPositionSolide.GetYMetre() - 0.03*SolideMouvement.getVitesse.GetY()/sqrt(SolideMouvement.getVitesse.GetX()*SolideMouvement.getVitesse.GetX()+SolideMouvement.getVitesse.GetY()*SolideMouvement.getVitesse.GetY()));
-          if i<5 then begin
+    while (test) do begin    // Tant que la position de l'objet est superposee a un element du decor
+        // On "recule" l'objet a partir de la position de collision dans la direction opposee de la vitesse, pixel par pixel.
+        SolideMouvement.getPositionSolide.SetXMetre(SolideMouvement.getPositionSolide.GetXMetre() - TAILLEPIXEL*SolideMouvement.getVitesse.GetX()/sqrt(SolideMouvement.getVitesse.GetX()*SolideMouvement.getVitesse.GetX()+SolideMouvement.getVitesse.GetY()*SolideMouvement.getVitesse.GetY()));
+        SolideMouvement.getPositionSolide.SetYMetre(SolideMouvement.getPositionSolide.GetYMetre() - TAILLEPIXEL*SolideMouvement.getVitesse.GetY()/sqrt(SolideMouvement.getVitesse.GetX()*SolideMouvement.getVitesse.GetX()+SolideMouvement.getVitesse.GetY()*SolideMouvement.getVitesse.GetY()));
+
+        //
+        if i<5 then begin
              SolideMouvement.getPositionSolide.SetAngle(SolideMouvement.getPositionSolide.GetAngle() - 0.2*(AngleFinal-aAnglePrecedent));
              while (SolideMouvement.getPositionSolide.GetAngle()>=350) do SolideMouvement.getPositionSolide.SetAngle(SolideMouvement.getPositionSolide.GetAngle()-360);
              while (SolideMouvement.getPositionSolide.GetAngle()<-10) do SolideMouvement.getPositionSolide.SetAngle(SolideMouvement.getPositionSolide.GetAngle()+360);
@@ -504,9 +515,9 @@ begin
 
     // Calcul du coefficient elastique
     case Image1.Canvas.Pixels[PointContact.getXPixel, PointContact.getYPixel] of
-        clGreen: coef := 0.75;
+        clGreen: coef := 0.80;
         clFuchsia: coef := 0.85;
-        clYellow: coef := 0.75;
+        clYellow: coef := 0.80;
         clTeal: coef := 0.90;
         clGray: coef := 0.95;
         clMaroon: coef := 0.90;
