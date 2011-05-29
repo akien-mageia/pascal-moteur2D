@@ -1,17 +1,20 @@
 \section{Spécifications}
 L'objet principal de notre programme est de modéliser la chute d'un solide dans un
-fluide quelquonque, en interagissant avec son environnement.
+fluide, tout en prenant en compte son interaction avec un environnement solide (chocs).
+
 \subsection{IHM - \emph{Interface Homme - Machine}}
 Il est proposé à l'utilisateur de dessiner à la fois le décor et l'objet.
 Les deux dessins sont séparés en deux fenêtres, munie chacunes de leur interface propre,
 puisque les outils nécessaires au dessin du décor ne sont pas les mêmes que pour le dessin de l'objet.
 L'utilisateur peut également ouvrir une fenêtre dédiée aux paramètres physiques, afin d'influer
 sur la valeur de la gravité notamment.
+
 \subsection{Problèmes physiques et méthodes de résolution}
 Le programme doit prendre en compte les différentes forces appliquées à 
 un instant $t$ sur le solide. Le mouvement de ce solide est donc déterminé
 par les équations de la mécanique newtonienne.
 On peut donc définir les différentes forces appliquées sur le solide :
+
 \begin{itemize}
 \item[$\bullet$] La gravité : \dotfill{} $\overrightarrow{P} = -m*g*\overrightarrow{y_0}$ 
 \item[$\bullet$] La poussée d'Archimède : \dotfill{} $\overrightarrow{F_{Ar}} = -\rho_{liquide} * V_{deplace} *\overrightarrow{y_0} $
@@ -25,15 +28,72 @@ sa vitesse ou son poids. Les deux forces nécessitant de gros algorithmes
 de traitement sont les forces de frottement et le contact entre le solide
 et le décor.
 Pour la gestion du contact entre les deux solides, nous avons privilégiés
-une approche 
+une approche simplifiée, en considérant le point d'impact comme une surface
+ plane telle que $\theta_r = -\theta_i$. De même, la vitesse du solide est donnée
+par la formule des chocs élastiques avec dissipation.
+\newpage
 
 \section{Réalisation}
 \subsection{Interface}
-\subsection{Gestion des chocs}
-Calcul tangentes - Inversion force avec coeff
-\subsection{Remplissage de l'objet}
-FloodFill Scan Line
+La fenêtre principale affiche un menu utilisateur, une fenêtre de dessin,
+et un espace d'affichage des principaux paramètres physiques.
+Outre ces fonctionnalités, c'est également à elle d'effectuer l'animation
+de l'image, en calculant régulièrement (présence d'un Timer) la position
+du solide ainsi que sa vitesse et son interaction avec le décor.
+Les autres fenêtres ont pour mission de gérer le dessin de l'objet et son remplissage,
+le dessin du décor et la gestion des matériaux.
+Nous avons également prévu une fenêtre permettant de changer les paramètres physiques.
 
+\subsection{Gestion des chocs}
+La partie la plus compliquée dans la gestion des chocs reste la détection des chocs
+et le calcul de la tangente locale au décor. Afin d'obtenir ces informations,
+notre algorithme analyse à chaque itération d'un timer prédéfini
+les pixels autour du solide, et si jamais ceux ci appartiennent à un des
+matériaux (tri par couleur), on calcule la tangente locale à l'aide de
+tout les points de contact. Ceci nous permet de déterminer la direction 
+de rebond du solide, ainsi que d'appliquer les forces de frottement propres au matériau.
+Par ailleurs, nous appliquons la formule des chocs élastiques afin de
+calculer la nouvelle vitesse du solide.
+
+
+\subsection{Remplissage de l'objet}
+Un des problèmes majeurs qui nous fut posé durant ce projet fut le remplissage
+du solide afin de pouvoir déterminer sa masse et son centre d'inertie.
+Tout d'abord, il fallut s'assurer que le dessin de l'utilisateur était bien connexe.
+Pour remédier à ce problème, nous traçons une droite entre le point de départ
+$(X_e,Y_e)$ et le point de sortie $(X_s,Y_s)$.
+Nous avons choisi la méthode du ScanLine-FloodFill pour remplir le solide dessiné.
+Cette méthode utilise une graine (la \emph{seed}) placée sur un point quelquonque
+de notre solide, et analyse tout les pixels environnants pour déterminer
+quels sont ceux à l'intérieur du solide, et les autres.
+Après plusieurs essais infructueux avec un algorithme classique, nous avons
+adapté un algorithme en C trouvé sur Internet, qui analyse ligne par ligne l'objet,
+permettant ainsi un gain considérable en efficacité. 
+%
+%\begin{algorithm}[h]
+%\caption{Pseudo algorithme de remplissage par ligne}
+%\begin{algorithmic}
+%	\STATE Prout;
+%	\PROCEDURE {RemplirLigne} {$(aOldColor,aNewColor, X_{seed}, Y_{seed})$}
+%		\WHILE{$couleur(Y+1) = aOldColor$ and $couleur(Y+1) \neq couleur_{\text{frontière}}$}
+%			\STATE $couleur(Y+1) \gets aNewColor$
+%		\ENDWHILE
+%		\IF{$couleur_{voisin\_ gauche} = aOldColor$}
+%			\STATE remplir\_ Ligne(X-1,Y)
+%		\ENDIF
+%		\IF{$couleur_{voisin\_ droit} = aOldColor$}
+%			\STATE remplir\_ Ligne(X+1,Y)
+%		\ENDIF
+%	\ENDPROCEDURE
+%\end{algorithmic}
+%\end{algorithm}
+%\begin{algorithmic}[1]
+%\repeat
+%\Comment{forever}
+%\State this\Until{you die.}
+%\end{algorithmic}
+
+\newpage
 
 \section{Bugs - Améliorations}
 Il subsiste de nombreux bugs et améliorations possibles de notre projet.

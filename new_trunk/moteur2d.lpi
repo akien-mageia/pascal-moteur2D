@@ -7,7 +7,7 @@
       <TargetFileExt Value=""/>
       <Icon Value="0"/>
       <UseXPManifest Value="True"/>
-      <ActiveEditorIndexAtStart Value="14"/>
+      <ActiveEditorIndexAtStart Value="0"/>
     </General>
     <VersionInfo>
       <Language Value=""/>
@@ -37,7 +37,7 @@
         <UnitName Value="moteur2d"/>
         <CursorPos X="1" Y="33"/>
         <TopLine Value="7"/>
-        <UsageCount Value="57"/>
+        <UsageCount Value="58"/>
       </Unit0>
       <Unit1>
         <Filename Value="ufaceavant.pas"/>
@@ -45,10 +45,10 @@
         <ComponentName Value="Form1"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UFaceAvant"/>
-        <CursorPos X="40" Y="461"/>
-        <TopLine Value="422"/>
+        <CursorPos X="21" Y="452"/>
+        <TopLine Value="447"/>
         <EditorIndex Value="0"/>
-        <UsageCount Value="57"/>
+        <UsageCount Value="58"/>
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
@@ -60,17 +60,17 @@
         <CursorPos X="1" Y="1"/>
         <TopLine Value="1"/>
         <EditorIndex Value="8"/>
-        <UsageCount Value="57"/>
+        <UsageCount Value="58"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="uforme.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UForme"/>
-        <CursorPos X="1" Y="1"/>
+        <CursorPos X="50" Y="5"/>
         <TopLine Value="1"/>
         <EditorIndex Value="10"/>
-        <UsageCount Value="57"/>
+        <UsageCount Value="58"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
@@ -80,9 +80,9 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UDessinDecor"/>
         <CursorPos X="39" Y="95"/>
-        <TopLine Value="95"/>
+        <TopLine Value="81"/>
         <EditorIndex Value="12"/>
-        <UsageCount Value="57"/>
+        <UsageCount Value="58"/>
         <Loaded Value="True"/>
       </Unit4>
       <Unit5>
@@ -94,7 +94,7 @@
         <CursorPos X="24" Y="4"/>
         <TopLine Value="1"/>
         <EditorIndex Value="13"/>
-        <UsageCount Value="56"/>
+        <UsageCount Value="57"/>
         <Loaded Value="True"/>
       </Unit5>
       <Unit6>
@@ -104,67 +104,67 @@
         <CursorPos X="1" Y="1"/>
         <TopLine Value="1"/>
         <EditorIndex Value="4"/>
-        <UsageCount Value="56"/>
+        <UsageCount Value="57"/>
         <Loaded Value="True"/>
       </Unit6>
       <Unit7>
         <Filename Value="upositionsolide.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UPositionSolide"/>
-        <CursorPos X="15" Y="32"/>
+        <CursorPos X="57" Y="5"/>
         <TopLine Value="1"/>
         <EditorIndex Value="3"/>
-        <UsageCount Value="56"/>
+        <UsageCount Value="57"/>
         <Loaded Value="True"/>
       </Unit7>
       <Unit8>
         <Filename Value="uresultante.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UResultante"/>
-        <CursorPos X="1" Y="1"/>
+        <CursorPos X="63" Y="6"/>
         <TopLine Value="1"/>
         <EditorIndex Value="2"/>
-        <UsageCount Value="56"/>
+        <UsageCount Value="57"/>
         <Loaded Value="True"/>
       </Unit8>
       <Unit9>
         <Filename Value="usolidemouvement.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="USolideMouvement"/>
-        <CursorPos X="23" Y="111"/>
-        <TopLine Value="84"/>
+        <CursorPos X="48" Y="6"/>
+        <TopLine Value="1"/>
         <EditorIndex Value="1"/>
-        <UsageCount Value="56"/>
+        <UsageCount Value="57"/>
         <Loaded Value="True"/>
       </Unit9>
       <Unit10>
         <Filename Value="utorseur.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UTorseur"/>
-        <CursorPos X="38" Y="23"/>
-        <TopLine Value="13"/>
+        <CursorPos X="50" Y="6"/>
+        <TopLine Value="1"/>
         <EditorIndex Value="7"/>
-        <UsageCount Value="56"/>
+        <UsageCount Value="57"/>
         <Loaded Value="True"/>
       </Unit10>
       <Unit11>
         <Filename Value="uvitesse.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UVitesse"/>
-        <CursorPos X="49" Y="25"/>
-        <TopLine Value="8"/>
+        <CursorPos X="11" Y="3"/>
+        <TopLine Value="1"/>
         <EditorIndex Value="6"/>
-        <UsageCount Value="56"/>
+        <UsageCount Value="57"/>
         <Loaded Value="True"/>
       </Unit11>
       <Unit12>
         <Filename Value="uarchimede.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UArchimede"/>
-        <CursorPos X="35" Y="5"/>
+        <CursorPos X="50" Y="5"/>
         <TopLine Value="1"/>
         <EditorIndex Value="14"/>
-        <UsageCount Value="56"/>
+        <UsageCount Value="57"/>
         <Loaded Value="True"/>
       </Unit12>
       <Unit13>
@@ -173,36 +173,36 @@
         <UnitName Value="UFrottement"/>
         <CursorPos X="17" Y="5"/>
         <TopLine Value="1"/>
-        <UsageCount Value="56"/>
+        <UsageCount Value="57"/>
       </Unit13>
       <Unit14>
         <Filename Value="umateriau.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UMateriau"/>
-        <CursorPos X="1" Y="67"/>
-        <TopLine Value="29"/>
+        <CursorPos X="49" Y="5"/>
+        <TopLine Value="1"/>
         <EditorIndex Value="11"/>
-        <UsageCount Value="56"/>
+        <UsageCount Value="57"/>
         <Loaded Value="True"/>
       </Unit14>
       <Unit15>
         <Filename Value="upoids.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UPoids"/>
-        <CursorPos X="28" Y="22"/>
-        <TopLine Value="13"/>
+        <CursorPos X="1" Y="3"/>
+        <TopLine Value="1"/>
         <EditorIndex Value="5"/>
-        <UsageCount Value="56"/>
+        <UsageCount Value="57"/>
         <Loaded Value="True"/>
       </Unit15>
       <Unit16>
         <Filename Value="uvent.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UVent"/>
-        <CursorPos X="22" Y="24"/>
+        <CursorPos X="49" Y="2"/>
         <TopLine Value="1"/>
         <EditorIndex Value="9"/>
-        <UsageCount Value="56"/>
+        <UsageCount Value="57"/>
         <Loaded Value="True"/>
       </Unit16>
       <Unit17>
