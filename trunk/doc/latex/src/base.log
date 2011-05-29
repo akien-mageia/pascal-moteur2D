@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  29 MAY 2011 00:25
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  29 MAY 2011 01:08
 entering extended mode
  %&-line parsing enabled.
 **base.tex
@@ -1019,7 +1019,7 @@ Package caption Info: End \AtBeginDocument code.
 Package pdftex.def Warning: Option `bb' does not make sense,
 (pdftex.def)                using `viewport' instead on input line 49.
 
-<../images/insa.JPG, id=26, 530.73282pt x 285.31593pt>
+<../images/insa.JPG, id=30, 530.73282pt x 285.31593pt>
 File: ../images/insa.JPG Graphic file (type jpg)
 
 <use ../images/insa.JPG>
@@ -1042,8 +1042,8 @@ Underfull \vbox (badness 1048) has occurred while \output is active []
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../images/insa.JPG>]
-(./introduction.tex) (./contenu.tex) (./conclusion.tex [2]) (./annexes.tex
-[3] <../images/UML.jpeg, id=62, 968.61874pt x 1132.23pt>
+(./introduction.tex) (./contenu.tex [2]) (./conclusion.tex [3]) (./annexes.tex
+[4] <../images/UML.jpeg, id=77, 968.61874pt x 1132.23pt>
 File: ../images/UML.jpeg Graphic file (type jpg)
 
 <use ../images/UML.jpeg>
@@ -1051,35 +1051,39 @@ Overfull \hbox (31.34029pt too wide) in paragraph at lines 25--26
  [] 
  []
 
-) [4 <../images/UML.jpeg>] (./base.aux)
+) [5 <../images/UML.jpeg>] (./base.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.91913pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 15490 strings out of 495028
- 249881 string characters out of 1181230
- 327755 words of memory out of 3000000
- 18330 multiletter control sequences out of 15000+50000
- 15952 words of font info for 38 fonts, out of 3000000 for 9000
+ 15499 strings out of 495028
+ 249979 string characters out of 1181230
+ 331756 words of memory out of 3000000
+ 18333 multiletter control sequences out of 15000+50000
+ 17483 words of font info for 40 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 47i,12n,49p,336b,449s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 47i,14n,49p,336b,449s stack positions out of 5000i,500n,10000p,200000b,50000s
  </home/blackout/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1200.600pk> </hom
 e/blackout/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0800.600pk> </home/blacko
 ut/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/blackout/.texm
-f-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/blackout/.texmf-var/fo
-nts/pk/ljfour/jknappen/ec/ecbi1728.600pk> </home/blackout/.texmf-var/fonts/pk/l
-jfour/jknappen/ec/ecrm1200.600pk> </home/blackout/.texmf-var/fonts/pk/ljfour/jk
-nappen/ec/ecbx1728.600pk> </home/blackout/.texmf-var/fonts/pk/ljfour/jknappen/e
-c/eccc1728.600pk> </home/blackout/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm17
-28.600pk> </home/blackout/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc2074.600pk
-> </home/blackout/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home
-/blackout/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm2074.600pk></usr/share/tex
-mf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on base.pdf (4 pages, 261459 bytes).
+f-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/blackout/.texmf-var/fo
+nts/pk/ljfour/jknappen/ec/ecbi1440.600pk> </home/blackout/.texmf-var/fonts/pk/l
+jfour/jknappen/ec/ecbx1440.600pk> </home/blackout/.texmf-var/fonts/pk/ljfour/jk
+nappen/ec/ecrm1200.600pk> </home/blackout/.texmf-var/fonts/pk/ljfour/jknappen/e
+c/ecbx1728.600pk> </home/blackout/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc17
+28.600pk> </home/blackout/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk
+> </home/blackout/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc2074.600pk> </home
+/blackout/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/blackou
+t/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm2074.600pk></usr/share/texmf-texli
+ve/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-texlive/fonts/ty
+pe1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/public/a
+msfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/c
+mr8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on base.pdf (5 pages, 305597 bytes).
 PDF statistics:
- 381 PDF objects out of 1000 (max. 8388607)
- 22 named destinations out of 1000 (max. 500000)
- 69 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 434 PDF objects out of 1000 (max. 8388607)
+ 26 named destinations out of 1000 (max. 500000)
+ 77 words of extra memory for PDF output out of 10000 (max. 10000000)
 

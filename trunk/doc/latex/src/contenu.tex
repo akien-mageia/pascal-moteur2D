@@ -1,6 +1,27 @@
-\section{CDCF - \emph{Cahier Des Charges Fonctionnel}}
-\section{Problèmes physiques et méthodes de résolution}
+\section{Spécifications}
+L'objet principal de notre programme est de modéliser la chute d'un solide dans un
+fluide quelquonque, en interagissant avec son environnement.
+\subsection{IHM - \emph{Interface Homme - Machine}}
+Il est proposé à l'utilisateur de dessiner à la fois le décor et l'objet.
+Les deux dessins sont séparés en deux fenêtres, munie chacunes de leur interface propre,
+puisque les outils nécessaires au dessin du décor ne sont pas les mêmes que pour le dessin de l'objet.
+L'utilisateur peut également ouvrir une fenêtre dédiée aux paramètres physiques, afin d'influer
+sur la valeur de la gravité notamment.
+\subsection{Problèmes physiques et méthodes de résolution}
+Le programme doit prendre en compte les différentes forces appliquées à 
+un instant $t$ sur le solide. Le mouvement de ce solide est donc déterminé
+par les équations de la mécanique newtonienne.
+On peut donc définir les différentes forces appliquées sur le solide :
+\begin{itemize}
+\item[$\bullet$] La gravité : \dotfill{} $\overrightarrow{P} = -m*g*\overrightarrow{y_0}$ \hfill{}
+\item[$\bullet$] Les frottements : \dotfill{}$\overrightarrow{F_{fr}} = -f*\overrightarrow{V}_{\text{Objet/Décor}}$\hfill{}
+\item[$\bullet$] La poussée d'Archimède : \dotfill{} $\overrightarrow{F_{Ar}} $
+\end{itemize}
+
+\section{Réalisation}
+\subsection{Interface}
 \subsection{Gestion des chocs}
+Calcul tangentes - Inversion force avec coeff
 \subsection{Remplissage de l'objet}
 FloodFill Scan Line
 
