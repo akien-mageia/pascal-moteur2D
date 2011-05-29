@@ -108,7 +108,7 @@ Procedure CSolideMouvement.SetForme(aForme : CForme);
 Procedure CSolideMouvement.CalculPosition();
         Var dt: real;
 	Begin
-            dt := 0.01;  // dt est l'intervalle de temps du timer, ici 20ms
+            dt := 0.02;  // dt est l'intervalle de temps du timer, ici 20ms
             fVitesse.SetX(fVitesse.GetX() + fResultante.GetFx()*dt/fForme.GetMasse());
             fVitesse.SetY(fVitesse.GetY() + fResultante.GetFy()*dt/fForme.GetMasse());
             fVitesse.SetOmega(fVitesse.GetOmega() + fResultante.GetMz()*dt/fForme.GetJ());

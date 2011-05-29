@@ -292,15 +292,20 @@ end;
 function TForm1.rechercherPointContact(aAnglePrecedent: real) : CPosition;
 var test: boolean;
     AngleFinal: real;
+    i: integer;
 begin
     test := true;
     AngleFinal := SolideMouvement.getPositionSolide().getAngle();
+    i := 0;
     while (test) do begin
         SolideMouvement.getPositionSolide.SetXMetre(SolideMouvement.getPositionSolide.GetXMetre() - 0.02*SolideMouvement.getVitesse.GetX()/sqrt(SolideMouvement.getVitesse.GetX()*SolideMouvement.getVitesse.GetX()+SolideMouvement.getVitesse.GetY()*SolideMouvement.getVitesse.GetY()));
         SolideMouvement.getPositionSolide.SetYMetre(SolideMouvement.getPositionSolide.GetYMetre() - 0.02*SolideMouvement.getVitesse.GetY()/sqrt(SolideMouvement.getVitesse.GetX()*SolideMouvement.getVitesse.GetX()+SolideMouvement.getVitesse.GetY()*SolideMouvement.getVitesse.GetY()));
-        SolideMouvement.getPositionSolide.SetAngle(SolideMouvement.getPositionSolide.GetAngle() - 0.2*(AngleFinal-aAnglePrecedent));
-        while (SolideMouvement.getPositionSolide.GetAngle()>=350) do SolideMouvement.getPositionSolide.SetAngle(SolideMouvement.getPositionSolide.GetAngle()-360);
-        while (SolideMouvement.getPositionSolide.GetAngle()<-10) do SolideMouvement.getPositionSolide.SetAngle(SolideMouvement.getPositionSolide.GetAngle()+360);
+        if i<5 then begin
+             SolideMouvement.getPositionSolide.SetAngle(SolideMouvement.getPositionSolide.GetAngle() - 0.2*(AngleFinal-aAnglePrecedent));
+             while (SolideMouvement.getPositionSolide.GetAngle()>=350) do SolideMouvement.getPositionSolide.SetAngle(SolideMouvement.getPositionSolide.GetAngle()-360);
+             while (SolideMouvement.getPositionSolide.GetAngle()<-10) do SolideMouvement.getPositionSolide.SetAngle(SolideMouvement.getPositionSolide.GetAngle()+360);
+             i := i + 1;
+        end;
         test := intersectionSolideDecor();
     end;
 
@@ -313,11 +318,15 @@ begin
 end;
 
 function TForm1.detectionZoneDuDecor() : integer;
+var res: integer;
 begin
-    result := round ((Pi + arctan2(SolideMouvement.getVitesse.GetX(), SolideMouvement.getVitesse.GetY()))/(2*Pi)*8);
+    if SolideMouvement.getVitesse.GetX() = 0
+    then if SolideMouvement.getVitesse.GetY() > 0
+         then res := 6
+         else res := 2
+    else res := round (((7*Pi)/8 + arctan2(SolideMouvement.getVitesse.GetY(), SolideMouvement.getVitesse.GetX()))/(2*Pi)*8);
+    result := res;
 end;
-
-
 
 function TForm1.calculTangente(aZoneDuDecor : integer) : CPosition;
 var PositionPixelPlein1, PositionPixelPlein2 : CPosition;
@@ -368,7 +377,7 @@ begin
             else
               begin
                 chercherPixelAutourDuPointDeContactTrigo(X2,Y2,X2,Y2, PositionPixelPlein2, PointTrouve);
-                if (PositionPixelPlein1.GetXMetre()=PositionPixelPlein2.GetXMetre()) and (PositionPixelPlein1.GetYMetre()=PositionPixelPlein2.GetYMetre()) then
+                if (PointTrouve = false) then
                    begin
                       NormeVecteurTangent := sqrt((PositionPixelPlein1.GetXMetre()-PointContact.GetXMetre())*(PositionPixelPlein1.GetXMetre()-PointContact.GetXMetre())+(PositionPixelPlein1.GetYMetre()-PointContact.GetYMetre())*(PositionPixelPlein1.GetYMetre()-PointContact.GetYMetre()));
                       VecteurTangent.SetXMetre((PositionPixelPlein1.GetXMetre()-PointContact.GetXMetre())/NormeVecteurTangent);
@@ -382,7 +391,7 @@ begin
                       NormeVecteurTangent := sqrt((PositionPixelPlein2.GetXMetre()-PointContact.GetXMetre())*(PositionPixelPlein2.GetXMetre()-PointContact.GetXMetre())+(PositionPixelPlein2.GetYMetre()-PointContact.GetYMetre())*(PositionPixelPlein2.GetYMetre()-PointContact.GetYMetre()));
                       Vecteur2.SetXMetre((PositionPixelPlein2.GetXMetre()-PointContact.GetXMetre())/NormeVecteurTangent);
                       Vecteur2.SetYMetre((PositionPixelPlein2.GetYMetre()-PointContact.GetYMetre())/NormeVecteurTangent);
-                      if (Vecteur1.GetXMetre()*Vecteur2.GetXMetre()+Vecteur1.GetYMetre()*Vecteur2.GetYMetre()<0) then
+                      if (Vecteur1.GetXMetre()*Vecteur2.GetXMetre()+Vecteur1.GetYMetre()*Vecteur2.GetYMetre()<=0) then
                          begin
                             Vecteur2.SetXMetre(-Vecteur2.GetXMetre());
                             Vecteur2.SetYMetre(-Vecteur2.GetYMetre());
@@ -398,10 +407,7 @@ begin
 end;
 
 Procedure TForm1.chercherPixelAutourDuPointDeContactHoraire(x,y, x0, y0 : integer; var aPosition : CPosition; aPointTrouve : boolean);
-var i,j : integer;
 begin
-   i := x;
-   j := y;
    if (DecorBMP.Canvas.Pixels[PointContact.GetXPixel()+x,PointContact.GetYPixel()+y] <> clWhite)
    then begin
         aPosition.SetXPixel(PointContact.GetXPixel()+x);
@@ -409,17 +415,17 @@ begin
         aPointTrouve := true;
         end
    else
-       Case i of
-           -1 : Case j of
+       Case x of
+           -1 : Case y of
                -1 : if (x0=0) and (y0=-1) then aPointtrouve := false else chercherPixelAutourDuPointDeContactHoraire(0,-1, x0, y0, aPosition, aPointTrouve);
                0 : if (x0=-1) and (y0=-1) then aPointtrouve := false else chercherPixelAutourDuPointDeContactHoraire(-1,-1, x0, y0, aPosition, aPointTrouve);
                1 : if (x0=-1) and (y0=0) then aPointtrouve := false else chercherPixelAutourDuPointDeContactHoraire(-1,0, x0, y0, aPosition, aPointTrouve);
                end;
-           0 : Case j of
+           0 : Case y of
                -1 : if (x0=1) and (y0=-1) then aPointtrouve := false else chercherPixelAutourDuPointDeContactHoraire(1,-1, x0, y0, aPosition, aPointTrouve);
                1 : if (x0=-1) and (y0=1) then aPointtrouve := false else chercherPixelAutourDuPointDeContactHoraire(-1,1, x0, y0, aPosition, aPointTrouve);
                end;
-           1 : Case j of
+           1 : Case y of
                -1 : if (x0=1) and (y0=0) then aPointtrouve := false else chercherPixelAutourDuPointDeContactHoraire(1,0, x0, y0, aPosition, aPointTrouve);
                0 : if (x0=1) and (y0=1) then aPointtrouve := false else chercherPixelAutourDuPointDeContactHoraire(1,1, x0, y0, aPosition, aPointTrouve);
                1 : if (x0=0) and (y0=1) then aPointtrouve := false else chercherPixelAutourDuPointDeContactHoraire(0,1, x0, y0, aPosition, aPointTrouve);
@@ -428,10 +434,7 @@ begin
 end;
 
 Procedure TForm1.chercherPixelAutourDuPointDeContactTrigo(x,y, x0, y0 : integer; var aPosition : CPosition; aPointTrouve : boolean);
-var i,j : integer;
 begin
-   i := x;
-   j := y;
    if (DecorBMP.Canvas.Pixels[PointContact.GetXPixel()+x,PointContact.GetYPixel()+y] <> clWhite)
    then begin
         aPosition.SetXPixel(PointContact.GetXPixel()+x);
@@ -439,20 +442,20 @@ begin
         aPointTrouve := true;
         end
    else
-       Case i of
-           -1 : Case j of
-               -1 : if (x0=-1) and (y0=0) then aPointtrouve := false else chercherPixelAutourDuPointDeContactHoraire(-1,0, x0, y0, aPosition, aPointTrouve);
-               0 : if (x0=-1) and (y0=1) then aPointtrouve := false else chercherPixelAutourDuPointDeContactHoraire(-1,1, x0, y0, aPosition, aPointTrouve);
-               1 : if (x0=0) and (y0=1) then aPointtrouve := false else chercherPixelAutourDuPointDeContactHoraire(0,1, x0, y0, aPosition, aPointTrouve);
+       Case x of
+           -1 : Case y of
+               -1 : if (x0=-1) and (y0=0) then aPointtrouve := false else chercherPixelAutourDuPointDeContactTrigo(-1,0, x0, y0, aPosition, aPointTrouve);
+               0 : if (x0=-1) and (y0=1) then aPointtrouve := false else chercherPixelAutourDuPointDeContactTrigo(-1,1, x0, y0, aPosition, aPointTrouve);
+               1 : if (x0=0) and (y0=1) then aPointtrouve := false else chercherPixelAutourDuPointDeContactTrigo(0,1, x0, y0, aPosition, aPointTrouve);
                end;
-           0 : Case j of
-               -1 : if (x0=-1) and (y0=1) then aPointtrouve := false else chercherPixelAutourDuPointDeContactHoraire(-1,1, x0, y0, aPosition, aPointTrouve);
-               1 : if (x0=1) and (y0=1) then aPointtrouve := false else chercherPixelAutourDuPointDeContactHoraire(1,1, x0, y0, aPosition, aPointTrouve);
+           0 : Case y of
+               -1 : if (x0=-1) and (y0=-1) then aPointtrouve := false else chercherPixelAutourDuPointDeContactTrigo(-1,-1, x0, y0, aPosition, aPointTrouve);
+               1 : if (x0=1) and (y0=1) then aPointtrouve := false else chercherPixelAutourDuPointDeContactTrigo(1,1, x0, y0, aPosition, aPointTrouve);
                end;
-           1 : Case j of
-               -1 : if (x0=0) and (y0=-1) then aPointtrouve := false else chercherPixelAutourDuPointDeContactHoraire(0,-1, x0, y0, aPosition, aPointTrouve);
-               0 : if (x0=1) and (y0=-1) then aPointtrouve := false else chercherPixelAutourDuPointDeContactHoraire(1,-1, x0, y0, aPosition, aPointTrouve);
-               1 : if (x0=1) and (y0=0) then aPointtrouve := false else chercherPixelAutourDuPointDeContactHoraire(1,0, x0, y0, aPosition, aPointTrouve);
+           1 : Case y of
+               -1 : if (x0=0) and (y0=-1) then aPointtrouve := false else chercherPixelAutourDuPointDeContactTrigo(0,-1, x0, y0, aPosition, aPointTrouve);
+               0 : if (x0=1) and (y0=-1) then aPointtrouve := false else chercherPixelAutourDuPointDeContactTrigo(1,-1, x0, y0, aPosition, aPointTrouve);
+               1 : if (x0=1) and (y0=0) then aPointtrouve := false else chercherPixelAutourDuPointDeContactTrigo(1,0, x0, y0, aPosition, aPointTrouve);
                end;
         end;
 end;
@@ -499,9 +502,9 @@ begin
         clFuchsia: coef := 0.90;
         clYellow: coef := 0.85;
         clTeal: coef := 0.98;
-        clGray: coef := 1;
+        clGray: coef := 0.99;
         clMaroon: coef := 0.95;
-    else coef := 1;
+    else coef := 0.98;
     end;
 
     // Changement de base et application du coefficient
