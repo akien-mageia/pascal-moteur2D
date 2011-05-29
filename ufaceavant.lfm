@@ -1,0 +1,107 @@
+object Form1: TForm1
+  Left = 208
+  Height = 530
+  Top = 134
+  Width = 852
+  ActiveControl = ButDessinObjet
+  Caption = 'Simulateur de mouvement'
+  ClientHeight = 530
+  ClientWidth = 852
+  OnShow = FormShow
+  LCLVersion = '0.9.30'
+  Visible = True
+  object Image1: TImage
+    Left = 80
+    Height = 450
+    Top = 16
+    Width = 485
+    OnClick = Image1Click
+    OnMouseDown = Image1MouseDown
+    OnMouseMove = Image1MouseMove
+    OnMouseUp = Image1MouseUp
+  end
+  object Label1: TLabel
+    Left = 584
+    Height = 16
+    Top = 376
+    Width = 196
+    Caption = 'Vitesse angulaire initiale (en deg/sec)'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 114
+    Height = 16
+    Top = 486
+    Width = 53
+    Caption = 'Provisoire'
+    ParentColor = False
+  end
+  object ButDessinObjet: TButton
+    Left = 648
+    Height = 25
+    Top = 40
+    Width = 160
+    Caption = 'Dessin de l''objet'
+    OnClick = ButDessinObjetClick
+    TabOrder = 0
+  end
+  object ButDessinDecor: TButton
+    Left = 648
+    Height = 25
+    Top = 104
+    Width = 160
+    Caption = 'Dessin du decor'
+    OnClick = ButDessinDecorClick
+    TabOrder = 1
+  end
+  object ButParamPhys: TButton
+    Left = 648
+    Height = 25
+    Top = 168
+    Width = 160
+    Caption = 'Paramètres physiques'
+    OnClick = ButParamPhysClick
+    TabOrder = 2
+  end
+  object ButLancerSim: TButton
+    Left = 648
+    Height = 40
+    Top = 232
+    Width = 160
+    Caption = 'Lancer la simulation'
+    OnClick = ButLancerSimClick
+    TabOrder = 3
+  end
+  object ButQuitter: TButton
+    Left = 648
+    Height = 41
+    Top = 312
+    Width = 160
+    Caption = 'Quitter'
+    OnClick = ButQuitterClick
+    TabOrder = 4
+  end
+  object Edit1: TEdit
+    Left = 584
+    Height = 23
+    Top = 416
+    Width = 160
+    OnChange = Edit1Change
+    TabOrder = 5
+  end
+  object Button1: TButton
+    Left = 760
+    Height = 28
+    Top = 416
+    Width = 75
+    Caption = 'Valider'
+    OnClick = Button1Click
+    TabOrder = 6
+  end
+  object Timer1: TTimer
+    Interval = 30
+    OnTimer = Timer1Timer
+    left = 40
+    top = 32
+  end
+end
