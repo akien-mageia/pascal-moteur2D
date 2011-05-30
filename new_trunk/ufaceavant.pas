@@ -176,7 +176,7 @@ begin
             Image1.Canvas.Pen.Width := 2;
             Image1.Canvas.Draw(0,0,DecorBMP);
             SolideMouvement.getPositionSolide.setAngle(0);
-            SolideMouvement.getVitesse.setOmega(0);
+        //    SolideMouvement.getVitesse.setOmega(0);
             Image1.Canvas.Draw(SolideMouvement.GetPositionSolide().GetXPixel()-SolideMouvement.GetForme().GetCentreInertie().GetXPixel(),
                                SolideMouvement.GetPositionSolide().GetYPixel()-SolideMouvement.GetForme().GetCentreInertie().GetYPixel(),
                                SolideMouvement.getForme().getBMP[0]);

@@ -50,11 +50,10 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="125"/>
-        <CursorPos X="19" Y="131"/>
+        <TopLine Value="161"/>
+        <CursorPos X="11" Y="179"/>
         <UsageCount Value="58"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="udessinobjet.pas"/>
@@ -62,7 +61,7 @@
         <ComponentName Value="Form2"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UDessinObjet"/>
-        <EditorIndex Value="8"/>
+        <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="1"/>
@@ -74,7 +73,7 @@
         <Filename Value="uforme.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UForme"/>
-        <EditorIndex Value="9"/>
+        <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
         <TopLine Value="16"/>
         <CursorPos X="54" Y="8"/>
@@ -87,7 +86,7 @@
         <ComponentName Value="Form3"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UDessinDecor"/>
-        <EditorIndex Value="11"/>
+        <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
         <TopLine Value="81"/>
         <CursorPos X="39" Y="95"/>
@@ -100,18 +99,16 @@
         <ComponentName Value="Form4"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UParamPhys"/>
-        <EditorIndex Value="12"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="24" Y="4"/>
         <UsageCount Value="57"/>
-        <Loaded Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="uposition.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UPosition"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="6"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="1"/>
@@ -122,7 +119,7 @@
         <Filename Value="upositionsolide.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UPositionSolide"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="5"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="57" Y="5"/>
@@ -133,7 +130,7 @@
         <Filename Value="uresultante.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UResultante"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="9"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="63" Y="6"/>
@@ -144,10 +141,10 @@
         <Filename Value="usolidemouvement.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="USolideMouvement"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
-        <CursorPos X="1" Y="1"/>
+        <CursorPos X="30" Y="10"/>
         <UsageCount Value="57"/>
         <Loaded Value="True"/>
       </Unit9>
@@ -155,7 +152,7 @@
         <Filename Value="utorseur.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UTorseur"/>
-        <EditorIndex Value="7"/>
+        <EditorIndex Value="8"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="50" Y="6"/>
@@ -166,7 +163,7 @@
         <Filename Value="uvitesse.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UVitesse"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="7"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="11" Y="3"/>
@@ -177,7 +174,7 @@
         <Filename Value="uarchimede.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UArchimede"/>
-        <EditorIndex Value="13"/>
+        <EditorIndex Value="11"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="50" Y="5"/>
@@ -188,26 +185,26 @@
         <Filename Value="ufrottement.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UFrottement"/>
+        <EditorIndex Value="12"/>
+        <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="17" Y="5"/>
         <UsageCount Value="57"/>
+        <Loaded Value="True"/>
       </Unit13>
       <Unit14>
         <Filename Value="umateriau.pas"/>
-        <IsPartOfProject Value="True"/>
         <UnitName Value="UMateriau"/>
-        <EditorIndex Value="10"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="49" Y="5"/>
         <UsageCount Value="57"/>
-        <Loaded Value="True"/>
       </Unit14>
       <Unit15>
         <Filename Value="upoids.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UPoids"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="10"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="3"/>
