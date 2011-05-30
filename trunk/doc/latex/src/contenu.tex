@@ -4,10 +4,10 @@ fluide, tout en prenant en compte son interaction avec un environnement solide (
 
 \subsection{IHM - \emph{Interface Homme - Machine}}
 Il est proposé à l'utilisateur de dessiner à la fois le décor et l'objet.
-Les deux dessins sont séparés en deux fenêtres, munie chacunes de leur interface propre,
-puisque les outils nécessaires au dessin du décor ne sont pas les mêmes que pour le dessin de l'objet.
-L'utilisateur peut également ouvrir une fenêtre dédiée aux paramètres physiques, afin d'influer
-sur la valeur de la gravité notamment.
+Les deux dessins sont séparés en deux fenêtres, munies chacunes de leur interface propre,
+puisque les outils nécessaires au dessin de l'objet ne sont pas les mêmes que pour le dessin du décor.
+La fenêtre principale est le lieu de la simulation, et affiche notamment les paramètres cinématiques
+et spatiaux du mouvement (vitesses, position, angle).
 
 \subsection{Problèmes physiques et méthodes de résolution}
 \subsubsection{Forces}
@@ -22,15 +22,15 @@ On peut donc définir les différentes forces appliquées sur le solide :
 \item[$\bullet$] Les frottements lors du contact: \dotfill{}$\overrightarrow{F_{fr}} = -f \,\overrightarrow{V}_{\text{Objet/Décor}}$
 \end{itemize}
 
-La majorité des forces sont résolues à l'aide d'algorithmes basiques de
-calcul, prenant en compte des paramètres telles que le volume de l'objet,
+La majorité des forces sont calculées à l'aide d'algorithmes basiques de
+calcul, prenant en compte des paramètres tels que le volume de l'objet,
 sa vitesse ou son poids.
 \subsubsection{\emph{PFD} - Principe Fondamental de la Dynamique }
 Dans le cas d'un problème plan, notre problème s'exprime sous la forme :
 \begin{equation}
 \sum F_x = m \frac {dv_x}{dt} \: \text{et} \: \sum F_y = m\frac{dv_y}{dt} \: \text{et} \: \sum M_z = J \frac {d\omega}{dt}
 \end{equation}
-En supposant le $\Delta t$ du timer suffisament faible, on peut assimiler
+En supposant l'intervalle de temps $\Delta t$ du timer suffisament faible, on peut assimiler
 $\frac {dv_x}{dt}$ à $\frac{\Delta v_x}{\Delta t}$,
 $ \frac {dv_y}{dt} \approx \frac{\Delta v_y}{\Delta t}$ et
 $ \frac{d\omega}{dt} \approx \frac{\Delta \omega}{\Delta t}$ .
@@ -173,14 +173,18 @@ et du vecteur reliant le point de contact et le deuxième point.
 
 \subsection{Remplissage de l'objet}
 Un des problèmes majeurs qui nous fut posé durant ce projet fut le remplissage
-du solide afin de pouvoir déterminer sa masse et son centre d'inertie.
+du solide afin de pouvoir déterminer sa masse, son volume et son centre d'inertie.
 Tout d'abord, il fallut s'assurer que le dessin de l'utilisateur était bien connexe.
 Pour remédier à ce problème, nous traçons une droite entre le point de départ
-$(X_e,Y_e)$ et le point de sortie $(X_s,Y_s)$.
+$(X_e,Y_e)$ et le point de sortie $(X_s,Y_s)$, correspondant respectivement au clic
+gauche de la souris et au lacher de ce bouton (maintenu pendant le dessin).
 Nous avons choisi la méthode du ScanLine-FloodFill pour remplir le solide dessiné.
 Cette méthode utilise une graine (la \emph{seed}) placée sur un point quelquonque
-de notre solide, et analyse tout les pixels environnants pour déterminer
-quels sont ceux à l'intérieur du solide, et les autres.
+de notre solide. À partir de ce point, on remplit une ligne verticale contenue dans l'objet
+et analyse les pixels mitoyens pour déterminer
+quels sont ceux à l'intérieur du solide, et les autres. Par récursivité, les pixels
+blancs à gauche et à droite de la ligne tracée deviennent des graines et l'algorithme
+est relancé, jusqu'à remplissage complet de l'objet connexe.
 Après plusieurs essais infructueux avec un algorithme classique, nous avons
 adapté un algorithme en C trouvé sur Internet, qui analyse ligne par ligne l'objet,
 permettant ainsi un gain considérable en efficacité. 
