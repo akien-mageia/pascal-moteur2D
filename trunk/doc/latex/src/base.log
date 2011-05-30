@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  30 MAY 2011 09:40
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  30 MAY 2011 09:44
 entering extended mode
  %&-line parsing enabled.
 **base.tex
@@ -1142,14 +1142,11 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.49994pt have occurred.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
  15796 strings out of 495028
  254452 string characters out of 1181230
- 344379 words of memory out of 3000000
+ 344519 words of memory out of 3000000
  18584 multiletter control sequences out of 15000+50000
  16990 words of font info for 34 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
@@ -1175,7 +1172,7 @@ usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/te
 xmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/
 fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/type1/p
 ublic/amsfonts/cm/cmsy10.pfb>
-Output written on base.pdf (10 pages, 472476 bytes).
+Output written on base.pdf (10 pages, 472410 bytes).
 PDF statistics:
  589 PDF objects out of 1000 (max. 8388607)
  54 named destinations out of 1000 (max. 500000)
