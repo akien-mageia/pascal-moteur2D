@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  30 MAY 2011 01:46
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  30 MAY 2011 09:40
 entering extended mode
  %&-line parsing enabled.
 **base.tex
@@ -1083,12 +1083,41 @@ Underfull \hbox (badness 10000) in paragraph at lines 139--145
 File: ../images/tangente.png Graphic file (type png)
 
 <use ../images/tangente.png> [4 <../images/tangente.png (PNG copy)>] [5])
-(./conclusion.tex) (./annexes.tex [6] [7]
-<../images/UML.jpeg, id=111, 842.14626pt x 917.4275pt>
+(./biblio.tex
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 4.
+ (/usr/share/texmf-texlive/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+Underfull \hbox (badness 10000) in paragraph at lines 3--5
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--9
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--13
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--18
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--21
+
+ []
+
+) (./annexes.tex [6] [7]
+<../images/UML.jpeg, id=122, 842.14626pt x 917.4275pt>
 File: ../images/UML.jpeg Graphic file (type jpg)
 
 <use ../images/UML.jpeg> [8 <../images/UML.jpeg>]
-<../images/global.jpg, id=120, 953.5625pt x 543.02875pt>
+<../images/global.jpg, id=131, 953.5625pt x 543.02875pt>
 File: ../images/global.jpg Graphic file (type jpg)
 
 <use ../images/global.jpg>
@@ -1096,11 +1125,11 @@ Overfull \hbox (23.8122pt too wide) in paragraph at lines 99--100
  [] 
  []
 
-<../images/dessin_objet.jpg, id=122, 417.56pt x 289.08pt>
+<../images/dessin_objet.jpg, id=133, 417.56pt x 289.08pt>
 File: ../images/dessin_objet.jpg Graphic file (type jpg)
 
 <use ../images/dessin_objet.jpg>
-<../images/dessin_decor.jpg, id=124, 707.64375pt x 509.905pt>
+<../images/dessin_decor.jpg, id=135, 707.64375pt x 509.905pt>
 File: ../images/dessin_decor.jpg Graphic file (type jpg)
 
 <use ../images/dessin_decor.jpg>
@@ -1113,38 +1142,42 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.49994pt have occurred.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 15766 strings out of 495028
- 253745 string characters out of 1181230
- 344344 words of memory out of 3000000
- 18564 multiletter control sequences out of 15000+50000
- 16677 words of font info for 33 fonts, out of 3000000 for 9000
+ 15796 strings out of 495028
+ 254452 string characters out of 1181230
+ 344379 words of memory out of 3000000
+ 18584 multiletter control sequences out of 15000+50000
+ 16990 words of font info for 34 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  47i,14n,49p,336b,449s stack positions out of 5000i,500n,10000p,200000b,50000s
- </home/blackout/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </hom
-e/blackout/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1000.600pk> </home/blacko
-ut/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0600.600pk> </home/blackout/.texm
-f-var/fonts/pk/ljfour/jknappen/ec/ecbi1000.600pk> </home/blackout/.texmf-var/fo
-nts/pk/ljfour/jknappen/ec/ecrm0700.600pk> </home/blackout/.texmf-var/fonts/pk/l
-jfour/jknappen/ec/ecbx1000.600pk> </home/blackout/.texmf-var/fonts/pk/ljfour/jk
-nappen/ec/ecbi1200.600pk> </home/blackout/.texmf-var/fonts/pk/ljfour/jknappen/e
-c/ecbx1200.600pk> </home/blackout/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm10
-00.600pk> </home/blackout/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk
-> </home/blackout/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1440.600pk> </home
-/blackout/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/blackou
-t/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1728.600pk> </home/blackout/.texmf
--var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </home/blackout/.texmf-var/fon
-ts/pk/ljfour/jknappen/ec/ecrm1728.600pk></usr/share/texmf-texlive/fonts/type1/p
-ublic/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfo
-nts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi
-5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
-share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-
-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts
-/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on base.pdf (10 pages, 459382 bytes).
+ </home/blackout/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> </hom
+e/blackout/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home/blacko
+ut/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1000.600pk> </home/blackout/.texm
+f-var/fonts/pk/ljfour/jknappen/ec/ecbx0600.600pk> </home/blackout/.texmf-var/fo
+nts/pk/ljfour/jknappen/ec/ecbi1000.600pk> </home/blackout/.texmf-var/fonts/pk/l
+jfour/jknappen/ec/ecrm0700.600pk> </home/blackout/.texmf-var/fonts/pk/ljfour/jk
+nappen/ec/ecbx1000.600pk> </home/blackout/.texmf-var/fonts/pk/ljfour/jknappen/e
+c/ecbi1200.600pk> </home/blackout/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx12
+00.600pk> </home/blackout/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk
+> </home/blackout/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home
+/blackout/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1440.600pk> </home/blackou
+t/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/blackout/.texmf
+-var/fonts/pk/ljfour/jknappen/ec/eccc1728.600pk> </home/blackout/.texmf-var/fon
+ts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </home/blackout/.texmf-var/fonts/pk/lj
+four/jknappen/ec/ecrm1728.600pk></usr/share/texmf-texlive/fonts/type1/public/am
+sfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/c
+mmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi5.pfb></
+usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/te
+xmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/
+fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/type1/p
+ublic/amsfonts/cm/cmsy10.pfb>
+Output written on base.pdf (10 pages, 472476 bytes).
 PDF statistics:
- 540 PDF objects out of 1000 (max. 8388607)
- 48 named destinations out of 1000 (max. 500000)
+ 589 PDF objects out of 1000 (max. 8388607)
+ 54 named destinations out of 1000 (max. 500000)
  124 words of extra memory for PDF output out of 10000 (max. 10000000)
 
