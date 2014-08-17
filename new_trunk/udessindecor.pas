@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, LResources, Forms, Controls, Graphics, Dialogs,
-  StdCtrls, ExtCtrls, ColorBox, FPImage, intfGraphics, LCLType, UMateriau;
+  StdCtrls, ExtCtrls, ColorBox, FPImage, intfGraphics, LCLType;
 
 type
 

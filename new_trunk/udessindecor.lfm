@@ -10,7 +10,7 @@ object Form3: TForm3
   OnCreate = FormCreate
   OnMouseUp = FormMouseUp
   OnShow = FormShow
-  LCLVersion = '0.9.30'
+  LCLVersion = '1.0.12.0'
   Visible = True
   object Img: TImage
     Left = 25
@@ -117,7 +117,7 @@ object Form3: TForm3
       Left = 40
       Height = 16
       Top = 12
-      Width = 23
+      Width = 28
       Caption = 'Bois'
       ParentColor = False
     end
@@ -125,7 +125,7 @@ object Form3: TForm3
       Left = 40
       Height = 16
       Top = 42
-      Width = 49
+      Width = 59
       Caption = 'Plastique'
       ParentColor = False
     end
@@ -133,7 +133,7 @@ object Form3: TForm3
       Left = 40
       Height = 16
       Top = 72
-      Width = 29
+      Width = 37
       Caption = 'Sable'
       ParentColor = False
     end
@@ -141,7 +141,7 @@ object Form3: TForm3
       Left = 40
       Height = 16
       Top = 102
-      Width = 33
+      Width = 40
       Caption = 'Herbe'
       ParentColor = False
     end
@@ -149,7 +149,7 @@ object Form3: TForm3
       Left = 40
       Height = 16
       Top = 162
-      Width = 34
+      Width = 39
       Caption = 'Roche'
       ParentColor = False
     end
@@ -157,7 +157,7 @@ object Form3: TForm3
       Left = 40
       Height = 16
       Top = 132
-      Width = 31
+      Width = 36
       Caption = 'Metal'
       ParentColor = False
     end
@@ -177,7 +177,7 @@ object Form3: TForm3
     ChildSizing.ShrinkVertical = crsScaleChilds
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 1
-    ClientHeight = 95
+    ClientHeight = 82
     ClientWidth = 137
     Items.Strings = (
       '2 px'
@@ -189,4 +189,4 @@ object Form3: TForm3
     OnClick = RGChoixTailleClick
     TabOrder = 2
   end
-end
+end

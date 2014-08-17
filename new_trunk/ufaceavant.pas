@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, LResources, Forms, Controls, Graphics, Dialogs,
-  StdCtrls, ExtCtrls, UDessinObjet, UDessinDecor, UParamPhys, UPoids, UArchimede, UFrottement,
+  StdCtrls, ExtCtrls, UDessinObjet, UDessinDecor, UPoids, UArchimede, UFrottement,
   UPosition, UPositionSolide, UVitesse, UResultante, USolideMouvement, Math;
 
 type
@@ -37,7 +37,7 @@ type
     procedure ButDessinDecorClick(Sender: TObject);
     procedure ButDessinObjetClick(Sender: TObject);
     procedure ButLancerSimClick(Sender: TObject);
-    procedure ButParamPhysClick(Sender: TObject);
+    // procedure ButParamPhysClick(Sender: TObject);
     procedure ButQuitterClick(Sender: TObject);
     procedure ButtonSetOmegaClick(Sender: TObject);
     procedure EditSetOmegaChange(Sender: TObject);
@@ -130,10 +130,10 @@ begin
   end;
 end;
 
-procedure TForm1.ButParamPhysClick(Sender: TObject);
-begin
-    Form4.Show;
-end;
+// procedure TForm1.ButParamPhysClick(Sender: TObject);
+// begin
+//     Form4.Show;
+// end;
 
 procedure TForm1.ButQuitterClick(Sender: TObject);
 begin
@@ -545,4 +545,4 @@ initialization
   {$I ufaceavant.lrs}
 
 end.
-
+

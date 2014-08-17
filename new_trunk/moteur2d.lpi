@@ -45,20 +45,23 @@
         <Filename Value="ufaceavant.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UFaceAvant"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="161"/>
-        <CursorPos X="11" Y="179"/>
+        <TopLine Value="26"/>
+        <CursorPos X="8" Y="40"/>
         <UsageCount Value="58"/>
         <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="udessinobjet.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form2"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UDessinObjet"/>
         <EditorIndex Value="1"/>
@@ -75,7 +78,7 @@
         <UnitName Value="UForme"/>
         <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="16"/>
+        <TopLine Value="8"/>
         <CursorPos X="54" Y="8"/>
         <UsageCount Value="58"/>
         <Loaded Value="True"/>
@@ -84,12 +87,13 @@
         <Filename Value="udessindecor.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form3"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UDessinDecor"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="81"/>
-        <CursorPos X="39" Y="95"/>
+        <TopLine Value="1"/>
+        <CursorPos X="63" Y="9"/>
         <UsageCount Value="58"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -244,7 +248,7 @@
         <UsageCount Value="10"/>
       </Unit20>
     </Units>
-    <JumpHistory Count="29" HistoryIndex="28">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="ufaceavant.pas"/>
         <Caret Line="265" Column="282" TopLine="249"/>
@@ -361,10 +365,14 @@
         <Filename Value="usolidemouvement.pas"/>
         <Caret Line="6" Column="48" TopLine="1"/>
       </Position29>
+      <Position30>
+        <Filename Value="ufaceavant.pas"/>
+        <Caret Line="136" Column="5" TopLine="121"/>
+      </Position30>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>
-    <Version Value="9"/>
+    <Version Value="11"/>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
     </SearchPaths>

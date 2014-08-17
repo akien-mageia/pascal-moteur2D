@@ -8,7 +8,7 @@ object Form1: TForm1
   ClientHeight = 624
   ClientWidth = 852
   OnShow = FormShow
-  LCLVersion = '0.9.30'
+  LCLVersion = '1.0.12.0'
   Visible = True
   object Image1: TImage
     Left = 80
@@ -24,7 +24,7 @@ object Form1: TForm1
     Left = 612
     Height = 16
     Top = 512
-    Width = 196
+    Width = 240
     Caption = 'Vitesse angulaire initiale (en deg/sec)'
     ParentColor = False
   end
@@ -66,7 +66,7 @@ object Form1: TForm1
   end
   object EditSetOmega: TEdit
     Left = 612
-    Height = 23
+    Height = 21
     Top = 544
     Width = 128
     OnChange = EditSetOmegaChange
@@ -85,7 +85,7 @@ object Form1: TForm1
     Left = 83
     Height = 16
     Top = 500
-    Width = 138
+    Width = 171
     Caption = 'Vitesse horizontale : 0 m/s'
     ParentColor = False
   end
@@ -93,7 +93,7 @@ object Form1: TForm1
     Left = 83
     Height = 16
     Top = 535
-    Width = 123
+    Width = 154
     Caption = 'Vitesse verticale : 0 m/s'
     ParentColor = False
   end
@@ -101,7 +101,7 @@ object Form1: TForm1
     Left = 83
     Height = 16
     Top = 568
-    Width = 122
+    Width = 153
     Caption = 'Vitesse angulaire : 0 °/s'
     ParentColor = False
   end
@@ -109,7 +109,7 @@ object Form1: TForm1
     Left = 328
     Height = 16
     Top = 500
-    Width = 135
+    Width = 163
     Caption = 'Position horizontale : 0 m'
     ParentColor = False
   end
@@ -117,7 +117,7 @@ object Form1: TForm1
     Left = 328
     Height = 16
     Top = 535
-    Width = 120
+    Width = 146
     Caption = 'Position verticale : 0 m'
     ParentColor = False
   end
@@ -125,7 +125,7 @@ object Form1: TForm1
     Left = 328
     Height = 16
     Top = 568
-    Width = 116
+    Width = 142
     Caption = 'Angle de rotation : 0 °'
     ParentColor = False
   end
@@ -135,4 +135,4 @@ object Form1: TForm1
     left = 40
     top = 32
   end
-end
+end

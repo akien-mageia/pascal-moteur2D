@@ -31,7 +31,6 @@ UArchimede, UFrottement, UPoids;
 {$IFDEF WINDOWS}{$R moteur2d.rc}{$ENDIF}
 
 begin
-  {$I moteur2d.lrs}
   Application.Initialize;
   Application.CreateForm(TForm1, Form1);
   Application.CreateForm(TForm2, Form2);
