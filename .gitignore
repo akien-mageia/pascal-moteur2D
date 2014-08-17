@@ -1,8 +1,14 @@
 # Compiled source #
 ###################
 *.compiled
+*.lrs
 *.o
 *.or
 *.ppu
 *.res
 moteur2d
+
+# Backup and generated images #
+###############################
+backup/
+*.bmp
