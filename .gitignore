@@ -1,0 +1,8 @@
+# Compiled source #
+###################
+*.compiled
+*.o
+*.or
+*.ppu
+*.res
+moteur2d
